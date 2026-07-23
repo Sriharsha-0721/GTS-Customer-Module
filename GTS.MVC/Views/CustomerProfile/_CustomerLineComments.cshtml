@@ -1,0 +1,121 @@
+﻿@model List<GTS.MVC.Models.CustomerLineComments.CustomerLineCommentsViewModel>
+
+<h4 class="mb-3">
+    Customer Line Comments
+</h4>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th style="width:8%">Line #</th>
+
+                <th style="width:25%">Name</th>
+
+                <th style="width:12%">Item</th>
+
+                <th style="width:10%">Size</th>
+
+                <th style="width:35%">Comments</th>
+
+                <th></th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @item.LineNbr
+                        </td>
+
+                        <td>
+                            @item.Name
+                        </td>
+
+                        <td>
+                            @item.Item
+                        </td>
+
+                        <td>
+                            @item.Size
+                        </td>
+
+                        <td>
+
+                            <input id="descr_@item.WearItemId"
+                                   class="form-control form-control-sm"
+                                   value="@item.Descr"
+                                   maxlength="50"
+                                   disabled />
+
+                        </td>
+
+                        <td class="text-nowrap">
+
+                            <a href="javascript:void(0)"
+                               class="editCustLineComment"
+                               data-custid="@item.CustId"
+                               data-wearitemid="@item.WearItemId">
+
+                                Edit
+
+                            </a>
+
+                            &nbsp;
+
+                            <a href="javascript:void(0)"
+                               class="cancelCustLineComment"
+                               data-wearitemid="@item.WearItemId"
+                               style="display:none;">
+
+                                Cancel
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+
+                    <td colspan="6"
+                        class="text-center">
+
+                        No Record(s) found.
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="text-end mt-2">
+
+    <a href="javascript:void(0)"
+       id="btnExitCustLineComments">
+
+        Exit
+
+    </a>
+
+</div>

@@ -1,0 +1,69 @@
+﻿@model List<GTS.MVC.Models.MaximumWash.MaximumWashViewModel>
+
+@{
+    ViewData["Title"] = "Maximum Washes";
+}
+
+<h2>
+    Maximum Washes
+</h2>
+
+<table class="table table-bordered">
+
+    <thead>
+
+        <tr>
+
+            <th>
+                Item Code
+            </th>
+
+            <th>
+                Maximum Washes
+            </th>
+
+            <th>
+                Maximum Weeks
+            </th>
+
+            <th>
+                Maximum Cycles
+            </th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.ItemCode
+                </td>
+
+                <td>
+                    @item.MaxWash
+                </td>
+
+                <td>
+                    @item.MaxWeeks
+                </td>
+
+                <td>
+                    @item.MaxCycles
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<button id="btnAddMaxWash"
+        class="btn btn-primary">
+    Add Maximum Wash
+</button>

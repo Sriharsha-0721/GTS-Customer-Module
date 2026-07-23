@@ -1,0 +1,160 @@
+﻿@model GTS.MVC.Models.CTSSettings.CTSSettingsViewModel
+
+<div class="container-fluid">
+
+    <h4 class="mb-3">
+        CTS Settings
+    </h4>
+
+    <fieldset class="border p-3 mb-3">
+
+        <legend class="float-none w-auto px-2">
+            Customer Information
+        </legend>
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <label>Customer #</label>
+
+                <input asp-for="CustNo"
+                       id="ctsCustNo"
+                       class="form-control"
+                       readonly />
+
+            </div>
+
+            <div class="col-md-3 d-flex align-items-end">
+
+                <button id="btnCTSSelectCustomer"
+                        type="button"
+                        class="btn btn-secondary">
+
+                    Select Customer
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-8">
+
+                <label>Customer Name</label>
+
+                <input asp-for="Customer"
+                       id="ctsCustomer"
+                       class="form-control"
+                       readonly />
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <label>Route</label>
+
+                <input asp-for="Route"
+                       id="ctsRoute"
+                       class="form-control"
+                       readonly />
+
+            </div>
+
+            <div class="col-md-3">
+
+                <label>GID</label>
+
+                <input asp-for="GID"
+                       id="ctsGID"
+                       class="form-control"
+                       readonly />
+
+            </div>
+
+        </div>
+
+    </fieldset>
+
+    <fieldset class="border p-3">
+
+        <legend class="float-none w-auto px-2">
+
+            CTS Settings
+
+        </legend>
+
+        <div class="form-check mb-3">
+
+            <input asp-for="PrintIssueStatusFlag"
+                   class="form-check-input" />
+
+            <label class="form-check-label">
+
+                Print Issue Status
+
+            </label>
+
+        </div>
+
+        <div class="form-check mb-3">
+
+            <input asp-for="PrintBornonDateFlag"
+                   class="form-check-input" />
+
+            <label class="form-check-label">
+
+                Print Born On Date
+
+            </label>
+
+        </div>
+
+        <div class="form-check mb-4">
+
+            <input asp-for="NOGFlag"
+                   class="form-check-input" />
+
+            <label class="form-check-label">
+
+                NOG
+
+            </label>
+
+        </div>
+
+        <label>
+
+            Label Header
+
+        </label>
+
+        <input asp-for="LabelHeader"
+               class="form-control" />
+
+    </fieldset>
+
+    <div class="mt-4 text-end">
+
+        <button id="btnSaveCTS"
+                class="btn btn-success">
+
+            Save
+
+        </button>
+
+        <button id="btnExitCTS"
+                class="btn btn-secondary">
+
+            Exit
+
+        </button>
+
+    </div>
+
+</div>

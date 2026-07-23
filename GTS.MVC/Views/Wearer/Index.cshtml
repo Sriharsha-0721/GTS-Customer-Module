@@ -1,0 +1,64 @@
+﻿@model GTS.MVC.Models.WearerViewModel
+
+@{
+    Layout = null;
+}
+
+<h3>Wearer</h3>
+
+<form asp-action="Save" method="post">
+
+    <input asp-for="CustId" type="hidden" />
+    <input asp-for="WearerId" type="hidden" />
+
+    <div class="mb-3">
+        <label>Wearer #</label>
+        <input asp-for="WearNbr" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>First Name</label>
+        <input asp-for="FirstName" class="form-control" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label>Last Name</label>
+        <input asp-for="LastName" class="form-control" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label>Locker</label>
+        <input asp-for="Locker" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Lock Room</label>
+        <input asp-for="LockRm" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Sex</label>
+
+        <select asp-for="Sex" class="form-select">
+            <option value="true">Male</option>
+            <option value="false">Female</option>
+        </select>
+
+    </div>
+
+    <button asp-action="Previous"
+            class="btn btn-secondary">
+        Previous
+    </button>
+
+    <button asp-action="Next"
+            class="btn btn-secondary">
+        Next
+    </button>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Save
+    </button>
+
+</form>

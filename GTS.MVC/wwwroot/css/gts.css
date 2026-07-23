@@ -1,0 +1,77 @@
+﻿/* =========================
+   GTS Workspace
+========================= */
+
+.gts-shell {
+    width: 1120px;
+    margin: 15px auto;
+    background: #ffffff;
+    border: 1px solid #9d9d9d;
+}
+
+.gts-workspace {
+    min-height: 620px;
+    border-top: 1px solid #bdbdbd;
+    padding: 15px;
+    background: white;
+}
+
+/* =========================
+   Tabs
+========================= */
+
+.gts-tabs {
+    display: flex;
+    background: #ececec;
+    border-bottom: 1px solid #9d9d9d;
+}
+
+    .gts-tabs a {
+        padding: 10px 18px;
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        border-right: 1px solid #bdbdbd;
+    }
+
+        .gts-tabs a.active {
+            background: white;
+            font-weight: bold;
+        }
+
+/* =========================
+   Panels
+========================= */
+
+.gts-panel {
+    border: 1px solid #bdbdbd;
+    margin-bottom: 15px;
+}
+
+.gts-panel-header {
+    background: #2d2f33;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.gts-panel-body {
+    padding: 15px;
+}
+
+/* =========================
+   Footer Buttons
+========================= */
+
+.gts-footer {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+.gts-message {
+    min-height: 24px;
+    color: #b00020;
+    font-weight: 600;
+    padding: 4px 8px;
+    margin-bottom: 8px;
+}

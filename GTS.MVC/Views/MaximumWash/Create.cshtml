@@ -1,0 +1,85 @@
+﻿@model GTS.MVC.Models.MaximumWash.MaximumWashViewModel
+
+<h2>Add Maximum Wash</h2>
+
+<form id="createMaxWashForm">
+
+    <input asp-for="CustId" type="hidden" />
+
+    <div class="mb-3">
+        <label asp-for="ItemCode"></label>
+        <input asp-for="ItemCode" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MaxWash"></label>
+        <input asp-for="MaxWash" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MaxWeeks"></label>
+        <input asp-for="MaxWeeks" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MaxCycles"></label>
+        <input asp-for="MaxCycles" class="form-control" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Save
+    </button>
+
+</form>
+
+<script>
+
+        window.onload = function () {
+
+        const customer = getSelectedCustomer();
+
+        document.getElementById("CustId").value =
+            customer.CustID;
+
+    };
+
+    document
+    .getElementById("createMaxWashForm")
+    .addEventListener("submit", async function(e){
+
+        e.preventDefault();
+
+        const form = e.target;
+
+        const formData = new FormData(form);
+
+        const response =
+            await fetch("/MaximumWash/Create",{
+
+                method:"POST",
+
+                body:formData
+
+            });
+
+        if(response.ok){
+
+            alert("Saved Successfully");
+
+            const html =
+                await fetch("/CustomerProfile/MaximumWash")
+                .then(r=>r.text());
+
+            document.getElementById("rightPanel").innerHTML =
+                html;
+        }
+        else{
+
+            alert("Save Failed");
+
+        }
+
+    });
+
+</script>

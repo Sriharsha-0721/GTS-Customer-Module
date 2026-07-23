@@ -1,0 +1,187 @@
+﻿@model List<GTS.MVC.Models.MaximumWash.MaximumWashViewModel>
+
+<h4 class="mb-3">
+    Maximum Washes
+</h4>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th style="width:25%">Item Code</th>
+
+                <th style="width:20%">Maximum Washes</th>
+
+                <th style="width:20%">Maximum Weeks</th>
+
+                <th style="width:20%">Maximum Cycles</th>
+
+                <th style="width:15%">Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        <input id="itemCode_@item.ItemCode"
+                               value="@item.ItemCode"
+                               class="form-control form-control-sm"
+                               disabled />
+                    </td>
+
+                    <td>
+                        <input id="maxWash_@item.ItemCode"
+                               class="form-control form-control-sm"
+                               value="@item.MaxWash"
+                               disabled />
+                    </td>
+
+                    <td>
+                        <input id="maxWeeks_@item.ItemCode"
+                               class="form-control form-control-sm"
+                               value="@item.MaxWeeks"
+                               disabled />
+                    </td>
+
+                    <td>
+                        <input id="maxCycles_@item.ItemCode"
+                               class="form-control form-control-sm"
+                               value="@item.MaxCycles"
+                               disabled />
+                    </td>
+
+                    <td class="text-nowrap">
+
+                        <a href="javascript:void(0)"
+                           class="editMaxWash"
+                           data-itemcode="@item.ItemCode"
+                           data-custid="@item.CustId">
+
+                            Edit
+
+                        </a>
+
+                        &nbsp;
+
+                        <a href="javascript:void(0)"
+                           class="cancelEditMaxWash"
+                           data-itemcode="@item.ItemCode"
+                           style="display:none">
+
+                            Cancel
+
+                        </a>
+
+                        &nbsp;
+
+                        <a href="javascript:void(0)"
+                           class="deleteMaxWash"
+                           data-itemcode="@item.ItemCode"
+                           data-custid="@item.CustId">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+            <!-- ADD ROW -->
+
+            <tr>
+
+                <td>
+
+                    <input id="newItemCode"
+                           class="form-control form-control-sm"
+                           disabled />
+
+                </td>
+
+                <td>
+
+                    <input id="newMaxWash"
+                           class="form-control form-control-sm"
+                           type="number"
+                           disabled />
+
+                </td>
+
+                <td>
+
+                    <input id="newMaxWeeks"
+                           class="form-control form-control-sm"
+                           type="number"
+                           disabled />
+
+                </td>
+
+                <td>
+
+                    <input id="newMaxCycles"
+                           class="form-control form-control-sm"
+                           type="number"
+                           value=""
+                           disabled />
+
+                </td>
+
+                <td class="text-nowrap">
+
+                    <a href="javascript:void(0)"
+                       id="btnAddMaxWash">
+
+                        Add
+
+                    </a>
+
+                    &nbsp;
+
+                    <a href="javascript:void(0)"
+                       id="btnSaveMaxWash"
+                       style="display:none;">
+
+                        Save
+
+                    </a>
+
+                    &nbsp;
+
+                    <a href="javascript:void(0)"
+                       id="btnCancelMaxWash"
+                       style="display:none;">
+
+                        Cancel
+
+                    </a>
+
+                    &nbsp;
+
+                    <a href="javascript:void(0)"
+                       id="btnExitMaxWash">
+
+                        Exit
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,141 @@
+﻿@model GTS.MVC.Models.WearerViewModel
+
+<div class="container mt-3">
+
+    @await Html.PartialAsync(
+        "_CustomerHeader",
+        new GTS.MVC.Models.CustomerProfile.CustomerViewModel
+        {
+            CustId = Model.CustId
+        })
+
+    <fieldset class="border p-3">
+
+        <legend class="float-none w-auto px-2">
+            Wearer
+        </legend>
+
+        <div class="row mb-3">
+
+            <div class="col-md-2">
+                <label>Wearer #</label>
+            </div>
+
+            <div class="col-md-4">
+
+                <input asp-for="WearNbr"
+                       class="form-control" />
+
+            </div>
+
+            <div class="col-md-4">
+
+                <button id="btnSearchWearer"
+                        class="btn btn-secondary">
+
+                    Search Wearer
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-2">
+                <label>First Name</label>
+            </div>
+
+            <div class="col-md-4">
+
+                <input asp-for="FirstName"
+                       class="form-control"
+                       readonly />
+
+            </div>
+
+            <div class="col-md-2">
+                <label>Last Name</label>
+            </div>
+
+            <div class="col-md-4">
+
+                <input asp-for="LastName"
+                       class="form-control"
+                       readonly />
+
+            </div>
+
+        </div>
+
+        <div class="row mb-3">
+
+            <div class="col-md-2">
+                <label>Locker</label>
+            </div>
+
+            <div class="col-md-2">
+
+                <input asp-for="Locker"
+                       class="form-control" />
+
+            </div>
+
+            <div class="col-md-2">
+                <label>Lock Room</label>
+            </div>
+
+            <div class="col-md-2">
+
+                <input asp-for="LockRm"
+                       class="form-control" />
+
+            </div>
+
+            <div class="col-md-2">
+                <label>Sex</label>
+            </div>
+
+            <div class="col-md-2">
+
+                <select asp-for="Sex"
+                        class="form-select">
+
+                    <option value="true">Male</option>
+                    <option value="false">Female</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </fieldset>
+
+    <div class="mt-4 text-end">
+
+        <button id="btnPrevious"
+                class="btn btn-secondary">
+
+            Previous
+
+        </button>
+
+        <button id="btnNext"
+                class="btn btn-secondary">
+
+            Next
+
+        </button>
+
+        <button id="btnSaveWearer"
+                class="btn btn-primary">
+
+            Save
+
+        </button>
+
+    </div>
+
+</div>  

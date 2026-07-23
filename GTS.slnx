@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/API/">
+    <Project Path="GTS.API/GTS.API.csproj" Id="5374242b-c847-469b-84b9-6e26a8fa04e5" />
+  </Folder>
+  <Folder Name="/Core/">
+    <Project Path="GTS.Application/GTS.Application.csproj" />
+    <Project Path="GTS.Domain/GTS.Domain.csproj" />
+    <Project Path="GTS.Infrastructure/GTS.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/WEB/">
+    <Project Path="GTS.MVC/GTS.MVC.csproj" Id="208ac6e9-5ff2-4f94-af4f-224d47d64eb3" />
+  </Folder>
+</Solution>

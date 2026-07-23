@@ -1,0 +1,259 @@
+﻿@model GTS.MVC.Models.CTSSettings.CTSSettingsViewModel
+
+@{
+    ViewData["Title"] = "CTS Settings";
+}
+
+<style>
+    .gtsTabs {
+        border: 1px solid gray;
+        background: #efefef;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+        .gtsTabs a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: black;
+            font-size: 17px;
+            padding: 5px 10px;
+        }
+
+        .gtsTabs .active {
+            font-weight: bold;
+            background: white;
+            border: 1px solid gray;
+            border-bottom: none;
+        }
+
+    .gtsPanel {
+        border: 1px solid gray;
+        background: white;
+        padding: 20px;
+        min-height: 500px;
+    }
+
+    .lbl {
+        font-weight: bold;
+        width: 120px;
+    }
+
+    .txt {
+        width: 220px;
+        height: 32px;
+    }
+
+    .saveBtn {
+        width: 100px;
+        height: 40px;
+    }
+</style>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<partial name="_CTSTabs" />
+
+<div class="gtsPanel">
+
+    <form asp-action="Create" method="post">
+
+        <input asp-for="MC" type="hidden" />
+        <input asp-for="CustID" type="hidden" />
+
+        <fieldset style="padding:20px">
+
+            <legend>
+                Customer
+            </legend>
+
+            <table cellpadding="10">
+
+                <tr>
+
+                    <td class="lbl">
+                        Cust #
+                    </td>
+
+                    <td>
+                        <input asp-for="CustNo"
+                               class="txt"
+                               readonly />
+                    </td>
+
+                    <td width="40"></td>
+
+                    <td>
+                        <button type="button"
+                                class="btn btn-secondary"
+                                onclick="location.href='/Customer/Index?showAll=true'">
+                            Select Customer
+                        </button>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td class="lbl">
+                        Name
+                    </td>
+
+                    <td colspan="3">
+
+                        <input asp-for="Customer"
+                               style="width:400px;height:32px"
+                               readonly />
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td class="lbl">
+                        Route
+                    </td>
+
+                    <td>
+
+                        <input asp-for="Route"
+                               class="txt"
+                               readonly />
+
+                    </td>
+
+                    <td class="lbl">
+                        GID
+                    </td>
+
+                    <td>
+
+                        <input asp-for="GID"
+                               class="txt"
+                               readonly />
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </fieldset>
+
+        <br />
+
+        <table cellpadding="15">
+
+            <tr>
+
+                <td>
+                    <input asp-for="PrintIssueStatusFlag"
+                           type="checkbox" />
+                </td>
+
+                <td>
+                    Print Issue Status
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <input asp-for="PrintBornonDateFlag"
+                           type="checkbox" />
+                </td>
+
+                <td>
+                    Print Born On Date
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <input asp-for="NOGFlag"
+                           type="checkbox" />
+                </td>
+
+                <td>
+                    NOG
+                </td>
+
+                <td class="lbl">
+                    Label Header
+                </td>
+
+                <td>
+
+                    <input asp-for="LabelHeader"
+                           class="form-control"
+                           style="width:250px" />
+
+                </td>
+
+            </tr>
+
+        </table>
+
+        <br /><br />
+
+        <button type="submit"
+                class="saveBtn btn btn-primary">
+            Save
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+    window.onload = function () {
+
+        const customer = getSelectedCustomer();
+
+        if (!customer.CustID) {
+
+            alert("Please select a customer.");
+
+            window.location.href =
+                "/Customer/Index?showAll=true";
+
+            return;
+        }
+
+        document.getElementById("MC").value =
+            customer.MC;
+
+        document.getElementById("CustID").value =
+            customer.CustID;
+
+        document.getElementById("CustNo").value =
+            customer.CustNo;
+
+        document.getElementById("Customer").value =
+            customer.Customer;
+
+        document.getElementById("Route").value =
+            customer.Route;
+
+        document.getElementById("GID").value =
+            customer.GID;
+    };
+
+</script>

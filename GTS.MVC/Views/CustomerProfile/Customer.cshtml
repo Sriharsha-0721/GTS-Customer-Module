@@ -1,0 +1,62 @@
+﻿@model GTS.MVC.Models.CustomerProfile.CustomerViewModel
+
+<div class="container mt-3">
+
+    @await Html.PartialAsync(
+        "_CustomerHeader",
+        Model)
+
+    <div class="row mt-3">
+
+        <div class="col-md-3">
+
+            <div class="form-check">
+
+                <input id="ossFlag"
+                       class="form-check-input"
+                       type="checkbox"
+                       disabled />
+
+                <label class="form-check-label">
+
+                    Onsite Scanning
+
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="form-check">
+
+                <input id="stFlag"
+                       class="form-check-input"
+                       type="checkbox"
+                       disabled />
+
+                <label class="form-check-label">
+
+                    Data Mart Extract
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mt-4 text-end">
+
+        <button id="btnSaveCustomer"
+                class="btn btn-primary">
+
+            Save
+
+        </button>
+
+    </div>
+
+</div>

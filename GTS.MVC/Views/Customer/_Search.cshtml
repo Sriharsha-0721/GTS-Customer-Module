@@ -1,0 +1,118 @@
+﻿@model IEnumerable<GTS.Application.DTOs.CustomerDTO>
+<div id="searchMessage" class="text-danger fw-bold mb-2">
+    @if (ViewBag.Error != null)
+    {
+        @ViewBag.Error
+    }
+</div>
+
+<div class="row g-3 mb-3">
+
+    <div class="col-md-2">
+        <label>Customer ID</label>
+        <input id="searchId" class="form-control" />
+    </div>
+
+    <div class="col-md-4">
+        <label>Customer Name</label>
+        <input id="searchName" class="form-control" />
+    </div>
+
+    <div class="col-md-3">
+        <label>City</label>
+        <input id="searchCity" class="form-control" />
+    </div>
+
+    <div class="col-md-3 d-flex align-items-end gap-2">
+
+        <button id="btnSearch"
+                class="btn btn-primary"
+                type="button">
+            Search
+        </button>
+
+        <button id="btnShowAll"
+                class="btn btn-success"
+                type="button">
+            Show All
+        </button>
+
+        <button id="btnClear"
+                class="btn btn-secondary"
+                type="button">
+            Clear
+        </button>
+
+    </div>
+
+</div>
+
+<hr />
+
+        <div id="customerGrid">
+
+                @if (Model.Any())
+                {
+                    <table class="table table-bordered table-hover">
+
+                        <thead class="table-dark">
+
+                            <tr>
+
+                                <th>Select</th>
+
+                                <th>Cust #</th>
+
+                                <th>Name</th>
+
+                                <th>City</th>
+
+                                <th>Route</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var c in Model)
+                            {
+                                <tr>
+
+                                    <td>
+
+<button
+    type="button"
+    class="btn btn-primary btn-sm selectCustomer"
+    data-mc="@c.MarketCenter"
+    data-custid="@c.CustId"
+    data-custno="@c.CustNbr"
+    data-name="@c.Name"
+    data-route="@c.Route"
+    data-gid="@c.GID">
+
+    Select
+
+</button>
+
+                                    </td>
+
+                                    <td>@c.CustNbr</td>
+
+                                    <td>@c.Name</td>
+
+                                    <td>@c.City</td>
+
+                                    <td>@c.Route</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                }
+
+        </div>
+<div id="messageBar" class="gts-message"></div>
+

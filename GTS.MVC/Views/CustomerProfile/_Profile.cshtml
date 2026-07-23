@@ -1,0 +1,126 @@
+﻿@model GTS.MVC.Models.CustomerProfile.CustomerViewModel
+
+<div class="container-fluid mt-2">
+
+    @await Html.PartialAsync(
+        "_CustomerHeader",
+        Model)
+
+    <!-- Customer Settings -->
+
+    <div class="card mb-3">
+
+        <div class="card-header">
+
+            Customer Settings
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <label>Sterilization</label>
+
+                    <select class="form-select">
+
+                        <option>Non-Sterile</option>
+                        <option>Sterile</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label>Ship Via</label>
+
+                    <input class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label>Package</label>
+
+                    <input class="form-control" />
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label>Property Mark</label>
+
+                    <input class="form-control" />
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <div class="list-group">
+
+                <a class="list-group-item">Billing</a>
+                <a class="list-group-item">Customer Service</a>
+                <a class="list-group-item">Driver</a>
+                <a class="list-group-item">Dryer</a>
+                <a class="list-group-item">General Office</a>
+                <a class="list-group-item">Main Cleanroom</a>
+                <a class="list-group-item">Receiving</a>
+                <a class="list-group-item">Shipping</a>
+                <a class="list-group-item">Wash</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mt-3">
+
+        <button id="btnMaxWash"
+                class="btn btn-primary">
+
+            # of Washes
+
+        </button>
+
+        <button class="btn btn-secondary">
+
+            Special Lines
+
+        </button>
+
+        <button id="btnLineComments"
+                class="btn btn-secondary">
+
+            Line Comments
+
+        </button>
+
+        <button class="btn btn-success">
+
+            Save
+
+        </button>
+
+        <button class="btn btn-danger">
+
+            Exit
+
+        </button>
+
+        <hr />
+
+    </div>
+
+</div>

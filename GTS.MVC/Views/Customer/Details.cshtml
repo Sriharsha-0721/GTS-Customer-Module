@@ -1,0 +1,126 @@
+﻿@model GTS.Application.DTOs.CustomerDTO
+
+@{
+    ViewData["Title"] = "Customer Details";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Customer Details</h2>
+        <a asp-action="Index" class="btn btn-secondary">← Back to List</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">@Model.Name</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="text-muted">Basic Info</h6>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">Customer ID</dt>
+                        <dd class="col-sm-8">@Model.CustId</dd>
+
+                        <dt class="col-sm-4">Name</dt>
+                        <dd class="col-sm-8">@Model.Name</dd>
+
+                        <dt class="col-sm-4">Market Center</dt>
+                        <dd class="col-sm-8">@Model.MarketCenter</dd>
+
+                        <dt class="col-sm-4">Cust Number</dt>
+                        <dd class="col-sm-8">@Model.CustNbr</dd>
+
+                        <dt class="col-sm-4">Route</dt>
+                        <dd class="col-sm-8">@Model.Route</dd>
+
+                        <dt class="col-sm-4">GID</dt>
+                        <dd class="col-sm-8">@Model.GID</dd>
+
+                        <dt class="col-sm-4">Frequency</dt>
+                        <dd class="col-sm-8">@Model.Freq</dd>
+
+                        <dt class="col-sm-4">Contact</dt>
+                        <dd class="col-sm-8">@Model.Contact</dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-muted">Address</h6>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">Address 1</dt>
+                        <dd class="col-sm-8">@Model.Addr1</dd>
+
+                        <dt class="col-sm-4">Address 2</dt>
+                        <dd class="col-sm-8">@Model.Addr2</dd>
+
+                        <dt class="col-sm-4">City</dt>
+                        <dd class="col-sm-8">@Model.City</dd>
+
+                        <dt class="col-sm-4">State</dt>
+                        <dd class="col-sm-8">@Model.State</dd>
+
+                        <dt class="col-sm-4">Zip</dt>
+                        <dd class="col-sm-8">@Model.Zip</dd>
+
+                        <dt class="col-sm-4">Phone</dt>
+                        <dd class="col-sm-8">@Model.Phone</dd>
+
+                        <dt class="col-sm-4">Fax</dt>
+                        <dd class="col-sm-8">@Model.Fax</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h6 class="text-muted">Billing Info</h6>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">Bill Name</dt>
+                        <dd class="col-sm-8">@Model.BillName</dd>
+
+                        <dt class="col-sm-4">Bill Address</dt>
+                        <dd class="col-sm-8">@Model.BillAddr</dd>
+
+                        <dt class="col-sm-4">Bill City</dt>
+                        <dd class="col-sm-8">@Model.BillCity</dd>
+
+                        <dt class="col-sm-4">Bill State</dt>
+                        <dd class="col-sm-8">@Model.BillState</dd>
+
+                        <dt class="col-sm-4">Bill Zip</dt>
+                        <dd class="col-sm-8">@Model.BillZipCod</dd>
+
+                        <dt class="col-sm-4">Bill Phone</dt>
+                        <dd class="col-sm-8">@Model.BillPhone</dd>
+                    </dl>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-muted">Other Info</h6>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">PO Number</dt>
+                        <dd class="col-sm-8">@Model.PONumber</dd>
+
+                        <dt class="col-sm-4">Create Date</dt>
+                        <dd class="col-sm-8">@Model.CreateDt?.ToString("MM/dd/yyyy")</dd>
+
+                        <dt class="col-sm-4">Stop Date</dt>
+                        <dd class="col-sm-8">@Model.StopDt?.ToString("MM/dd/yyyy")</dd>
+
+                        <dt class="col-sm-4">Last Updated</dt>
+                        <dd class="col-sm-8">@Model.UpdtTime.ToString("MM/dd/yyyy")</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a asp-action="Edit" asp-route-id="@Model.CustId"
+               class="btn btn-warning">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.CustId"
+               class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>

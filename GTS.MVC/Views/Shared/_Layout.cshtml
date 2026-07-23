@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GTS.MVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet"
+          href="~/css/gts.css"
+          asp-append-version="true" />
+    <link rel="stylesheet" href="~/GTS.MVC.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+
+            <div class="row bg-light">
+                <div class="col text-center">
+                    <h1 style="color:#d63384;font-weight:bold">
+                        Garment Tracking System
+                    </h1>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2">
+                <div class="container-fluid">
+
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               id="adminMenu"
+                               role="button"
+                               data-bs-toggle="dropdown">
+
+                                Administration
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+
+                                    <a class="dropdown-item"
+                                       asp-controller="CustomerProfile"
+                                       asp-action="Index">
+
+                                        Customer Profile
+
+                                    </a>
+
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">Production</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">Stockroom</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">QA</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">Repairs</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">Interfaces</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">Utilities</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">Reports</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link">Garment Review</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+        
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - GTS.MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/customerSelection.js"></script>
+    <script src="~/js/customerProfile.js"></script>
+    <script src="~/js/maximumWash.js"></script>
+</body>
+</html>

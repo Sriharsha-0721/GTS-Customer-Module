@@ -1,0 +1,121 @@
+﻿<div class="table-responsive">
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>Select</th>
+                <th>MC</th>
+                <th>CustId</th>
+                <th>CustNbr</th>
+                <th>Name</th>
+                <th>GID</th>
+                <th>Route</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Phone</th>
+                <th>Updated</th>
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var customer in Model)
+            {
+                <tr>
+
+                    <td>
+
+                        <a href="#"
+                           class="select-customer"
+                           data-mc="@customer.MarketCenter"
+                           data-custno="@customer.CustNbr"
+                           data-custid="@customer.CustId"
+                           data-name="@customer.Name"
+                           data-city="@customer.City"
+                           data-phone="@customer.Phone"
+                           data-contact="@customer.Contact"
+                           data-route="@customer.Route"
+                           data-gid="@customer.GID"
+                           data-address1="@customer.Addr1"
+                           data-address2="@customer.Addr2">
+
+                            Select
+
+                        </a>
+
+                    </td>
+
+                    <td>
+                        @customer.MarketCenter
+                    </td>
+
+                    <td>
+                        @customer.CustId
+                    </td>
+
+                    <td>
+                        @customer.CustNbr
+                    </td>
+
+                    <td>
+                        @customer.Name
+                    </td>
+
+                    <td>
+                        @customer.GID
+                    </td>
+
+                    <td>
+                        @customer.Route
+                    </td>
+
+                    <td>
+                        @customer.City
+                    </td>
+
+                    <td>
+                        @customer.State
+                    </td>
+
+                    <td>
+                        @customer.Phone
+                    </td>
+
+                    <td>
+                        @customer.UpdtTime.ToString("MM-dd-yyyy")
+                    </td>
+
+                    <td>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@customer.CustId"
+                           class="btn btn-warning btn-sm">
+
+                            Edit
+
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@customer.CustId"
+                           class="btn btn-danger btn-sm">
+
+                            Delete
+
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
