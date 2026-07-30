@@ -6,6 +6,9 @@
 // -----------------------------------------------------
 // Session Storage Keys
 // -----------------------------------------------------
+let currentModule = "Profile";
+let currentSpecialLinesPage = 1;
+let selectedLines = new Set();
 
 const STORAGE_KEYS = {
     CUSTOMER: "selectedCustomer",
@@ -126,22 +129,27 @@ function openRequestedModule() {
             openModule("MaximumWash");
             break;
 
-        case "CustomerLineComments":
-            openModule("CustomerLineComments");
-            break;
+case "CustomerLineComments":
+    openModule("CustomerLineComments");
+    break;
+
+case "SpecialLines":
+    openModule("SpecialLines");
+    break;
     }
 }
 function openModule(moduleName) {
+
+    currentModule = moduleName;
 
     const customer = getSelectedCustomer();
 
     let url = `/CustomerProfile/${moduleName}`;
 
     if (customer) {
-
         url += `?custId=${customer.CustId}`;
-
     }
+
     $.get(url, function (html) {
 
         $("#workspace").html(html);
@@ -149,7 +157,6 @@ function openModule(moduleName) {
         afterModuleLoaded(moduleName);
 
     });
-
 }
 
 // =====================================================
@@ -340,6 +347,10 @@ function afterModuleLoaded(moduleName) {
         case "CustomerLineComments":
             initializeCustomerLineComments();
             break;
+
+        case "SpecialLines":
+            initializeSpecialLines();
+            break;
     }
 }
 // =====================================================
@@ -367,7 +378,7 @@ async function loadMaximumWash() {
         if (!response.ok)
             throw new Error();
 
-        $("#maximumWashContainer").html(await response.text());
+        $("#CustomerModuleContainer").html(await response.text());
 
     }
     catch {
@@ -632,7 +643,7 @@ async function loadCustomerLineComments() {
         if (!response.ok)
             throw new Error();
 
-        $("#CustomerLineCommentsContainer")
+        $("#CustomerModuleContainer")
             .html(await response.text());
 
     }
@@ -784,25 +795,7 @@ function registerNavigation() {
         .off("click", "#btnSelectCustomer")
         .on("click", "#btnSelectCustomer", function () {
 
-            let module = "Customer";
-
-            if ($("#btnSearchWearer").length) {
-                module = "Wearer";
-            }
-            else if ($("#btnSaveCTS").length) {
-                module = "CTSSettings";
-            }
-            else if ($("#maximumWashContainer").length) {
-                module = "MaximumWash";
-            }
-            else if ($("#CustomerLineCommentsContainer").length) {
-                module = "CustomerLineComments";
-            }
-            else if ($("#btnProfile").length || $("#btnMaxWash").length) {
-                module = "Profile";
-            }
-
-            setRequestedModule(module);
+            setRequestedModule(currentModule);
 
             openCustomerSearch();
         });
@@ -949,3 +942,158 @@ window.CustomerProfile = {
     logoutCustomer
 
 };
+// ================================
+// Special Lines
+// ================================
+
+$(document)
+    .off("click", "#btnSpecialLines")
+    .on("click", "#btnSpecialLines", function () {
+
+        selectedLines.clear();
+
+        loadSpecialLines(1);
+
+    });
+
+// =========================
+// Special Lines
+// =========================
+
+function initializeSpecialLines() {
+
+    populateCustomerHeader();
+
+    bindSpecialLineEvents();
+
+}
+
+function loadSpecialLines(page = 1) {
+
+    currentSpecialLinesPage = page;
+
+    const customer = getSelectedCustomer();
+
+    if (!customer)
+        return;
+
+    $.get(
+        "/CustomerProfile/SpecialLines",
+        {
+            custId: customer.CustId,
+            page: page
+        },
+        function (html) {
+
+            $("#workspace").html(html);
+
+            // Restore selected checkboxes
+            $(".chkSpecialLine").each(function () {
+
+                const line = parseInt($(this).data("line"));
+
+                if (selectedLines.has(line)) {
+                    $(this).prop("checked", true);
+                }
+                else if ($(this).is(":checked")) {
+                    // Add already saved selections to the Set
+                    selectedLines.add(line);
+                }
+
+            });
+
+            bindSpecialLineEvents();
+
+        }
+    );
+}
+
+function bindSpecialLineEvents() {
+
+    // Pagination
+    $(".specialLinesPage")
+        .off("click")
+        .on("click", function (e) {
+
+            e.preventDefault();
+
+            const page = parseInt($(this).data("page"));
+
+            if (!isNaN(page)) {
+                loadSpecialLines(page);
+            }
+
+        });
+
+    // Checkbox Change
+    $(".chkSpecialLine")
+        .off("change")
+        .on("change", function () {
+
+            const line = parseInt($(this).data("line"));
+
+            if ($(this).is(":checked")) {
+                selectedLines.add(line);
+            }
+            else {
+                selectedLines.delete(line);
+            }
+
+        });
+
+    // Save
+    $("#btnSaveSpecialLines")
+        .off("click")
+        .on("click", function () {
+
+            saveSpecialLines();
+
+        });
+
+    // Exit
+    $("#btnSpecialLinesExit")
+        .off("click")
+        .on("click", function () {
+
+            openModule("Profile");
+
+        });
+}
+
+function saveSpecialLines() {
+
+    const customer = getSelectedCustomer();
+
+    if (!customer)
+        return;
+
+    $.ajax({
+
+        url: "/CustomerProfile/SaveSpecialLines",
+
+        type: "POST",
+
+        contentType: "application/json",
+
+        data: JSON.stringify({
+
+            custId: customer.CustId,
+
+            lines: Array.from(selectedLines)
+
+        }),
+
+        success: function () {
+
+            alert("Special Lines saved successfully.");
+
+        },
+
+        error: function () {
+
+            alert("Unable to save Special Lines.");
+
+        }
+
+    });
+}

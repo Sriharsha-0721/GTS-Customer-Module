@@ -63,9 +63,10 @@ builder.Services.AddScoped<
 builder.Services.AddScoped<IWearerRepository, WearerRepository>();
 
 builder.Services.AddScoped<IWearerService, WearerService>();
+builder.Services.AddScoped<ISpecialLinesService, SpecialLinesService>();
 
 
-var app = builder.Build();
+builder.Services.AddScoped<ISpecialLinesRepository, SpecialLinesRepository>();var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {

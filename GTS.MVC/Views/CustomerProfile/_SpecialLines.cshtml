@@ -1,0 +1,120 @@
+﻿@model GTS.MVC.Models.SpecialLines.SpecialLinePageViewModel
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover"
+           id="tblSpecialLines">
+
+        <thead class="table-light">
+
+            <tr>
+                <th style="width:70px;">Select</th>
+                <th>Line</th>
+                <th>Item Code</th>
+                <th>Size</th>
+                <th>Description</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+
+                    <td class="text-center">
+
+                        <input type="checkbox"
+                               class="chkSpecialLine"
+                               data-line="@item.Line"
+                        @(item.IsSelected ? "checked=\"checked\"" : "") />
+
+                    </td>
+
+                    <td>@item.Line</td>
+
+                    <td>@item.ItemCode</td>
+
+                    <td>@item.Size</td>
+
+                    <td>@item.Descr</td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="d-flex justify-content-between align-items-center mt-3">
+
+    <div>
+
+        <button id="btnSaveSpecialLines"
+                class="btn btn-success">
+
+            Save
+
+        </button>
+
+        <button id="btnSpecialLinesExit"
+                class="btn btn-danger">
+
+            Exit
+
+        </button>
+
+    </div>
+
+    <nav>
+
+        <ul class="pagination mb-0">
+
+            <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+
+                <a class="page-link specialLinesPage"
+                   data-page="@(Model.CurrentPage - 1)"
+                   href="#">
+
+                    Previous
+
+                </a>
+
+            </li>
+
+            @{
+                var start = Math.Max(1, Model.CurrentPage - 2);
+                var end = Math.Min(Model.TotalPages, start + 4);
+            }
+
+            @for (int i = start; i <= end; i++)
+            {
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link specialLinesPage"
+                       href="#"
+                       data-page="@i">
+                        @i
+                    </a>
+                </li>
+            }
+   
+            <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+
+                <a class="page-link specialLinesPage"
+                   data-page="@(Model.CurrentPage + 1)"
+                   href="#">
+
+                    Next
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</div>

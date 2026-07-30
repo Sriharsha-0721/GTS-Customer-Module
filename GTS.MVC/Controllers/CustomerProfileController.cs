@@ -4,7 +4,9 @@ using GTS.MVC.Models.CTSSettings;
 using GTS.MVC.Models.CustomerLineComments;
 using GTS.MVC.Models.CustomerProfile;
 using GTS.MVC.Models.MaximumWash;
+using GTS.MVC.Models.SpecialLines;
 using Microsoft.AspNetCore.Mvc;
+//using GTS.MVC.Models.SpecialLines;
 using System.Net.Http.Json;
 
 namespace GTS.MVC.Controllers
@@ -223,6 +225,75 @@ namespace GTS.MVC.Controllers
                 {
                     CustId = custId
                 });
+        }
+        public async Task<IActionResult> SpecialLines(
+            int custId,
+            int page = 1)
+        {
+            SpecialLinePageViewModel model = new();
+
+            if (custId > 0)
+            {
+                model =
+                    await _http.GetFromJsonAsync<SpecialLinePageViewModel>
+                    (
+                        $"api/SpecialLines/{custId}?page={page}&pageSize=14"
+                    ) ?? new SpecialLinePageViewModel();
+
+                foreach (var item in model.Items)
+                {
+                    item.IsSelected = item.CustId.HasValue;
+                }
+            }
+
+            return PartialView("_SpecialLines", model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddSpecialLine(int custId, int line)
+        {
+            var response =
+                await _http.PostAsync(
+                    $"api/SpecialLines/{custId}/{line}",
+                    null);
+
+            var result =
+                await response.Content.ReadAsStringAsync();
+
+            return Ok(result);
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteSpecialLine(int line)
+        {
+            var response =
+                await _http.DeleteAsync(
+                    $"api/SpecialLines/{line}");
+
+            var result =
+                await response.Content.ReadAsStringAsync();
+
+            return Ok(result);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SaveSpecialLines(
+    [FromBody] SaveSpecialLinesViewModel model)
+        {
+            var response =
+                await _http.PostAsJsonAsync(
+                    "api/SpecialLines",
+                    model);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var error =
+                    await response.Content.ReadAsStringAsync();
+
+                return StatusCode(
+                    (int)response.StatusCode,
+                    error);
+            }
+
+            return Ok();
         }
     }
 }
