@@ -1,0 +1,144 @@
+﻿@model GTS.MVC.Models.Billing.BillingViewModel
+
+<div class="billing-wrapper">
+
+    <!-- Notes -->
+
+    <div class="row">
+
+        <div class="col-md-9">
+
+            <textarea id="txtBillingNotes"
+                      class="billing-notes"></textarea>
+
+            <input type="hidden"
+                   id="hdnBillingComment"
+                   value="@Model.BillingCom" />
+
+        </div>
+
+    </div>
+
+    <!-- Billing Grid -->
+
+    <div class="row mt-2">
+
+        <div class="col-md-9">
+
+            <table class="table table-sm billing-grid"
+                   id="tblBilling">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Charge Type</th>
+
+                        <th width="180">Charge Amount</th>
+
+                        <th width="70"></th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model.Charges)
+                    {
+                        <tr>
+
+                            <td>
+
+                                @item.ChargeType
+
+                            </td>
+
+                            <td>
+
+                                @($"{Convert.ToDecimal(item.Charges):0.00}")
+
+                            </td>
+
+                            <td class="text-center">
+
+                                <button class="deleteBilling iconButton"
+                                        data-id="@item.BillingChargesId">
+                                            
+                                    <i class="bi bi-trash-fill text-danger"></i>
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                    <!-- Hidden Row -->
+
+                    <tr id="newBillingRow" style="display:none;">
+
+                        <td>
+
+                            <select id="ddlChargeType" class="form-select form-select-sm">
+
+                                @foreach (var item in Model.ChargeTypes)
+                                {
+                                    <option value="@item.BillingDataId">@item.ChargeType</option>
+                                }
+
+                            </select>
+
+                        </td>
+
+                        <td>
+
+                            <input id="txtChargeAmount"
+                                   class="form-control form-control-sm" />
+
+                        </td>
+                        <td class="text-center">
+
+                            <button type="button"
+                                    id="btnCancelBilling"
+                                    class="btn btn-sm btn-outline-danger">
+
+                                Cancel
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Right Side Buttons -->
+
+        <div class="col-md-3 d-flex align-items-center justify-content-center">
+
+            <button type="button"
+                    id="btnAddBilling"
+                    class="circleButton">
+
+                <i class="bi bi-plus-lg"></i>
+
+            </button>
+
+            <button type="button"
+                    id="btnSaveBilling"
+                    class="saveButton">
+
+                <i class="bi bi-floppy-fill"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

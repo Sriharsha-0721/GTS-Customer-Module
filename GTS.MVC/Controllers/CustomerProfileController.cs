@@ -1,12 +1,18 @@
 ﻿using GTS.Application.DTOs;
+using GTS.Domain.Entities;
 using GTS.MVC.Models;
+using GTS.MVC.Models.Billing;
 using GTS.MVC.Models.CTSSettings;
 using GTS.MVC.Models.CustomerLineComments;
 using GTS.MVC.Models.CustomerProfile;
 using GTS.MVC.Models.MaximumWash;
+using GTS.MVC.Models.Packout;
 using GTS.MVC.Models.SpecialLines;
 using Microsoft.AspNetCore.Mvc;
 //using GTS.MVC.Models.SpecialLines;
+using GTS.MVC.Models.Wash;
+using System.Net.Http.Json;
+using System.Text.Json;
 using System.Net.Http.Json;
 
 namespace GTS.MVC.Controllers
@@ -34,6 +40,72 @@ namespace GTS.MVC.Controllers
             return PartialView("_Blank");
         }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateCustomer([FromBody] CustomerViewModel model)
+        {
+            var response = await _http.PutAsJsonAsync(
+                "api/Customer",
+                model);
+
+            if (response.IsSuccessStatusCode)
+                return Ok();
+
+            return BadRequest();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveCustomerProfile(
+            [FromBody] SaveCustomerProfileViewModel model)
+        {
+            // Get the complete customer from the API
+            var customer = await _http.GetFromJsonAsync<UpdateCustomerDTO>(
+                $"api/Customer/{model.CustId}/edit");
+
+            if (customer == null)
+                return BadRequest("Customer not found.");
+
+            // Update only the comment fields
+            customer.BillingCom = model.BillingCom;
+            customer.PackoutCom = model.PackoutCom;
+            customer.WashCom = model.WashCom;
+            customer.Formula = model.Formula;
+            Console.WriteLine("MODEL FORMULA: " + model.Formula);
+            Console.WriteLine("CUSTOMER FORMULA BEFORE PUT: " + customer.Formula);
+            customer.SoilCom = model.SoilCom;
+            customer.DryerCom = model.DryerCom;
+            customer.ReceivingCom = model.ReceivingCom;
+            customer.ShippingCom = model.ShippingCom;
+            customer.DriverCom = model.DriverCom;
+            customer.MendCom = model.MendCom;
+            customer.QACom = model.QACom;
+            customer.CustSrvCom = model.CustSrvCom;
+            customer.OfficeCom = model.OfficeCom;
+            customer.GenOfficeCom = model.GenOfficeCom;
+            customer.MerControlCom = model.MerControlCom;
+            customer.MainCleanRoomCom = model.MainCleanRoomCom;
+            customer.QAInspCom = model.QAInspCom;
+            customer.ProdCom = model.ProdCom;
+
+            customer.UpdtTime = DateTime.Now;
+
+            if (customer.UpdtUser == 0)
+            {
+                customer.UpdtUser = 1;
+            }
+            // Save using the existing API
+            var response = await _http.PutAsJsonAsync(
+                $"api/Customer/{customer.CustId}",
+                customer);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                return BadRequest(error);
+            }
+
+            return Ok();
+        }
+
         public async Task<IActionResult> MaximumWash(int custId)
         {
             List<MaximumWashViewModel> model = new();
@@ -53,12 +125,14 @@ namespace GTS.MVC.Controllers
 
             if (custId > 0)
             {
-                model = await _http.GetFromJsonAsync<CustomerViewModel>
-                    ($"api/Customer/{custId}") ?? new CustomerViewModel();
+                model = await _http.GetFromJsonAsync<CustomerViewModel>(
+                    $"api/Customer/{custId}") ?? new CustomerViewModel();
             }
 
             return PartialView("_Profile", model);
         }
+
+
 
         [HttpPost]
         public async Task<IActionResult> AddMaximumWash([FromBody] MaximumWashViewModel model)
@@ -294,6 +368,203 @@ namespace GTS.MVC.Controllers
             }
 
             return Ok();
+        }
+        public async Task<IActionResult> Billing(int custId)
+        {
+            BillingViewModel model = new();
+
+            if (custId > 0)
+            {
+                model.Charges =
+                    await _http.GetFromJsonAsync<List<BillingChargeViewModel>>
+                    ($"api/Billing/{custId}") ?? new();
+
+                model.ChargeTypes =
+                    await _http.GetFromJsonAsync<List<BillingDataViewModel>>
+                    ("api/Billing/BillingData") ?? new();
+
+                var customer =
+                    await _http.GetFromJsonAsync<CustomerViewModel>
+                    ($"api/Customer/{custId}") ?? new CustomerViewModel();
+
+                model.BillingCom = customer.BillingCom;
+            }
+
+            return PartialView("_Billing", model);
+        }
+       [HttpPost]
+        public async Task<IActionResult> SaveBilling([FromBody] BillingChargeViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var response = await _http.PostAsJsonAsync("api/Billing", model);
+
+            var result = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+                return StatusCode((int)response.StatusCode, result);
+
+            return Content(result);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteBilling(int billingChargesId)
+        {
+            var response =
+                await _http.DeleteAsync($"api/Billing/{billingChargesId}");
+
+            var result =
+                await response.Content.ReadAsStringAsync();
+
+            return Ok(result);
+        }
+        public async Task<IActionResult> Packout(int custId)
+        {
+            PackoutViewModel model = new();
+
+            if (custId > 0)
+            {
+                model.PackoutDetails =
+                    await _http.GetFromJsonAsync<List<PackoutDetailsViewModel>>
+                    ($"api/Packout/{custId}") ?? new();
+
+                var itemCodes =
+                    await _http.GetFromJsonAsync<List<string>>
+                    ($"api/Packout/Items/{custId}") ?? new();
+
+                model.Items = itemCodes
+                    .Select(x => new PackoutItemViewModel
+                    {
+                        Item = x
+                    })
+                    .ToList();
+
+                var customer =
+                    await _http.GetFromJsonAsync<CustomerViewModel>
+                    ($"api/Customer/{custId}")
+                    ?? new CustomerViewModel();
+
+                model.PackoutCom = customer.PackoutCom;
+            }
+
+            return PartialView("_Packout", model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SavePackout([FromBody] PackoutSaveViewModel model)
+        {
+            var response =
+                await _http.PostAsJsonAsync("api/Packout", model);
+
+            var result =
+                await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+                return StatusCode((int)response.StatusCode, result);
+
+            return Ok(result);
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeletePackout(int pkoutRestrictId)
+        {
+            try
+            {
+                if (pkoutRestrictId <= 0)
+                    return BadRequest("Invalid Packout ID.");
+
+                var response =
+                    await _http.DeleteAsync(
+                        $"api/Packout/{pkoutRestrictId}");
+
+                var result =
+                    await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return StatusCode(
+                        (int)response.StatusCode,
+                        result);
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+        public async Task<IActionResult> Wash(int custId)
+        {
+            WashViewModel model = new();
+
+            if (custId > 0)
+            {
+                // Get Wash details
+                var wash =
+                    await _http.GetFromJsonAsync<WashDTO>
+                    ($"api/Wash/{custId}")
+                    ?? new WashDTO();
+
+                model.CustId = wash.CustId;
+                model.WashCom = wash.WashCom ?? "";
+
+                // ---------------------------------------------
+                // Parse Customer.Formula
+                //
+                // Example:
+                // All,6,Shirt,8,PANT,5
+                // ---------------------------------------------
+
+                if (!string.IsNullOrWhiteSpace(wash.Formula))
+                {
+                    var values =
+                        wash.Formula.Split(
+                            ',',
+                            StringSplitOptions.RemoveEmptyEntries);
+
+                    for (int i = 0;
+                         i + 1 < values.Length;
+                         i += 2)
+                    {
+                        model.Formulas.Add(
+                            new WashFormulaViewModel
+                            {
+                                GarmentType = values[i].Trim(),
+                                Formula = values[i + 1].Trim()
+                            });
+                    }
+                }
+
+                // ---------------------------------------------
+                // Get global Garment Types
+                // ---------------------------------------------
+
+                model.GarmentTypes =
+                    await _http.GetFromJsonAsync<List<string>>
+                    ("api/Wash/GarmentTypes")
+                    ?? new();
+            }
+
+            return PartialView("_Wash", model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SaveWash(
+            [FromBody] WashDTO model)
+        {
+            var response =
+                await _http.PostAsJsonAsync(
+                    "api/Wash",
+                    model);
+
+            var result =
+                await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+                return StatusCode(
+                    (int)response.StatusCode,
+                    result);
+
+            return Ok(result);
         }
     }
 }

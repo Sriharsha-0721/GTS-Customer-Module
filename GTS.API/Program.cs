@@ -36,13 +36,6 @@ builder.Services.AddScoped<
 //
 // CTS Settings
 //
-builder.Services.AddScoped<
-    IMaxWashRepository,
-    MaxWashRepository>();
-
-builder.Services.AddScoped<
-    IMaxWashService,
-    MaxWashService>();
 
 builder.Services.AddScoped<
     ICTSSettingRepository,
@@ -65,6 +58,17 @@ builder.Services.AddScoped<IWearerRepository, WearerRepository>();
 builder.Services.AddScoped<IWearerService, WearerService>();
 builder.Services.AddScoped<ISpecialLinesService, SpecialLinesService>();
 
+builder.Services.AddScoped<IMaxWashRepository, MaxWashRepository>();
+builder.Services.AddScoped<IMaxWashService, MaxWashService>();
+
+builder.Services.AddScoped<IBillingRepository, BillingRepository>();
+builder.Services.AddScoped<IBillingService, BillingService>();
+
+builder.Services.AddScoped<IPackoutRepository, PackoutRepository>();
+builder.Services.AddScoped<IPackoutService, PackoutService>();
+
+builder.Services.AddScoped<IWashRepository, WashRepository>();
+builder.Services.AddScoped<IWashService, WashService>();
 
 builder.Services.AddScoped<ISpecialLinesRepository, SpecialLinesRepository>();var app = builder.Build();
 

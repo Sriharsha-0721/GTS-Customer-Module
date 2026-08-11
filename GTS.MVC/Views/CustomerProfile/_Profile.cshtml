@@ -1,59 +1,227 @@
 ﻿@model GTS.MVC.Models.CustomerProfile.CustomerViewModel
 
-<div class="container-fluid mt-2">
+<div class="customer-profile">
 
-    @await Html.PartialAsync(
-        "_CustomerHeader",
-        Model)
+    @await Html.PartialAsync("_CustomerHeader", Model)
 
-    <!-- Customer Settings -->
+    <fieldset class="profile-section">
 
-    <div class="card mb-3">
+        <legend>Customer Settings</legend>
 
-        <div class="card-header">
+        <div class="row">
 
-            Customer Settings
+            <div class="col-md-3">
+
+                <label>Sterilization</label>
+
+                <select id="ddlSterileCode"
+                        class="form-select form-select-sm">
+
+                    <option>Sterile</option>
+
+                    <option selected>Non Sterile</option>
+
+                </select>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <label>Ship Via</label>
+
+                <input id="txtShipVia"
+                       type="text"
+                       class="form-control form-control-sm" />
+
+            </div>
+
+            <div class="col-md-3">
+
+                <label>Package</label>
+
+                <input id="txtPackage"
+                       type="text"
+                       class="form-control form-control-sm" />
+
+            </div>
+
+            <div class="col-md-3">
+
+                <label>Property Mark</label>
+
+                <input id="txtPropertyMark"
+                       type="text"
+                       class="form-control form-control-sm" />
+
+            </div>
 
         </div>
 
-        <div class="card-body">
+        <div class="row mt-3">
 
-            <div class="row">
+            <div class="col">
 
-                <div class="col-md-3">
+                <label class="me-4">
 
-                    <label>Sterilization</label>
+                    <input id="chkContaminatedSoil"
+                           type="checkbox" />
 
-                    <select class="form-select">
+                    Contaminated Soil
 
-                        <option>Non-Sterile</option>
-                        <option>Sterile</option>
+                </label>
 
-                    </select>
+                <label class="me-4">
 
-                </div>
+                    <input id="chkDeliveryTicket"
+                           type="checkbox" />
 
-                <div class="col-md-3">
+                    Delivery Ticket
 
-                    <label>Ship Via</label>
+                </label>
 
-                    <input class="form-control" />
+                <label>
 
-                </div>
+                    <input id="chkOnsiteInventory"
+                           type="checkbox" />
 
-                <div class="col-md-3">
+                    On-site Inventory
 
-                    <label>Package</label>
+                </label>
 
-                    <input class="form-control" />
+            </div>
 
-                </div>
+        </div>
 
-                <div class="col-md-3">
+    </fieldset>
 
-                    <label>Property Mark</label>
+    <div class="row mt-3">
+        <!-- LEFT MENU -->
 
-                    <input class="form-control" />
+        <div class="col-md-2">
+
+            <div class="legacy-menu">
+
+                <a id="lnkBilling"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Billing
+                </a>
+
+                <a id="lnkCustomerService"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Customer Service
+                </a>
+
+                <a id="lnkDryer"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Dryer
+                </a>
+
+                <a id="lnkDriver"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Driver
+                </a>
+
+                <a id="lnkGeneralOffice"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Gen. Office
+                </a>
+
+                <a id="lnkMainCleanroom"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Main Cleanroom
+                </a>
+
+                <a id="lnkMending"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Mending / Rework
+                </a>
+
+                <a id="lnkMerch"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Merch. Control
+                </a>
+
+                <a id="lnkOffice"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Office
+                </a>
+
+                <a id="lnkPackout"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Packout
+                </a>
+
+                <a id="lnkProduction"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Production
+                </a>
+
+                <a id="lnkQA"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Quality Assurance
+                </a>
+
+                <a id="lnkQAInspector"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    QA Inspector
+                </a>
+
+                <a id="lnkReceiving"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Receiving
+                </a>
+
+                <a id="lnkShipping"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Shipping
+                </a>
+
+                <a id="lnkSoil"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Soil
+                </a>
+
+                <a id="lnkWash"
+                   href="javascript:void(0)"
+                   class="legacy-menu-item">
+                    Wash
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+
+        <div class="col-md-10">
+
+            <div class="legacy-workspace">
+
+                <div id="CustomerModuleContainer">
+
+                    <div class="text-center text-muted mt-5">
+
+                        <h5>
+                            Select a module from the left menu
+                        </h5>
+
+                    </div>
 
                 </div>
 
@@ -63,64 +231,44 @@
 
     </div>
 
-    <div class="row">
+    <div class="row mt-3">
 
-        <div class="col-md-3">
+        <div class="col">
 
-            <div class="list-group">
+            <button id="btnMaxWash"
+                    class="btn btn-primary btn-sm">
 
-                <a class="list-group-item">Billing</a>
-                <a class="list-group-item">Customer Service</a>
-                <a class="list-group-item">Driver</a>
-                <a class="list-group-item">Dryer</a>
-                <a class="list-group-item">General Office</a>
-                <a class="list-group-item">Main Cleanroom</a>
-                <a class="list-group-item">Receiving</a>
-                <a class="list-group-item">Shipping</a>
-                <a class="list-group-item">Wash</a>
+                # of Washes
 
-            </div>
+            </button>
+
+            <button id="btnSpecialLines"
+                    class="btn btn-secondary btn-sm">
+
+                Special Lines
+
+            </button>
+
+            <button id="btnLineComments"
+                    class="btn btn-secondary btn-sm">
+
+                Line Comments
+
+            </button>
+
+            <button id="btnSaveCustomerProfile"
+                    type="button"
+                    class="btn btn-success btn-sm float-end">
+                Save
+            </button>
+
+            <button class="btn btn-danger btn-sm float-end me-2">
+
+                Exit
+
+            </button>
 
         </div>
-
-    </div>
-
-    <div class="mt-3">
-
-        <button id="btnMaxWash"
-                class="btn btn-primary">
-
-            # of Washes
-
-        </button>
-
-        <button id="btnSpecialLines"
-                class="btn btn-secondary">
-            Special Lines
-        </button>
-
-        <button id="btnLineComments"
-                class="btn btn-secondary">
-
-            Line Comments
-
-        </button>
-
-        <button class="btn btn-success">
-
-            Save
-
-        </button>
-
-        <button class="btn btn-danger">
-
-            Exit
-
-        </button>
-
-        <hr />
-
-        <div id="CustomerModuleContainer" class="mt-3"></div>
 
     </div>
 

@@ -44,10 +44,117 @@ namespace GTS.Application.CustomerServices
                 BillState = customer.BillState,
                 BillZipCod = customer.BillZipCod,
                 BillPhone = customer.BillPhone,
-                UpdtTime = customer.UpdtTime
+                UpdtTime = customer.UpdtTime,
+                ProdCom = customer.ProdCom,
+                OfficeCom = customer.OfficeCom,
+                GenOfficeCom = customer.GenOfficeCom,
+                MerControlCom = customer.MerControlCom,
+                ReceivingCom = customer.ReceivingCom,
+                SoilCom = customer.SoilCom,
+                WashCom = customer.WashCom,
+                DryerCom = customer.DryerCom,
+                MainCleanRoomCom = customer.MainCleanRoomCom,
+                PackoutCom = customer.PackoutCom,
+                ShippingCom = customer.ShippingCom,
+                DriverCom = customer.DriverCom,
+                MendCom = customer.MendCom,
+                QACom = customer.QACom,
+                CustSrvCom = customer.CustSrvCom,
+                BillingCom = customer.BillingCom,
+                QAInspCom = customer.QAInspCom,
             };
         }
 
+        private UpdateCustomerDTO MapToUpdateDTO(Customer customer)
+        {
+            return new UpdateCustomerDTO
+            {
+                CustId = customer.CustId,
+                MarketCenter = customer.MarketCenter,
+                CustNbr = customer.CustNbr,
+                Account = customer.Account,
+                Dept = customer.Dept,
+                Name = customer.Name,
+                Route = customer.Route,
+                GID = customer.GID,
+                StopDt = customer.StopDt,
+
+                MonSeq = customer.MonSeq,
+                TueSeq = customer.TueSeq,
+                WedSeq = customer.WedSeq,
+                ThuSeq = customer.ThuSeq,
+                FriSeq = customer.FriSeq,
+                SatSeq = customer.SatSeq,
+                SunSeq = customer.SunSeq,
+
+                Addr1 = customer.Addr1,
+                Addr2 = customer.Addr2,
+                City = customer.City,
+                State = customer.State,
+                Zip = customer.Zip,
+                Phone = customer.Phone,
+                Fax = customer.Fax,
+                Freq = customer.Freq,
+
+                OSSFlag = customer.OSSFlag,
+                SoilFlag = customer.SoilFlag,
+                LRFlag = customer.LRFlag,
+                STFlag = customer.STFlag,
+
+                InvSeq = customer.InvSeq,
+                MastAcctNbr = customer.MastAcctNbr,
+                NatAcctNbr = customer.NatAcctNbr,
+
+                PrepFlag = customer.PrepFlag,
+                NameFlag = customer.NameFlag,
+                ProdFlag = customer.ProdFlag,
+                EmbrFlag = customer.EmbrFlag,
+
+                CreateDt = customer.CreateDt,
+                PONumber = customer.PONumber,
+
+                SterileCode = customer.SterileCode,
+                CtmndFlg = customer.CtmndFlg,
+                DelTicket = customer.DelTicket,
+
+                PropertyMark = customer.PropertyMark,
+                ShipVia = customer.ShipVia,
+                Package = customer.Package,
+                Contact = customer.Contact,
+
+                BillName = customer.BillName,
+                BillAddr = customer.BillAddr,
+                BillExAddr = customer.BillExAddr,
+                BillCity = customer.BillCity,
+                BillState = customer.BillState,
+                BillZipCod = customer.BillZipCod,
+                BillPhone = customer.BillPhone,
+
+                CntnrsIn = customer.CntnrsIn,
+                CntnrsOut = customer.CntnrsOut,
+
+                UpdtUser = customer.UpdtUser,
+                UpdtTime = customer.UpdtTime,
+
+                BillingCom = customer.BillingCom,
+                PackoutCom = customer.PackoutCom,
+                WashCom = customer.WashCom,
+                SoilCom = customer.SoilCom,
+                DryerCom = customer.DryerCom,
+                ReceivingCom = customer.ReceivingCom,
+                ShippingCom = customer.ShippingCom,
+                DriverCom = customer.DriverCom,
+                MendCom = customer.MendCom,
+                QACom = customer.QACom,
+                CustSrvCom = customer.CustSrvCom,
+                OfficeCom = customer.OfficeCom,
+                GenOfficeCom = customer.GenOfficeCom,
+                MerControlCom = customer.MerControlCom,
+                MainCleanRoomCom = customer.MainCleanRoomCom,
+                QAInspCom = customer.QAInspCom,
+                ProdCom = customer.ProdCom
+            };
+        }
         public async Task<IEnumerable<CustomerDTO>> GetAllCustomersAsync()
         {
             var customers = await _repository.GetAllAsync();
@@ -64,6 +171,15 @@ namespace GTS.Application.CustomerServices
             return MapToDTO(customer);
         }
 
+        public async Task<UpdateCustomerDTO?> GetCustomerForUpdateAsync(int id)
+        {
+            var customer = await _repository.GetByIdAsync(id);
+
+            if (customer == null)
+                return null;
+
+            return MapToUpdateDTO(customer);
+        }
         public async Task<CustomerDTO?> AddCustomerAsync(CreateCustomerDTO dto)
         {
             var customer = new Customer
@@ -188,6 +304,23 @@ namespace GTS.Application.CustomerServices
             customer.CntnrsOut = dto.CntnrsOut;
             customer.UpdtUser = dto.UpdtUser;
             customer.UpdtTime = dto.UpdtTime;
+            customer.BillingCom = dto.BillingCom;
+            customer.PackoutCom = dto.PackoutCom;
+            customer.WashCom = dto.WashCom;
+            customer.SoilCom = dto.SoilCom;
+            customer.DryerCom = dto.DryerCom;
+            customer.ReceivingCom = dto.ReceivingCom;
+            customer.ShippingCom = dto.ShippingCom;
+            customer.DriverCom = dto.DriverCom;
+            customer.MendCom = dto.MendCom;
+            customer.QACom = dto.QACom;
+            customer.CustSrvCom = dto.CustSrvCom;
+            customer.OfficeCom = dto.OfficeCom;
+            customer.GenOfficeCom = dto.GenOfficeCom;
+            customer.MerControlCom = dto.MerControlCom;
+            customer.MainCleanRoomCom = dto.MainCleanRoomCom;
+            customer.QAInspCom = dto.QAInspCom;
+            customer.ProdCom = dto.ProdCom;
 
             await _repository.UpdateAsync(customer);
         }

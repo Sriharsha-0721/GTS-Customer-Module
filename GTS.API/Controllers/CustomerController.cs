@@ -29,6 +29,17 @@ namespace GTS.API.Controllers
             return Ok(customer);
         }
 
+        [HttpGet("{id}/edit")]
+        public async Task<ActionResult<UpdateCustomerDTO>> GetForUpdate(int id)
+        {
+            var customer = await _service.GetCustomerForUpdateAsync(id);
+
+            if (customer == null)
+                return NotFound();
+
+            return Ok(customer);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateCustomerDTO customerDto)
         {
@@ -37,9 +48,15 @@ namespace GTS.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(UpdateCustomerDTO customerDto)
+        public async Task<IActionResult> Put(
+            int id,
+            [FromBody] UpdateCustomerDTO customerDto)
         {
+            if (id != customerDto.CustId)
+                return BadRequest();
+
             await _service.UpdateCustomerAsync(customerDto);
+
             return NoContent();
         }
 

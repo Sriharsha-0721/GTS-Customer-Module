@@ -1,0 +1,158 @@
+﻿@model GTS.MVC.Models.Packout.PackoutViewModel
+
+<div class="packout-wrapper">
+
+    <!-- Notes -->
+
+    <div class="row">
+
+        <div class="col-md-9">
+
+            <textarea id="txtPackoutNotes"
+                      class="billing-notes"></textarea>
+
+            <input type="hidden"
+                   id="hdnPackoutComment"
+                   value="@Model.PackoutCom" />
+
+        </div>
+
+    </div>
+
+    <!-- Grid -->
+
+    <div class="row mt-2">
+
+        <div class="col-md-9">
+
+            <table class="table table-sm billing-grid"
+                   id="tblPackout">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Packout Restriction</th>
+
+                        <th>Item</th>
+
+                        <th>Color</th>
+
+                        <th>Size</th>
+
+                        <th width="60"></th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model.PackoutDetails)
+                    {
+                        <tr>
+
+                            <td>@item.PkoutRestrict</td>
+
+                            <td>@item.Item</td>
+
+                            <td>@item.Color</td>
+
+                            <td>@item.Size</td>
+
+                            <td class="text-center">
+
+                                <button class="deletePackout iconButton"
+                                        data-id="@item.PkoutRestrictId">
+
+                                    🗑
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                    <!-- Hidden Row -->
+
+                    <tr id="newPackoutRow" style="display:none;">
+
+                        <td>
+
+                            <select id="ddlPackoutRestriction"
+                                    class="form-select form-select-sm">
+
+                                <option value="YES">YES</option>
+
+                                <option value="NO">NO</option>
+
+                            </select>
+
+                        </td>
+
+                        <td>
+
+                            <select id="ddlPackoutItem"
+                                    class="form-select form-select-sm">
+
+                                @foreach (var item in Model.Items)
+                                {
+                                    <option value="@item.Item">
+
+                                        @item.Item
+
+                                    </option>
+                                }
+
+                            </select>
+
+                        </td>
+
+                        <td>
+
+                            <input id="txtPackoutColor"
+                                   class="form-control form-control-sm" />
+
+                        </td>
+
+                        <td>
+
+                            <input id="txtPackoutSize"
+                                   class="form-control form-control-sm" />
+
+                        </td>
+
+                        <td></td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="col-md-3 d-flex align-items-center justify-content-center">
+
+            <button id="btnAddPackout"
+                    class="circleButton">
+
+                +
+
+            </button>
+
+            <button id="btnSavePackout"
+                    class="saveButton ms-2">
+
+                💾
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

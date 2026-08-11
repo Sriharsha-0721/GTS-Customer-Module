@@ -1,8 +1,9 @@
-﻿using Microsoft.Data.SqlClient;
-using System.Data;
-using GTS.Application.Interfaces.CustomerRepositories;
+﻿using GTS.Application.Interfaces.CustomerRepositories;
 using GTS.Domain.Entities;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Data;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace GTS.Infrastructure.CustomerRepositories
 {
@@ -50,7 +51,24 @@ namespace GTS.Infrastructure.CustomerRepositories
                 BillState = reader.IsDBNull(reader.GetOrdinal("BillState")) ? null : reader.GetString(reader.GetOrdinal("BillState")),
                 BillZipCod = reader.IsDBNull(reader.GetOrdinal("BillZipCod")) ? null : reader.GetString(reader.GetOrdinal("BillZipCod")),
                 BillPhone = reader.IsDBNull(reader.GetOrdinal("BillPhone")) ? null : reader.GetString(reader.GetOrdinal("BillPhone")),
-                UpdtTime = reader.GetDateTime(reader.GetOrdinal("UpdtTime"))
+                UpdtTime = reader.GetDateTime(reader.GetOrdinal("UpdtTime")),
+                ProdCom = reader.IsDBNull(reader.GetOrdinal("ProdCom")) ? null : reader.GetString(reader.GetOrdinal("ProdCom")),
+                OfficeCom = reader.IsDBNull(reader.GetOrdinal("OfficeCom")) ? null : reader.GetString(reader.GetOrdinal("OfficeCom")),
+                GenOfficeCom = reader.IsDBNull(reader.GetOrdinal("GenOfficeCom")) ? null : reader.GetString(reader.GetOrdinal("GenOfficeCom")),
+                MerControlCom = reader.IsDBNull(reader.GetOrdinal("MerControlCom")) ? null : reader.GetString(reader.GetOrdinal("MerControlCom")),
+                ReceivingCom = reader.IsDBNull(reader.GetOrdinal("ReceivingCom")) ? null : reader.GetString(reader.GetOrdinal("ReceivingCom")),
+                SoilCom = reader.IsDBNull(reader.GetOrdinal("SoilCom")) ? null : reader.GetString(reader.GetOrdinal("SoilCom")),
+                WashCom = reader.IsDBNull(reader.GetOrdinal("WashCom")) ? null : reader.GetString(reader.GetOrdinal("WashCom")),
+                DryerCom = reader.IsDBNull(reader.GetOrdinal("DryerCom")) ? null : reader.GetString(reader.GetOrdinal("DryerCom")),
+                MainCleanRoomCom = reader.IsDBNull(reader.GetOrdinal("MainCleanRoomCom")) ? null : reader.GetString(reader.GetOrdinal("MainCleanRoomCom")),
+                PackoutCom = reader.IsDBNull(reader.GetOrdinal("PackoutCom")) ? null : reader.GetString(reader.GetOrdinal("PackoutCom")),
+                ShippingCom = reader.IsDBNull(reader.GetOrdinal("ShippingCom")) ? null : reader.GetString(reader.GetOrdinal("ShippingCom")),
+                DriverCom = reader.IsDBNull(reader.GetOrdinal("DriverCom")) ? null : reader.GetString(reader.GetOrdinal("DriverCom")),
+                MendCom = reader.IsDBNull(reader.GetOrdinal("MendCom")) ? null : reader.GetString(reader.GetOrdinal("MendCom")),
+                QACom = reader.IsDBNull(reader.GetOrdinal("QACom")) ? null : reader.GetString(reader.GetOrdinal("QACom")),
+                CustSrvCom = reader.IsDBNull(reader.GetOrdinal("CustSrvCom")) ? null : reader.GetString(reader.GetOrdinal("CustSrvCom")),
+                BillingCom = reader.IsDBNull(reader.GetOrdinal("BillingCom")) ? null : reader.GetString(reader.GetOrdinal("BillingCom")),
+                QAInspCom = reader.IsDBNull(reader.GetOrdinal("QAInspCom")) ? null : reader.GetString(reader.GetOrdinal("QAInspCom")),
             };
         }
 
@@ -111,6 +129,24 @@ namespace GTS.Infrastructure.CustomerRepositories
             cmd.Parameters.AddWithValue("@CntnrsOut", (object?)customer.CntnrsOut ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@UpdtUser", customer.UpdtUser);
             cmd.Parameters.AddWithValue("@UpdtTime", customer.UpdtTime);
+            cmd.Parameters.AddWithValue("@BillingCom", (object?)customer.BillingCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@PackoutCom", (object?)customer.PackoutCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@WashCom", (object?)customer.WashCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@SoilCom", (object?)customer.SoilCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@DryerCom", (object?)customer.DryerCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ReceivingCom", (object?)customer.ReceivingCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ShippingCom", (object?)customer.ShippingCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@DriverCom", (object?)customer.DriverCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MendCom", (object?)customer.MendCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@QACom", (object?)customer.QACom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@CustSrvCom", (object?)customer.CustSrvCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@OfficeCom", (object?)customer.OfficeCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@GenOfficeCom", (object?)customer.GenOfficeCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MerControlCom", (object?)customer.MerControlCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@MainCleanRoomCom", (object?)customer.MainCleanRoomCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@QAInspCom", (object?)customer.QAInspCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@ProdCom", (object?)customer.ProdCom ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Formula", (object?)customer.Formula ?? DBNull.Value);
         }
 
         public async Task<IEnumerable<Customer>> GetAllAsync()

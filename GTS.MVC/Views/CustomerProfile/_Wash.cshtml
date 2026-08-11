@@ -1,0 +1,128 @@
+﻿@model GTS.MVC.Models.Wash.WashViewModel
+
+<!-- Wash Notes -->
+
+<div class="row">
+
+    <div class="col-md-9">
+
+        <textarea id="txtWashNotes"
+                  class="billing-notes"
+                  rows="4">@Model.WashCom</textarea>
+
+    </div>
+
+</div>
+
+
+<!-- Garment Type / Formula Grid -->
+
+<div class="row mt-2">
+
+    <div class="col-md-9">
+
+        <table class="table table-sm billing-grid"
+               id="tblWash">
+
+            <thead>
+
+                <tr>
+
+                    <th>Garment Type</th>
+
+                    <th>Formula</th>
+
+                    <th width="60"></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model.Formulas)
+                {
+                    <tr>
+
+                        <td>
+                            @item.GarmentType
+                        </td>
+
+                        <td>
+                            @item.Formula
+                        </td>
+
+                        <td class="text-center">
+
+                            <button type="button"
+                                    class="deleteWash iconButton"
+                                    title="Delete">
+
+                                🗑
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+                <!-- New Row -->
+
+                <tr id="newWashRow" style="display:none;">
+
+                    <td>
+                        <select id="ddlWashGarmentType"
+                                class="form-select form-select-sm">
+
+                            @foreach (var item in Model.GarmentTypes)
+                            {
+                                <option value="@item">
+                                    @item
+                                </option>
+                            }
+
+                        </select>
+                    </td>
+
+                    <td>
+                        <input id="txtWashFormula"
+                               type="text"
+                               class="form-control form-control-sm" />
+                    </td>
+
+                    <td></td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- Buttons -->
+
+    <div class="col-md-3 d-flex align-items-center justify-content-center">
+
+        <button type="button"
+                id="btnAddWash"
+                class="circleButton">
+
+            +
+
+        </button>
+
+        <button type="button"
+                id="btnSaveWash"
+                class="saveButton ms-2">
+
+            💾
+
+        </button>
+
+    </div>
+
+</div>  
