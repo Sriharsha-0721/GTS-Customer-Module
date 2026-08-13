@@ -1,0 +1,15 @@
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\bin\Debug\net10.0\GTSCustomerAPI.Application.deps.json
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\bin\Debug\net10.0\GTSCustomerAPI.Application.dll
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\bin\Debug\net10.0\GTSCustomerAPI.Application.pdb
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\bin\Debug\net10.0\GTSCustomerAPI.Domain.dll
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\bin\Debug\net10.0\GTSCustomerAPI.Domain.pdb
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\GTSCustomerAPI.Application.csproj.AssemblyReference.cache
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\GTSCustomerAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\GTSCustomerAPI.Application.AssemblyInfoInputs.cache
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\GTSCustomerAPI.Application.AssemblyInfo.cs
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\GTSCustomerAPI.Application.csproj.CoreCompileInputs.cache
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\GTSCusto.161BCF9C.Up2Date
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\GTSCustomerAPI.Application.dll
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\refint\GTSCustomerAPI.Application.dll
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\GTSCustomerAPI.Application.pdb
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Application\obj\Debug\net10.0\ref\GTSCustomerAPI.Application.dll

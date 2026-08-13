@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "bavx8jgAc3Y=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hemasree.koyyana\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\10.0.9\\microsoft.aspnetcore.jsonpatch.10.0.9.nupkg.sha512",
+    "C:\\Users\\hemasree.koyyana\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\10.0.9\\microsoft.aspnetcore.mvc.newtonsoftjson.10.0.9.nupkg.sha512",
+    "C:\\Users\\hemasree.koyyana\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\hemasree.koyyana\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

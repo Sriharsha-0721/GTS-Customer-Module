@@ -1,0 +1,89 @@
+﻿using GTSCustomerAPI.Application.Interfaces;
+
+using GTSCustomerAPI.Application.Services;
+
+using GTSCustomerAPI.Domain.Interfaces;
+
+using GTSCustomerAPI.Infrastructure.Data;
+
+using GTSCustomerAPI.Infrastructure.Repositories;
+
+using Microsoft.EntityFrameworkCore;
+
+
+
+var builder = WebApplication.CreateBuilder(args);
+
+
+
+// 1. Database 
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+
+  options.UseSqlServer(
+    builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+// 2. Dependency Injection 
+
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+
+
+
+// 3. Controllers + Swagger 
+
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(c =>
+
+{
+
+    c.SwaggerDoc("v1", new() { Title = "GTS Customer API", Version = "v1" });
+
+});
+
+
+
+var app = builder.Build();
+
+// Apply pending migrations
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
+
+// 4. Swagger UI — available in Development 
+
+if (app.Environment.IsDevelopment())
+
+{
+
+    app.UseSwagger();
+
+    app.UseSwaggerUI(c =>
+
+    {
+
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "GTS Customer API v1");
+
+        c.RoutePrefix = "swagger";   // URL: /swagger 
+
+    });
+
+}
+
+
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

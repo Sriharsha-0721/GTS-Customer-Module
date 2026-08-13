@@ -1,0 +1,96 @@
+﻿using GTSCustomerAPI.Domain.Entities;
+using GTSCustomerAPI.Domain.Interfaces;
+using GTSCustomerAPI.Infrastructure.Data;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using GTSCustomerAPI.Domain.Entities; 
+
+using GTSCustomerAPI.Domain.Interfaces; 
+
+using GTSCustomerAPI.Infrastructure.Data; 
+
+using Microsoft.EntityFrameworkCore; 
+
+  
+
+namespace GTSCustomerAPI.Infrastructure.Repositories;
+
+
+
+public class CustomerRepository : ICustomerRepository
+
+{
+
+    private readonly AppDbContext _ctx;
+
+    public CustomerRepository(AppDbContext ctx) => _ctx = ctx;
+
+
+
+    public async Task<IEnumerable<Customer>> GetAllAsync()
+
+        => await _ctx.Customers.AsNoTracking().ToListAsync();
+
+
+
+    public async Task<Customer?> GetByIdAsync(int id)
+
+        => await _ctx.Customers.AsNoTracking()
+
+                               .FirstOrDefaultAsync(c => c.Id == id);
+
+
+
+    public async Task<Customer> CreateAsync(Customer customer)
+
+    {
+
+        _ctx.Customers.Add(customer);
+
+        await _ctx.SaveChangesAsync();
+
+        return customer;
+
+    }
+
+
+
+    public async Task<Customer?> UpdateAsync(int id, Customer customer)
+
+    {
+
+        var existing = await _ctx.Customers.FindAsync(id);
+
+        if (existing is null) return null;
+
+        _ctx.Entry(existing).CurrentValues.SetValues(customer);
+
+        existing.Id = id;
+
+        await _ctx.SaveChangesAsync();
+
+        return existing;
+
+    }
+
+
+
+    public async Task<bool> DeleteAsync(int id)
+
+    {
+
+        var customer = await _ctx.Customers.FindAsync(id);
+
+        if (customer is null) return false;
+
+        _ctx.Customers.Remove(customer);
+
+        await _ctx.SaveChangesAsync();
+
+        return true;
+
+    }
+
+}

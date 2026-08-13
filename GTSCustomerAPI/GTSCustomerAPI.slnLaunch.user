@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

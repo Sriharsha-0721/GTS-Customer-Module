@@ -1,0 +1,11 @@
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\bin\Debug\net10.0\GTSCustomerAPI.Domain.deps.json
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\bin\Debug\net10.0\GTSCustomerAPI.Domain.dll
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\bin\Debug\net10.0\GTSCustomerAPI.Domain.pdb
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\obj\Debug\net10.0\GTSCustomerAPI.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\obj\Debug\net10.0\GTSCustomerAPI.Domain.AssemblyInfoInputs.cache
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\obj\Debug\net10.0\GTSCustomerAPI.Domain.AssemblyInfo.cs
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\obj\Debug\net10.0\GTSCustomerAPI.Domain.csproj.CoreCompileInputs.cache
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\obj\Debug\net10.0\GTSCustomerAPI.Domain.dll
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\obj\Debug\net10.0\refint\GTSCustomerAPI.Domain.dll
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\obj\Debug\net10.0\GTSCustomerAPI.Domain.pdb
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Domain\obj\Debug\net10.0\ref\GTSCustomerAPI.Domain.dll

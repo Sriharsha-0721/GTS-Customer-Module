@@ -1,0 +1,1434 @@
+{
+  "openapi": "3.0.4",
+  "info": { },
+  "paths": {
+    "/api/Billing/billingcharge-details/{custId}": {
+      "get": {
+        "tags": [
+          "Billing"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Billing/billing-details": {
+      "get": {
+        "tags": [
+          "Billing"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Billing/save-billing": {
+      "post": {
+        "tags": [
+          "Billing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BillingChargeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BillingChargeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BillingChargeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Billing/delete-billing/{billingChargeId}": {
+      "delete": {
+        "tags": [
+          "Billing"
+        ],
+        "parameters": [
+          {
+            "name": "billingChargeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CTSSettings/{custId}": {
+      "get": {
+        "tags": [
+          "CTSSettings"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CTSSettingsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CTSSettingsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CTSSettingsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CTSSettings": {
+      "post": {
+        "tags": [
+          "CTSSettings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCTSSettingsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCTSSettingsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCTSSettingsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CustomerAdmin/{custId}": {
+      "get": {
+        "tags": [
+          "CustomerAdmin"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerAdminDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerAdminDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerAdminDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CustomerAdmin": {
+      "post": {
+        "tags": [
+          "CustomerAdmin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCustomerAdminDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCustomerAdminDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCustomerAdminDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CustomerProfile/{custId}": {
+      "get": {
+        "tags": [
+          "CustomerProfile"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerProfileDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerProfileDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerProfileDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CustomerProfile": {
+      "post": {
+        "tags": [
+          "CustomerProfile"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerProfileDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerProfileDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerProfileDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Customers": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Customers/{id}": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Customers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Customers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dosage/{custId}": {
+      "get": {
+        "tags": [
+          "Dosage"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dosage/update": {
+      "post": {
+        "tags": [
+          "Dosage"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerDosageDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerDosageDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerDosageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Packout/details/{custId}": {
+      "get": {
+        "tags": [
+          "Packout"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Packout/items/{custId}": {
+      "get": {
+        "tags": [
+          "Packout"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Packout/save": {
+      "post": {
+        "tags": [
+          "Packout"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PackoutRestrictDataDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PackoutRestrictDataDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PackoutRestrictDataDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Packout/delete/{restrictId}": {
+      "delete": {
+        "tags": [
+          "Packout"
+        ],
+        "parameters": [
+          {
+            "name": "restrictId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wearer/{custId}/all": {
+      "get": {
+        "tags": [
+          "Wearer"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wearer/{custId}/first": {
+      "get": {
+        "tags": [
+          "Wearer"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wearer/{custId}/next/{lastWrId}": {
+      "get": {
+        "tags": [
+          "Wearer"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "lastWrId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wearer/{custId}/prev/{firstWrId}": {
+      "get": {
+        "tags": [
+          "Wearer"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "firstWrId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wearer/{custId}/search/{wearNbr}": {
+      "get": {
+        "tags": [
+          "Wearer"
+        ],
+        "parameters": [
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "wearNbr",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wearer": {
+      "post": {
+        "tags": [
+          "Wearer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WearerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WearerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WearerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BillingChargeDto": {
+        "type": "object",
+        "properties": {
+          "billingChargeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "custID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "charges": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "updatedUser": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CTSSettingsDto": {
+        "type": "object",
+        "properties": {
+          "custId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "custNbr": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "marketCenter": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "route": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "gid": {
+            "type": "string",
+            "nullable": true
+          },
+          "printIssueStatusFlag": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "printBornonDateFlag": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nogFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "labelHeader": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCustomerDto": {
+        "type": "object",
+        "properties": {
+          "marketCenter": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "custNbr": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "account": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dept": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "route": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "garmInServ": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gid": {
+            "type": "string",
+            "nullable": true
+          },
+          "stopDt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "monSeq": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tueSeq": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wedSeq": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "thuSeq": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "friSeq": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "satSeq": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sunSeq": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "addr1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "fax": {
+            "type": "string",
+            "nullable": true
+          },
+          "freq": {
+            "type": "string",
+            "nullable": true
+          },
+          "ossFlag": {
+            "type": "boolean"
+          },
+          "poNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "billName": {
+            "type": "string",
+            "nullable": true
+          },
+          "billAddr": {
+            "type": "string",
+            "nullable": true
+          },
+          "billCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "billState": {
+            "type": "string",
+            "nullable": true
+          },
+          "billZipCod": {
+            "type": "string",
+            "nullable": true
+          },
+          "updtUser": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerAdminDto": {
+        "type": "object",
+        "properties": {
+          "custId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ossFlag": {
+            "type": "boolean"
+          },
+          "stFlag": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerDosageDto": {
+        "type": "object",
+        "properties": {
+          "custId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dosage": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomerProfileDto": {
+        "type": "object",
+        "properties": {
+          "custId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "marketCenter": {
+            "type": "string",
+            "nullable": true
+          },
+          "custNbr": {
+            "type": "string",
+            "nullable": true
+          },
+          "sterileCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ctmndFlg": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "delTicket": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "propertyMark": {
+            "type": "string",
+            "nullable": true
+          },
+          "shipVia": {
+            "type": "string",
+            "nullable": true
+          },
+          "package": {
+            "type": "string",
+            "nullable": true
+          },
+          "prodCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "officeCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "genOfficeCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "merControlCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "receivingCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "soilCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "washCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "dryerCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "mainCleanRoomCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "packoutCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "driverCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "mendCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "qaCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "custSrvCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "ossFlag": {
+            "type": "boolean"
+          },
+          "qaInspCom": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PackoutRestrictDataDto": {
+        "type": "object",
+        "properties": {
+          "updatedUser": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "packoutRestrict": {
+            "type": "string",
+            "nullable": true
+          },
+          "itemType": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SaveCTSSettingsDto": {
+        "type": "object",
+        "properties": {
+          "custId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "printIssueStatusFlag": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "printBornonDateFlag": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nogFlag": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "labelHeader": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SaveCustomerAdminDto": {
+        "type": "object",
+        "properties": {
+          "custId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ossFlag": {
+            "type": "boolean"
+          },
+          "stFlag": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCustomerDto": {
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dept": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "route": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "addr1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "fax": {
+            "type": "string",
+            "nullable": true
+          },
+          "freq": {
+            "type": "string",
+            "nullable": true
+          },
+          "ossFlag": {
+            "type": "boolean"
+          },
+          "poNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "billName": {
+            "type": "string",
+            "nullable": true
+          },
+          "billAddr": {
+            "type": "string",
+            "nullable": true
+          },
+          "billCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "billState": {
+            "type": "string",
+            "nullable": true
+          },
+          "billZipCod": {
+            "type": "string",
+            "nullable": true
+          },
+          "updtUser": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCustomerProfileDto": {
+        "type": "object",
+        "properties": {
+          "custID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sterileCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ctmndFlg": {
+            "type": "boolean"
+          },
+          "delTicket": {
+            "type": "boolean"
+          },
+          "propertyMark": {
+            "type": "string",
+            "nullable": true
+          },
+          "shipVia": {
+            "type": "string",
+            "nullable": true
+          },
+          "package": {
+            "type": "string",
+            "nullable": true
+          },
+          "prodCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "officeCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "genOfficeCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "merControlCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "receivingCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "soilCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "washCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "dryerCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "mainCleanRoomCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "packoutCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "shippingCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "driverCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "mendCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "qaCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "custSrvCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingCom": {
+            "type": "string",
+            "nullable": true
+          },
+          "userID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ossFlag": {
+            "type": "boolean"
+          },
+          "qaInspCom": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WearerDto": {
+        "required": [
+          "wearerId"
+        ],
+        "type": "object",
+        "properties": {
+          "wearerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "locker": {
+            "type": "string",
+            "nullable": true
+          },
+          "lockRm": {
+            "type": "string",
+            "nullable": true
+          },
+          "isMale": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Billing"
+    },
+    {
+      "name": "CTSSettings"
+    },
+    {
+      "name": "CustomerAdmin"
+    },
+    {
+      "name": "CustomerProfile"
+    },
+    {
+      "name": "Customers"
+    },
+    {
+      "name": "Dosage"
+    },
+    {
+      "name": "Packout"
+    },
+    {
+      "name": "Wearer"
+    }
+  ]
+}
