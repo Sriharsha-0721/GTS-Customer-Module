@@ -62,6 +62,9 @@ namespace GTS.Application.CustomerServices
                 CustSrvCom = customer.CustSrvCom,
                 BillingCom = customer.BillingCom,
                 QAInspCom = customer.QAInspCom,
+
+                OSSFlag = customer.OSSFlag,
+                STFlag = customer.STFlag ?? false
             };
         }
 

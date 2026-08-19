@@ -12,16 +12,14 @@
 
             <div class="form-check">
 
-                <input id="ossFlag"
-                       class="form-check-input"
-                       type="checkbox"
-                       disabled />
+<input asp-for="OSSFlag"
+       id="ossFlag"
+       class="form-check-input" />
 
-                <label class="form-check-label">
-
-                    Onsite Scanning
-
-                </label>
+<label asp-for="OSSFlag"
+       class="form-check-label">
+    Onsite Scanning
+</label>
 
             </div>
 
@@ -31,15 +29,13 @@
 
             <div class="form-check">
 
-                <input id="stFlag"
-                       class="form-check-input"
-                       type="checkbox"
-                       disabled />
+                <input asp-for="STFlag"
+                       id="stFlag"
+                       class="form-check-input" />
 
-                <label class="form-check-label">
-
+                <label asp-for="STFlag"
+                       class="form-check-label">
                     Data Mart Extract
-
                 </label>
 
             </div>
@@ -51,10 +47,9 @@
     <div class="mt-4 text-end">
 
         <button id="btnSaveCustomer"
+                type="button"
                 class="btn btn-primary">
-
             Save
-
         </button>
 
     </div>

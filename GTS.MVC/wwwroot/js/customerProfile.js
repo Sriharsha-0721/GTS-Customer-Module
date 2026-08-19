@@ -172,24 +172,55 @@ function openModule(moduleName) {
     });
 
 }
-function openCustomerProfileModule(moduleName) {
+function openCustomerProfileModule(moduleName, params = {}) {
 
     const customer = getSelectedCustomer();
 
-    let url = `/CustomerProfile/${moduleName}`;
-
-    if (customer) {
-        url += `?custId=${customer.CustId}`;
+    if (!customer) {
+        alert("Please select a customer first.");
+        return;
     }
 
-    $.get(url, function (html) {
+    let url = `/CustomerProfile/${moduleName}`;
 
-        $("#CustomerModuleContainer").html(html);
+    const query = [];
 
-        afterModuleLoaded(moduleName);
+    query.push(`custId=${encodeURIComponent(customer.CustId)}`);
 
+    Object.keys(params).forEach(function (key) {
+
+        const value = params[key];
+
+        if (
+            value !== null &&
+            value !== undefined &&
+            value !== ""
+        ) {
+            query.push(
+                `${key}=${encodeURIComponent(value)}`
+            );
+        }
     });
+
+    url += "?" + query.join("&");
+
+    $.get(url)
+        .done(function (html) {
+
+            $("#CustomerModuleContainer")
+                .html(html);
+
+        })
+        .fail(function (xhr) {
+
+            console.error(
+                "Module load failed:",
+                xhr.status,
+                xhr.responseText
+            );
+        });
 }
+
 
 // =====================================================
 // Customer Search
@@ -1298,34 +1329,6 @@ $(document)
 
     });
 
-function refreshBillingNotes() {
-
-    let comment = $("#txtBillingNotes").data("comment") || "";
-
-    let entries = [];
-
-    $("#tblBilling tbody tr").not("#newBillingRow").each(function () {
-
-        const charge = $(this).find("td:eq(0)").text().trim();
-        const amount = $(this).find("td:eq(1)").text().trim();
-
-        if (charge && amount) {
-            entries.push(charge + " : " + amount);
-        }
-    });
-
-    let text = comment;
-
-    if (entries.length > 0) {
-
-        if (text !== "")
-            text += "\n\n";  
-
-        text += entries.join("\n");  
-    }
-
-    $("#txtBillingNotes").val(text);
-}
 function initializeBilling() {
 
     let fullComment = $("#hdnBillingComment").val() || "";
@@ -1355,28 +1358,61 @@ function initializeBilling() {
     $("#newBillingRow").hide();
 
     $("#btnCancelBilling").hide();
+}
+function refreshBillingNotes() {
 
-    $(document).off("click.billing");
+    let comment = $("#txtBillingNotes").data("comment") || "";
 
-    $(document).on("click.billing", "#btnAddBilling", function () {
+    let entries = [];
+
+    $("#tblBilling tbody tr").not("#newBillingRow").each(function () {
+
+        const charge = $(this).find("td:eq(0)").text().trim();
+        const amount = $(this).find("td:eq(1)").text().trim();
+
+        if (charge && amount) {
+            entries.push(charge + " : " + amount);
+        }
+    });
+
+    let text = comment;
+
+    if (entries.length > 0) {
+
+        if (text !== "")
+            text += "\n\n";
+
+        text += entries.join("\n");
+    }
+
+    $("#txtBillingNotes").val(text);
+}
+
+$(document)
+    .off("click.billingAdd", "#btnAddBilling")
+    .on("click.billingAdd", "#btnAddBilling", function (e) {
+
+        e.preventDefault();
+        e.stopPropagation();
 
         $("#newBillingRow").show();
-
         $("#btnCancelBilling").show();
 
     });
 
-    $(document).on("click.billing", "#btnCancelBilling", function () {
+
+$(document)
+    .off("click.billingCancel", "#btnCancelBilling")
+    .on("click.billingCancel", "#btnCancelBilling", function (e) {
+
+        e.preventDefault();
 
         $("#newBillingRow").hide();
-
         $("#btnCancelBilling").hide();
 
         $("#txtChargeAmount").val("");
 
     });
-
-}
 
 
 $(document)
@@ -1989,7 +2025,284 @@ function getCurrentWashFormula(savedCustomer) {
 
     return parts.join(",");
 }
+$(document)
+    .off("click", "#btnSaveCustomer")
+    .on("click", "#btnSaveCustomer", async function () {
 
+        const customer = getSelectedCustomer();
+
+        if (!customer) {
+            alert("Please select a customer.");
+            return;
+        }
+
+        const payload = {
+            CustId: customer.CustId,
+            OSSFlag: $("#ossFlag").is(":checked"),
+            STFlag: $("#stFlag").is(":checked")
+        };
+
+        console.log("CUSTOMER SAVE:", payload);
+
+        const response = await fetch(
+            "/CustomerProfile/SaveCustomerFlags",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            }
+        );
+
+        if (response.ok) {
+            alert("Customer details saved successfully.");
+        }
+        else {
+            const error = await response.text();
+            console.error(error);
+            alert("Unable to save Customer details.");
+        }
+    });
+$(document)
+    .off("click.wearer", ".btnSelectWearer")
+    .on("click.wearer", ".btnSelectWearer", function () {
+
+        const customer = getSelectedCustomer();
+
+        if (!customer) {
+            alert("Please select a customer.");
+            return;
+        }
+
+        const wearNbr =
+            $(this).attr("data-wear-nbr");
+
+        console.log("Selected Wearer #:", wearNbr);
+
+        if (!wearNbr) {
+            console.error("Wearer number is missing.");
+            return;
+        }
+
+        const modalElement =
+            document.getElementById("wearerSelectionModal");
+
+        const modal =
+            bootstrap.Modal.getInstance(modalElement);
+
+        if (modal) {
+            modal.hide();
+        }
+
+        // Use the EXISTING Wearer action
+        $.get(
+            "/CustomerProfile/Wearer",
+            {
+                custId: customer.CustId,
+                wearNbr: wearNbr
+            },
+            function (html) {
+
+                console.log(
+                    "Selected wearer loaded successfully"
+                );
+
+                $("#CustomerModuleContainer")
+                    .html(html);
+
+                afterModuleLoaded("Wearer");
+            }
+        )
+            .fail(function (xhr) {
+
+                console.error(
+                    "Loading selected wearer failed:",
+                    xhr.status,
+                    xhr.responseText
+                );
+
+                alert("Unable to load selected wearer.");
+            });
+    });
+$(document)
+    .off("click.wearer", ".btnSelectWearer")
+    .on("click.wearer", ".btnSelectWearer", function () {
+
+        const customer = getSelectedCustomer();
+
+        if (!customer) {
+            alert("Please select a customer.");
+            return;
+        }
+
+        const wearNbr =
+            $(this).attr("data-wear-nbr");
+
+        console.log("========== SELECT WEARER ==========");
+        console.log("CustId:", customer.CustId);
+        console.log("WearNbr:", wearNbr);
+        console.log("===================================");
+
+        if (!wearNbr) {
+            console.error("WearNbr is missing from Select button.");
+            return;
+        }
+
+        const modalElement =
+            document.getElementById("wearerSelectionModal");
+
+        const modal =
+            bootstrap.Modal.getInstance(modalElement);
+
+        if (modal) {
+            modal.hide();
+        }
+
+        const url =
+            `/CustomerProfile/Wearer?custId=${customer.CustId}&wearNbr=${encodeURIComponent(wearNbr)}`;
+
+        console.log("Loading selected wearer URL:", url);
+
+        $.get(
+            url,
+            function (html) {
+
+                console.log(
+                    "Selected wearer HTML received"
+                );
+
+                $("#CustomerModuleContainer")
+                    .html(html);
+
+                afterModuleLoaded("Wearer");
+            }
+        )
+            .fail(function (xhr) {
+
+                console.error(
+                    "Selected wearer failed:",
+                    xhr.status,
+                    xhr.responseText
+                );
+            });
+    });
+
+
+$(document)
+    .off("click.wearer", "#btnNext")
+    .on("click.wearer", "#btnNext", function () {
+
+        const custId =
+            parseInt(
+                $("input[name='CustId']").val()
+            );
+
+        const wearerId =
+            parseInt(
+                $("input[name='WearerId']").val()
+            );
+
+        if (!custId || !wearerId) {
+            return;
+        }
+
+        $.get(
+            "/CustomerProfile/WearerNext",
+            {
+                custId: custId,
+                wearerId: wearerId
+            }
+        )
+            .done(function (html) {
+
+                if (html) {
+                    $("#CustomerModuleContainer")
+                        .html(html);
+                }
+            });
+    });
+
+
+$(document)
+    .off("click.wearer", "#btnPrevious")
+    .on("click.wearer", "#btnPrevious", function () {
+
+        const custId =
+            parseInt(
+                $("input[name='CustId']").val()
+            );
+
+        const wearerId =
+            parseInt(
+                $("input[name='WearerId']").val()
+            );
+
+        if (!custId || !wearerId) {
+            return;
+        }
+
+        $.get(
+            "/CustomerProfile/WearerPrevious",
+            {
+                custId: custId,
+                wearerId: wearerId
+            }
+        )
+            .done(function (html) {
+
+                if (html) {
+                    $("#CustomerModuleContainer")
+                        .html(html);
+                }
+            });
+    });
+$(document)
+    .off("click.wearer", "#btnSaveWearer")
+    .on("click.wearer", "#btnSaveWearer", function () {
+
+        const dto = {
+            WearerId: parseInt(
+                $("input[name='WearerId']").val()
+            ),
+
+            Locker:
+                $("input[name='Locker']").val() || "",
+
+            LockRm:
+                $("input[name='LockRm']").val() || "",
+
+            Sex:
+                $("select[name='Sex']").val() === "true"
+        };
+
+        console.log("SAVE DTO:", dto);
+
+        if (!dto.WearerId || isNaN(dto.WearerId)) {
+            alert("No wearer selected.");
+            return;
+        }
+
+        $.ajax({
+            url: "/CustomerProfile/SaveWearer",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(dto),
+
+            success: function () {
+                console.log("Wearer saved successfully");
+                alert("Wearer saved successfully.");
+            },
+
+            error: function (xhr) {
+                console.error(
+                    "Save Wearer failed:",
+                    xhr.status,
+                    xhr.responseText
+                );
+            }
+        });
+    });
 $(document)
     .off("click.customerProfile", "#btnSaveCustomerProfile")
     .on("click.customerProfile", "#btnSaveCustomerProfile", async function (e) {

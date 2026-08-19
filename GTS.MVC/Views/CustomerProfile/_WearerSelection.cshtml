@@ -1,0 +1,108 @@
+﻿@model List<GTS.MVC.Models.WearerViewModel>
+
+<div class="modal fade"
+     id="wearerSelectionModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Select Wearer
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                @if (Model == null || !Model.Any())
+                {
+                    <div class="alert alert-warning">
+                        No wearers found for this customer.
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-hover">
+
+                            <thead>
+                                <tr>
+                                    <th>Wearer #</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Locker</th>
+                                    <th>Lock Room</th>
+                                    <th>Sex</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var wearer in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @wearer.WearNbr
+                                        </td>
+
+                                        <td>
+                                            @wearer.FirstName
+                                        </td>
+
+                                        <td>
+                                            @wearer.LastName
+                                        </td>
+
+                                        <td>
+                                            @wearer.Locker
+                                        </td>
+
+                                        <td>
+                                            @wearer.LockRm
+                                        </td>
+
+                                        <td>
+                                            @(wearer.Sex ? "Male" : "Female")
+                                        </td>
+
+                                        <td>
+
+                                            <button type="button"
+                                                    class="btn btn-primary btn-sm btnSelectWearer"
+                                                    data-wearer-id="@wearer.WearerId"
+                                                    data-wear-nbr="@wearer.WearNbr">
+                                                Select
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

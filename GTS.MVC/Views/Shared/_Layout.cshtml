@@ -3,121 +3,315 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>@ViewData["Title"] - GTS.MVC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/customerProfile.css" asp-append-version="true" />
+
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
     <link rel="stylesheet"
           href="~/css/gts.css"
           asp-append-version="true" />
-    <link rel="stylesheet" href="~/GTS.MVC.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <div class="container-fluid">
 
-            <div class="row bg-light">
-                <div class="col text-center">
-                    <h1 style="color:#d63384;font-weight:bold">
-                        Garment Tracking System
-                    </h1>
+    <link rel="stylesheet"
+          href="~/css/customerProfile.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/wearer.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+
+    <!-- =========================================================
+         GTS HEADER
+         ========================================================= -->
+
+    <header class="gts-header">
+
+        <!-- TOP HEADER -->
+        <div class="gts-top-header">
+
+            <!-- LEFT LOGO -->
+            <div class="gts-logo-area">
+
+                @* 
+                   If you have the actual Vestis logo, put it here:
+                   <img src="~/images/vestis-logo.png" class="gts-logo" />
+                *@
+
+                <div class="gts-logo-placeholder">
+                    <span class="gts-logo-mark"></span>
+                    <span class="gts-logo-text">vestis</span>
                 </div>
+
             </div>
 
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2">
-                <div class="container-fluid">
 
-                    <ul class="navbar-nav">
+            <!-- CENTER TITLE -->
+            <div class="gts-title-area">
 
-                        <li class="nav-item dropdown">
+                <h1>
+                    Garment Tracking System
+                </h1>
 
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               id="adminMenu"
-                               role="button"
-                               data-bs-toggle="dropdown">
+            </div>
 
-                                Administration
 
-                            </a>
+            <!-- RIGHT HEADER -->
+            <div class="gts-user-area">
 
-                            <ul class="dropdown-menu">
+                <button type="button"
+                        class="gts-icon-button"
+                        title="Notifications">
+                    <i class="bi bi-bell-fill"></i>
+                </button>
 
-                                <li>
+                <button type="button"
+                        class="gts-orange-button">
+                    CSM
+                </button>
 
-                                    <a class="dropdown-item"
-                                       asp-controller="CustomerProfile"
-                                       asp-action="Index">
+                <button type="button"
+                        class="gts-orange-button">
+                    Home
+                </button>
 
-                                        Customer Profile
+                <button type="button"
+                        class="gts-orange-button">
+                    Help
+                </button>
 
-                                    </a>
 
-                                </li>
+                <button type="button"
+                        class="gts-power-button"
+                        title="Logout">
+                    <i class="bi bi-power"></i>
+                </button>
 
-                            </ul>
+            </div>
 
-                        </li>
+        </div>
 
-                        <li class="nav-item">
-                            <a class="nav-link">Production</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link">Stockroom</a>
-                        </li>
+        <!-- =====================================================
+             MAIN NAVIGATION
+             ===================================================== -->
 
-                        <li class="nav-item">
-                            <a class="nav-link">QA</a>
-                        </li>
+        <nav class="gts-main-nav">
 
-                        <li class="nav-item">
-                            <a class="nav-link">Repairs</a>
-                        </li>
+            <div class="gts-nav-inner">
 
-                        <li class="nav-item">
-                            <a class="nav-link">Interfaces</a>
-                        </li>
+                <!-- ADMINISTRATION -->
+                <div class="gts-nav-item gts-dropdown">
 
-                        <li class="nav-item">
-                            <a class="nav-link">Utilities</a>
-                        </li>
+    <a href="javascript:void(0);"
+       class="gts-nav-link"
+       id="administrationNav">
+        Administration
+        <span class="gts-arrow">▼</span>
+    </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link">Reports</a>
-                        </li>
+    <div class="gts-dropdown-menu">
 
-                        <li class="nav-item">
-                            <a class="nav-link">Garment Review</a>
-                        </li>
+        <a href="javascript:void(0);"
+           class="gts-dropdown-item has-submenu">
+            User Management
+            <span>›</span>
+        </a>
 
-                    </ul>
+        <a href="javascript:void(0);"
+           class="gts-dropdown-item has-submenu">
+            User Management
+            <span>›</span>
+        </a>
+
+        <a asp-controller="CustomerProfile"
+           asp-action="Index"
+           class="gts-dropdown-item">
+            Customer Profile
+        </a>
 
                 </div>
-            </nav>
 
-        </div>
-        
+
+                <!-- PRODUCTION -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        Production
+                        <span class="gts-arrow">▼</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- RECEIVERS -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        Receivers
+                        <span class="gts-arrow">▼</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- CONTAINERS -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        Containers
+                        <span class="gts-arrow">▼</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- STOCKROOM -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        Stockroom
+                        <span class="gts-arrow">▼</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- QA -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        QA
+                        <span class="gts-arrow">▼</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- REPAIRS -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        Repairs
+
+                    </a>
+
+                </div>
+
+
+                <!-- UTILITIES -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        Utilities
+                        <span class="gts-arrow">▼</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- REPORTS -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        Reports
+                        <span class="gts-arrow">▼</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- GARMENT REVIEW -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        Garment Review
+
+                    </a>
+
+                </div>
+
+
+                <!-- CSM MC ADMIN -->
+                <div class="gts-nav-item">
+
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link">
+
+                        CSM MC Admin
+                        <span class="gts-arrow">▼</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - GTS.MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+
+    <!-- =========================================================
+         PAGE CONTENT
+         ========================================================= -->
+
+    <main class="gts-page-container">
+
+        @RenderBody()
+
+    </main>
+
+
+    <!-- =========================================================
+         SCRIPTS
+         ========================================================= -->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
     <script src="~/js/customerSelection.js"></script>
+
     <script src="~/js/customerProfile.js"></script>
+
     <script src="~/js/maximumWash.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

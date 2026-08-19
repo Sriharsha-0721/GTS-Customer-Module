@@ -15,5 +15,6 @@ namespace GTS.Application.Interfaces
         Task<IEnumerable<string>> GetGarmentTypes();
 
         Task<int> SaveWash(WashDTO dto);
+
     }
 }

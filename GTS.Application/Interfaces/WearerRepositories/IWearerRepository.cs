@@ -5,9 +5,7 @@ namespace GTS.Application.Interfaces.WearerRepositories
 {
     public interface IWearerRepository
     {
-        Task<Wearer?> GetWearerAsync(
-            int custId,
-            string wearNbr);
+        Task<Wearer?> GetWearerAsync(int custId, string wearNbr);
 
         Task<Wearer?> GetNextWearerAsync(
             int custId,
@@ -19,5 +17,8 @@ namespace GTS.Application.Interfaces.WearerRepositories
 
         Task<int> SaveWearerAsync(
             UpdateWearerDTO dto);
+
+        Task<List<Wearer>> GetAllWearersAsync(
+            int custId);
     }
 }

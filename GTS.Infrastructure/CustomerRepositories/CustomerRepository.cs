@@ -69,6 +69,8 @@ namespace GTS.Infrastructure.CustomerRepositories
                 CustSrvCom = reader.IsDBNull(reader.GetOrdinal("CustSrvCom")) ? null : reader.GetString(reader.GetOrdinal("CustSrvCom")),
                 BillingCom = reader.IsDBNull(reader.GetOrdinal("BillingCom")) ? null : reader.GetString(reader.GetOrdinal("BillingCom")),
                 QAInspCom = reader.IsDBNull(reader.GetOrdinal("QAInspCom")) ? null : reader.GetString(reader.GetOrdinal("QAInspCom")),
+                OSSFlag = reader.IsDBNull(reader.GetOrdinal("OSSFlag")) ? false : reader.GetBoolean(reader.GetOrdinal("OSSFlag")),
+                STFlag = reader.IsDBNull(reader.GetOrdinal("STFlag")) ? false : reader.GetBoolean(reader.GetOrdinal("STFlag")),
             };
         }
 

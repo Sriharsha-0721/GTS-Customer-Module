@@ -2,227 +2,127 @@
 
 <div class="customer-profile">
 
-    @await Html.PartialAsync("_CustomerHeader", Model)
+    <!-- CUSTOMER HEADER -->
+    @await Html.PartialAsync("_CustomerProfileHeader", Model)
 
-    <fieldset class="profile-section">
+    <!-- MODULE AREA -->
+    <div class="customer-module-area">
 
-        <legend>Customer Settings</legend>
-
-        <div class="row">
-
-            <div class="col-md-3">
-
-                <label>Sterilization</label>
-
-                <select id="ddlSterileCode"
-                        class="form-select form-select-sm">
-
-                    <option>Sterile</option>
-
-                    <option selected>Non Sterile</option>
-
-                </select>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <label>Ship Via</label>
-
-                <input id="txtShipVia"
-                       type="text"
-                       class="form-control form-control-sm" />
-
-            </div>
-
-            <div class="col-md-3">
-
-                <label>Package</label>
-
-                <input id="txtPackage"
-                       type="text"
-                       class="form-control form-control-sm" />
-
-            </div>
-
-            <div class="col-md-3">
-
-                <label>Property Mark</label>
-
-                <input id="txtPropertyMark"
-                       type="text"
-                       class="form-control form-control-sm" />
-
-            </div>
-
-        </div>
-
-        <div class="row mt-3">
-
-            <div class="col">
-
-                <label class="me-4">
-
-                    <input id="chkContaminatedSoil"
-                           type="checkbox" />
-
-                    Contaminated Soil
-
-                </label>
-
-                <label class="me-4">
-
-                    <input id="chkDeliveryTicket"
-                           type="checkbox" />
-
-                    Delivery Ticket
-
-                </label>
-
-                <label>
-
-                    <input id="chkOnsiteInventory"
-                           type="checkbox" />
-
-                    On-site Inventory
-
-                </label>
-
-            </div>
-
-        </div>
-
-    </fieldset>
-
-    <div class="row mt-3">
         <!-- LEFT MENU -->
+        <div class="legacy-menu">
 
-        <div class="col-md-2">
+            <a id="lnkBilling"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Billing
+            </a>
 
-            <div class="legacy-menu">
+            <a id="lnkCustomerService"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Customer Service
+            </a>
 
-                <a id="lnkBilling"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Billing
-                </a>
+            <a id="lnkDryer"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Dryer
+            </a>
 
-                <a id="lnkCustomerService"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Customer Service
-                </a>
+            <a id="lnkDriver"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Driver
+            </a>
 
-                <a id="lnkDryer"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Dryer
-                </a>
+            <a id="lnkGeneralOffice"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Gen. Office
+            </a>
 
-                <a id="lnkDriver"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Driver
-                </a>
+            <a id="lnkMainCleanroom"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Main Cleanroom
+            </a>
 
-                <a id="lnkGeneralOffice"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Gen. Office
-                </a>
+            <a id="lnkMending"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Mending / Rework
+            </a>
 
-                <a id="lnkMainCleanroom"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Main Cleanroom
-                </a>
+            <a id="lnkMerch"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Merch. Control
+            </a>
 
-                <a id="lnkMending"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Mending / Rework
-                </a>
+            <a id="lnkOffice"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Office
+            </a>
 
-                <a id="lnkMerch"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Merch. Control
-                </a>
+            <a id="lnkPackout"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Packout
+            </a>
 
-                <a id="lnkOffice"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Office
-                </a>
+            <a id="lnkProduction"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Production
+            </a>
 
-                <a id="lnkPackout"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Packout
-                </a>
+            <a id="lnkQA"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Quality Assurance
+            </a>
 
-                <a id="lnkProduction"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Production
-                </a>
+            <a id="lnkQAInspector"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                QA Inspector
+            </a>
 
-                <a id="lnkQA"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Quality Assurance
-                </a>
+            <a id="lnkReceiving"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Receiving
+            </a>
 
-                <a id="lnkQAInspector"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    QA Inspector
-                </a>
+            <a id="lnkShipping"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Shipping
+            </a>
 
-                <a id="lnkReceiving"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Receiving
-                </a>
+            <a id="lnkSoil"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Soil
+            </a>
 
-                <a id="lnkShipping"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Shipping
-                </a>
-
-                <a id="lnkSoil"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Soil
-                </a>
-
-                <a id="lnkWash"
-                   href="javascript:void(0)"
-                   class="legacy-menu-item">
-                    Wash
-                </a>
-
-            </div>
+            <a id="lnkWash"
+               href="javascript:void(0)"
+               class="legacy-menu-item">
+                Wash
+            </a>
 
         </div>
 
-        <!-- RIGHT PANEL -->
 
-        <div class="col-md-10">
+        <!-- RIGHT WORKSPACE -->
+        <div class="legacy-workspace">
 
-            <div class="legacy-workspace">
+            <div id="CustomerModuleContainer">
 
-                <div id="CustomerModuleContainer">
-
-                    <div class="text-center text-muted mt-5">
-
-                        <h5>
-                            Select a module from the left menu
-                        </h5>
-
-                    </div>
-
+                <div class="module-placeholder">
+                    <h5>Select a module from the left menu</h5>
                 </div>
 
             </div>
@@ -231,41 +131,43 @@
 
     </div>
 
-    <div class="row mt-3">
 
-        <div class="col">
+    <!-- BOTTOM ACTIONS -->
+    <div class="customer-profile-actions">
+
+        <div class="customer-profile-actions-left">
 
             <button id="btnMaxWash"
-                    class="btn btn-primary btn-sm">
-
+                    type="button"
+                    class="btn primary-blue-btn btn-sm">
                 # of Washes
-
             </button>
 
             <button id="btnSpecialLines"
+                    type="button"
                     class="btn btn-secondary btn-sm">
-
                 Special Lines
-
             </button>
 
             <button id="btnLineComments"
+                    type="button"
                     class="btn btn-secondary btn-sm">
-
                 Line Comments
+            </button>
 
+        </div>
+
+        <div class="customer-profile-actions-right">
+
+            <button type="button"
+                    class="btn btn-danger btn-sm">
+                Exit
             </button>
 
             <button id="btnSaveCustomerProfile"
                     type="button"
-                    class="btn btn-success btn-sm float-end">
+                    class="btn btn-success btn-sm">
                 Save
-            </button>
-
-            <button class="btn btn-danger btn-sm float-end me-2">
-
-                Exit
-
             </button>
 
         </div>

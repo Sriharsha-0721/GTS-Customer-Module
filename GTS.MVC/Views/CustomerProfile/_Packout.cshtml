@@ -2,14 +2,16 @@
 
 <div class="packout-wrapper">
 
-    <!-- Notes -->
+    <!-- =====================================================
+         PACKOUT NOTES
+         ===================================================== -->
 
     <div class="row">
 
         <div class="col-md-9">
 
             <textarea id="txtPackoutNotes"
-                      class="billing-notes"></textarea>
+                      class="billing-notes">@Model.PackoutCom</textarea>
 
             <input type="hidden"
                    id="hdnPackoutComment"
@@ -19,7 +21,10 @@
 
     </div>
 
-    <!-- Grid -->
+
+    <!-- =====================================================
+         PACKOUT GRID
+         ===================================================== -->
 
     <div class="row mt-2">
 
@@ -32,15 +37,24 @@
 
                     <tr>
 
-                        <th>Packout Restriction</th>
+                        <th>
+                            Packout Restriction
+                        </th>
 
-                        <th>Item</th>
+                        <th>
+                            Item
+                        </th>
 
-                        <th>Color</th>
+                        <th>
+                            Color
+                        </th>
 
-                        <th>Size</th>
+                        <th>
+                            Size
+                        </th>
 
-                        <th width="60"></th>
+                        <th width="60">
+                        </th>
 
                     </tr>
 
@@ -52,20 +66,29 @@
                     {
                         <tr>
 
-                            <td>@item.PkoutRestrict</td>
+                            <td>
+                                @item.PkoutRestrict
+                            </td>
 
-                            <td>@item.Item</td>
+                            <td>
+                                @item.Item
+                            </td>
 
-                            <td>@item.Color</td>
+                            <td>
+                                @item.Color
+                            </td>
 
-                            <td>@item.Size</td>
+                            <td>
+                                @item.Size
+                            </td>
 
                             <td class="text-center">
 
-                                <button class="deletePackout iconButton"
+                                <button type="button"
+                                        class="deletePackout iconButton"
                                         data-id="@item.PkoutRestrictId">
 
-                                    🗑
+                                    <i class="bi bi-trash-fill"></i>
 
                                 </button>
 
@@ -74,22 +97,31 @@
                         </tr>
                     }
 
-                    <!-- Hidden Row -->
 
-                    <tr id="newPackoutRow" style="display:none;">
+                    <!-- =================================================
+                         NEW PACKOUT ROW
+                         ================================================= -->
+
+                    <tr id="newPackoutRow"
+                        style="display:none;">
 
                         <td>
 
                             <select id="ddlPackoutRestriction"
                                     class="form-select form-select-sm">
 
-                                <option value="YES">YES</option>
+                                <option value="YES">
+                                    YES
+                                </option>
 
-                                <option value="NO">NO</option>
+                                <option value="NO">
+                                    NO
+                                </option>
 
                             </select>
 
                         </td>
+
 
                         <td>
 
@@ -99,9 +131,7 @@
                                 @foreach (var item in Model.Items)
                                 {
                                     <option value="@item.Item">
-
                                         @item.Item
-
                                     </option>
                                 }
 
@@ -109,21 +139,27 @@
 
                         </td>
 
+
                         <td>
 
                             <input id="txtPackoutColor"
+                                   type="text"
                                    class="form-control form-control-sm" />
 
                         </td>
+
 
                         <td>
 
                             <input id="txtPackoutSize"
+                                   type="text"
                                    class="form-control form-control-sm" />
 
                         </td>
 
-                        <td></td>
+
+                        <td>
+                        </td>
 
                     </tr>
 
@@ -133,21 +169,29 @@
 
         </div>
 
-        <!-- Buttons -->
 
-        <div class="col-md-3 d-flex align-items-center justify-content-center">
+        <!-- =================================================
+             PACKOUT BUTTONS
+             ================================================= -->
 
-            <button id="btnAddPackout"
-                    class="circleButton">
+        <div class="col-md-3 packout-actions">
 
-                +
+            <button type="button"
+                    id="btnAddPackout"
+                    class="circleButton"
+                    title="Add Packout">
+
+                <i class="bi bi-plus-lg"></i>
 
             </button>
 
-            <button id="btnSavePackout"
-                    class="saveButton ms-2">
 
-                💾
+            <button type="button"
+                    id="btnSavePackout"
+                    class="saveButton ms-2"
+                    title="Save Packout">
+
+                <i class="bi bi-floppy-fill"></i>
 
             </button>
 

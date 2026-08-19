@@ -1,0 +1,165 @@
+﻿@model GTS.MVC.Models.CustomerProfile.CustomerViewModel
+
+<div class="customer-profile-header">
+
+    <div class="customer-profile-row">
+
+        <div class="customer-profile-field cust-number-field">
+            <label for="custNo">Cust #:</label>
+
+            <input id="custNo"
+                   class="form-control"
+                   value="@Model?.CustNo"
+                   readonly />
+        </div>
+
+
+        <div class="customer-profile-field customer-name-field">
+            <label for="custName">Customer:</label>
+
+            <input id="custName"
+                   class="form-control"
+                   value="@Model?.Name"
+                   readonly />
+        </div>
+
+
+        <div class="customer-profile-button-field">
+
+            <button id="btnSelectCustomer"
+                    type="button"
+                    class="btn primary-blue-btn">
+
+                Select Customer
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="customer-profile-row">
+
+        <div class="customer-profile-field sterilization-field">
+
+            <label for="ddlSterileCode">
+                Sterilization:
+            </label>
+
+            <select id="ddlSterileCode"
+                    class="form-select">
+
+                <option value="Sterile">
+                    Sterile
+                </option>
+
+                <option value="Non Sterile" selected>
+                    Non Sterile
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="customer-profile-field">
+
+            <label for="txtShipVia">
+                Ship via:
+            </label>
+
+            <input id="txtShipVia"
+                   type="text"
+                   class="form-control" />
+
+        </div>
+
+
+        <div class="customer-profile-field">
+
+            <label for="txtPackage">
+                Package:
+            </label>
+
+            <input id="txtPackage"
+                   type="text"
+                   class="form-control" />
+
+        </div>
+
+    </div>
+
+
+    <div class="customer-profile-row">
+
+        <div class="customer-profile-field">
+
+            <label>
+                Dosage:
+            </label>
+
+            <div class="customer-inline-checks">
+
+                <label>
+                    <input type="checkbox"
+                           id="chkLowDose" />
+                    Low Dose
+                </label>
+
+                <label>
+                    <input type="checkbox"
+                           id="chkHighDose" />
+                    High Dose
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="customer-profile-row">
+
+        <div class="customer-profile-field property-mark-field">
+
+            <label for="txtPropertyMark">
+                Property Mark:
+            </label>
+
+            <input id="txtPropertyMark"
+                   type="text"
+                   class="form-control"
+                   value="@Model?.PropertyMark" />
+
+        </div>
+
+
+        <div class="customer-profile-checks">
+
+            <label>
+                <input id="chkContaminatedSoil"
+                       type="checkbox" />
+                Contaminated Soil
+            </label>
+
+
+            <label>
+                <input id="chkDeliveryTicket"
+                       type="checkbox" />
+                Delivery Ticket
+            </label>
+
+
+            <label>
+                <input id="chkOnsiteInventory"
+                       type="checkbox" />
+                On-site Inventory
+            </label>
+
+        </div>
+
+    </div>
+
+</div>

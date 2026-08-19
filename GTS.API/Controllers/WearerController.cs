@@ -10,7 +10,8 @@ namespace GTS.API.Controllers
     {
         private readonly IWearerService _service;
 
-        public WearerController(IWearerService service)
+        public WearerController(
+            IWearerService service)
         {
             _service = service;
         }
@@ -21,7 +22,9 @@ namespace GTS.API.Controllers
             string wearNbr)
         {
             var wearer =
-                await _service.GetWearerAsync(custId, wearNbr);
+                await _service.GetWearerAsync(
+                    custId,
+                    wearNbr);
 
             if (wearer == null)
                 return NotFound();

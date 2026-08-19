@@ -283,22 +283,206 @@ namespace GTS.MVC.Controllers
             return Ok(result);
         }
 
-        public IActionResult Customer(int custId)
+        public async Task<IActionResult> Customer(int custId)
         {
-            return PartialView("Customer",
-                new CustomerViewModel
-                {
-                    CustId = custId
-                });
+            var model = await _http.GetFromJsonAsync<CustomerViewModel>(
+                $"api/Customer/{custId}");
+
+            if (model == null)
+                return NotFound();
+
+            return PartialView("Customer", model);
         }
 
-        public IActionResult Wearer(int custId)
+        [HttpPost]
+        public async Task<IActionResult> SaveCustomerFlags(
+    [FromBody] CustomerViewModel model)
         {
-            return PartialView("Wearer",
-                new WearerViewModel
-                {
-                    CustId = custId
-                });
+            var customer = await _http.GetFromJsonAsync<UpdateCustomerDTO>(
+                $"api/Customer/{model.CustId}/edit");
+
+            if (customer == null)
+                return BadRequest("Customer not found.");
+
+            customer.OSSFlag = model.OSSFlag;
+            customer.STFlag = model.STFlag;
+            customer.UpdtTime = DateTime.Now;
+
+            if (customer.UpdtUser == 0)
+                customer.UpdtUser = 1;
+
+            var response = await _http.PutAsJsonAsync(
+                $"api/Customer/{customer.CustId}",
+                customer);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                return BadRequest(error);
+            }
+
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Wearer(int custId)
+        {
+            if (custId <= 0)
+                return BadRequest("Customer is required.");
+
+            var response = await _http.GetAsync(
+                $"api/Wearer/Next?custId={custId}&wearerId=");
+
+            if (response.StatusCode ==
+                System.Net.HttpStatusCode.NotFound)
+            {
+                return PartialView(
+                    "Wearer",
+                    new WearerViewModel
+                    {
+                        CustId = custId
+                    });
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var error =
+                    await response.Content.ReadAsStringAsync();
+
+                return StatusCode(
+                    (int)response.StatusCode,
+                    error);
+            }
+
+            var model =
+                await response.Content
+                    .ReadFromJsonAsync<WearerViewModel>();
+
+            if (model == null)
+            {
+                model = new WearerViewModel();
+            }
+
+            model.CustId = custId;
+
+            return PartialView("Wearer", model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> WearerPrevious(
+           int custId,
+           int wearerId)
+        {
+            var response = await _http.GetAsync(
+                $"api/Wearer/Previous?custId={custId}&wearerId={wearerId}");
+
+            if (response.StatusCode ==
+                System.Net.HttpStatusCode.NotFound)
+            {
+                return NoContent();
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var error =
+                    await response.Content.ReadAsStringAsync();
+
+                return StatusCode(
+                    (int)response.StatusCode,
+                    error);
+            }
+
+            var model =
+                await response.Content
+                    .ReadFromJsonAsync<WearerViewModel>();
+
+            if (model == null)
+                return NoContent();
+
+            model.CustId = custId;
+
+            return PartialView("Wearer", model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> WearerNext(
+            int custId,
+            int wearerId)
+        {
+            var response = await _http.GetAsync(
+                $"api/Wearer/Next?custId={custId}&wearerId={wearerId}");
+
+            if (response.StatusCode ==
+                System.Net.HttpStatusCode.NotFound)
+            {
+                return NoContent();
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var error =
+                    await response.Content.ReadAsStringAsync();
+
+                return StatusCode(
+                    (int)response.StatusCode,
+                    error);
+            }
+
+            var model =
+                await response.Content
+                    .ReadFromJsonAsync<WearerViewModel>();
+
+            if (model == null)
+                return NoContent();
+
+            model.CustId = custId;
+
+            return PartialView("Wearer", model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SaveWearer(
+    [FromBody] UpdateWearerDTO dto)
+        {
+            if (dto == null)
+            {
+                return BadRequest("Wearer data is missing.");
+            }
+
+            Console.WriteLine("========== MVC SAVE WEARER ==========");
+            Console.WriteLine($"WearerId: {dto.WearerId}");
+            Console.WriteLine($"Locker: {dto.Locker}");
+            Console.WriteLine($"LockRm: {dto.LockRm}");
+            Console.WriteLine($"Sex: {dto.Sex}");
+            Console.WriteLine("=====================================");
+
+            var response = await _http.PostAsJsonAsync(
+                "api/Wearer",
+                dto);
+
+            var responseBody =
+                await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine(
+                $"API Status: {response.StatusCode}");
+
+            Console.WriteLine(
+                $"API Response: {responseBody}");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return StatusCode(
+                    (int)response.StatusCode,
+                    responseBody);
+            }
+
+            return Ok(responseBody);
+        }
+        public async Task<IActionResult> WearerSelection(int custId)
+        {
+            var wearers =
+                await _http.GetFromJsonAsync<List<WearerViewModel>>(
+                    $"api/Wearer/All?custId={custId}")
+                ?? new List<WearerViewModel>();
+
+            return PartialView("_WearerSelection", wearers);
         }
         public async Task<IActionResult> SpecialLines(
             int custId,

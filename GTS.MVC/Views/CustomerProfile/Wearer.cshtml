@@ -1,13 +1,77 @@
 ﻿@model GTS.MVC.Models.WearerViewModel
 
-<div class="container mt-3">
+<div class="container mt-3 wearer-screen">
 
-    @await Html.PartialAsync(
-        "_CustomerHeader",
-        new GTS.MVC.Models.CustomerProfile.CustomerViewModel
-        {
-            CustId = Model.CustId
-        })
+    <!-- CUSTOMER SECTION -->
+    <fieldset class="border p-3 mb-4">
+
+        <legend class="float-none w-auto px-2">
+            Customer
+        </legend>
+
+        <div class="row mb-3">
+
+            <div class="col-md-2">
+                <label class="form-label">Customer #</label>
+            </div>
+
+            <div class="col-md-3">
+                <input id="custNo"
+                       class="form-control"
+                       readonly />
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">Customer Name</label>
+            </div>
+
+            <div class="col-md-3">
+                <input id="custName"
+                       class="form-control"
+                       readonly />
+            </div>
+
+            <div class="col-md-2">
+                <button type="button"
+                        id="btnSelectCustomer"
+                        class="btn btn-secondary">
+                    Select Customer
+                </button>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2">
+                <label class="form-label">Route</label>
+            </div>
+
+            <div class="col-md-3">
+                <input id="route"
+                       class="form-control"
+                       readonly />
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">GID</label>
+            </div>
+
+            <div class="col-md-3">
+                <input id="gid"
+                       class="form-control"
+                       readonly />
+            </div>
+
+        </div>
+
+    </fieldset>
+
+
+    <!-- WEARER -->
+
+    <input asp-for="CustId" type="hidden" />
+    <input asp-for="WearerId" type="hidden" />
 
     <fieldset class="border p-3">
 
@@ -18,25 +82,15 @@
         <div class="row mb-3">
 
             <div class="col-md-2">
-                <label>Wearer #</label>
+                <label class="form-label">
+                    Wearer #
+                </label>
             </div>
 
             <div class="col-md-4">
-
                 <input asp-for="WearNbr"
-                       class="form-control" />
-
-            </div>
-
-            <div class="col-md-4">
-
-                <button id="btnSearchWearer"
-                        class="btn btn-secondary">
-
-                    Search Wearer
-
-                </button>
-
+                       class="form-control"
+                       readonly />
             </div>
 
         </div>
@@ -44,27 +98,27 @@
         <div class="row mb-3">
 
             <div class="col-md-2">
-                <label>First Name</label>
+                <label class="form-label">
+                    First Name
+                </label>
             </div>
 
             <div class="col-md-4">
-
                 <input asp-for="FirstName"
                        class="form-control"
                        readonly />
-
             </div>
 
             <div class="col-md-2">
-                <label>Last Name</label>
+                <label class="form-label">
+                    Last Name
+                </label>
             </div>
 
             <div class="col-md-4">
-
                 <input asp-for="LastName"
                        class="form-control"
                        readonly />
-
             </div>
 
         </div>
@@ -72,33 +126,34 @@
         <div class="row mb-3">
 
             <div class="col-md-2">
-                <label>Locker</label>
+                <label class="form-label">
+                    Locker
+                </label>
             </div>
 
             <div class="col-md-2">
-
                 <input asp-for="Locker"
                        class="form-control" />
-
             </div>
 
             <div class="col-md-2">
-                <label>Lock Room</label>
+                <label class="form-label">
+                    Lock Room
+                </label>
             </div>
 
             <div class="col-md-2">
-
                 <input asp-for="LockRm"
                        class="form-control" />
-
             </div>
 
             <div class="col-md-2">
-                <label>Sex</label>
+                <label class="form-label">
+                    Sex
+                </label>
             </div>
 
             <div class="col-md-2">
-
                 <select asp-for="Sex"
                         class="form-select">
 
@@ -106,36 +161,35 @@
                     <option value="false">Female</option>
 
                 </select>
-
             </div>
 
         </div>
 
     </fieldset>
 
+
+    <!-- BUTTONS -->
+
     <div class="mt-4 text-end">
 
-        <button id="btnPrevious"
+        <button type="button"
+                id="btnPrevious"
                 class="btn btn-secondary">
-
             Previous
-
         </button>
 
-        <button id="btnNext"
+        <button type="button"
+                id="btnNext"
                 class="btn btn-secondary">
-
             Next
-
         </button>
 
-        <button id="btnSaveWearer"
+        <button type="button"
+                id="btnSaveWearer"
                 class="btn btn-primary">
-
             Save
-
         </button>
 
     </div>
 
-</div>  
+</div>

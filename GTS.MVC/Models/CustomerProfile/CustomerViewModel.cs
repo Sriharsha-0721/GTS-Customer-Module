@@ -16,8 +16,12 @@ namespace GTS.MVC.Models.CustomerProfile
         [JsonPropertyName("GID")]
         public string Gid { get; set; } = "";
 
+        public string PropertyMark { get; set; } = "";
+
+        [JsonPropertyName("OSSFlag")]
         public bool OSSFlag { get; set; }
 
+        [JsonPropertyName("STFlag")]
         public bool STFlag { get; set; }
 
         [JsonPropertyName("MarketCenter")]

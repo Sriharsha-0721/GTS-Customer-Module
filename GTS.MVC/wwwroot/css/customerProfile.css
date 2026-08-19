@@ -1,166 +1,451 @@
-﻿.customer-profile {
-    font-family: Tahoma, Arial;
+﻿
+.gts-page-container,
+.customer-profile,
+.wearer-screen,
+.customer-module-panel,
+.customer-screen,
+.cts-settings-screen {
+    width: 99% !important;
+    max-width: 1350px !important;
+    margin: 6px auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid #7f9db9 !important;
+    box-sizing: border-box !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+
+.gts-tabs {
+    width: 100%;
+    height: 32px;
+    min-height: 32px;
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    padding: 0 4px;
+    background: #173f70 !important;
+    border-bottom: 1px solid #7f9db9 !important;
+    box-sizing: border-box;
+}
+
+.gts-tabs > a {
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    margin: 0;
+    background: transparent;
+    color: #ffffff !important;
+    border: none;
+    text-decoration: none !important;
     font-size: 12px;
-    padding: 10px;
-    background: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
-/* ---------------- Customer Settings ---------------- */
-
-.profile-section {
-    border: 1px solid #bdbdbd;
-    padding: 10px;
-    margin-bottom: 10px;
+.gts-tabs > a:hover {
+    background: #285887 !important;
+    color: #ffffff !important;
 }
 
-    .profile-section legend {
-        width: auto;
-        padding: 0 8px;
-        font-size: 13px;
-        font-weight: bold;
-    }
+.gts-tabs > a.active,
+.gts-tabs > a.selected,
+.gts-tabs > a[aria-selected="true"] {
+    background: #0f2b4c !important;
+    color: #ffffff !important;
+    font-weight: bold;
+}
 
-    .profile-section label {
-        font-size: 12px;
-        font-weight: bold;
-        margin-bottom: 3px;
-    }
 
-    .profile-section .form-control,
-    .profile-section .form-select {
-        height: 28px;
-        font-size: 12px;
-        border-radius: 0;
-    }
+.customer-profile-header,
+.legacy-workspace,
+.wearer-screen fieldset,
+.customer-module-area,
+#CustomerModuleContainer {
+    background: #ffffff !important;
+    border: 1px solid #7f9db9 !important;
+    box-sizing: border-box !important;
+}
 
-/* ---------------- Left Menu ---------------- */
+/* Inner Box Spacing Container */
+.legacy-workspace,
+.wearer-screen,
+.customer-module-panel {
+    margin: 6px !important;
+    padding: 8px !important;
+    min-height: 420px;
+}
+
+/* Normalize inner partial elements so nothing stretches or overflows */
+.customer-profile .container,
+.wearer-screen .container,
+.legacy-workspace .container,
+#CustomerModuleContainer .container,
+#CustomerModuleContainer {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* =========================================================
+   4. HEADER FORM SECTION
+   ========================================================= */
+.customer-profile-header {
+    width: calc(100% - 12px) !important;
+    margin: 6px 6px 0 6px !important;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.customer-profile-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    min-height: 22px;
+}
+
+.customer-profile-field {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.customer-profile-field label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Inputs & Form Controls */
+.customer-profile .form-control,
+.customer-profile .form-select,
+.legacy-workspace .form-control,
+.legacy-workspace .form-select,
+.wearer-screen .form-control,
+.wearer-screen .form-select {
+    height: 22px !important;
+    min-height: 22px !important;
+    padding: 1px 5px !important;
+    font-size: 11px !important;
+    line-height: 1.2;
+    border: 1px solid #7f9db9 !important;
+    border-radius: 0px !important;
+    background-color: #ffffff;
+    color: #111111;
+    box-shadow: none;
+}
+
+.customer-profile .form-control[readonly],
+.legacy-workspace .form-control[readonly],
+.wearer-screen .form-control[readonly] {
+    background-color: #f0f0f0 !important;
+    border-color: #c0c0c0 !important;
+    color: #444444;
+}
+
+.cust-number-field .form-control { width: 130px; }
+.customer-name-field { flex-grow: 1; }
+.customer-name-field .form-control { width: 100%; }
+#txtShipVia { width: 130px; }
+#txtPackage { width: 120px; }
+#txtPropertyMark { width: 130px; border: 1px solid #000000 !important; }
+#ddlSterileCode { width: 115px; border: 1px solid #000000 !important; }
+
+/* Checkboxes */
+.customer-inline-checks,
+.customer-profile-checks {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.customer-inline-checks label,
+.customer-profile-checks label,
+.customer-profile .form-check-label,
+.legacy-workspace .form-check-label,
+.wearer-screen .form-check-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px !important;
+    font-weight: normal;
+    color: #222222;
+    cursor: pointer;
+    margin: 0 !important;
+    white-space: nowrap;
+}
+
+.customer-profile input[type="checkbox"],
+.legacy-workspace input[type="checkbox"],
+.wearer-screen input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* =========================================================
+   5. SPLIT WORKSPACE AREA & LEFT MENU
+   ========================================================= */
+.customer-module-area {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) !important;
+    gap: 6px !important;
+    width: calc(100% - 12px) !important;
+    margin: 6px !important;
+    min-height: 400px !important;
+    padding: 6px;
+}
 
 .legacy-menu {
-    border: 1px solid #999;
-    background: #f8f8f8;
-    height: 600px;
-    overflow-y: auto;
+    width: 140px !important;
+    min-height: 380px !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
 }
 
 .legacy-menu-item {
     display: block;
-    padding: 6px 10px;
-    color: #000;
-    text-decoration: none;
-    border-bottom: 1px solid #ddd;
-    font-size: 12px;
+    width: 100%;
+    padding: 2px 4px !important;
+    min-height: 18px !important;
+    line-height: 16px !important;
+    border: none !important;
+    background: transparent !important;
+    color: #000000 !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+    box-sizing: border-box;
 }
 
-    .legacy-menu-item:hover {
-        background: #d9ecff;
-    }
+.legacy-menu-item:hover {
+    background: #eef3f8 !important;
+    color: #173f70 !important;
+}
 
-    .legacy-menu-item.active {
-        background: #fff59d;
-        font-weight: bold;
-    }
-
-/* ---------------- Right Workspace ---------------- */
+.legacy-menu-item.active {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}
 
 .legacy-workspace {
-    border: 1px solid #999;
-    background: white;
-    min-height: 600px;
-    padding: 10px;
+    margin: 0 !important;
+    padding: 6px !important;
+    min-height: 380px !important;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-/* ---------------- Billing ---------------- */
+/* =========================================================
+   6. FIXED-DIMENSION TEXTAREAS / NOTES
+   ========================================================= */
+.billing-notes,
+.packout-notes,
+.wash-notes,
+.legacy-workspace textarea,
+#CustomerModuleContainer textarea {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 140px !important;
+    min-height: 140px !important;
+    max-height: 140px !important;
+    resize: none !important;
+    border: 1px solid #7f9db9 !important;
+    border-radius: 0px !important;
+    padding: 4px 6px !important;
+    font-size: 11px !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    margin-bottom: 8px !important;
+}
 
-.billing-page {
+/* Module Grids & Tables */
+.billing-grid,
+.packout-grid,
+.wash-grid,
+.legacy-workspace table {
     width: 100%;
+    margin-bottom: 0;
+    font-size: 11px;
+    border-collapse: collapse;
 }
 
-.billing-notes {
-    height: 190px;
-    width: 100%;
-    resize: none;
-    font-family: Consolas;
-    font-size: 12px;
-    border: 1px solid #999;
+.billing-grid th,
+.packout-grid th,
+.wash-grid th,
+.legacy-workspace table th {
+    background: #e9ecef !important;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 3px 6px;
+    border: 1px solid #d4dbe3;
+    color: #333333;
 }
 
-.billing-grid {
-    margin-top: 5px;
-    font-size: 12px;
+.billing-grid td,
+.packout-grid td,
+.wash-grid td,
+.legacy-workspace table td {
+    padding: 3px 6px;
+    vertical-align: middle;
+    border: 1px solid #d4dbe3;
+    color: #000000;
 }
 
-    .billing-grid thead {
-        background: #dddddd;
-    }
-
-    .billing-grid td {
-        padding: 2px 6px;
-    }
+/* Circle / Disc Buttons */
+.circleButton,
+.saveButton {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid #173f70;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+}
 
 .circleButton {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: white;
-    border: 3px solid #29a3ff;
-    color: #29a3ff;
-    font-size: 30px;
-    font-weight: bold;
+    background: #173f70;
+    color: #ffffff;
 }
 
 .saveButton {
-    width: 46px;
-    height: 46px;
-    margin-left: 8px;
-    background: white;
-    border: 3px solid #29a3ff;
-    color: #29a3ff;
-    font-size: 24px;
+    background: #198754;
+    color: #ffffff;
 }
 
-.deleteBilling {
-    color: #8ec9ff;
-    font-size: 18px;
-    cursor: pointer;
-    text-decoration: none;
+/* =========================================================
+   7. FIELDSETS (Wearer & CTS Settings)
+   ========================================================= */
+fieldset {
+    border: 1px solid #7f9db9 !important;
+    padding: 6px 10px 8px 10px !important;
+    margin-bottom: 6px !important;
+    background: #ffffff;
 }
 
-/* ---------------- Buttons ---------------- */
-
-.btn-sm {
-    font-size: 12px;
-}
-
-#btnAddBilling {
-    background: #1e88e5;
-    border: none;
-}
-
-#btnSaveBilling {
-    background: #2e7d32;
-    border: none;
-}
-
-/* ---------------- Responsive ---------------- */
-
-@media(max-width:992px) {
-
-    .legacy-menu {
-        height: auto;
-        margin-bottom: 10px;
-    }
-
-    .legacy-workspace {
-        min-height: 300px;
-    }
-}
-.legacy-menu-item.active {
-    background: #fff35a;
+legend {
+    font-size: 11.5px !important;
     font-weight: bold;
+    color: #173f70;
+    margin: 0;
+    padding: 0 4px;
+    float: none;
+    width: auto;
 }
-.deleteBilling {
-    color: #2196F3;
-    font-size: 18px;
+
+/* =========================================================
+   8. UNIFIED BUTTONS & BOTTOM ACTIONS
+   ========================================================= */
+.customer-profile-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px !important;
+    padding: 2px 0;
+}
+
+.customer-profile-actions-left,
+.customer-profile-actions-right {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* Native Bevel Buttons */
+.btn-secondary,
+.primary-blue-btn,
+#btnMaxWash,
+#btnSpecialLines,
+#btnLineComments,
+#btnSelectCustomer,
+#btnPrevious,
+#btnNext {
+    height: 22px !important;
+    line-height: 18px !important;
+    padding: 1px 10px !important;
+    font-size: 11px !important;
+    font-weight: normal !important;
+    color: #000000 !important;
+    background: #f0f0f0 linear-gradient(180deg, #ffffff, #e1e1e1) !important;
+    border: 1px solid #707070 !important;
+    border-radius: 2px !important;
     cursor: pointer;
-    display: inline-block;
+    white-space: nowrap;
+    box-shadow: none !important;
+}
+
+.btn-secondary:hover,
+.primary-blue-btn:hover,
+#btnMaxWash:hover,
+#btnSpecialLines:hover,
+#btnLineComments:hover,
+#btnSelectCustomer:hover,
+#btnPrevious:hover,
+#btnNext:hover {
+    background: #e5f1fb linear-gradient(180deg, #e5f1fb, #cde6f7) !important;
+    border-color: #0078d7 !important;
+}
+
+/* Primary GTS Save & Danger Buttons */
+.btn-success,
+.btn-primary,
+#btnSaveCustomer,
+#btnSaveCTS,
+#btnSaveWearer,
+#btnSaveCustomerProfile {
+    height: 24px !important;
+    line-height: 20px !important;
+    padding: 2px 14px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    background: #173f70 !important;
+    border: 1px solid #173f70 !important;
+    color: #ffffff !important;
+    border-radius: 2px !important;
+    cursor: pointer;
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+#btnSaveCustomer:hover,
+#btnSaveCTS:hover,
+#btnSaveWearer:hover,
+#btnSaveCustomerProfile:hover {
+    background: #285887 !important;
+    border-color: #285887 !important;
+}
+
+.btn-danger {
+    height: 24px !important;
+    line-height: 20px !important;
+    padding: 2px 14px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    background: #dc3545 !important;
+    border: 1px solid #dc3545 !important;
+    color: #ffffff !important;
+    border-radius: 2px !important;
+    cursor: pointer;
 }

@@ -18,5 +18,8 @@ namespace GTS.Application.Interfaces.WearerServices
 
         Task<int> SaveWearerAsync(
             UpdateWearerDTO dto);
+
+        Task<List<WearerDTO>> GetAllWearersAsync(
+            int custId);
     }
 }

@@ -87,5 +87,25 @@ namespace GTS.Application.Services
         {
             return await _repository.SaveWearerAsync(dto);
         }
+        public async Task<List<WearerDTO>> GetAllWearersAsync(
+            int custId)
+        {
+            var wearers =
+                await _repository.GetAllWearersAsync(custId);
+
+            return wearers.Select(w => new WearerDTO
+            {
+                WearerId = w.WearerId,
+                CustId = w.CustId,
+                WearNbr = w.WearNbr,
+                FirstName = w.FirstName,
+                LastName = w.LastName,
+                Locker = w.Locker,
+                LockRm = w.LockRm,
+                Sex = w.Sex
+
+            }).ToList();
+        }
     }
+
 }

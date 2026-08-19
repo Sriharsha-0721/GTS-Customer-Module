@@ -22,134 +22,167 @@ namespace GTS.Infrastructure.WearerRepositories
             return new SqlConnection(_connectionString);
         }
 
-        private Wearer MapReaderToWearer(SqlDataReader reader)
+        private Wearer MapReaderToWearer(
+            SqlDataReader reader)
         {
+            var sexOrdinal =
+                reader.GetOrdinal("Sex");
+
             return new Wearer
             {
                 WearerId =
-                    reader.GetInt32(reader.GetOrdinal("WearerId")),
+                    reader.GetInt32(
+                        reader.GetOrdinal("WearerId")),
+
+                CustId =
+                    reader.GetInt32(
+                        reader.GetOrdinal("CustId")),
 
                 WearNbr =
-                    reader.GetString(reader.GetOrdinal("WearNbr")),
+                    reader.IsDBNull(
+                        reader.GetOrdinal("WearNbr"))
+                        ? ""
+                        : reader.GetValue(
+                            reader.GetOrdinal("WearNbr"))
+                            .ToString() ?? "",
 
                 FirstName =
-                    reader.GetString(reader.GetOrdinal("FirstName")),
+                    reader.IsDBNull(
+                        reader.GetOrdinal("FirstName"))
+                        ? ""
+                        : reader.GetString(
+                            reader.GetOrdinal("FirstName")),
 
                 LastName =
-                    reader.GetString(reader.GetOrdinal("LastName")),
+                    reader.IsDBNull(
+                        reader.GetOrdinal("LastName"))
+                        ? ""
+                        : reader.GetString(
+                            reader.GetOrdinal("LastName")),
 
                 Locker =
-                    reader.GetString(reader.GetOrdinal("Locker")),
+                    reader.IsDBNull(
+                        reader.GetOrdinal("Locker"))
+                        ? ""
+                        : reader.GetValue(
+                            reader.GetOrdinal("Locker"))
+                            .ToString() ?? "",
 
                 LockRm =
-                    reader.GetString(reader.GetOrdinal("LockRm")),
+                    reader.IsDBNull(
+                        reader.GetOrdinal("LockRm"))
+                        ? ""
+                        : reader.GetValue(
+                            reader.GetOrdinal("LockRm"))
+                            .ToString() ?? "",
 
                 Sex =
-                    reader.GetInt32(reader.GetOrdinal("Sex")) == 1
+                    reader.IsDBNull(sexOrdinal)
+                        ? true
+                        : Convert.ToBoolean(
+                            reader.GetValue(sexOrdinal))
             };
         }
 
         public async Task<Wearer?> GetWearerAsync(
-    int custId,
-    string wearNbr)
+            int custId,
+            string wearNbr)
         {
             using var connection = CreateConnection();
 
             using var command =
-                new SqlCommand("AdmCsWr_GetWearer", connection);
+                new SqlCommand(
+                    "dbo.AdmCsWr_GetWearer",
+                    connection);
 
             command.CommandType =
                 CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@CustID", custId);
+            command.Parameters.AddWithValue(
+                "@CustID",
+                custId);
 
-            command.Parameters.AddWithValue("@WearNbr", wearNbr);
+            command.Parameters.AddWithValue(
+                "@WearNbr",
+                wearNbr);
 
             await connection.OpenAsync();
 
             using var reader =
                 await command.ExecuteReaderAsync();
 
-            if (await reader.ReadAsync())
-            {
-                var wearer = MapReaderToWearer(reader);
+            if (!await reader.ReadAsync())
+                return null;
 
-                wearer.CustId = custId;
-
-                return wearer;
-            }
-
-            return null;
+            return MapReaderToWearer(reader);
         }
         public async Task<Wearer?> GetNextWearerAsync(
-    int custId,
-    int? wearerId)
+            int custId,
+            int? wearerId)
         {
             using var connection = CreateConnection();
 
             using var command =
-                new SqlCommand("AdmCsWr_GetNextWearer", connection);
+                new SqlCommand(
+                    "dbo.AdmCsWr_GetNextWearer",
+                    connection);
 
             command.CommandType =
                 CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@CustID", custId);
+            command.Parameters.AddWithValue(
+                "@CustID",
+                custId);
 
-            if (wearerId.HasValue)
-                command.Parameters.AddWithValue("@LastWrID", wearerId.Value);
-            else
-                command.Parameters.AddWithValue("@LastWrID", DBNull.Value);
+            command.Parameters.AddWithValue(
+                "@LastWrID",
+                wearerId.HasValue
+                    ? wearerId.Value
+                    : DBNull.Value);
 
             await connection.OpenAsync();
 
             using var reader =
                 await command.ExecuteReaderAsync();
 
-            if (await reader.ReadAsync())
-            {
-                var wearer = MapReaderToWearer(reader);
+            if (!await reader.ReadAsync())
+                return null;
 
-                wearer.CustId = custId;
-
-                return wearer;
-            }
-
-            return null;
+            return MapReaderToWearer(reader);
         }
         public async Task<Wearer?> GetPreviousWearerAsync(
-    int custId,
-    int? wearerId)
+            int custId,
+            int? wearerId)
         {
             using var connection = CreateConnection();
 
             using var command =
-                new SqlCommand("AdmCsWr_GetPrevWearer", connection);
+                new SqlCommand(
+                    "dbo.AdmCsWr_GetPrevWearer",
+                    connection);
 
             command.CommandType =
                 CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@CustID", custId);
+            command.Parameters.AddWithValue(
+                "@CustID",
+                custId);
 
-            if (wearerId.HasValue)
-                command.Parameters.AddWithValue("@FirstWrID", wearerId.Value);
-            else
-                command.Parameters.AddWithValue("@FirstWrID", DBNull.Value);
+            command.Parameters.AddWithValue(
+                "@FirstWrID",
+                wearerId.HasValue
+                    ? wearerId.Value
+                    : DBNull.Value);
 
             await connection.OpenAsync();
 
             using var reader =
                 await command.ExecuteReaderAsync();
 
-            if (await reader.ReadAsync())
-            {
-                var wearer = MapReaderToWearer(reader);
+            if (!await reader.ReadAsync())
+                return null;
 
-                wearer.CustId = custId;
-
-                return wearer;
-            }
-
-            return null;
+            return MapReaderToWearer(reader);
         }
         public async Task<int> SaveWearerAsync(UpdateWearerDTO dto)
         {
@@ -179,7 +212,43 @@ namespace GTS.Infrastructure.WearerRepositories
 
             await connection.OpenAsync();
 
-            return await command.ExecuteNonQueryAsync();
+            await command.ExecuteNonQueryAsync();
+
+            return 1;
+        }
+        public async Task<List<Wearer>> GetAllWearersAsync(int custId)
+        {
+            using var connection = CreateConnection();
+
+            using var command =
+                new SqlCommand(
+                    "dbo.AdmCsWr_GetAllWearers",
+                    connection);
+
+            command.CommandType =
+                CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue(
+                "@CustID",
+                custId);
+
+            await connection.OpenAsync();
+
+            using var reader =
+                await command.ExecuteReaderAsync();
+
+            var wearers = new List<Wearer>();
+
+            while (await reader.ReadAsync())
+            {
+                var wearer = MapReaderToWearer(reader);
+
+                wearer.CustId = custId;
+
+                wearers.Add(wearer);
+            }
+
+            return wearers;
         }
     }
 }

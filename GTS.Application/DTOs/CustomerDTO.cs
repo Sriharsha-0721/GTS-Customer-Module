@@ -65,5 +65,9 @@
         public string? QAInspCom { get; set; }
 
         public string Formula { get; set; } = "";
+
+        public bool OSSFlag { get; set; }
+
+        public bool STFlag { get; set; }
     }
 }
