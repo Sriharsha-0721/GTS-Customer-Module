@@ -98,182 +98,119 @@
         </div>
 
 
-        <!-- =====================================================
+<!-- =====================================================
              MAIN NAVIGATION
              ===================================================== -->
-
         <nav class="gts-main-nav">
 
             <div class="gts-nav-inner">
 
-                <!-- ADMINISTRATION -->
+                <!-- ADMINISTRATION (DROPDOWN RETAINED) -->
                 <div class="gts-nav-item gts-dropdown">
 
-    <a href="javascript:void(0);"
-       class="gts-nav-link"
-       id="administrationNav">
-        Administration
-        <span class="gts-arrow">▼</span>
-    </a>
+                    <a href="javascript:void(0);"
+                       class="gts-nav-link"
+                       id="administrationNav">
+                        Administration
+                        <span class="gts-arrow">▼</span>
+                    </a>
 
-    <div class="gts-dropdown-menu">
+                    <div class="gts-dropdown-menu">
 
-        <a href="javascript:void(0);"
-           class="gts-dropdown-item has-submenu">
-            User Management
-            <span>›</span>
-        </a>
+                        <a href="javascript:void(0);"
+                           class="gts-dropdown-item has-submenu">
+                            User Management
+                            <span>›</span>
+                        </a>
 
-        <a href="javascript:void(0);"
-           class="gts-dropdown-item has-submenu">
-            User Management
-            <span>›</span>
-        </a>
+                        <a asp-controller="CustomerProfile"
+                           asp-action="Index"
+                           class="gts-dropdown-item">
+                            Customer Profile
+                        </a>
 
-        <a asp-controller="CustomerProfile"
-           asp-action="Index"
-           class="gts-dropdown-item">
-            Customer Profile
-        </a>
+                    </div>
 
                 </div>
 
 
                 <!-- PRODUCTION -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         Production
-                        <span class="gts-arrow">▼</span>
-
                     </a>
-
                 </div>
 
 
                 <!-- RECEIVERS -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         Receivers
-                        <span class="gts-arrow">▼</span>
-
                     </a>
-
                 </div>
 
 
                 <!-- CONTAINERS -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         Containers
-                        <span class="gts-arrow">▼</span>
-
                     </a>
-
                 </div>
 
 
                 <!-- STOCKROOM -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         Stockroom
-                        <span class="gts-arrow">▼</span>
-
                     </a>
-
                 </div>
 
 
                 <!-- QA -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         QA
-                        <span class="gts-arrow">▼</span>
-
                     </a>
-
                 </div>
 
 
                 <!-- REPAIRS -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         Repairs
-
                     </a>
-
                 </div>
 
 
                 <!-- UTILITIES -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         Utilities
-                        <span class="gts-arrow">▼</span>
-
                     </a>
-
                 </div>
 
 
                 <!-- REPORTS -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         Reports
-                        <span class="gts-arrow">▼</span>
-
                     </a>
-
                 </div>
 
 
                 <!-- GARMENT REVIEW -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         Garment Review
-
                     </a>
-
                 </div>
 
 
                 <!-- CSM MC ADMIN -->
                 <div class="gts-nav-item">
-
-                    <a href="javascript:void(0);"
-                       class="gts-nav-link">
-
+                    <a href="javascript:void(0);" class="gts-nav-link">
                         CSM MC Admin
-                        <span class="gts-arrow">▼</span>
-
                     </a>
-
                 </div>
 
             </div>
@@ -299,17 +236,16 @@
          ========================================================= -->
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="~/js/site.js"
-            asp-append-version="true"></script>
+    <!-- DataTables JS CDN -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
-    <script src="~/js/customerSelection.js"></script>
-
-    <script src="~/js/customerProfile.js"></script>
-
-    <script src="~/js/maximumWash.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/customerSelection.js" asp-append-version="true"></script>
+    <script src="~/js/customerProfile.js" asp-append-version="true"></script>
+    <script src="~/js/Speciallines.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 

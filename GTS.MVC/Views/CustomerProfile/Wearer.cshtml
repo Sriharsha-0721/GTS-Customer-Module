@@ -1,195 +1,128 @@
 ﻿@model GTS.MVC.Models.WearerViewModel
 
-<div class="container mt-3 wearer-screen">
+<div class="wearer-screen">
 
     <!-- CUSTOMER SECTION -->
-    <fieldset class="border p-3 mb-4">
+    <fieldset>
+        <legend>Customer</legend>
 
-        <legend class="float-none w-auto px-2">
-            Customer
-        </legend>
-
-        <div class="row mb-3">
-
-            <div class="col-md-2">
+        <div class="row align-items-center mb-2">
+            <div class="col-auto" style="width: 80px;">
                 <label class="form-label">Customer #</label>
             </div>
-
-            <div class="col-md-3">
-                <input id="custNo"
-                       class="form-control"
-                       readonly />
+            <div class="col-auto" style="width: 130px;">
+                <input id="custNo" class="form-control" readonly />
             </div>
 
-            <div class="col-md-2">
+            <div class="col-auto" style="width: 95px; margin-left: 8px;">
                 <label class="form-label">Customer Name</label>
             </div>
-
-            <div class="col-md-3">
-                <input id="custName"
-                       class="form-control"
-                       readonly />
+            <div class="col">
+                <input id="custName" class="form-control" readonly />
             </div>
 
-            <div class="col-md-2">
+            <div class="col-auto">
                 <button type="button"
                         id="btnSelectCustomer"
                         class="btn btn-secondary">
                     Select Customer
                 </button>
             </div>
-
         </div>
 
-        <div class="row">
-
-            <div class="col-md-2">
+        <div class="row align-items-center">
+            <div class="col-auto" style="width: 80px;">
                 <label class="form-label">Route</label>
             </div>
-
-            <div class="col-md-3">
-                <input id="route"
-                       class="form-control"
-                       readonly />
+            <div class="col-auto" style="width: 130px;">
+                <input id="route" class="form-control" readonly />
             </div>
 
-            <div class="col-md-2">
+            <div class="col-auto" style="width: 95px; margin-left: 8px;">
                 <label class="form-label">GID</label>
             </div>
-
-            <div class="col-md-3">
-                <input id="gid"
-                       class="form-control"
-                       readonly />
+            <div class="col-auto" style="width: 130px;">
+                <input id="gid" class="form-control" readonly />
             </div>
-
         </div>
-
     </fieldset>
 
+    <!-- HIDDEN IDENTIFIERS -->
+    <input type="hidden" id="hdnCustId" name="CustId" value="@Model?.CustId" />
+    <input type="hidden" id="hdnWearerId" name="WearerId" value="@Model?.WearerId" />
 
-    <!-- WEARER -->
+    <!-- WEARER SECTION -->
+    <fieldset>
+        <legend>Wearer</legend>
 
-    <input asp-for="CustId" type="hidden" />
-    <input asp-for="WearerId" type="hidden" />
-
-    <fieldset class="border p-3">
-
-        <legend class="float-none w-auto px-2">
-            Wearer
-        </legend>
-
-        <div class="row mb-3">
-
-            <div class="col-md-2">
-                <label class="form-label">
-                    Wearer #
-                </label>
+        <!-- WEARER # WITH SEARCH / SELECT WEARER BUTTON -->
+        <div class="row align-items-center mb-2">
+            <div class="col-auto" style="width: 80px;">
+                <label class="form-label">Wearer #</label>
             </div>
-
-            <div class="col-md-4">
-                <input asp-for="WearNbr"
-                       class="form-control"
-                       readonly />
+            <div class="col-auto" style="width: 130px;">
+                <input asp-for="WearNbr" id="WearNbr" class="form-control" readonly />
             </div>
-
+            <div class="col-auto">
+                <button type="button"
+                        id="btnOpenWearerModal"
+                        class="btn btn-secondary">
+                    Select Wearer
+                </button>
+            </div>
         </div>
 
-        <div class="row mb-3">
-
-            <div class="col-md-2">
-                <label class="form-label">
-                    First Name
-                </label>
+        <div class="row align-items-center mb-2">
+            <div class="col-auto" style="width: 80px;">
+                <label class="form-label">First Name</label>
             </div>
-
             <div class="col-md-4">
-                <input asp-for="FirstName"
-                       class="form-control"
-                       readonly />
+                <input asp-for="FirstName" id="FirstName" class="form-control" readonly />
             </div>
 
-            <div class="col-md-2">
-                <label class="form-label">
-                    Last Name
-                </label>
+            <div class="col-auto" style="width: 80px;">
+                <label class="form-label">Last Name</label>
             </div>
-
             <div class="col-md-4">
-                <input asp-for="LastName"
-                       class="form-control"
-                       readonly />
+                <input asp-for="LastName" id="LastName" class="form-control" readonly />
             </div>
-
         </div>
 
-        <div class="row mb-3">
-
+        <div class="row align-items-center mb-2">
+            <div class="col-auto" style="width: 80px;">
+                <label class="form-label">Locker</label>
+            </div>
             <div class="col-md-2">
-                <label class="form-label">
-                    Locker
-                </label>
+                <input asp-for="Locker" id="Locker" class="form-control" />
             </div>
 
+            <div class="col-auto" style="width: 80px;">
+                <label class="form-label">Lock Room</label>
+            </div>
             <div class="col-md-2">
-                <input asp-for="Locker"
-                       class="form-control" />
+                <input asp-for="LockRm" id="LockRm" class="form-control" />
             </div>
 
-            <div class="col-md-2">
-                <label class="form-label">
-                    Lock Room
-                </label>
+            <div class="col-auto" style="width: 50px;">
+                <label class="form-label">Sex</label>
             </div>
-
             <div class="col-md-2">
-                <input asp-for="LockRm"
-                       class="form-control" />
-            </div>
-
-            <div class="col-md-2">
-                <label class="form-label">
-                    Sex
-                </label>
-            </div>
-
-            <div class="col-md-2">
-                <select asp-for="Sex"
-                        class="form-select">
-
+                <select asp-for="Sex" id="Sex" class="form-select">
                     <option value="true">Male</option>
                     <option value="false">Female</option>
-
                 </select>
             </div>
-
         </div>
-
     </fieldset>
 
-
-    <!-- BUTTONS -->
-
-    <div class="mt-4 text-end">
-
-        <button type="button"
-                id="btnPrevious"
-                class="btn btn-secondary">
-            Previous
-        </button>
-
-        <button type="button"
-                id="btnNext"
-                class="btn btn-secondary">
-            Next
-        </button>
-
-        <button type="button"
-                id="btnSaveWearer"
-                class="btn btn-primary">
-            Save
-        </button>
-
+    <!-- ACTION BUTTONS -->
+    <div class="text-end mt-3">
+        <button type="button" id="btnPrevious" class="btn btn-secondary">Previous</button>
+        <button type="button" id="btnNext" class="btn btn-secondary">Next</button>
+        <button type="button" id="btnSaveWearer" class="btn btn-primary">Save</button>
     </div>
 
 </div>
+
+<!-- CONTAINER WHERE _WearerSelection.cshtml IS INJECTED -->
+<div id="wearerModalContainer"></div>

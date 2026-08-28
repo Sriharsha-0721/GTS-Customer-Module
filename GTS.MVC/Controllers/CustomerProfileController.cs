@@ -446,13 +446,6 @@ namespace GTS.MVC.Controllers
                 return BadRequest("Wearer data is missing.");
             }
 
-            Console.WriteLine("========== MVC SAVE WEARER ==========");
-            Console.WriteLine($"WearerId: {dto.WearerId}");
-            Console.WriteLine($"Locker: {dto.Locker}");
-            Console.WriteLine($"LockRm: {dto.LockRm}");
-            Console.WriteLine($"Sex: {dto.Sex}");
-            Console.WriteLine("=====================================");
-
             var response = await _http.PostAsJsonAsync(
                 "api/Wearer",
                 dto);
@@ -484,27 +477,30 @@ namespace GTS.MVC.Controllers
 
             return PartialView("_WearerSelection", wearers);
         }
-        public async Task<IActionResult> SpecialLines(
-            int custId,
-            int page = 1)
+
+        [HttpGet]
+        public async Task<IActionResult> SpecialLines(int custId)
         {
-            SpecialLinePageViewModel model = new();
+            List<SpecialLineViewModel> allLines = new();
 
             if (custId > 0)
             {
-                model =
-                    await _http.GetFromJsonAsync<SpecialLinePageViewModel>
-                    (
-                        $"api/SpecialLines/{custId}?page={page}&pageSize=14"
-                    ) ?? new SpecialLinePageViewModel();
+                var pageResult = await _http.GetFromJsonAsync<SpecialLinePageViewModel>(
+                    $"api/SpecialLines/{custId}?includeAll=true&pageSize=10000") ?? new();
 
-                foreach (var item in model.Items)
+                allLines = pageResult.Items ?? new List<SpecialLineViewModel>();
+
+                // 2. Mark IsSelected true for items already linked to this customer
+                foreach (var item in allLines)
                 {
-                    item.IsSelected = item.CustId.HasValue;
+                    if (item.CustId == custId || item.CustId > 0)
+                    {
+                        item.IsSelected = true;
+                    }
                 }
             }
 
-            return PartialView("_SpecialLines", model);
+            return PartialView("_SpecialLines", allLines);
         }
 
         [HttpPost]

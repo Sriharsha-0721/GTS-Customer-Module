@@ -1,120 +1,47 @@
-﻿@model GTS.MVC.Models.SpecialLines.SpecialLinePageViewModel
+﻿@model List<GTS.MVC.Models.SpecialLines.SpecialLineViewModel>
 
-<div class="table-responsive">
-
-    <table class="table table-bordered table-hover"
-           id="tblSpecialLines">
-
-        <thead class="table-light">
-
-            <tr>
-                <th style="width:70px;">Select</th>
-                <th>Line</th>
-                <th>Item Code</th>
-                <th>Size</th>
-                <th>Description</th>
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            @foreach (var item in Model.Items)
-            {
+<div class="special-lines-container p-2">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover gts-grid" id="tblSpecialLines" style="width: 100%;">
+            <thead>
                 <tr>
-
-                    <td class="text-center">
-
-                        <input type="checkbox"
-                               class="chkSpecialLine"
-                               data-line="@item.Line"
-                        @(item.IsSelected ? "checked=\"checked\"" : "") />
-
-                    </td>
-
-                    <td>@item.Line</td>
-
-                    <td>@item.ItemCode</td>
-
-                    <td>@item.Size</td>
-
-                    <td>@item.Descr</td>
-
+                    <th style="width: 60px;" class="text-center">Select</th>
+                    <th>Line</th>
+                    <th>Item Code</th>
+                    <th>Size</th>
+                    <th>Description</th>
                 </tr>
-            }
-
-        </tbody>
-
-    </table>
-
-</div>
-
-<div class="d-flex justify-content-between align-items-center mt-3">
-
-    <div>
-
-        <button id="btnSaveSpecialLines"
-                class="btn btn-success">
-
-            Save
-
-        </button>
-
-        <button id="btnSpecialLinesExit"
-                class="btn btn-danger">
-
-            Exit
-
-        </button>
-
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <!-- data-order 1 for checked, 0 for unchecked enables sorting to top -->
+                            <td class="text-center select-col" data-order="@(item.IsSelected ? "1" : "0")">
+                                <input type="checkbox"
+                                       class="chkSpecialLine"
+                                       data-line="@item.Line"
+                                @(item.IsSelected ? "checked=\"checked\"" : "") />
+                            </td>
+                            <td>@item.Line</td>
+                            <td>@item.ItemCode</td>
+                            <td>@(string.IsNullOrEmpty(item.Size) ? "NULL" : item.Size)</td>
+                            <td>@item.Descr</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
     </div>
 
-    <nav>
-
-        <ul class="pagination mb-0">
-
-            <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
-
-                <a class="page-link specialLinesPage"
-                   data-page="@(Model.CurrentPage - 1)"
-                   href="#">
-
-                    Previous
-
-                </a>
-
-            </li>
-
-            @{
-                var start = Math.Max(1, Model.CurrentPage - 2);
-                var end = Math.Min(Model.TotalPages, start + 4);
-            }
-
-            @for (int i = start; i <= end; i++)
-            {
-                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                    <a class="page-link specialLinesPage"
-                       href="#"
-                       data-page="@i">
-                        @i
-                    </a>
-                </li>
-            }
-   
-            <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
-
-                <a class="page-link specialLinesPage"
-                   data-page="@(Model.CurrentPage + 1)"
-                   href="#">
-
-                    Next
-
-                </a>
-
-            </li>
-
-        </ul>
-
-    </nav>
-
+    <div class="mt-3">
+        <button type="button" id="btnSaveSpecialLines" class="btn btn-primary btn-sm px-3" style="background-color: #0b2545; border-color: #0b2545;">
+            Save
+        </button>
+        <button type="button" id="btnSpecialLinesExit" class="btn btn-danger btn-sm px-3 ms-2">
+            Exit
+        </button>
+    </div>
 </div>

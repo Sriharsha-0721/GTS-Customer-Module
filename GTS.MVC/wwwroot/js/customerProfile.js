@@ -4,13 +4,10 @@
 // =====================================================
 
 // -----------------------------------------------------
-// Session Storage Keys
+// Session Storage Keys & State
 // -----------------------------------------------------
 let currentModule = "Profile";
-let currentSpecialLinesPage = 1;
-let selectedLines = new Set();
 let model = window.currentCustomerProfile;
-// Controller used to cancel an in-flight billing save request
 let billingController = null;
 
 const STORAGE_KEYS = {
@@ -23,13 +20,8 @@ const STORAGE_KEYS = {
 // -----------------------------------------------------
 
 function getSelectedCustomer() {
-
-    const customer =
-        sessionStorage.getItem(STORAGE_KEYS.CUSTOMER);
-
-    return customer
-        ? JSON.parse(customer)
-        : null;
+    const customer = sessionStorage.getItem(STORAGE_KEYS.CUSTOMER);
+    return customer ? JSON.parse(customer) : null;
 }
 
 function setSelectedCustomer(customer) {
@@ -53,17 +45,15 @@ function clearRequestedModule() {
 }
 
 function changeCustomer(moduleName) {
-
     setRequestedModule(moduleName);
-
     openCustomerSearch();
 }
+
 // -----------------------------------------------------
 // Customer Header
 // -----------------------------------------------------
 
 function populateCustomerHeader() {
-
     const customer = getSelectedCustomer();
 
     if (!customer) {
@@ -78,7 +68,6 @@ function populateCustomerHeader() {
 }
 
 function clearCustomerHeader() {
-
     $("#custNo,#custName,#route,#gid").val("");
 }
 
@@ -87,93 +76,67 @@ function clearCustomerHeader() {
 // -----------------------------------------------------
 
 function ensureCustomerSelected(moduleName) {
-
     const customer = getSelectedCustomer();
 
     if (!customer) {
-
         setRequestedModule(moduleName);
-
         openCustomerSearch();
-
         return;
-
     }
 
     openModule(moduleName);
-
 }
 
 function openRequestedModule() {
-
     const module = getRequestedModule();
-
     clearRequestedModule();
 
     switch (module) {
-
         case "Customer":
             openCustomer();
             break;
-
         case "Wearer":
             openWearer();
             break;
-
         case "Profile":
             openProfile();
             break;
-
         case "CTSSettings":
             openModule("CTSSettings");
             break;
-
         case "MaximumWash":
             openModule("MaximumWash");
             break;
-
-case "CustomerLineComments":
-    openModule("CustomerLineComments");
-    break;
-
-case "SpecialLines":
-    openModule("SpecialLines");
+        case "CustomerLineComments":
+            openModule("CustomerLineComments");
+            break;
+        case "SpecialLines":
+            openModule("SpecialLines");
             break;
         case "Billing":
             openCustomerProfileModule("Billing");
             break;
     }
-
 }
+
 function openModule(moduleName) {
-
     currentModule = moduleName;
-
     const customer = getSelectedCustomer();
 
-    if (!customer)
-        return;
+    if (!customer) return;
 
-    // Load customer profile once
     $.get(`/api/Customer/${customer.CustId}`, function (profile) {
-
         window.currentCustomerProfile = profile;
-
         let url = `/CustomerProfile/${moduleName}?custId=${customer.CustId}`;
 
         $.get(url, function (html) {
-
             $("#workspace").html(html);
-
             afterModuleLoaded(moduleName);
-
         });
-
     });
-
 }
-function openCustomerProfileModule(moduleName, params = {}) {
 
+function openCustomerProfileModule(moduleName, params = {}) {
     const customer = getSelectedCustomer();
 
     if (!customer) {
@@ -182,23 +145,13 @@ function openCustomerProfileModule(moduleName, params = {}) {
     }
 
     let url = `/CustomerProfile/${moduleName}`;
-
     const query = [];
-
     query.push(`custId=${encodeURIComponent(customer.CustId)}`);
 
     Object.keys(params).forEach(function (key) {
-
         const value = params[key];
-
-        if (
-            value !== null &&
-            value !== undefined &&
-            value !== ""
-        ) {
-            query.push(
-                `${key}=${encodeURIComponent(value)}`
-            );
+        if (value !== null && value !== undefined && value !== "") {
+            query.push(`${key}=${encodeURIComponent(value)}`);
         }
     });
 
@@ -206,44 +159,37 @@ function openCustomerProfileModule(moduleName, params = {}) {
 
     $.get(url)
         .done(function (html) {
+            $("#CustomerModuleContainer").html(html);
 
-            $("#CustomerModuleContainer")
-                .html(html);
-
+            if (moduleName === "Billing") {
+                initializeBilling();
+            } else if (moduleName === "Packout") {
+                initializePackout();
+            } else if (moduleName === "Wash") {
+                initializeWash();
+            }
         })
         .fail(function (xhr) {
-
-            console.error(
-                "Module load failed:",
-                xhr.status,
-                xhr.responseText
-            );
+            console.error("Module load failed:", xhr.status, xhr.responseText);
         });
 }
-
 
 // =====================================================
 // Customer Search
 // =====================================================
 
 function openCustomerSearch() {
-
     showAllCustomers();
-
 }
+
 function wireCustomerSearch() {
-
     $("#btnSearch").off("click").on("click", searchCustomer);
-
     $("#btnShowAll").off("click").on("click", showAllCustomers);
-
     $("#btnClear").off("click").on("click", clearCustomerSearch);
-
     wireSelectCustomer();
 }
 
 function searchCustomer() {
-
     clearSearchMessage();
 
     const data = {
@@ -268,7 +214,6 @@ function searchCustomer() {
 }
 
 function showAllCustomers() {
-
     $.get("/Customer/Search", { showAll: true })
         .done(function (html) {
             $("#workspace").html(html);
@@ -280,25 +225,19 @@ function showAllCustomers() {
 }
 
 function clearCustomerSearch() {
-
     $("#searchId,#searchName,#searchCity").val("");
-
     $("#customerGrid").empty();
-
     clearSearchMessage();
-
     $("#searchId").focus();
 }
 
 function clearSearchMessage() {
-
     $("#searchMessage")
         .removeClass("text-danger text-success fw-bold")
         .empty();
 }
 
 function showSearchError(message) {
-
     $("#searchMessage")
         .removeClass("text-success")
         .addClass("text-danger fw-bold")
@@ -310,11 +249,9 @@ function showSearchError(message) {
 // =====================================================
 
 function wireSelectCustomer() {
-
     $(".selectCustomer")
         .off("click")
         .on("click", function (e) {
-
             e.preventDefault();
 
             const customer = {
@@ -327,24 +264,20 @@ function wireSelectCustomer() {
             };
 
             setSelectedCustomer(customer);
-
             populateCustomerHeader();
-
             openRequestedModule();
         });
 }
+
 // =====================================================
 // CTS Settings
 // =====================================================
 
 function initializeCTSSettings() {
-
     populateCustomerHeader();
-
 }
 
 async function saveCTSSettings() {
-
     const customer = getSelectedCustomer();
 
     if (!customer) {
@@ -363,9 +296,7 @@ async function saveCTSSettings() {
 
     const response = await fetch("/CTSSettings/Create", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(model)
     });
 
@@ -375,8 +306,6 @@ async function saveCTSSettings() {
     }
 
     alert("CTS Settings saved successfully.");
-
-// Reload the CTS partial so it reflects the latest data
     openModule("CTSSettings");
 }
 
@@ -384,35 +313,22 @@ $(document)
     .off("click", "#btnSaveCTS")
     .on("click", "#btnSaveCTS", saveCTSSettings);
 
-
 function afterModuleLoaded(moduleName) {
-
     switch (moduleName) {
-
         case "Customer":
-            populateCustomerHeader();
-            break;
-
         case "Wearer":
-            populateCustomerHeader();
-            break;
-
         case "Profile":
             populateCustomerHeader();
             break;
-
         case "CTSSettings":
             initializeCTSSettings();
             break;
-
         case "MaximumWash":
             initializeMaximumWash();
             break;
-
         case "CustomerLineComments":
             initializeCustomerLineComments();
             break;
-
         case "SpecialLines":
             initializeSpecialLines();
             break;
@@ -427,45 +343,34 @@ function afterModuleLoaded(moduleName) {
             break;
     }
 }
+
 // =====================================================
 // Maximum Wash
 // =====================================================
 
 function initializeMaximumWash() {
-
     populateCustomerHeader();
-
     loadMaximumWash();
-
 }
 
 async function loadMaximumWash() {
-
     const customer = getSelectedCustomer();
-
     if (!customer) return;
 
     try {
-
         const response = await fetch(`/CustomerProfile/MaximumWash?custId=${customer.CustId}`);
-
-        if (!response.ok)
-            throw new Error();
-
+        if (!response.ok) throw new Error();
         $("#CustomerModuleContainer").html(await response.text());
-
-    }
-    catch {
-
+    } catch {
         alert("Unable to load Maximum Wash.");
-
     }
 }
+
 function refreshMaximumWash() {
     openModule("MaximumWash");
 }
-function enableNewMaximumWash() {
 
+function enableNewMaximumWash() {
     $("#newItemCode").prop("disabled", false);
     $("#newMaxWash").prop("disabled", false);
     $("#newMaxWeeks").prop("disabled", false);
@@ -474,13 +379,10 @@ function enableNewMaximumWash() {
     $("#btnAddMaxWash").hide();
     $("#btnSaveMaxWash").show();
     $("#btnCancelMaxWash").show();
-
     $("#newItemCode").focus();
-
 }
 
 function cancelNewMaximumWash() {
-
     $("#newItemCode").val("").prop("disabled", true);
     $("#newMaxWash").val("").prop("disabled", true);
     $("#newMaxWeeks").val("").prop("disabled", true);
@@ -491,9 +393,7 @@ function cancelNewMaximumWash() {
 }
 
 async function saveNewMaximumWash() {
-
     const customer = getSelectedCustomer();
-
     if (!customer) return;
 
     const model = {
@@ -504,100 +404,52 @@ async function saveNewMaximumWash() {
         MaxCycles: Number($("#newMaxCycles").val())
     };
 
-    if (!model.ItemCode)
-        return alert("Item Code is required.");
-
-    if (model.MaxWash <= 0)
-        return alert("Maximum Wash must be greater than zero.");
-
-    if (model.MaxWeeks <= 0)
-        return alert("Maximum Weeks must be greater than zero.");
-
-    if (model.MaxCycles <= 0)
-        return alert("Maximum Cycles must be greater than zero.");
+    if (!model.ItemCode) return alert("Item Code is required.");
+    if (model.MaxWash <= 0) return alert("Maximum Wash must be greater than zero.");
+    if (model.MaxWeeks <= 0) return alert("Maximum Weeks must be greater than zero.");
+    if (model.MaxCycles <= 0) return alert("Maximum Cycles must be greater than zero.");
 
     try {
-
         const response = await fetch("/CustomerProfile/AddMaximumWash", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(model)
         });
 
-        if (!response.ok)
-            throw new Error();
-
+        if (!response.ok) throw new Error();
         refreshMaximumWash();
-
-    }
-    catch {
-
+    } catch {
         alert("Unable to add Maximum Wash.");
-
     }
 }
 
 async function updateMaximumWash(button) {
-
     const customer = getSelectedCustomer();
-
     const itemCode = button.dataset.itemcode;
 
     const model = {
-
         CustId: customer.CustId,
-
         OldItemCode: itemCode,
-
-        NewItemCode:
-            $("#itemCode_" + itemCode).val().trim(),
-
-        MaxWash:
-            Number($("#maxWash_" + itemCode).val()),
-
-        MaxWeeks:
-            Number($("#maxWeeks_" + itemCode).val()),
-
-        MaxCycles:
-            Number($("#maxCycles_" + itemCode).val())
-
+        NewItemCode: $("#itemCode_" + itemCode).val().trim(),
+        MaxWash: Number($("#maxWash_" + itemCode).val()),
+        MaxWeeks: Number($("#maxWeeks_" + itemCode).val()),
+        MaxCycles: Number($("#maxCycles_" + itemCode).val())
     };
 
-    const response = await fetch(
-
-        "/CustomerProfile/UpdateMaximumWash",
-
-        {
-
-            method: "PUT",
-
-            headers: {
-
-                "Content-Type": "application/json"
-
-            },
-
-            body: JSON.stringify(model)
-
-        });
+    const response = await fetch("/CustomerProfile/UpdateMaximumWash", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(model)
+    });
 
     if (response.ok) {
-
         refreshMaximumWash();
-
-    }
-    else {
-
+    } else {
         alert("Update failed.");
-
     }
-
 }
 
 function enableMaximumWashEdit(button) {
-
     const itemCode = button.dataset.itemcode;
 
     $(`#itemCode_${itemCode},
@@ -607,161 +459,85 @@ function enableMaximumWashEdit(button) {
         .prop("disabled", false);
 
     button.innerText = "Save";
-
-    $(button)
-        .next(".cancelEditMaxWash")
-        .show();
+    $(button).next(".cancelEditMaxWash").show();
 }
 
 async function deleteMaximumWash(custId, itemCode) {
-
-    if (!confirm("Delete this record?"))
-        return;
+    if (!confirm("Delete this record?")) return;
 
     try {
-
         const response = await fetch(
             `/CustomerProfile/DeleteMaximumWash?custId=${custId}&itemCode=${encodeURIComponent(itemCode)}`,
-            {
-                method: "DELETE"
-            });
-
-        if (!response.ok)
-            throw new Error();
-
-        refreshMaximumWash();
-
-    }
-    catch {
-
-        alert("Delete failed.");
-
-    }
-}
-$(document)
-
-    .on("click", "#btnAddMaxWash", function () {
-
-        enableNewMaximumWash();
-
-    })
-
-    .on("click", "#btnCancelMaxWash", function () {
-
-        cancelNewMaximumWash();
-
-    })
-
-    .on("click", "#btnSaveMaxWash", function () {
-
-        saveNewMaximumWash();
-
-    })
-
-    .on("click", ".editMaxWash", function () {
-
-        if ($(this).text().trim() === "Edit") {
-
-            enableMaximumWashEdit(this);
-
-        }
-        else {
-
-            updateMaximumWash(this);
-
-        }
-
-    })
-
-    .on("click", ".cancelEditMaxWash", function () {
-
-        refreshMaximumWash();
-
-    })
-
-    .on("click", ".deleteMaxWash", function () {
-
-        deleteMaximumWash(
-
-            $(this).data("custid"),
-
-            $(this).data("itemcode")
-
+            { method: "DELETE" }
         );
 
+        if (!response.ok) throw new Error();
+        refreshMaximumWash();
+    } catch {
+        alert("Delete failed.");
+    }
+}
+
+$(document)
+    .on("click", "#btnAddMaxWash", function () { enableNewMaximumWash(); })
+    .on("click", "#btnCancelMaxWash", function () { cancelNewMaximumWash(); })
+    .on("click", "#btnSaveMaxWash", function () { saveNewMaximumWash(); })
+    .on("click", ".editMaxWash", function () {
+        if ($(this).text().trim() === "Edit") {
+            enableMaximumWashEdit(this);
+        } else {
+            updateMaximumWash(this);
+        }
+    })
+    .on("click", ".cancelEditMaxWash", function () { refreshMaximumWash(); })
+    .on("click", ".deleteMaxWash", function () {
+        deleteMaximumWash($(this).data("custid"), $(this).data("itemcode"));
     });
+
 // =====================================================
 // Customer Line Comments
 // =====================================================
 
 function initializeCustomerLineComments() {
-
     populateCustomerHeader();
-
     loadCustomerLineComments();
-
 }
 
 async function loadCustomerLineComments() {
-
     const customer = getSelectedCustomer();
-
     if (!customer) return;
 
     try {
-
-        const response = await fetch(
-            `/CustomerProfile/CustomerLineComments?custId=${customer.CustId}`
-        );
-
-        if (!response.ok)
-            throw new Error();
-
-        $("#CustomerModuleContainer")
-            .html(await response.text());
-
-    }
-    catch {
-
+        const response = await fetch(`/CustomerProfile/CustomerLineComments?custId=${customer.CustId}`);
+        if (!response.ok) throw new Error();
+        $("#CustomerModuleContainer").html(await response.text());
+    } catch {
         alert("Unable to load Customer Line Comments.");
-
     }
 }
 
 function refreshCustomerLineComments() {
     openModule("CustomerLineComments");
 }
+
 function enableCustomerLineCommentEdit(button) {
-
     const wearItemId = button.dataset.wearitemid;
-
     const $descr = $(`#descr_${wearItemId}`);
 
     $descr.prop("disabled", false).focus();
-
     button.innerText = "Save";
-
-    $(button)
-        .next(".cancelCustLineComment")
-        .show();
-
-    $("#btnExitCustLineComments")
-        .prop("disabled", true);
+    $(button).next(".cancelCustLineComment").show();
+    $("#btnExitCustLineComments").prop("disabled", true);
 }
 
 async function saveCustomerLineComment(button) {
-
     const wearItemId = Number(button.dataset.wearitemid);
     const custId = Number(button.dataset.custid);
-
     const descr = $(`#descr_${wearItemId}`);
 
     if (!descr.val().trim()) {
-
         alert("Please enter comments.");
-
         descr.focus();
-
         return;
     }
 
@@ -772,105 +548,57 @@ async function saveCustomerLineComment(button) {
     };
 
     try {
+        const response = await fetch("/CustomerProfile/SaveCustomerLineComments", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(model)
+        });
 
-        const response = await fetch(
-            "/CustomerProfile/SaveCustomerLineComments",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(model)
-            });
-
-        if (!response.ok)
-            throw new Error();
-
+        if (!response.ok) throw new Error();
         refreshCustomerLineComments();
-
-    }
-    catch {
-
+    } catch {
         alert("Unable to save comments.");
-
     }
 }
+
 function cancelCustomerLineCommentEdit() {
     refreshCustomerLineComments();
-}   
+}
+
 function exitCustomerLineComments() {
     openModule("Profile");
 }
 
 $(document)
-
     .off("click", ".editCustLineComment")
     .on("click", ".editCustLineComment", function () {
-
-        if ($(this).text().trim() === "Edit")
-            enableCustomerLineCommentEdit(this);
-        else
-            saveCustomerLineComment(this);
-
+        if ($(this).text().trim() === "Edit") enableCustomerLineCommentEdit(this);
+        else saveCustomerLineComment(this);
     })
-
     .off("click", ".cancelCustLineComment")
     .on("click", ".cancelCustLineComment", cancelCustomerLineCommentEdit)
-
     .off("click", "#btnExitCustLineComments")
-    .on("click", "#btnExitCustLineComments", exitCustomerLineComments);// Main Navigation
+    .on("click", "#btnExitCustLineComments", exitCustomerLineComments);
+
+// =====================================================
+// Main Navigation
 // =====================================================
 
-function openCustomer() {
-    ensureCustomerSelected("Customer");
-}
+function openCustomer() { ensureCustomerSelected("Customer"); }
+function openWearer() { ensureCustomerSelected("Wearer"); }
+function openProfile() { ensureCustomerSelected("Profile"); }
 
-function openWearer() {
-    ensureCustomerSelected("Wearer");
-}
-
-function openProfile() {
-    ensureCustomerSelected("Profile");
-}
 function registerNavigation() {
+    $("#tabCustomer").off("click").on("click", function () { openCustomer(); });
+    $("#tabWearer").off("click").on("click", function () { openWearer(); });
+    $("#tabProfile").off("click").on("click", function () { openProfile(); });
+    $("#tabCTS").off("click").on("click", function () { ensureCustomerSelected("CTSSettings"); });
+    $("#tabCustLineComments").off("click").on("click", function () { ensureCustomerSelected("CustomerLineComments"); });
 
-    $("#tabCustomer")
-        .off("click")
-        .on("click", function () {
-            openCustomer();
-        });
-
-    $("#tabWearer")
-        .off("click")
-        .on("click", function () {
-            openWearer();
-        });
-
-    $("#tabProfile")
-        .off("click")
-        .on("click", function () {
-            openProfile();
-        });
-
-    $("#tabCTS")
-        .off("click")
-        .on("click", function () {
-            ensureCustomerSelected("CTSSettings");
-        });
-
-    $("#tabCustLineComments")
-        .off("click")
-        .on("click", function () {
-            ensureCustomerSelected("CustomerLineComments");
-        });
-
-    // Change Customer buttons
     $(document)
         .off("click", "#btnSelectCustomer")
         .on("click", "#btnSelectCustomer", function () {
-
             setRequestedModule(currentModule);
-
             openCustomerSearch();
         });
 }
@@ -880,83 +608,24 @@ function registerNavigation() {
 // =====================================================
 
 $(document)
-
-    .on("click", "#btnExitMaxWash", function () {
-
-        openProfile();
-
-    })
-
-    .on("click", "#btnExitCTS", function () {
-
-        openProfile();
-
-    })
-
-    .on("click", "#btnExitCustomer", function () {
-
-        openCustomer();
-
-    })
-
-    .on("click", "#btnExitWearer", function () {
-
-        openCustomer();
-
-    });
-
-$(document)
-
+    .on("click", "#btnExitMaxWash", function () { openProfile(); })
+    .on("click", "#btnExitCTS", function () { openProfile(); })
+    .on("click", "#btnExitCustomer", function () { openCustomer(); })
+    .on("click", "#btnExitWearer", function () { openCustomer(); })
     .off("click", "#btnMaxWash")
-
-    .on("click", "#btnMaxWash", function () {
-
-        openModule("MaximumWash");
-
-    });
-
-// =====================================================
-// Helpers
-// =====================================================
-$(document)
-
+    .on("click", "#btnMaxWash", function () { openModule("MaximumWash"); })
     .off("click", "#btnLineComments")
+    .on("click", "#btnLineComments", function () { openModule("CustomerLineComments"); });
 
-    .on("click", "#btnLineComments", function () {
-
-        openModule("CustomerLineComments");
-
-    });
-function showSuccess(message) {
-
-    alert(message);
-
-}
-
-function showError(message) {
-
-    alert(message);
-
-}
-
-function isCustomerSelected() {
-
-    return getSelectedCustomer() !== null;
-
-}
-
+function showSuccess(message) { alert(message); }
+function showError(message) { alert(message); }
+function isCustomerSelected() { return getSelectedCustomer() !== null; }
 function requireCustomer(moduleName) {
-
     if (!isCustomerSelected()) {
-
         ensureCustomerSelected(moduleName);
-
         return false;
-
     }
-
     return true;
-
 }
 
 // =====================================================
@@ -964,303 +633,96 @@ function requireCustomer(moduleName) {
 // =====================================================
 
 $(function () {
-
     registerNavigation();
-
     const customer = getSelectedCustomer();
-
     if (customer) {
-
         populateCustomerHeader();
-
     }
-
 });
-// =====================================================
-// Utilities
-// =====================================================
 
-function resetModule() {
-
-    clearRequestedModule();
-
-}
-
+function resetModule() { clearRequestedModule(); }
 function logoutCustomer() {
-
     clearSelectedCustomer();
-
     clearCustomerHeader();
-
     resetModule();
-
 }
 
 window.CustomerProfile = {
-
     openCustomer,
-
     openWearer,
-
     openProfile,
-
-
     openModule,
-
     openCustomerSearch,
-
     refreshMaximumWash,
-
     refreshCustomerLineComments,
-
     logoutCustomer
-
 };
-// ================================
-// Special Lines
-// ================================
 
-$(document)
-    .off("click", "#btnSpecialLines")
-    .on("click", "#btnSpecialLines", function () {
 
-        selectedLines.clear();
-
-        loadSpecialLines(1);
-
-    });
-
-// =========================
-// Special Lines
-// =========================
-
-function initializeSpecialLines() {
-
-    populateCustomerHeader();
-
-    bindSpecialLineEvents();
-
-}
-
-function loadSpecialLines(page = 1) {
-
-    currentSpecialLinesPage = page;
-
-    const customer = getSelectedCustomer();
-
-    if (!customer)
-        return;
-
-    $.get(
-        "/CustomerProfile/SpecialLines",
-        {
-            custId: customer.CustId,
-            page: page
-        },
-        function (html) {
-
-            $("#workspace").html(html);
-
-            // Restore selected checkboxes
-            $(".chkSpecialLine").each(function () {
-
-                const line = parseInt($(this).data("line"));
-
-                if (selectedLines.has(line)) {
-                    $(this).prop("checked", true);
-                }
-                else if ($(this).is(":checked")) {
-                    // Add already saved selections to the Set
-                    selectedLines.add(line);
-                }
-
-            });
-
-            bindSpecialLineEvents();
-
-        }
-    );
-}
-
-function bindSpecialLineEvents() {
-
-    // Pagination
-    $(".specialLinesPage")
-        .off("click")
-        .on("click", function (e) {
-
-            e.preventDefault();
-
-            const page = parseInt($(this).data("page"));
-
-            if (!isNaN(page)) {
-                loadSpecialLines(page);
-            }
-
-        });
-
-    // Checkbox Change
-    $(".chkSpecialLine")
-        .off("change")
-        .on("change", function () {
-
-            const line = parseInt($(this).data("line"));
-
-            if ($(this).is(":checked")) {
-                selectedLines.add(line);
-            }
-            else {
-                selectedLines.delete(line);
-            }
-
-        });
-
-    // Save
-    $("#btnSaveSpecialLines")
-        .off("click")
-        .on("click", function () {
-
-            saveSpecialLines();
-
-        });
-
-    // Exit
-    $("#btnSpecialLinesExit")
-        .off("click")
-        .on("click", function () {
-
-            openModule("Profile");
-
-        });
-}
-
-function saveSpecialLines() {
-
-    const customer = getSelectedCustomer();
-
-    if (!customer)
-        return;
-
-    $.ajax({
-
-        url: "/CustomerProfile/SaveSpecialLines",
-
-        type: "POST",
-
-        contentType: "application/json",
-
-        data: JSON.stringify({
-
-            custId: customer.CustId,
-
-            lines: Array.from(selectedLines)
-
-        }),
-
-        success: function () {
-
-            alert("Special Lines saved successfully.");
-
-        },
-
-        error: function () {
-
-            alert("Unable to save Special Lines.");
-
-        }
-
-    });
-}
+// =====================================================
+// Billing Module
+// =====================================================
 
 $(document)
     .off("click", "#btnBilling")
     .on("click", "#btnBilling", function () {
-
         openCustomerProfileModule("Billing");
-
     });
 
 async function saveBilling() {
-
     const customer = getSelectedCustomer();
-
     if (!customer) {
         alert("Please select a customer.");
         return;
     }
 
     const amount = $("#txtChargeAmount").val().trim();
-
     if (amount === "") {
         alert("Enter Charge Amount.");
         return;
     }
 
     const model = {
-
         CustId: customer.CustId,
-
         ChargeTypeId: parseInt($("#ddlChargeType").val()),
-
         Charges: parseFloat(amount),
-
         UpdtUser: 1
     };
 
     console.log("Saving Billing:", model);
 
     const response = await fetch("/CustomerProfile/SaveBilling", {
-
         method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(model)
-
     });
 
     const result = await response.text();
 
     if (result === "1") {
-
         openCustomerProfileModule("Billing");
-
-    }
-    else if (result === "2") {
-
+    } else if (result === "2") {
         alert("This Charge Type already exists for this customer.");
-
-    }
-    else {
-
+    } else {
         alert("Unable to save Billing.");
-
     }
 }
 
 async function deleteBilling(id) {
-
     if (!id) {
         alert("Invalid Billing ID.");
         return;
     }
 
-    if (!confirm("Delete record?"))
-        return;
+    if (!confirm("Delete record?")) return;
 
     try {
-
         const response = await fetch(
             `/CustomerProfile/DeleteBilling?billingChargesId=${encodeURIComponent(id)}`,
-            {
-                method: "DELETE"
-            }
+            { method: "DELETE" }
         );
 
         const result = await response.text();
-
         console.log("Delete Billing:", response.status, result);
 
         if (!response.ok) {
@@ -1269,768 +731,419 @@ async function deleteBilling(id) {
         }
 
         if (result.trim() === "1") {
-
             await openCustomerProfileModule("Billing");
-
-        }
-        else {
-
+        } else {
             alert("Unable to delete Billing.");
-
         }
-
-    }
-    catch (error) {
-
+    } catch (error) {
         console.error("Delete Billing error:", error);
-
         alert("Delete failed.");
-
     }
 }
 
 $(document)
-
     .off("click", "#btnSaveBilling")
-    .on("click", "#btnSaveBilling", function () {
-
-        saveBilling();
-
-    });
-
-$(document)
-
+    .on("click", "#btnSaveBilling", function () { saveBilling(); })
     .off("click", ".deleteBilling")
-    .on("click", ".deleteBilling", function () {
-
-        deleteBilling($(this).data("id"));
-
-    });
-
-$(document)
-
+    .on("click", ".deleteBilling", function () { deleteBilling($(this).data("id")); })
     .off("click", "#btnExitBilling")
-    .on("click", "#btnExitBilling", function () {
-
-        openModule("Profile");
-
-    });
-
-$(document)
-
+    .on("click", "#btnExitBilling", function () { openModule("Profile"); })
     .off("click", "#lnkBilling")
     .on("click", "#lnkBilling", function () {
-
         $(".legacy-menu-item").removeClass("active");
-
         $(this).addClass("active");
-
         openCustomerProfileModule("Billing");
-
     });
 
 function initializeBilling() {
+    let rawComment = $("#hdnBillingComment").val();
+    if (!rawComment && $("#txtBillingNotes").length) {
+        rawComment = $("#txtBillingNotes").val() || "";
+    }
+    rawComment = (rawComment || "").trim();
 
-    let fullComment = $("#hdnBillingComment").val() || "";
-
-    let customerComment = fullComment;
-
-    // Split on commas
-    let parts = fullComment.split(",");
-
-    // Keep everything until the first billing item (something containing :)
-    let commentParts = [];
+    let parts = rawComment.split(",");
+    let textParts = [];
 
     for (let i = 0; i < parts.length; i++) {
-
-        if (parts[i].includes(":"))
+        let chunk = parts[i].trim();
+        if (/^.+:\s*\d+(\.\d+)?$/.test(chunk)) {
             break;
-
-        commentParts.push(parts[i]);
+        }
+        if (chunk) {
+            textParts.push(chunk);
+        }
     }
 
-    customerComment = commentParts.join(",").trim();
-
-    $("#txtBillingNotes").data("comment", customerComment);
+    let customerNote = textParts.join(", ").trim();
+    $("#txtBillingNotes").data("comment", customerNote);
 
     refreshBillingNotes();
 
     $("#newBillingRow").hide();
-
     $("#btnCancelBilling").hide();
 }
-function refreshBillingNotes() {
 
-    let comment = $("#txtBillingNotes").data("comment") || "";
+function refreshBillingNotes() {
+    let customerComment = $("#txtBillingNotes").data("comment");
+
+    if (customerComment === undefined || customerComment === null) {
+        customerComment = "";
+    }
 
     let entries = [];
 
     $("#tblBilling tbody tr").not("#newBillingRow").each(function () {
-
         const charge = $(this).find("td:eq(0)").text().trim();
         const amount = $(this).find("td:eq(1)").text().trim();
 
         if (charge && amount) {
-            entries.push(charge + " : " + amount);
+            entries.push(`${charge}:${amount}`);
         }
     });
 
-    let text = comment;
+    let displayOutput = customerComment.trim();
 
     if (entries.length > 0) {
-
-        if (text !== "")
-            text += "\n\n";
-
-        text += entries.join("\n");
+        if (displayOutput !== "") {
+            displayOutput += "\n\n";
+        }
+        displayOutput += entries.join("\n");
     }
 
-    $("#txtBillingNotes").val(text);
+    $("#txtBillingNotes").val(displayOutput);
+}
+
+function getBillingPayloadComment() {
+    let currentText = $("#txtBillingNotes").val() || "";
+    let lines = currentText.split(/\r?\n/);
+    let noteLines = [];
+
+    for (let line of lines) {
+        let trimmed = line.trim();
+        if (!trimmed) continue;
+
+        if (/^.+:\s*\d+(\.\d+)?$/.test(trimmed)) {
+            continue;
+        }
+        noteLines.push(trimmed);
+    }
+
+    let customerNote = noteLines.join(" ").trim();
+    let tableEntries = [];
+
+    $("#tblBilling tbody tr").not("#newBillingRow").each(function () {
+        const charge = $(this).find("td:eq(0)").text().trim();
+        const amount = $(this).find("td:eq(1)").text().trim();
+
+        if (charge && amount) {
+            tableEntries.push(`${charge}:${amount}`);
+        }
+    });
+
+    let finalBillingCom = customerNote;
+    if (tableEntries.length > 0) {
+        if (finalBillingCom !== "") {
+            finalBillingCom += ",";
+        }
+        finalBillingCom += tableEntries.join(",");
+    }
+
+    return finalBillingCom;
 }
 
 $(document)
     .off("click.billingAdd", "#btnAddBilling")
     .on("click.billingAdd", "#btnAddBilling", function (e) {
-
         e.preventDefault();
         e.stopPropagation();
-
         $("#newBillingRow").show();
         $("#btnCancelBilling").show();
-
-    });
-
-
-$(document)
+    })
     .off("click.billingCancel", "#btnCancelBilling")
     .on("click.billingCancel", "#btnCancelBilling", function (e) {
-
         e.preventDefault();
-
         $("#newBillingRow").hide();
         $("#btnCancelBilling").hide();
-
         $("#txtChargeAmount").val("");
-
-    });
-
-
-$(document)
-
+    })
     .off("click", ".legacy-menu-item")
     .on("click", ".legacy-menu-item", function () {
-
         $(".legacy-menu-item").removeClass("active");
-
         $(this).addClass("active");
-
     });
 
-
-//---------------------------------------------------------
-// Packout menu
-//---------------------------------------------------------
+// =====================================================
+// Packout Module
+// =====================================================
 
 $(document)
     .off("click", "#lnkPackout")
     .on("click", "#lnkPackout", function () {
-
         $(".legacy-menu-item").removeClass("active");
-
         $(this).addClass("active");
-
         openCustomerProfileModule("Packout");
-
     });
 
-
-//---------------------------------------------------------
-// Initialize Packout
-//---------------------------------------------------------
-
 function initializePackout() {
-
     const existingText = $("#txtPackoutNotes").val() || "";
 
-    // Store only the customer comment.
-    // If the hidden value exists, use it.
     if ($("#hdnPackoutComment").length) {
-
-        $("#txtPackoutNotes").data(
-            "comment",
-            $("#hdnPackoutComment").val() || ""
-        );
-
-    }
-    else if ($("#txtPackoutNotes").data("comment") === undefined) {
-
-        $("#txtPackoutNotes").data(
-            "comment",
-            existingText
-        );
-
+        $("#txtPackoutNotes").data("comment", $("#hdnPackoutComment").val() || "");
+    } else if ($("#txtPackoutNotes").data("comment") === undefined) {
+        $("#txtPackoutNotes").data("comment", existingText);
     }
 
     $("#newPackoutRow").hide();
-
     refreshPackoutNotes();
-
 }
-
-
-//---------------------------------------------------------
-// Add Packout
-//---------------------------------------------------------
 
 $(document)
     .off("click.packout", "#btnAddPackout")
     .on("click.packout", "#btnAddPackout", function () {
-
         $("#newPackoutRow").show();
-
-        // Clear editable fields for a new row
         $("#txtPackoutColor").val("");
         $("#txtPackoutSize").val("");
-
     });
 
-
-//---------------------------------------------------------
-// Save Packout
-//---------------------------------------------------------
-
 async function savePackout() {
-
     const customer = getSelectedCustomer();
-
     if (!customer) {
-
         alert("Please select a customer.");
-
         return;
-
     }
 
     const item = $("#ddlPackoutItem").val();
-
     const restriction = $("#ddlPackoutRestriction").val();
 
-    if (!item) {
-
-        alert("Please select an Item.");
-
-        return;
-
-    }
-
-    if (!restriction) {
-
-        alert("Please select a Packout Restriction.");
-
-        return;
-
-    }
+    if (!item) return alert("Please select an Item.");
+    if (!restriction) return alert("Please select a Packout Restriction.");
 
     const model = {
-
         CustId: customer.CustId,
-
         PkoutRestrict: restriction,
-
         Item: item,
-
         Color: $("#txtPackoutColor").val().trim(),
-
         Size: $("#txtPackoutSize").val().trim(),
-
         UpdtUser: 1
-
     };
 
-    console.log("Saving Packout:", model);
-
     try {
-
-        const response = await fetch(
-            "/CustomerProfile/SavePackout",
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify(model)
-            }
-        );
+        const response = await fetch("/CustomerProfile/SavePackout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(model)
+        });
 
         const result = await response.text();
 
-        console.log("Packout save response:", result);
-
         if (!response.ok) {
-
-            alert(
-                result ||
-                "Unable to save Packout."
-            );
-
+            alert(result || "Unable to save Packout.");
             return;
-
         }
 
-        // Hide new row
         $("#newPackoutRow").hide();
-
-        // Clear fields
         $("#txtPackoutColor").val("");
         $("#txtPackoutSize").val("");
 
-        // Reload Packout grid
         await openCustomerProfileModule("Packout");
-
-    }
-    catch (error) {
-
+    } catch (error) {
         console.error("Packout save error:", error);
-
         alert("Unable to save Packout.");
-
     }
-
 }
-
-
-//---------------------------------------------------------
-// Save button
-//---------------------------------------------------------
 
 $(document)
     .off("click.packout", "#btnSavePackout")
-    .on("click.packout", "#btnSavePackout", function () {
-
-        savePackout();
-
-    });
-
-
-//---------------------------------------------------------
-// Delete Packout
-//---------------------------------------------------------
+    .on("click.packout", "#btnSavePackout", function () { savePackout(); });
 
 async function deletePackout(id) {
-
-    console.log("Deleting Packout ID:", id);
-
-    if (!id) {
-        alert("Invalid Packout ID.");
-        return;
-    }
-
-    if (!confirm("Delete record?"))
-        return;
+    if (!id) return alert("Invalid Packout ID.");
+    if (!confirm("Delete record?")) return;
 
     try {
-
         const response = await fetch(
             `/CustomerProfile/DeletePackout?pkoutRestrictId=${encodeURIComponent(id)}`,
-            {
-                method: "DELETE"
-            }
+            { method: "DELETE" }
         );
 
         const result = await response.text();
 
-        console.log("Delete response:", response.status, result);
-
         if (!response.ok) {
-
             alert(result || "Delete failed.");
             return;
-
         }
 
         await openCustomerProfileModule("Packout");
-
-    }
-    catch (error) {
-
+    } catch (error) {
         console.error("Delete Packout error:", error);
-
         alert("Delete failed.");
-
     }
 }
-
-
-//---------------------------------------------------------
-// Delete button
-//---------------------------------------------------------
 
 $(document)
     .off("click.packout", ".deletePackout")
     .on("click.packout", ".deletePackout", function () {
-
-        const id = $(this).data("id");
-
-        console.log("Clicked delete ID:", id);
-
-        deletePackout(id);
-
+        deletePackout($(this).data("id"));
     });
 
-//---------------------------------------------------------
-// Refresh Packout Notes
-//---------------------------------------------------------
-
 function refreshPackoutNotes() {
-
-    // Original customer comment ONLY
-    const comment =
-        $("#hdnPackoutComment").val() || "";
-
+    const comment = $("#hdnPackoutComment").val() || "";
     let rows = [];
 
     $("#tblPackout tbody tr")
         .not("#newPackoutRow")
         .each(function () {
-
-            const restriction =
-                $(this).find("td:eq(0)").text().trim();
-
-            const item =
-                $(this).find("td:eq(1)").text().trim();
-
-            const color =
-                $(this).find("td:eq(2)").text().trim();
-
-            const size =
-                $(this).find("td:eq(3)").text().trim();
+            const restriction = $(this).find("td:eq(0)").text().trim();
+            const item = $(this).find("td:eq(1)").text().trim();
+            const color = $(this).find("td:eq(2)").text().trim();
+            const size = $(this).find("td:eq(3)").text().trim();
 
             if (restriction && item) {
-
-                let line =
-                    restriction + " : " + item;
-
-                if (color)
-                    line += " - " + color;
-
-                if (size)
-                    line += " (" + size + ")";
-
+                let line = restriction + " : " + item;
+                if (color) line += " - " + color;
+                if (size) line += " (" + size + ")";
                 rows.push(line);
             }
         });
 
     let finalText = comment;
-
     if (rows.length > 0) {
-
-        if (finalText !== "")
-            finalText += "\n\n";
-
+        if (finalText !== "") finalText += "\n\n";
         finalText += rows.join("\n");
     }
 
     $("#txtPackoutNotes").val(finalText);
 }
 
+// =====================================================
+// Wash Module
+// =====================================================
+
 function initializeWash() {
-
     $("#newWashRow").hide();
-
 }
 
 $(document)
     .off("click", "#btnAddWash")
     .on("click", "#btnAddWash", function () {
-
         $("#newWashRow").show();
-
         $("#ddlWashGarmentType").focus();
-
     });
+
 async function saveWash() {
-
     const customer = getSelectedCustomer();
-
     if (!customer) {
         alert("Please select a customer.");
         return;
     }
 
-    //-------------------------------------------------
-    // Check new row
-    //-------------------------------------------------
-
     if ($("#newWashRow").is(":visible")) {
+        const garmentType = $("#ddlWashGarmentType").val();
+        const formula = $("#txtWashFormula").val().trim();
 
-        const garmentType =
-            $("#ddlWashGarmentType").val();
-
-        const formula =
-            $("#txtWashFormula").val().trim();
-
-        if (!garmentType) {
-            alert("Please select Garment Type.");
-            return;
-        }
-
-        if (!formula) {
-            alert("Formula cannot be empty.");
-            return;
-        }
+        if (!garmentType) return alert("Please select Garment Type.");
+        if (!formula) return alert("Formula cannot be empty.");
     }
 
-
-    //-------------------------------------------------
-    // Build Formula string
-    //
-    // Example:
-    // All,6,SHIRT,8,PANT,5
-    //-------------------------------------------------
-
     const formulaParts = [];
-
-    let duplicate = false;
 
     $("#tblWash tbody tr")
         .not("#newWashRow")
         .each(function () {
+            const garmentType = $(this).find("td:eq(0)").text().trim();
+            const formula = $(this).find("td:eq(1)").text().trim();
 
-            const garmentType =
-                $(this)
-                    .find("td:eq(0)")
-                    .text()
-                    .trim();
-
-            const formula =
-                $(this)
-                    .find("td:eq(1)")
-                    .text()
-                    .trim();
-
-            if (!garmentType)
-                return;
-
-            formulaParts.push(
-                garmentType,
-                formula
-            );
+            if (!garmentType) return;
+            formulaParts.push(garmentType, formula);
         });
 
-
-    //-------------------------------------------------
-    // Add new row
-    //-------------------------------------------------
-
     if ($("#newWashRow").is(":visible")) {
+        const garmentType = $("#ddlWashGarmentType").val();
+        const formula = $("#txtWashFormula").val().trim();
 
-        const garmentType =
-            $("#ddlWashGarmentType").val();
-
-        const formula =
-            $("#txtWashFormula").val().trim();
-
-
-        //-------------------------------------------------
-        // Check duplicate Garment Type
-        //-------------------------------------------------
-
-        const exists =
-            $("#tblWash tbody tr")
-                .not("#newWashRow")
-                .filter(function () {
-
-                    return $(this)
-                        .find("td:eq(0)")
-                        .text()
-                        .trim()
-                        .toLowerCase()
-                        === garmentType.toLowerCase();
-
-                })
-                .length > 0;
-
+        const exists = $("#tblWash tbody tr")
+            .not("#newWashRow")
+            .filter(function () {
+                return $(this).find("td:eq(0)").text().trim().toLowerCase() === garmentType.toLowerCase();
+            }).length > 0;
 
         if (exists) {
-
-            alert(
-                garmentType +
-                " already exists."
-            );
-
+            alert(garmentType + " already exists.");
             return;
         }
 
-
-        formulaParts.push(
-            garmentType,
-            formula
-        );
+        formulaParts.push(garmentType, formula);
     }
 
-
-    //-------------------------------------------------
-    // Create Formula string
-    //-------------------------------------------------
-
-    const formula =
-        formulaParts.join(",");
-
-
-    console.log(
-        "WASH FORMULA:",
-        formula
-    );
-
-
-    //-------------------------------------------------
-    // WashCom
-    //-------------------------------------------------
-
-    const washCom =
-        $("#txtWashNotes").val() || "";
-
-
-    //-------------------------------------------------
-    // Payload
-    //-------------------------------------------------
+    const formula = formulaParts.join(",");
+    const washCom = $("#txtWashNotes").val() || "";
 
     const payload = {
-
         CustId: customer.CustId,
-
         WashCom: washCom,
-
         Formula: formula
-
     };
 
-
-    console.log(
-        "WASH SAVE PAYLOAD:",
-        payload
-    );
-
-
-    //-------------------------------------------------
-    // Save
-    //-------------------------------------------------
-
-    const response =
-        await fetch(
-            "/CustomerProfile/SaveWash",
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type":
-                        "application/json"
-                },
-
-                body:
-                    JSON.stringify(payload)
-            }
-        );
-
+    const response = await fetch("/CustomerProfile/SaveWash", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    });
 
     if (response.ok) {
-
         $("#newWashRow").hide();
-
         $("#txtWashFormula").val("");
-
         openCustomerProfileModule("Wash");
-
-    }
-    else {
-
-        const error =
-            await response.text();
-
-        console.error(
-            "Wash save failed:",
-            error
-        );
-
-        alert(
-            "Unable to save Wash."
-        );
+    } else {
+        alert("Unable to save Wash.");
     }
 }
+
 $(document)
     .off("click", "#btnSaveWash")
-    .on("click", "#btnSaveWash", function () {
-
-        saveWash();
-
-    });
-$(document)
+    .on("click", "#btnSaveWash", function () { saveWash(); })
     .off("click", ".deleteWash")
     .on("click", ".deleteWash", async function () {
-
-        if (!confirm("Delete this Wash formula?"))
-            return;
-
-        $(this)
-            .closest("tr")
-            .remove();
-
+        if (!confirm("Delete this Wash formula?")) return;
+        $(this).closest("tr").remove();
         await saveWash();
-    });
-$(document)
+    })
     .off("click", "#lnkWash")
     .on("click", "#lnkWash", function () {
-
         $(".legacy-menu-item").removeClass("active");
-
         $(this).addClass("active");
-
         openCustomerProfileModule("Wash");
-
     });
-function getCurrentWashFormula(savedCustomer) {
 
-    // Wash module is not currently loaded.
-    // Preserve the value already in DB.
+function getCurrentWashFormula(savedCustomer) {
     if (!$("#tblWash").length) {
         return savedCustomer.formula || "";
     }
 
     const parts = [];
-
     $("#tblWash tbody tr")
         .not("#newWashRow")
         .each(function () {
-
-            const garmentType =
-                $(this)
-                    .find("td:eq(0)")
-                    .text()
-                    .trim();
-
-            const formula =
-                $(this)
-                    .find("td:eq(1)")
-                    .text()
-                    .trim();
+            const garmentType = $(this).find("td:eq(0)").text().trim();
+            const formula = $(this).find("td:eq(1)").text().trim();
 
             if (garmentType && formula) {
-
-                parts.push(garmentType);
-                parts.push(formula);
+                parts.push(garmentType, formula);
             }
         });
 
     return parts.join(",");
 }
+
+// =====================================================
+// Customer Screen Save
+// =====================================================
+
 $(document)
     .off("click", "#btnSaveCustomer")
     .on("click", "#btnSaveCustomer", async function () {
-
         const customer = getSelectedCustomer();
-
         if (!customer) {
             alert("Please select a customer.");
             return;
@@ -2042,645 +1155,300 @@ $(document)
             STFlag: $("#stFlag").is(":checked")
         };
 
-        console.log("CUSTOMER SAVE:", payload);
-
-        const response = await fetch(
-            "/CustomerProfile/SaveCustomerFlags",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(payload)
-            }
-        );
+        const response = await fetch("/CustomerProfile/SaveCustomerFlags", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
 
         if (response.ok) {
             alert("Customer details saved successfully.");
-        }
-        else {
-            const error = await response.text();
-            console.error(error);
+        } else {
             alert("Unable to save Customer details.");
         }
     });
+
+
+// =====================================================
+// WEARER MODULE
+// =====================================================
+
+function getWearerTargetContainer() {
+    return $("#CustomerModuleContainer").length ? $("#CustomerModuleContainer") : $("#workspace");
+}
+
+// 1. OPEN WEARER MODAL (Injects _WearerSelection.cshtml)
 $(document)
-    .off("click.wearer", ".btnSelectWearer")
-    .on("click.wearer", ".btnSelectWearer", function () {
-
+    .off("click.wearer", "#btnOpenWearerModal")
+    .on("click.wearer", "#btnOpenWearerModal", function () {
         const customer = getSelectedCustomer();
-
         if (!customer) {
-            alert("Please select a customer.");
+            alert("Please select a customer first.");
             return;
         }
 
-        const wearNbr =
-            $(this).attr("data-wear-nbr");
+        // Call the SearchModal action on WearerController
+        $.get(`/Wearer/SearchModal?custId=${customer.CustId}`)
+            .done(function (html) {
+                // Clear any lingering instance
+                const existingEl = document.getElementById("wearerSelectionModal");
+                if (existingEl) {
+                    const inst = bootstrap.Modal.getInstance(existingEl);
+                    if (inst) inst.dispose();
+                }
 
-        console.log("Selected Wearer #:", wearNbr);
+                // Render _WearerSelection.cshtml into the placeholder
+                $("#wearerModalContainer").html(html);
 
-        if (!wearNbr) {
-            console.error("Wearer number is missing.");
-            return;
-        }
-
-        const modalElement =
-            document.getElementById("wearerSelectionModal");
-
-        const modal =
-            bootstrap.Modal.getInstance(modalElement);
-
-        if (modal) {
-            modal.hide();
-        }
-
-        // Use the EXISTING Wearer action
-        $.get(
-            "/CustomerProfile/Wearer",
-            {
-                custId: customer.CustId,
-                wearNbr: wearNbr
-            },
-            function (html) {
-
-                console.log(
-                    "Selected wearer loaded successfully"
-                );
-
-                $("#CustomerModuleContainer")
-                    .html(html);
-
-                afterModuleLoaded("Wearer");
-            }
-        )
-            .fail(function (xhr) {
-
-                console.error(
-                    "Loading selected wearer failed:",
-                    xhr.status,
-                    xhr.responseText
-                );
-
-                alert("Unable to load selected wearer.");
-            });
-    });
-$(document)
-    .off("click.wearer", ".btnSelectWearer")
-    .on("click.wearer", ".btnSelectWearer", function () {
-
-        const customer = getSelectedCustomer();
-
-        if (!customer) {
-            alert("Please select a customer.");
-            return;
-        }
-
-        const wearNbr =
-            $(this).attr("data-wear-nbr");
-
-        console.log("========== SELECT WEARER ==========");
-        console.log("CustId:", customer.CustId);
-        console.log("WearNbr:", wearNbr);
-        console.log("===================================");
-
-        if (!wearNbr) {
-            console.error("WearNbr is missing from Select button.");
-            return;
-        }
-
-        const modalElement =
-            document.getElementById("wearerSelectionModal");
-
-        const modal =
-            bootstrap.Modal.getInstance(modalElement);
-
-        if (modal) {
-            modal.hide();
-        }
-
-        const url =
-            `/CustomerProfile/Wearer?custId=${customer.CustId}&wearNbr=${encodeURIComponent(wearNbr)}`;
-
-        console.log("Loading selected wearer URL:", url);
-
-        $.get(
-            url,
-            function (html) {
-
-                console.log(
-                    "Selected wearer HTML received"
-                );
-
-                $("#CustomerModuleContainer")
-                    .html(html);
-
-                afterModuleLoaded("Wearer");
-            }
-        )
-            .fail(function (xhr) {
-
-                console.error(
-                    "Selected wearer failed:",
-                    xhr.status,
-                    xhr.responseText
-                );
+                // Show modal
+                const modalElement = document.getElementById("wearerSelectionModal");
+                if (modalElement) {
+                    const modal = new bootstrap.Modal(modalElement);
+                    modal.show();
+                }
+            })
+            .fail(function () {
+                alert("Unable to load wearer list.");
             });
     });
 
+// 2. SELECT WEARER FROM _WearerSelection TABLE
+$(document)
+    .off("click.wearer", ".btnSelectWearer")
+    .on("click.wearer", ".btnSelectWearer", function () {
+        const customer = getSelectedCustomer();
+        if (!customer) return alert("Please select a customer.");
 
+        const wearNbr = $(this).attr("data-wear-nbr");
+        if (!wearNbr) return console.error("Wearer number missing.");
+
+        // Hide and dispose modal
+        const modalElement = document.getElementById("wearerSelectionModal");
+        if (modalElement) {
+            const modal = bootstrap.Modal.getInstance(modalElement);
+            if (modal) modal.hide();
+        }
+
+        const url = `/Wearer/Index?custId=${customer.CustId}&wearNbr=${encodeURIComponent(wearNbr)}`;
+
+        $.get(url, function (html) {
+            const $container = $("#CustomerModuleContainer").length ? $("#CustomerModuleContainer") : $("#workspace");
+            $container.html(html);
+            afterModuleLoaded("Wearer");
+        }).fail(function (xhr) {
+            console.error("Loading selected wearer failed:", xhr.status, xhr.responseText);
+            alert("Unable to load selected wearer.");
+        });
+    });
+// 3. NEXT WEARER
 $(document)
     .off("click.wearer", "#btnNext")
     .on("click.wearer", "#btnNext", function () {
+        const customer = getSelectedCustomer();
+        let custId = parseInt($("#hdnCustId").val() || $("input[name='CustId']").val() || (customer ? customer.CustId : 0));
+        let wearerId = parseInt($("#hdnWearerId").val() || $("input[name='WearerId']").val() || 0);
 
-        const custId =
-            parseInt(
-                $("input[name='CustId']").val()
-            );
+        if (!custId) return alert("Please select a customer first.");
 
-        const wearerId =
-            parseInt(
-                $("input[name='WearerId']").val()
-            );
-
-        if (!custId || !wearerId) {
-            return;
-        }
-
-        $.get(
-            "/CustomerProfile/WearerNext",
-            {
-                custId: custId,
-                wearerId: wearerId
-            }
-        )
+        $.get("/CustomerProfile/WearerNext", { custId: custId, wearerId: wearerId })
             .done(function (html) {
-
                 if (html) {
-                    $("#CustomerModuleContainer")
-                        .html(html);
+                    getWearerTargetContainer().html(html);
+                    afterModuleLoaded("Wearer");
                 }
+            })
+            .fail(function (xhr) {
+                console.error("Wearer Next failed:", xhr.status, xhr.responseText);
             });
     });
 
-
+// 4. PREVIOUS WEARER
 $(document)
     .off("click.wearer", "#btnPrevious")
     .on("click.wearer", "#btnPrevious", function () {
+        const customer = getSelectedCustomer();
+        let custId = parseInt($("#hdnCustId").val() || $("input[name='CustId']").val() || (customer ? customer.CustId : 0));
+        let wearerId = parseInt($("#hdnWearerId").val() || $("input[name='WearerId']").val() || 0);
 
-        const custId =
-            parseInt(
-                $("input[name='CustId']").val()
-            );
+        if (!custId) return alert("Please select a customer first.");
 
-        const wearerId =
-            parseInt(
-                $("input[name='WearerId']").val()
-            );
-
-        if (!custId || !wearerId) {
-            return;
-        }
-
-        $.get(
-            "/CustomerProfile/WearerPrevious",
-            {
-                custId: custId,
-                wearerId: wearerId
-            }
-        )
+        $.get("/CustomerProfile/WearerPrevious", { custId: custId, wearerId: wearerId })
             .done(function (html) {
-
                 if (html) {
-                    $("#CustomerModuleContainer")
-                        .html(html);
+                    getWearerTargetContainer().html(html);
+                    afterModuleLoaded("Wearer");
                 }
+            })
+            .fail(function (xhr) {
+                console.error("Wearer Previous failed:", xhr.status, xhr.responseText);
             });
     });
+
+// 5. SAVE WEARER
 $(document)
     .off("click.wearer", "#btnSaveWearer")
     .on("click.wearer", "#btnSaveWearer", function () {
+        const wearerId = parseInt($("#hdnWearerId").val() || $("input[name='WearerId']").val());
 
-        const dto = {
-            WearerId: parseInt(
-                $("input[name='WearerId']").val()
-            ),
-
-            Locker:
-                $("input[name='Locker']").val() || "",
-
-            LockRm:
-                $("input[name='LockRm']").val() || "",
-
-            Sex:
-                $("select[name='Sex']").val() === "true"
-        };
-
-        console.log("SAVE DTO:", dto);
-
-        if (!dto.WearerId || isNaN(dto.WearerId)) {
+        if (!wearerId || isNaN(wearerId)) {
             alert("No wearer selected.");
             return;
         }
+
+        const dto = {
+            WearerId: wearerId,
+            Locker: ($("input[name='Locker']").val() || $("#Locker").val() || "").trim(),
+            LockRm: ($("input[name='LockRm']").val() || $("#LockRm").val() || "").trim(),
+            Sex: ($("select[name='Sex']").val() || $("#Sex").val()) === "true"
+        };
 
         $.ajax({
             url: "/CustomerProfile/SaveWearer",
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(dto),
-
             success: function () {
-                console.log("Wearer saved successfully");
                 alert("Wearer saved successfully.");
             },
-
             error: function (xhr) {
-                console.error(
-                    "Save Wearer failed:",
-                    xhr.status,
-                    xhr.responseText
-                );
+                console.error("Save Wearer failed:", xhr.status, xhr.responseText);
+                alert("Save Wearer failed.");
             }
         });
     });
+
+// 4. SAVE WEARER
+$(document)
+    .off("click.wearer", "#btnSaveWearer")
+    .on("click.wearer", "#btnSaveWearer", function () {
+        const wearerId = parseInt($("#hdnWearerId").val() || $("input[name='WearerId']").val() || $("#WearerId").val());
+
+        if (!wearerId || isNaN(wearerId)) {
+            alert("No wearer selected.");
+            return;
+        }
+
+        const dto = {
+            WearerId: wearerId,
+            Locker: $("input[name='Locker']").val() ? $("input[name='Locker']").val().trim() : ($("#Locker").val() || "").trim(),
+            LockRm: $("input[name='LockRm']").val() ? $("input[name='LockRm']").val().trim() : ($("#LockRm").val() || "").trim(),
+            Sex: ($("select[name='Sex']").val() || $("#Sex").val()) === "true"
+        };
+
+        $.ajax({
+            url: "/CustomerProfile/SaveWearer",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(dto),
+            success: function () {
+                alert("Wearer saved successfully.");
+            },
+            error: function (xhr) {
+                console.error("Save Wearer failed:", xhr.status, xhr.responseText);
+                alert("Save Wearer failed.");
+            }
+        });
+    });
+
+// =====================================================
+// Overall Customer Profile Save
+// =====================================================
+
 $(document)
     .off("click.customerProfile", "#btnSaveCustomerProfile")
     .on("click.customerProfile", "#btnSaveCustomerProfile", async function (e) {
-
         e.preventDefault();
         e.stopPropagation();
 
         const customer = getSelectedCustomer();
-
         if (!customer) {
             alert("Please select a customer.");
             return;
         }
 
-        //-------------------------------------------------
-        // GET LATEST CUSTOMER DATA FROM DATABASE
-        //-------------------------------------------------
-
         let savedCustomer;
-
         try {
-
-            const response = await fetch(
-                `/api/Customer/${customer.CustId}`
-            );
-
-            if (!response.ok) {
-                throw new Error("Unable to load customer data.");
-            }
-
+            const response = await fetch(`/api/Customer/${customer.CustId}`);
+            if (!response.ok) throw new Error("Unable to load customer data.");
             savedCustomer = await response.json();
-
-            console.log(
-                "LATEST CUSTOMER FROM API:",
-                savedCustomer
-            );
-
-        }
-        catch (error) {
-
-            console.error(
-                "Unable to load latest customer:",
-                error
-            );
-
+        } catch (error) {
+            console.error("Unable to load latest customer:", error);
             alert("Unable to load current customer data.");
             return;
         }
 
-
-        //-------------------------------------------------
-        // BILLING
-        //-------------------------------------------------
-
-        let billingCom =
-            savedCustomer.billingCom || "";
-
-        // Billing is currently loaded
-        if (
-            $("#txtBillingNotes").length &&
-            $("#tblBilling").length
-        ) {
-
-            let billingComment =
-                $("#txtBillingNotes").val() || "";
-
-            let billingEntries = [];
-
-            $("#tblBilling tbody tr")
-                .not("#newBillingRow")
-                .each(function () {
-
-                    const charge =
-                        $(this)
-                            .find("td:eq(0)")
-                            .text()
-                            .trim();
-
-                    const amount =
-                        $(this)
-                            .find("td:eq(1)")
-                            .text()
-                            .trim();
-
-                    if (charge && amount) {
-
-                        billingEntries.push(
-                            `${charge}:${amount}`
-                        );
-                    }
-                });
-
-
-            //-------------------------------------------------
-            // Extract only the customer-written comment
-            //-------------------------------------------------
-
-            let lines =
-                billingComment.split(/\r?\n/);
-
-            let commentLines = [];
-
-            for (const line of lines) {
-
-                const value = line.trim();
-
-                if (!value)
-                    continue;
-
-                // Skip generated Billing rows
-                // Example:
-                // Zipper : 7.00
-                if (
-                    /^[^:]+:\s*\d/.test(
-                        value.replace(" : ", ":")
-                    )
-                ) {
-                    continue;
-                }
-
-                commentLines.push(value);
-            }
-
-            billingCom =
-                commentLines.join("\n").trim();
-
-
-            //-------------------------------------------------
-            // Add Billing entries
-            //-------------------------------------------------
-
-            if (billingEntries.length > 0) {
-
-                if (billingCom !== "")
-                    billingCom += ",";
-
-                billingCom +=
-                    billingEntries.join(",");
-            }
+        // 1. BILLING
+        let billingCom = savedCustomer.billingCom || "";
+        if ($("#txtBillingNotes").length && $("#tblBilling").length) {
+            billingCom = getBillingPayloadComment();
         }
 
-
-        //-------------------------------------------------
-        // PACKOUT
-        //-------------------------------------------------
-
-        // IMPORTANT:
-        // PackoutCom stores ONLY the customer note.
-        // Packout rows are stored in PackoutRestriction.
-
-        let packoutCom =
-            savedCustomer.packoutCom || "";
-
-
-        // Packout is currently loaded
+        // 2. PACKOUT
+        let packoutCom = savedCustomer.packoutCom || "";
         if ($("#txtPackoutNotes").length) {
-
-            let packoutText =
-                $("#txtPackoutNotes").val() || "";
-
-            let lines =
-                packoutText.split(/\r?\n/);
-
+            let packoutText = $("#txtPackoutNotes").val() || "";
+            let lines = packoutText.split(/\r?\n/);
             let commentLines = [];
 
             for (const line of lines) {
-
                 const value = line.trim();
-
-                if (!value)
-                    continue;
-
-                // Remove generated Packout rows.
-                //
-                // YES : ITEM - COLOR (SIZE)
-                // NO : ITEM - COLOR (SIZE)
-                //
-                if (
-                    /^(YES|NO)\s*:/i.test(value)
-                ) {
-                    continue;
-                }
-
+                if (!value) continue;
+                if (/^(YES|NO)\s*:/i.test(value)) continue;
                 commentLines.push(value);
             }
-
-            packoutCom =
-                commentLines.join("\n").trim();
+            packoutCom = commentLines.join("\n").trim();
         }
 
-
-        //-------------------------------------------------
-        // OTHER CUSTOMER COMMENTS
-        //-------------------------------------------------
-
-        const washCom =
-            $("#txtWashNotes").length
-                ? $("#txtWashNotes").val()
-                : (savedCustomer.washCom || "");
-
-
-        const soilCom =
-            $("#txtSoilNotes").length
-                ? $("#txtSoilNotes").val()
-                : (savedCustomer.soilCom || "");
-
-
-        const dryerCom =
-            $("#txtDryerNotes").length
-                ? $("#txtDryerNotes").val()
-                : (savedCustomer.dryerCom || "");
-
-
-        const receivingCom =
-            $("#txtReceivingNotes").length
-                ? $("#txtReceivingNotes").val()
-                : (savedCustomer.receivingCom || "");
-
-
-        const shippingCom =
-            $("#txtShippingNotes").length
-                ? $("#txtShippingNotes").val()
-                : (savedCustomer.shippingCom || "");
-
-
-        const driverCom =
-            $("#txtDriverNotes").length
-                ? $("#txtDriverNotes").val()
-                : (savedCustomer.driverCom || "");
-
-
-        const mendCom =
-            $("#txtMendNotes").length
-                ? $("#txtMendNotes").val()
-                : (savedCustomer.mendCom || "");
-
-
-        const qaCom =
-            $("#txtQANotes").length
-                ? $("#txtQANotes").val()
-                : (savedCustomer.qaCom || "");
-
-
-        const custSrvCom =
-            $("#txtCustomerServiceNotes").length
-                ? $("#txtCustomerServiceNotes").val()
-                : (savedCustomer.custSrvCom || "");
-
-
-        const officeCom =
-            $("#txtOfficeNotes").length
-                ? $("#txtOfficeNotes").val()
-                : (savedCustomer.officeCom || "");
-
-
-        const genOfficeCom =
-            $("#txtGeneralOfficeNotes").length
-                ? $("#txtGeneralOfficeNotes").val()
-                : (savedCustomer.genOfficeCom || "");
-
-
-        const merControlCom =
-            $("#txtMerchControlNotes").length
-                ? $("#txtMerchControlNotes").val()
-                : (savedCustomer.merControlCom || "");
-
-
-        const mainCleanRoomCom =
-            $("#txtMainCleanRoomNotes").length
-                ? $("#txtMainCleanRoomNotes").val()
-                : (savedCustomer.mainCleanRoomCom || "");
-
-
-        const qaInspCom =
-            $("#txtQAInspectorNotes").length
-                ? $("#txtQAInspectorNotes").val()
-                : (savedCustomer.qaInspCom || "");
-
-
-        const prodCom =
-            $("#txtProductionNotes").length
-                ? $("#txtProductionNotes").val()
-                : (savedCustomer.prodCom || "");
-
-        const formula =
-            getCurrentWashFormula(savedCustomer);
-
-
-        //-------------------------------------------------
-        // FINAL PAYLOAD
-        //-------------------------------------------------
+        // 3. OTHER COMMENTS
+        const washCom = $("#txtWashNotes").length ? $("#txtWashNotes").val() : (savedCustomer.washCom || "");
+        const soilCom = $("#txtSoilNotes").length ? $("#txtSoilNotes").val() : (savedCustomer.soilCom || "");
+        const dryerCom = $("#txtDryerNotes").length ? $("#txtDryerNotes").val() : (savedCustomer.dryerCom || "");
+        const receivingCom = $("#txtReceivingNotes").length ? $("#txtReceivingNotes").val() : (savedCustomer.receivingCom || "");
+        const shippingCom = $("#txtShippingNotes").length ? $("#txtShippingNotes").val() : (savedCustomer.shippingCom || "");
+        const driverCom = $("#txtDriverNotes").length ? $("#txtDriverNotes").val() : (savedCustomer.driverCom || "");
+        const mendCom = $("#txtMendNotes").length ? $("#txtMendNotes").val() : (savedCustomer.mendCom || "");
+        const qaCom = $("#txtQANotes").length ? $("#txtQANotes").val() : (savedCustomer.qaCom || "");
+        const custSrvCom = $("#txtCustomerServiceNotes").length ? $("#txtCustomerServiceNotes").val() : (savedCustomer.custSrvCom || "");
+        const officeCom = $("#txtOfficeNotes").length ? $("#txtOfficeNotes").val() : (savedCustomer.officeCom || "");
+        const genOfficeCom = $("#txtGeneralOfficeNotes").length ? $("#txtGeneralOfficeNotes").val() : (savedCustomer.genOfficeCom || "");
+        const merControlCom = $("#txtMerchControlNotes").length ? $("#txtMerchControlNotes").val() : (savedCustomer.merControlCom || "");
+        const mainCleanRoomCom = $("#txtMainCleanRoomNotes").length ? $("#txtMainCleanRoomNotes").val() : (savedCustomer.mainCleanRoomCom || "");
+        const qaInspCom = $("#txtQAInspectorNotes").length ? $("#txtQAInspectorNotes").val() : (savedCustomer.qaInspCom || "");
+        const prodCom = $("#txtProductionNotes").length ? $("#txtProductionNotes").val() : (savedCustomer.prodCom || "");
+        const formula = getCurrentWashFormula(savedCustomer);
 
         const payload = {
-
             custId: customer.CustId,
-
             billingCom: billingCom,
-
             packoutCom: packoutCom,
-
             washCom: washCom,
-
             formula: formula,
-
             soilCom: soilCom,
-
             dryerCom: dryerCom,
-
             receivingCom: receivingCom,
-
             shippingCom: shippingCom,
-
             driverCom: driverCom,
-
             mendCom: mendCom,
-
             qaCom: qaCom,
-
             custSrvCom: custSrvCom,
-
             officeCom: officeCom,
-
             genOfficeCom: genOfficeCom,
-
             merControlCom: merControlCom,
-
             mainCleanRoomCom: mainCleanRoomCom,
-
             qaInspCom: qaInspCom,
-
             prodCom: prodCom
         };
 
-
-        //-------------------------------------------------
-        // DEBUG
-        //-------------------------------------------------
-
-        console.log(
-            "OVERALL SAVE PAYLOAD:",
-            payload
-        );
-
-
-        //-------------------------------------------------
-        // SAVE CUSTOMER PROFILE
-        //-------------------------------------------------
-
         $.ajax({
-
             url: "/CustomerProfile/SaveCustomerProfile",
-
             type: "POST",
-
             contentType: "application/json",
-
             data: JSON.stringify(payload),
-
             success: function () {
-
-                alert(
-                    "Customer Profile Saved Successfully."
-                );
-
+                alert("Customer Profile Saved Successfully.");
             },
-
             error: function (xhr) {
-
-                console.error(
-                    "Customer Profile Save Error:",
-                    xhr.responseText
-                );
-
-                alert(
-                    xhr.responseText ||
-                    "Unable to save Customer Profile."
-                );
+                alert(xhr.responseText || "Unable to save Customer Profile.");
             }
         });
-
     });

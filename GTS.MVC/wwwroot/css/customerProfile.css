@@ -1,10 +1,13 @@
-﻿
-.gts-page-container,
+﻿/* =========================================================
+   1. OUTER MASTER DESKTOP CONTAINER WINDOW
+   ========================================================= */
 .customer-profile,
 .wearer-screen,
 .customer-module-panel,
 .customer-screen,
-.cts-settings-screen {
+.cts-settings-screen,
+.gts-page-container > .container,
+.gts-page-container > .container-fluid {
     width: 99% !important;
     max-width: 1350px !important;
     margin: 6px auto !important;
@@ -16,7 +19,21 @@
     font-size: 11px;
 }
 
+    /* Prevent Bootstrap from squeezing or breaking AJAX container bounds */
+    .customer-profile .container,
+    .wearer-screen .container,
+    .legacy-workspace .container,
+    #CustomerModuleContainer .container,
+    #CustomerModuleContainer {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
 
+/* =========================================================
+   2. TOP SUB-NAV BAR (GTS Solid Blue Palette)
+   ========================================================= */
 .gts-tabs {
     width: 100%;
     height: 32px;
@@ -30,77 +47,49 @@
     box-sizing: border-box;
 }
 
-.gts-tabs > a {
-    height: 32px;
-    display: inline-flex;
-    align-items: center;
-    padding: 0 16px;
-    margin: 0;
-    background: transparent;
-    color: #ffffff !important;
-    border: none;
-    text-decoration: none !important;
-    font-size: 12px;
-    font-weight: 500;
-    white-space: nowrap;
-    cursor: pointer;
-}
+    .gts-tabs > a {
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 16px;
+        margin: 0;
+        background: transparent;
+        color: #ffffff !important;
+        border: none;
+        text-decoration: none !important;
+        font-size: 12px;
+        font-weight: 500;
+        white-space: nowrap;
+        cursor: pointer;
+    }
 
-.gts-tabs > a:hover {
-    background: #285887 !important;
-    color: #ffffff !important;
-}
+        .gts-tabs > a:hover {
+            background: #285887 !important;
+            color: #ffffff !important;
+        }
 
-.gts-tabs > a.active,
-.gts-tabs > a.selected,
-.gts-tabs > a[aria-selected="true"] {
-    background: #0f2b4c !important;
-    color: #ffffff !important;
-    font-weight: bold;
-}
-
-
-.customer-profile-header,
-.legacy-workspace,
-.wearer-screen fieldset,
-.customer-module-area,
-#CustomerModuleContainer {
-    background: #ffffff !important;
-    border: 1px solid #7f9db9 !important;
-    box-sizing: border-box !important;
-}
-
-/* Inner Box Spacing Container */
-.legacy-workspace,
-.wearer-screen,
-.customer-module-panel {
-    margin: 6px !important;
-    padding: 8px !important;
-    min-height: 420px;
-}
-
-/* Normalize inner partial elements so nothing stretches or overflows */
-.customer-profile .container,
-.wearer-screen .container,
-.legacy-workspace .container,
-#CustomerModuleContainer .container,
-#CustomerModuleContainer {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
+        .gts-tabs > a.active,
+        .gts-tabs > a.selected,
+        .gts-tabs > a[aria-selected="true"] {
+            background: #0f2b4c !important;
+            color: #ffffff !important;
+            font-weight: bold;
+        }
 
 /* =========================================================
-   4. HEADER FORM SECTION
+   3. HEADER FORM SECTION (Subtle Divider instead of Heavy Box)
    ========================================================= */
 .customer-profile-header {
-    width: calc(100% - 12px) !important;
-    margin: 6px 6px 0 6px !important;
-    padding: 6px;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 8px 10px !important;
+    background: #fafafa !important;
+    border: none !important;
+    border-bottom: 1px solid #d4dbe3 !important;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    box-sizing: border-box;
 }
 
 .customer-profile-row {
@@ -118,15 +107,15 @@
     white-space: nowrap;
 }
 
-.customer-profile-field label {
-    font-size: 11px;
-    font-weight: 500;
-    color: #333333;
-    margin: 0;
-    padding: 0;
-}
+    .customer-profile-field label {
+        font-size: 11px;
+        font-weight: 500;
+        color: #333333;
+        margin: 0;
+        padding: 0;
+    }
 
-/* Inputs & Form Controls */
+/* Unified Inputs & Form Controls */
 .customer-profile .form-control,
 .customer-profile .form-select,
 .legacy-workspace .form-control,
@@ -145,21 +134,43 @@
     box-shadow: none;
 }
 
-.customer-profile .form-control[readonly],
-.legacy-workspace .form-control[readonly],
-.wearer-screen .form-control[readonly] {
-    background-color: #f0f0f0 !important;
-    border-color: #c0c0c0 !important;
-    color: #444444;
+    .customer-profile .form-control[readonly],
+    .legacy-workspace .form-control[readonly],
+    .wearer-screen .form-control[readonly] {
+        background-color: #f0f0f0 !important;
+        border-color: #c0c0c0 !important;
+        color: #444444;
+    }
+
+.cust-number-field .form-control {
+    width: 130px;
 }
 
-.cust-number-field .form-control { width: 130px; }
-.customer-name-field { flex-grow: 1; }
-.customer-name-field .form-control { width: 100%; }
-#txtShipVia { width: 130px; }
-#txtPackage { width: 120px; }
-#txtPropertyMark { width: 130px; border: 1px solid #000000 !important; }
-#ddlSterileCode { width: 115px; border: 1px solid #000000 !important; }
+.customer-name-field {
+    flex-grow: 1;
+}
+
+    .customer-name-field .form-control {
+        width: 100%;
+    }
+
+#txtShipVia {
+    width: 130px;
+}
+
+#txtPackage {
+    width: 120px;
+}
+
+#txtPropertyMark {
+    width: 130px;
+    border: 1px solid #000000 !important;
+}
+
+#ddlSterileCode {
+    width: 115px;
+    border: 1px solid #000000 !important;
+}
 
 /* Checkboxes */
 .customer-inline-checks,
@@ -169,21 +180,21 @@
     gap: 10px;
 }
 
-.customer-inline-checks label,
-.customer-profile-checks label,
-.customer-profile .form-check-label,
-.legacy-workspace .form-check-label,
-.wearer-screen .form-check-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    font-size: 11px !important;
-    font-weight: normal;
-    color: #222222;
-    cursor: pointer;
-    margin: 0 !important;
-    white-space: nowrap;
-}
+    .customer-inline-checks label,
+    .customer-profile-checks label,
+    .customer-profile .form-check-label,
+    .legacy-workspace .form-check-label,
+    .wearer-screen .form-check-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 11px !important;
+        font-weight: normal;
+        color: #222222;
+        cursor: pointer;
+        margin: 0 !important;
+        white-space: nowrap;
+    }
 
 .customer-profile input[type="checkbox"],
 .legacy-workspace input[type="checkbox"],
@@ -197,86 +208,107 @@
 }
 
 /* =========================================================
-   5. SPLIT WORKSPACE AREA & LEFT MENU
+   4. SPLIT WORKSPACE AREA & PROFESSIONAL LEFT MENU WITH LINES
    ========================================================= */
 .customer-module-area {
     display: grid;
-    grid-template-columns: 140px minmax(0, 1fr) !important;
-    gap: 6px !important;
-    width: calc(100% - 12px) !important;
-    margin: 6px !important;
+    grid-template-columns: 155px minmax(0, 1fr) !important;
+    gap: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
     min-height: 400px !important;
-    padding: 6px;
-}
-
-.legacy-menu {
-    width: 140px !important;
-    min-height: 380px !important;
-    border: none !important;
-    background: transparent !important;
     padding: 0 !important;
-}
-
-.legacy-menu-item {
-    display: block;
-    width: 100%;
-    padding: 2px 4px !important;
-    min-height: 18px !important;
-    line-height: 16px !important;
+    background: #ffffff;
     border: none !important;
-    background: transparent !important;
-    color: #000000 !important;
-    font-size: 11px !important;
-    text-decoration: none !important;
     box-sizing: border-box;
 }
 
-.legacy-menu-item:hover {
-    background: #eef3f8 !important;
-    color: #173f70 !important;
+/* Left Sidebar Menu */
+.legacy-menu {
+    width: 155px !important;
+    min-height: 400px !important;
+    border: none !important;
+    border-right: 1px solid #c8d2dc !important;
+    background: #f8f9fa !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
 }
 
-.legacy-menu-item.active {
-    background-color: #ffff00 !important;
-    color: #000000 !important;
-    font-weight: bold !important;
+/* Menu Items Separated by Distinct Lines */
+.legacy-menu-item {
+    display: block;
+    width: 100%;
+    padding: 4px 8px !important;
+    min-height: 22px !important;
+    line-height: 16px !important;
+    border: none !important;
+    border-bottom: 1px solid #e0e5eb !important;
+    background: #ffffff;
+    color: #2b3a4a !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+    box-sizing: border-box;
+    transition: background 0.15s ease-in-out;
 }
 
+    .legacy-menu-item:hover {
+        background: #eef4fb !important;
+        color: #173f70 !important;
+    }
+
+    /* Active Menu Item Selection */
+    .legacy-menu-item.active {
+        background-color: #ffff00 !important;
+        color: #000000 !important;
+        font-weight: bold !important;
+        border-bottom: 1px solid #d4d000 !important;
+    }
+
+/* Right Content Workspace Container */
 .legacy-workspace {
     margin: 0 !important;
-    padding: 6px !important;
-    min-height: 380px !important;
+    padding: 8px 10px !important;
+    min-height: 400px !important;
     max-height: 500px;
     overflow-y: auto;
     overflow-x: hidden;
+    background: #ffffff !important;
+    border: none !important;
+    box-sizing: border-box;
 }
 
-/* =========================================================
-   6. FIXED-DIMENSION TEXTAREAS / NOTES
-   ========================================================= */
-.billing-notes,
-.packout-notes,
-.wash-notes,
-.legacy-workspace textarea,
-#CustomerModuleContainer textarea {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
-    height: 140px !important;
-    min-height: 140px !important;
-    max-height: 140px !important;
-    resize: none !important;
-    border: 1px solid #7f9db9 !important;
-    border-radius: 0px !important;
-    padding: 4px 6px !important;
-    font-size: 11px !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    background: #ffffff !important;
-    color: #000000 !important;
-    box-sizing: border-box !important;
-    display: block !important;
-    margin-bottom: 8px !important;
+#CustomerModuleContainer {
+    width: 100%;
+    min-height: 100%;
 }
+
+    /* =========================================================
+   5. FIXED-DIMENSION TEXTAREAS / NOTES
+   ========================================================= */
+    .billing-notes,
+    .packout-notes,
+    .wash-notes,
+    .legacy-workspace textarea,
+    #CustomerModuleContainer textarea {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        height: 140px !important;
+        min-height: 140px !important;
+        max-height: 140px !important;
+        resize: none !important;
+        border: 1px solid #7f9db9 !important;
+        border-radius: 0px !important;
+        padding: 4px 6px !important;
+        font-size: 11px !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        box-sizing: border-box !important;
+        display: block !important;
+        margin-bottom: 8px !important;
+    }
 
 /* Module Grids & Tables */
 .billing-grid,
@@ -289,27 +321,27 @@
     border-collapse: collapse;
 }
 
-.billing-grid th,
-.packout-grid th,
-.wash-grid th,
-.legacy-workspace table th {
-    background: #e9ecef !important;
-    font-weight: 600;
-    white-space: nowrap;
-    padding: 3px 6px;
-    border: 1px solid #d4dbe3;
-    color: #333333;
-}
+    .billing-grid th,
+    .packout-grid th,
+    .wash-grid th,
+    .legacy-workspace table th {
+        background: #e9ecef !important;
+        font-weight: 600;
+        white-space: nowrap;
+        padding: 3px 6px;
+        border: 1px solid #d4dbe3;
+        color: #333333;
+    }
 
-.billing-grid td,
-.packout-grid td,
-.wash-grid td,
-.legacy-workspace table td {
-    padding: 3px 6px;
-    vertical-align: middle;
-    border: 1px solid #d4dbe3;
-    color: #000000;
-}
+    .billing-grid td,
+    .packout-grid td,
+    .wash-grid td,
+    .legacy-workspace table td {
+        padding: 3px 6px;
+        vertical-align: middle;
+        border: 1px solid #d4dbe3;
+        color: #000000;
+    }
 
 /* Circle / Disc Buttons */
 .circleButton,
@@ -336,12 +368,12 @@
 }
 
 /* =========================================================
-   7. FIELDSETS (Wearer & CTS Settings)
+   6. FIELDSETS (Wearer & CTS Settings)
    ========================================================= */
 fieldset {
-    border: 1px solid #7f9db9 !important;
-    padding: 6px 10px 8px 10px !important;
-    margin-bottom: 6px !important;
+    border: 1px solid #c5ced8 !important;
+    padding: 8px 12px !important;
+    margin: 8px 0 !important;
     background: #ffffff;
 }
 
@@ -356,14 +388,16 @@ legend {
 }
 
 /* =========================================================
-   8. UNIFIED BUTTONS & BOTTOM ACTIONS
+   7. UNIFIED BOTTOM ACTION BUTTONS
    ========================================================= */
 .customer-profile-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 6px !important;
-    padding: 2px 0;
+    padding: 6px 10px !important;
+    margin: 0 !important;
+    background: #fafafa !important;
+    border-top: 1px solid #d4dbe3 !important;
 }
 
 .customer-profile-actions-left,
@@ -373,7 +407,7 @@ legend {
     align-items: center;
 }
 
-/* Native Bevel Buttons */
+/* Secondary Desktop Action Buttons */
 .btn-secondary,
 .primary-blue-btn,
 #btnMaxWash,
@@ -396,19 +430,19 @@ legend {
     box-shadow: none !important;
 }
 
-.btn-secondary:hover,
-.primary-blue-btn:hover,
-#btnMaxWash:hover,
-#btnSpecialLines:hover,
-#btnLineComments:hover,
-#btnSelectCustomer:hover,
-#btnPrevious:hover,
-#btnNext:hover {
-    background: #e5f1fb linear-gradient(180deg, #e5f1fb, #cde6f7) !important;
-    border-color: #0078d7 !important;
-}
+    .btn-secondary:hover,
+    .primary-blue-btn:hover,
+    #btnMaxWash:hover,
+    #btnSpecialLines:hover,
+    #btnLineComments:hover,
+    #btnSelectCustomer:hover,
+    #btnPrevious:hover,
+    #btnNext:hover {
+        background: #e5f1fb linear-gradient(180deg, #e5f1fb, #cde6f7) !important;
+        border-color: #0078d7 !important;
+    }
 
-/* Primary GTS Save & Danger Buttons */
+/* Primary Save & Danger Buttons */
 .btn-success,
 .btn-primary,
 #btnSaveCustomer,
@@ -427,15 +461,15 @@ legend {
     cursor: pointer;
 }
 
-.btn-primary:hover,
-.btn-success:hover,
-#btnSaveCustomer:hover,
-#btnSaveCTS:hover,
-#btnSaveWearer:hover,
-#btnSaveCustomerProfile:hover {
-    background: #285887 !important;
-    border-color: #285887 !important;
-}
+    .btn-primary:hover,
+    .btn-success:hover,
+    #btnSaveCustomer:hover,
+    #btnSaveCTS:hover,
+    #btnSaveWearer:hover,
+    #btnSaveCustomerProfile:hover {
+        background: #285887 !important;
+        border-color: #285887 !important;
+    }
 
 .btn-danger {
     height: 24px !important;
@@ -448,4 +482,132 @@ legend {
     color: #ffffff !important;
     border-radius: 2px !important;
     cursor: pointer;
+}
+/* =========================================================
+  SPECIASL LINES
+   ========================================================= */
+
+/* --- Table Structure & Header --- */
+.gts-grid thead th {
+    background-color: #707070 !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 13px;
+    border: 1px solid #dee2e6;
+    padding: 8px 10px;
+    vertical-align: middle;
+}
+
+/* --- Top Header Controls Bar --- */
+.dt-top {
+    margin-top: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Search Box (Left Aligned) --- */
+.dt-search label,
+.dataTables_filter label {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+    gap: 6px !important;
+    margin: 0 !important;
+}
+
+.dt-search input[type="search"],
+.dataTables_filter input[type="search"] {
+    display: inline-block !important;
+    width: 170px !important;
+    height: 30px !important;
+    border: 1px solid #ced4da !important;
+    border-radius: 4px !important;
+    padding: 2px 8px !important;
+    outline: none !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+}
+
+/* --- Controls Group (Right Aligned: Length + Pagination) --- */
+.dt-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    white-space: nowrap !important;
+}
+
+/* --- Entries Dropdown (Single Horizontal Line) --- */
+.dt-length,
+.dataTables_length {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+}
+
+    .dt-length label,
+    .dataTables_length label {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        white-space: nowrap !important;
+        font-size: 13px !important;
+        font-weight: normal !important;
+        color: #333 !important;
+        gap: 6px !important;
+        margin: 0 !important;
+    }
+
+    .dt-length select,
+    .dataTables_length select {
+        display: inline-block !important;
+        width: auto !important;
+        min-width: 65px !important;
+        height: 30px !important;
+        border: 1px solid #ced4da !important;
+        border-radius: 4px !important;
+        padding: 2px 8px !important;
+        font-size: 13px !important;
+        margin: 0 !important;
+        vertical-align: middle !important;
+    }
+
+/* --- Pagination Controls --- */
+.pagination {
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+    .pagination .page-item .page-link {
+        font-size: 12px !important;
+        padding: 4px 10px !important;
+        color: #0b2545 !important;
+        border-color: #dee2e6 !important;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #0b2545 !important;
+        border-color: #0b2545 !important;
+        color: #ffffff !important;
+    }
+
+/* --- Bottom Summary Bar --- */
+.dt-bottom {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dt-info,
+.dataTables_info {
+    font-size: 12px !important;
+    color: #555 !important;
+    padding-top: 0 !important;
+    margin: 0 !important;
 }
