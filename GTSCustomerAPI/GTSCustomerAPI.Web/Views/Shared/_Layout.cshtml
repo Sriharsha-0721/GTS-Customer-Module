@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        @ViewData["Title"] - GTS
+    </title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+
+
+    <!-- Lead/Common GTS CSS -->
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/gts.css"
+          asp-append-version="true" />
+
+    <!-- Page specific css -->
+    @await RenderSectionAsync(
+        "Styles",
+        required: false
+    )
+</head>
+
+<body>
+
+    <!-- ==================================================
+         TOP HEADER
+    =================================================== -->
+
+    <header>
+
+        <div class="container-fluid">
+
+    <div class="row align-items-center">
+
+        <div class="col-md-3">
+            <div class="gts-logo">
+                VESTIS
+            </div>
+        </div>
+
+        <div class="col-md-6 text-center">
+            <div class="gts-system-title">
+                Garment Tracking System
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="d-flex
+                        align-items-center
+                        justify-content-end
+                        gap-3
+                        flex-nowrap">
+
+                <div class="position-relative">
+                    <i class="bi bi-bell-fill
+                              text-success fs-5"></i>
+                </div>
+
+                <button class="btn btn-sm gts-header-btn">
+                    CSM
+                </button>
+
+                <button class="btn btn-sm gts-header-btn">
+                    Home
+                </button>
+
+                <button class="btn btn-sm gts-header-btn">
+                    Help
+                </button>
+
+                        <!-- User -->
+                        <div class="text-end small">
+                            <strong>Koyyana Hemasree</strong>
+                            <br />
+                            Selected MC: 855
+                        </div>
+
+                <i class="bi bi-power
+                          text-danger fs-4"></i>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             MAIN NAVIGATION
+        =================================================== -->
+
+        <nav class="navbar
+            navbar-expand-lg
+            primary-bg-color
+            navbar-dark">
+
+            <div class="container-fluid">
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#gtsMainNavbar"
+                        aria-controls="gtsMainNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon">
+                    </span>
+
+                </button>
+
+
+                <div class="collapse navbar-collapse"
+                     id="gtsMainNavbar">
+
+                    <ul class="navbar-nav me-auto">
+
+                        <!-- =============================
+                             ADMINISTRATION
+                        ============================== -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                Administration
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           asp-controller="CustomerProfile"
+                                           asp-action="Index">
+                                        Customer Profile
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- =============================
+                             PRODUCTION
+                        ============================== -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown">
+
+                                Production
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           href="#">
+
+                                        Production Menu
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- =============================
+                             RECEIVERS
+                        ============================== -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown">
+
+                                Receivers
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           href="#">
+
+                                        Receiver Menu
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- CONTAINERS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown">
+
+                                Containers
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           href="#">
+
+                                        Container Menu
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- STOCKROOM -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown">
+
+                                Stockroom
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           href="#">
+
+                                        Stockroom Menu
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- QA -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown">
+
+                                QA
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           href="#">
+
+                                        QA Menu
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- REPAIRS -->
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                                   href="#">
+
+                                Repairs
+
+                            </a>
+
+                        </li>
+
+
+                        <!-- UTILITIES -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown">
+
+                                Utilities
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           href="#">
+
+                                        Utilities Menu
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- REPORTS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown">
+
+                                Reports
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           href="#">
+
+                                        Reports Menu
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- GARMENT REVIEW -->
+
+                        <li class="nav-item">
+
+                            <a class="nav-link"
+                                   href="#">
+
+                                Garment Review
+
+                            </a>
+
+                        </li>
+
+
+                        <!-- CSM MC ADMIN -->
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   role="button"
+                                   data-bs-toggle="dropdown">
+
+                                CSM MC Admin
+
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                           href="#">
+
+                                        Admin Menu
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==================================================
+         PAGE CONTENT
+    =================================================== -->
+
+    <main class="container-fluid
+        py-3">
+
+        @RenderBody()
+
+    </main>
+
+
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
+
+    @* <footer class="border-top
+        text-muted
+        py-2">
+
+        <div class="container-fluid">
+
+            &copy; @DateTime.Now.Year
+            Garment Tracking System
+
+        </div>
+
+    </footer> *@
+
+
+    <!-- ==================================================
+         JS
+    =================================================== -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js">
+    </script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
+
+
+    <script src="~/js/site.js"
+            asp-append-version="true">
+    </script>
+
+    @await RenderSectionAsync(
+        "Scripts",
+        required: false
+    )
+
+</body>
+</html>

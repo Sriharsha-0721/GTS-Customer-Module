@@ -1,0 +1,84 @@
+﻿@model GTSCustomerAPI.Web.Models.CustomerAdminViewModel
+@{
+    ViewData["Title"] = "Customer";
+    Layout = "_Layout";
+    bool hasCust = Model.CustId > 0;
+    string gid = string.IsNullOrEmpty(Model.GID)
+                   ? "-" : Model.GID;
+}
+
+<partial name="_TabBar" />
+
+<div class="gts-content">
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="gts-alert-success">
+            @TempData["Success"]
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="gts-alert-error">
+            @TempData["Error"]
+        </div>
+    }
+
+    <partial name="_SelectedCustomer"
+             model="@(new GTSCustomerAPI.Web.Models.SelectedCustomerViewModel
+             {
+                 CustId = Model.CustId,
+                 CustNbr = Model.CustNbr.ToString(),
+                 Name = Model.Name ?? "",
+                 Route = Model.Route,
+                 GID = Model.GID ?? "",
+                 ReturnTo = "CustomerAdmin"
+             })" />
+
+       
+        @if (!hasCust)
+        {
+            <p style="color:#999; font-size:13px;
+                padding-left:6px">
+                No customer selected. Click
+                <strong>Select Customer</strong> above.
+            </p>
+        }
+        else
+        {
+            <div class="check-row"
+                 style="margin-top:6px">
+                <input type="checkbox"
+                       id="chkOSS"
+                       name="OSSFlag"
+                       value="true"
+                @(Model.OSSFlag
+                                         ? "checked" : "") />
+                <label for="chkOSS">
+                    On-Site Scanning
+                </label>
+            </div>
+
+            <div class="check-row">
+                <input type="checkbox"
+                       id="chkST"
+                       name="STFlag"
+                       value="true"
+                @(Model.STFlag
+                                         ? "checked" : "") />
+                <label for="chkST">
+                    Data Mart Extract
+                </label>
+            </div>
+
+        <div class="gts-form-actions">
+
+            <button type="submit"
+                    class="btn primary-blue-btn">
+                Save
+            </button>
+
+        </div>
+        }
+    
+</div>

@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/API/">
+    <Project Path="GTSCustomerAPI.API/GTSCustomerAPI.API.csproj" />
+  </Folder>
+  <Folder Name="/WEB/">
+    <Project Path="GTSCustomerAPI.Web/GTSCustomerAPI.Web.csproj" Id="0e8486d2-3650-437f-85fc-0300d7db1d6f" />
+  </Folder>
+  <Project Path="GTSCustomerAPI.Application/GTSCustomerAPI.Application.csproj" />
+  <Project Path="GTSCustomerAPI.Domain/GTSCustomerAPI.Domain.csproj" />
+  <Project Path="GTSCustomerAPI.Infrastructure/GTSCustomerAPI.Infrastructure.csproj" />
+</Solution>

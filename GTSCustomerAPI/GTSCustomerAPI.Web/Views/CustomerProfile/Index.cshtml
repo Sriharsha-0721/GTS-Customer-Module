@@ -1,0 +1,3316 @@
+﻿@model GTSCustomerAPI.Web.Models.CustomerProfileViewModel
+
+@{
+    ViewData["Title"] = "Customer Profile";
+    Layout = "_Layout";
+
+    bool hasCust = Model != null && Model.CustId > 0;
+
+    var nodes = new[]
+    {
+        "Billing",
+        "Customer Service",
+        "Dryer",
+        "Driver",
+        "Gen. Office",
+        "Main Cleanroom",
+        "Mending/Rework",
+        "Merch. Control",
+        "Office",
+        "Packout",
+        "Production",
+        "Quality Assurance",
+        "QA Inspector",
+        "Receiving",
+        "Shipping",
+        "Soil",
+        "Wash"
+    };
+}
+
+@functions
+{
+    string HidId(string node)
+    {
+        return "hid_" +
+            node.Replace(" ", "")
+                .Replace(".", "")
+                .Replace("/", "");
+    }
+}
+
+<!-- =========================================================
+     CUSTOMER MODULE TABS
+========================================================= -->
+
+<partial name="_TabBar" />
+
+<div class="gts-content">
+
+    <!-- =====================================================
+         MESSAGES
+    ====================================================== -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+
+    <!-- =====================================================
+         CUSTOMER PROFILE FORM
+    ====================================================== -->
+
+    <form id="frmProfile"
+          asp-controller="CustomerProfile"
+          asp-action="Save"
+          method="post">
+
+        @Html.AntiForgeryToken()
+
+        <!-- Keep these hidden values.
+             Route/GID don't need to be DISPLAYED on Customer Profile. -->
+
+        <input type="hidden"
+               asp-for="CustId" />
+
+        <input type="hidden"
+               asp-for="CustNbr" />
+
+        <input type="hidden"
+               asp-for="CustName" />
+
+        <input type="hidden"
+               asp-for="Route" />
+
+        <input type="hidden"
+               asp-for="GID" />
+
+        <input type="hidden"
+               asp-for="MarketCenter" />
+
+        <input type="hidden"
+               asp-for="BillingCom"
+               id="hid_Billing" />
+
+        <input type="hidden"
+               asp-for="CustSrvCom"
+               id="hid_CustomerService" />
+
+        <input type="hidden"
+               asp-for="DryerCom"
+               id="hid_Dryer" />
+
+        <input type="hidden"
+               asp-for="DriverCom"
+               id="hid_Driver" />
+
+        <input type="hidden"
+               asp-for="GenOfficeCom"
+               id="hid_GenOffice" />
+
+        <input type="hidden"
+               asp-for="MainCleanRoomCom"
+               id="hid_MainCleanroom" />
+
+        <input type="hidden"
+               asp-for="MendCom"
+               id="hid_MendingRework" />
+
+        <input type="hidden"
+               asp-for="MerControlCom"
+               id="hid_MerchControl" />
+
+        <input type="hidden"
+               asp-for="OfficeCom"
+               id="hid_Office" />
+
+        <input type="hidden"
+               asp-for="PackoutCom"
+               id="hid_Packout" />
+
+        <input type="hidden"
+               asp-for="ProdCom"
+               id="hid_Production" />
+
+        <input type="hidden"
+               asp-for="QACom"
+               id="hid_QualityAssurance" />
+
+        <input type="hidden"
+               asp-for="QAInspCom"
+               id="hid_QAInspector" />
+
+        <input type="hidden"
+               asp-for="ReceivingCom"
+               id="hid_Receiving" />
+
+        <input type="hidden"
+               asp-for="ShippingCom"
+               id="hid_Shipping" />
+
+        <input type="hidden"
+               asp-for="SoilCom"
+               id="hid_Soil" />
+
+        <input type="hidden"
+               asp-for="WashCom"
+               id="hid_Wash" />
+
+        <input type="hidden"
+               asp-for="FormulaData"
+               id="FormulaData" />
+
+        <input type="hidden"
+               asp-for="ActiveSection"
+               id="ActiveSection" />
+
+
+        <!-- =================================================
+             CUSTOMER INFORMATION
+        ================================================== -->
+
+        <div class="customer-profile-box">
+
+            <div class="row g-3 align-items-end">
+
+                <!-- Cust # -->
+
+                <div class="col-md-2">
+
+                    <label class="form-label">
+                        Cust #
+                    </label>
+
+                    <input type="text"
+                           class="form-control"
+                           value="@(hasCust ? Model.CustNbr : "")"
+                           readonly />
+
+                </div>
+
+
+                <!-- Customer Name -->
+
+                <div class="col-md-5">
+
+                    <label class="form-label">
+                        Customer
+                    </label>
+
+                    <input type="text"
+                           class="form-control"
+                           value="@Model.CustName"
+                           readonly />
+
+                </div>
+
+
+                <!-- Select Customer -->
+
+                <div class="col-md-2">
+
+                    <a asp-controller="Customer"
+                           asp-action="Index"
+                           asp-route-showAll="true"
+                           asp-route-returnTo="CustomerProfile"
+                           class="btn primary-blue-btn w-100">
+                        Select Customer
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SECOND ROW -->
+
+            <div class="row g-3 mt-1">
+
+                <!-- Sterilization -->
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Sterilization
+                    </label>
+
+                    <select asp-for="SterileCode"
+                            id="ddlSterileCode"
+                            class="form-select"
+                            disabled="@(!hasCust)">
+
+                        <option value="0">
+                            Non-sterile
+                        </option>
+
+                        <option value="1">
+                            Sterile-gamma
+                        </option>
+
+                        <option value="2">
+                            Sterile-eto
+                        </option>
+
+                        <option value="3">
+                            Sterile-e-beam
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Ship Via -->
+
+                <div class="col-md-2">
+
+                    <label class="form-label">
+                        Ship Via
+                    </label>
+
+                    <input asp-for="ShipVia"
+                           class="form-control"
+                           disabled="@(!hasCust)" />
+
+                </div>
+
+
+                <!-- Package -->
+
+                <div class="col-md-2">
+
+                    <label class="form-label">
+                        Package
+                    </label>
+
+                    <input asp-for="Package"
+                           class="form-control"
+                           disabled="@(!hasCust)" />
+
+                </div>
+
+            </div>
+
+
+            <!-- THIRD ROW -->
+
+            <div class="row g-3 mt-1">
+
+                <!-- Dosage -->
+
+                <div class="col-md-3">
+
+                    <label class="form-label d-block">
+                        Dosage
+                    </label>
+
+                    <div class="d-flex gap-3">
+
+                        <div class="form-check">
+
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="chkLowDose"
+                            @(Model.LowDose == true
+                                                                   ? "checked"
+                                                                   : "")
+                            @(!hasCust
+                                                                   ? "disabled"
+                                                                   : "") />
+
+                            <label class="form-check-label"
+                                   for="chkLowDose">
+                                Low Dose
+                            </label>
+
+                        </div>
+
+
+                        <div class="form-check">
+
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="chkHighDose"
+                            @(Model.HighDose == true
+                                                                   ? "checked"
+                                                                   : "")
+                            @(!hasCust
+                                                                   ? "disabled"
+                                                                   : "") />
+
+                            <label class="form-check-label"
+                                   for="chkHighDose">
+                                High Dose
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Property Mark -->
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Property Mark
+                    </label>
+
+                    <input asp-for="PropertyMark"
+                           class="form-control"
+                           disabled="@(!hasCust)" />
+
+                </div>
+
+            </div>
+
+
+            <!-- FLAGS -->
+
+            <div class="row mt-3">
+
+                <div class="col-12">
+
+                    <div class="d-flex gap-4 flex-wrap">
+
+                        <div class="form-check">
+
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="chkContaminated"
+                                   name="CtmndFlg"
+                                   value="1"
+                            @(Model.CtmndFlg == 1
+                                                                   ? "checked"
+                                                                   : "")
+                            @(!hasCust
+                                                                   ? "disabled"
+                                                                   : "") />
+
+                            <label class="form-check-label"
+                                   for="chkContaminated">
+                                Contaminated Soil
+                            </label>
+
+                        </div>
+
+
+                        <div class="form-check">
+
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="chkDeliveryTicket"
+                                   name="DelTicket"
+                                   value="1"
+                            @(Model.DelTicket == 1
+                                                                   ? "checked"
+                                                                   : "")
+                            @(!hasCust
+                                                                   ? "disabled"
+                                                                   : "") />
+
+                            <label class="form-check-label"
+                                   for="chkDeliveryTicket">
+                                Delivery Ticket
+                            </label>
+
+                        </div>
+
+
+                        <div class="form-check">
+
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="chkOnSiteInventory"
+                                   name="OSSFlag"
+                                   value="true"
+                            @(Model.OSSFlag
+                                                                   ? "checked"
+                                                                   : "")
+                            @(!hasCust
+                                                                   ? "disabled"
+                                                                   : "") />
+
+                            <label class="form-check-label"
+                                   for="chkOnSiteInventory">
+                                On-site Inventory
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             NO CUSTOMER SELECTED
+        ================================================== -->
+        @if (!hasCust)
+        {
+            <div class="alert alert-secondary mt-3">
+
+                No customer selected.
+
+                Click
+                <strong>Select Customer</strong>
+                to continue.
+
+            </div>
+        }
+
+
+        <!-- =================================================
+             PROFILE WORK AREA
+        ================================================== -->
+        @if (hasCust)
+        {
+            <div class="customer-profile-workspace mt-3">
+
+
+                <!-- =========================================
+                     LEFT MENU
+                ========================================== -->
+
+                <div class="customer-profile-menu">
+
+                    @foreach (var node in nodes)
+                    {
+                        <div class="profile-menu-item"
+                             data-node="@node"
+                             data-hid="@HidId(node)">
+
+                            @node
+
+                        </div>
+                    }
+
+                </div>
+
+
+                <!-- =========================================
+                     RIGHT CONTENT
+                ========================================== -->
+
+                <div class="customer-profile-content">
+
+
+                    <!-- Comment heading -->
+
+                    <div class="profile-section-title"
+                         id="sectionTitle">
+                        Billing
+                    </div>
+
+
+                    <!-- Comment -->
+
+                    <textarea id="txtComment"
+                          rows="7"
+                          maxlength="750"
+                              class="form-control profile-comment">
+                    </textarea>
+
+
+                    <div id="charInfo"
+                         class="profile-char-count">
+                        0 / 750 characters
+                    </div>
+
+
+                    <!-- =====================================
+                         BILLING
+                    ====================================== -->
+                    <div id="billingSection" style="display:none;">
+
+                        <div class="row g-2 align-items-start">
+
+                            <!-- TABLE AREA -->
+                            <div class="col-md-10">
+
+                                <div class="table-responsive">
+
+                                    <table class="table table-sm gts-tbl-grid"
+                                           id="billingTable">
+
+                                        <thead>
+                                            <tr>
+                                                <th style="width:40%">
+                                                    Charge Type
+                                                </th>
+
+                                                <th style="width:35%">
+                                                    Charge Amount
+                                                </th>
+
+                                                <th style="width:25%; text-align:center">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="billingRows">
+                                            <!-- Existing billing data comes here -->
+                                        </tbody>
+
+                                        <!-- ADD NEW ROW -->
+                                        <tfoot id="billingAddRow"
+                                               style="display:none">
+
+                                            <tr>
+
+                                                <td>
+                                                    <select id="newChargeType"
+                                                            class="form-select form-select-sm">
+
+                                                        <option value="">
+                                                            Select Charge Type
+                                                        </option>
+
+                                                    </select>
+                                                </td>
+
+                                                <td>
+                                                    <input type="number"
+                                                           id="newChargeAmount"
+                                                           class="form-control form-control-sm"
+                                                           placeholder="Enter Amount"
+                                                           step="0.01"
+                                                           min="0" />
+                                                </td>
+
+                                                <td class="text-center">
+
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-secondary"
+                                                            onclick="cancelBillingRow()">
+                                                        Cancel
+                                                    </button>
+
+                                                </td>
+
+                                            </tr>
+
+                                        </tfoot>
+
+                                    </table>
+
+                                </div>
+
+                                <div id="billingMessage"
+                                     class="small mt-2">
+                                </div>
+
+                            </div>
+
+
+                            <!-- RIGHT SIDE ICONS -->
+               
+                            <div class="col-md-2">
+
+                                <div class="d-flex gap-2
+                                    align-items-center
+                                    justify-content-start
+                                    mt-2">
+                                    <!-- PLUS -->
+                                    <button type="button"
+                                            class="gts-circle-btn"
+                                            title="Add Billing Charge"
+                                            onclick="showBillingAddRow()">
+
+                                        <span style="font-size:22px;
+                                            line-height:1">
+                                            +
+                                        </span>
+
+                                    </button>
+
+
+                                    <!-- SAVE -->
+                                    <button type="button"
+                                            class="gts-circle-btn gts-circle-save"
+                                            title="Save Billing Charge"
+                                            onclick="saveBillingCharge()">
+
+                                        <span style="font-size:18px">
+                                            💾
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- =====================================
+                         PACKOUT
+                    ====================================== -->
+
+                   <div id="packoutSection"
+     class="profile-data-section"
+     style="display:none">
+
+    <div class="row g-2 align-items-start">
+
+        <div class="col-md-10">
+
+            <table class="table table-sm gts-tbl-grid">
+
+                <thead>
+                    <tr>
+                        <th>Restriction</th>
+                        <th>Item</th>
+                        <th>Color</th>
+                        <th>Size</th>
+                        <th style="width:80px">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody id="packoutRows">
+                </tbody>
+
+                <tbody id="packoutAddRow"
+       style="display:none">
+
+    <tr>
+
+        <td>
+            <select id="newPkRestrict"
+                    class="form-select form-select-sm">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </td>
+
+        <td>
+            <select id="newPkItem"
+                    class="form-select form-select-sm">
+                <option value="">
+                    Select Item
+                </option>
+            </select>
+        </td>
+
+        <td>
+            <input id="newPkColor"
+                   class="form-control form-control-sm"
+                   placeholder="Color" />
+        </td>
+
+        <td>
+            <input id="newPkSize"
+                   class="form-control form-control-sm"
+                   placeholder="Size" />
+        </td>
+
+        <td class="text-center">
+            <button type="button"
+                    class="btn btn-sm btn-secondary"
+                    onclick="cancelPackoutRow()">
+                Cancel
+            </button>
+        </td>
+
+    </tr>
+
+</tbody>
+
+            </table>
+
+            <div id="packoutMessage"
+                 class="small mt-2">
+            </div>
+
+        </div>
+
+
+        <div class="col-md-2">
+
+            <div class="d-flex gap-2 mt-2">
+
+                <button type="button"
+                        class="gts-circle-btn"
+                        onclick="showPackoutAddRow()">
+                    +
+                </button>
+
+                <button type="button"
+                        class="gts-circle-btn gts-circle-save"
+                        onclick="savePackout()">
+                    💾
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+                    <!-- =====================================
+                         WASH
+                    ====================================== -->
+
+                    <div id="washSection"
+                         class="profile-data-section"
+                         style="display:none">
+
+                        <div class="row g-2 align-items-start">
+
+                            <div class="col-md-10">
+
+                                <table class="table table-sm gts-tbl-grid">
+
+                                    <thead>
+                                        <tr>
+                                            <th style="width:45%">Garment Type</th>
+                                            <th style="width:35%">Formula</th>
+                                            <th style="width:20%; text-align:center">Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="washRows"></tbody>
+
+                                    <tbody id="washAddRow" style="display:none">
+                                        <tr>
+                                            <td>
+                                                <select id="newWashGarmentType"
+                                                        class="form-select form-select-sm">
+                                                    <option value="">Select Garment Type</option>
+                                                </select>
+                                            </td>
+
+                                            <td>
+                                                <input type="text"
+                                                       id="newWashFormula"
+                                                       class="form-control form-control-sm"
+                                                       placeholder="Enter Formula" />
+                                            </td>
+
+                                            <td class="text-center">
+                                                <button type="button"
+                                                        class="btn btn-sm btn-secondary"
+                                                        onclick="cancelWashRow()">
+                                                    Cancel
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
+                                <div id="washMessage" class="small mt-2"></div>
+
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="d-flex gap-2 mt-2">
+
+                                    <button type="button"
+                                            class="gts-circle-btn"
+                                            title="Add Wash Formula"
+                                            onclick="showWashAddRow()">
+                                        +
+                                    </button>
+
+                                    <button type="button"
+                                            class="gts-circle-btn gts-circle-save"
+                                            title="Add Wash Formula Row"
+                                            onclick="saveWashRow()">
+                                        💾
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOTTOM ACTIONS
+            ================================================== -->
+
+            <div class="d-flex align-items-center gap-2 mt-3">
+
+                <button type="button"
+                        class="btn btn-secondary">
+                    # of Washes &amp; Cycles
+                </button>
+
+                <button type="button"
+                        class="btn btn-secondary">
+                    Special Lines
+                </button>
+
+                <button type="button"
+                        class="btn btn-secondary">
+                    Line Comments
+                </button>
+
+                <button type="submit"
+                        class="btn primary-blue-btn">
+                    Save
+                </button>
+
+            </div>
+        }
+
+    </form>
+
+</div>
+
+@section Scripts
+{
+    <script>
+
+        // =====================================================
+        // GLOBAL STATE
+        // =====================================================
+
+        let billingTypesLoaded = false;
+        let billingData = [];
+
+        
+        let packoutData = [];
+
+        let washData = [];
+
+
+        // =====================================================
+        // GLOBAL ADD/CANCEL FUNCTIONS
+        // =====================================================
+
+        function showBillingAddRow() {
+
+            const row =
+                document.getElementById(
+                    "billingAddRow"
+                );
+
+            if (row) {
+                row.style.display =
+                    "table-row-group";
+            }
+
+            const ddl =
+                document.getElementById(
+                    "newChargeType"
+                );
+
+            if (ddl) {
+                ddl.focus();
+            }
+        }
+
+
+        function cancelBillingRow() {
+
+            const row =
+                document.getElementById(
+                    "billingAddRow"
+                );
+
+            const ddl =
+                document.getElementById(
+                    "newChargeType"
+                );
+
+            const amount =
+                document.getElementById(
+                    "newChargeAmount"
+                );
+
+            if (ddl) {
+                ddl.value = "";
+            }
+
+            if (amount) {
+                amount.value = "";
+            }
+
+            if (row) {
+                row.style.display =
+                    "none";
+            }
+        }
+
+
+        function showPackoutAddRow() {
+
+    const row =
+        document.getElementById(
+            "packoutAddRow"
+        );
+
+    if (row) {
+        row.style.display =
+            "table-row-group";
+    }
+
+    const ddl =
+        document.getElementById(
+            "newPkItem"
+        );
+
+    if (ddl) {
+        ddl.focus();
+    }
+}
+
+
+        function cancelPackoutRow() {
+
+            const row =
+                document.getElementById(
+                    "packoutAddRow"
+                );
+
+            const restrict =
+                document.getElementById(
+                    "newPkRestrict"
+                );
+
+            const item =
+                document.getElementById(
+                    "newPkItem"
+                );
+
+            const color =
+                document.getElementById(
+                    "newPkColor"
+                );
+
+            const size =
+                document.getElementById(
+                    "newPkSize"
+                );
+
+            if (restrict) {
+                restrict.value = "Yes";
+            }
+
+            if (item) {
+                item.value = "";
+            }
+
+            if (color) {
+                color.value = "";
+            }
+
+            if (size) {
+                size.value = "";
+            }
+
+            if (row) {
+                row.style.display =
+                    "none";
+            }
+
+            if (row) {
+    row.style.display = "none";
+}
+        }
+
+
+        // =====================================================
+        // DOCUMENT READY
+        // =====================================================
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const items =
+                    document.querySelectorAll(
+                        ".profile-menu-item"
+                    );
+
+                const comment =
+                    document.getElementById(
+                        "txtComment"
+                    );
+
+                const title =
+                    document.getElementById(
+                        "sectionTitle"
+                    );
+
+                const charInfo =
+                    document.getElementById(
+                        "charInfo"
+                    );
+
+                let currentHiddenId =
+                    "hid_Billing";
+
+
+                // =============================================
+                // HIDE BILLING / PACKOUT / WASH
+                // =============================================
+
+                function hideSpecialSections() {
+
+                    const billing =
+                        document.getElementById(
+                            "billingSection"
+                        );
+
+                    const packout =
+                        document.getElementById(
+                            "packoutSection"
+                        );
+
+                    const wash =
+                        document.getElementById(
+                            "washSection"
+                        );
+
+                    if (billing) {
+                        billing.style.display =
+                            "none";
+                    }
+
+                    if (packout) {
+                        packout.style.display =
+                            "none";
+                    }
+
+                    if (wash) {
+                        wash.style.display =
+                            "none";
+                    }
+                }
+
+
+                // =============================================
+                // SAVE CURRENT COMMENT
+                // =============================================
+
+                function saveCurrentComment() {
+
+                    const hidden =
+                        document.getElementById(
+                            currentHiddenId
+                        );
+
+                    if (hidden && comment) {
+
+                        hidden.value =
+                            comment.value;
+                    }
+                }
+
+
+                // =============================================
+                // LOAD COMMENT
+                // =============================================
+
+                function loadComment(
+                    hiddenId
+                ) {
+
+                    const hidden =
+                        document.getElementById(
+                            hiddenId
+                        );
+
+                    if (!comment) {
+                        return;
+                    }
+
+                    comment.value =
+                        hidden
+                            ? hidden.value
+                            : "";
+
+                    updateCharacterCount();
+                }
+
+
+                // =============================================
+                // CHARACTER COUNT
+                // =============================================
+
+                function updateCharacterCount() {
+
+                    if (!comment ||
+                        !charInfo) {
+                        return;
+                    }
+
+                    charInfo.innerText =
+                        comment.value.length +
+                        " / 750 characters";
+                }
+
+
+                // =============================================
+                // LEFT MENU CLICK
+                // =============================================
+
+                items.forEach(
+                    function (item) {
+
+                        item.addEventListener(
+                            "click",
+                            async function () {
+
+                                saveCurrentComment();
+
+                                items.forEach(
+                                    function (x) {
+
+                                        x.classList.remove(
+                                            "active"
+                                        );
+                                    }
+                                );
+
+                                item.classList.add(
+                                    "active"
+                                );
+
+                                const node =
+                                    item.dataset.node;
+
+                                const activeSectionInput =
+                                    document.getElementById(
+                                        "ActiveSection"
+                                    );
+
+                                if (activeSectionInput) {
+                                    activeSectionInput.value =
+                                        node;
+                                }
+
+                                currentHiddenId =
+                                    item.dataset.hid;
+
+                                if (title) {
+                                    title.innerText =
+                                        node;
+                                }
+
+                                loadComment(
+                                    currentHiddenId
+                                );
+
+                                hideSpecialSections();
+
+
+                                // =============================
+                                // BILLING
+                                // =============================
+
+                                if (node === "Billing") {
+
+                                    const billing =
+                                        document.getElementById(
+                                            "billingSection"
+                                        );
+
+                                    if (billing) {
+                                        billing.style.display =
+                                            "block";
+                                    }
+
+                                    await loadBilling();
+                                }
+
+
+                                // =============================
+                                // PACKOUT
+                                // =============================
+
+                                if (node === "Packout") {
+
+                                    const packout =
+                                        document.getElementById(
+                                            "packoutSection"
+                                        );
+
+                                    if (packout) {
+                                        packout.style.display =
+                                            "block";
+                                    }
+
+                                    await loadPackout();
+                                }
+
+
+                                // =============================
+                                // WASH
+                                // =============================
+
+                                if (node === "Wash") {
+
+                                    const wash =
+                                        document.getElementById(
+                                            "washSection"
+                                        );
+
+                                    if (wash) {
+                                        wash.style.display =
+                                            "block";
+                                    }
+
+                                    await loadGarmentTypes();
+                                    loadExistingWashFormula();
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+
+                // =============================================
+                // COMMENT INPUT
+                // =============================================
+
+                if (comment) {
+
+                    comment.addEventListener(
+                        "input",
+                        updateCharacterCount
+                    );
+                }
+
+
+                // =============================================
+                // RESTORE ACTIVE SECTION AFTER SAVE
+                // =============================================
+
+                if (items.length > 0) {
+
+                    const activeInput =
+                        document.getElementById(
+                            "ActiveSection"
+                        );
+
+                    const activeSection =
+                        activeInput?.value
+                        || "Billing";
+
+                    let selectedItem =
+                        null;
+
+                    items.forEach(
+                        function (item) {
+
+                            if (item.dataset.node
+                                === activeSection) {
+
+                                selectedItem =
+                                    item;
+                            }
+                        }
+                    );
+
+                    if (!selectedItem) {
+                        selectedItem =
+                            items[0];
+                    }
+
+                    selectedItem
+                        .classList
+                        .add("active");
+
+                    const node =
+                        selectedItem.dataset.node;
+
+                    currentHiddenId =
+                        selectedItem.dataset.hid;
+
+                    if (title) {
+                        title.innerText =
+                            node;
+                    }
+
+                    loadComment(
+                        currentHiddenId
+                    );
+
+                    hideSpecialSections();
+
+                    if (node === "Billing") {
+
+                        const billing =
+                            document.getElementById(
+                                "billingSection"
+                            );
+
+                        if (billing) {
+                            billing.style.display =
+                                "block";
+                        }
+
+                        loadBilling();
+                    }
+
+                    if (node === "Packout") {
+
+                        const packout =
+                            document.getElementById(
+                                "packoutSection"
+                            );
+
+                        if (packout) {
+                            packout.style.display =
+                                "block";
+                        }
+
+                        loadPackout();
+                    }
+
+                    if (node === "Wash") {
+
+                        const wash =
+                            document.getElementById(
+                                "washSection"
+                            );
+
+                        if (wash) {
+                            wash.style.display =
+                                "block";
+                        }
+
+                        loadGarmentTypes();
+                        loadExistingWashFormula();
+                    }
+                }
+
+                // Load existing Customers.Formula into Wash rows
+                if (document.getElementById("FormulaData")) {
+                    loadExistingWashFormula();
+                }
+
+
+                // =============================================
+                // BEFORE OVERALL PROFILE SAVE
+                // =============================================
+
+                const form =
+                    document.getElementById(
+                        "frmProfile"
+                    );
+
+                if (form) {
+
+                    form.addEventListener(
+                        "submit",
+                        function () {
+
+                            // Save exactly what the user currently sees/typed
+                            // in the active comment section.
+                            saveCurrentComment();
+
+                            // Keep the Wash FormulaData hidden field current.
+                            buildWashFormula();
+
+                        }
+                    );
+                }
+
+            }
+        );
+
+
+        // =====================================================
+        // COMMON
+        // =====================================================
+
+        function getSelectedCustId() {
+
+            const input =
+                document.querySelector(
+                    'input[name="CustId"]'
+                );
+
+            if (!input) {
+                return 0;
+            }
+
+            return parseInt(
+                input.value || "0"
+            );
+        }
+
+
+        function escapeHtml(
+            value
+        ) {
+
+            return String(
+                value ?? ""
+            )
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+        }
+
+
+        // =====================================================
+        // BILLING
+        // =====================================================
+
+        async function loadBilling() {
+
+            const custId =
+                getSelectedCustId();
+
+            if (!custId) {
+                return;
+            }
+
+            await loadBillingTypes();
+
+            await loadBillingRows(
+                custId
+            );
+        }
+
+
+        async function loadBillingTypes() {
+
+            if (billingTypesLoaded) {
+                return;
+            }
+
+            const ddl =
+                document.getElementById(
+                    "newChargeType"
+                );
+
+            if (!ddl) {
+                return;
+            }
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/CustomerProfile/GetBillingData"
+                    );
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Failed to load BillingData"
+                    );
+                }
+
+                const data =
+                    await response.json();
+
+                ddl.innerHTML =
+                    '<option value="">Select Type...</option>';
+
+                data.forEach(
+                    function (item) {
+
+                        const option =
+                            document.createElement(
+                                "option"
+                            );
+
+                        option.value =
+                            item.billingDataId;
+
+                        option.textContent =
+                            item.chargeType;
+
+                        ddl.appendChild(
+                            option
+                        );
+                    }
+                );
+
+                billingTypesLoaded =
+                    true;
+
+            }
+            catch (error) {
+
+                console.error(
+                    "BillingData failed:",
+                    error
+                );
+            }
+        }
+
+
+        async function loadBillingRows(
+            custId
+        ) {
+
+            const tbody =
+                document.getElementById(
+                    "billingRows"
+                );
+
+            if (!tbody) {
+                return;
+            }
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/CustomerProfile/GetBillingCharges"
+                        + "?custId="
+                        + encodeURIComponent(
+                            custId
+                        )
+                    );
+
+                if (!response.ok) {
+
+                    const message =
+                        await response.text();
+
+                    throw new Error(
+                        message ||
+                        "Unable to load Billing Charges."
+                    );
+                }
+
+                const data =
+                    await response.json();
+
+                // Keep Billing in insertion order only.
+                // Never sort by amount. New BillingChargesId goes to the end.
+                billingData = (data || [])
+                    .slice()
+                    .sort(function (a, b) {
+                        return (a.billingChargesId || 0)
+                            - (b.billingChargesId || 0);
+                    });
+
+                tbody.innerHTML =
+                    "";
+
+
+                if (billingData.length === 0) {
+
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="3"
+                                class="text-center text-muted">
+
+                                No billing charges found.
+
+                            </td>
+                        </tr>
+                    `;
+
+                    buildBillingComment();
+
+                    return;
+                }
+
+
+                billingData.forEach(
+                    function (item) {
+
+                        const tr =
+                            document.createElement(
+                                "tr"
+                            );
+
+                        const amount =
+                            parseFloat(
+                                item.charges
+                            ) || 0;
+
+                        tr.innerHTML = `
+                            <td>
+                                ${escapeHtml(
+                                    item.chargeType
+                                )}
+                            </td>
+
+                            <td>
+                                ${amount.toFixed(2)}
+                            </td>
+
+                            <td class="text-center">
+
+                                <button type="button"
+                                        class="gts-delete-btn"
+                                        title="Delete"
+                                        onclick="deleteBillingCharge(
+                                            ${item.billingChargesId}
+                                        )">
+
+                                    🗑
+
+                                </button>
+
+                            </td>
+                        `;
+
+                        tbody.appendChild(
+                            tr
+                        );
+                    }
+                );
+
+                buildBillingComment();
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Billing load failed:",
+                    error
+                );
+
+                tbody.innerHTML = `
+                    <tr>
+
+                        <td colspan="3"
+                            class="text-danger">
+
+                            Failed to load Billing Charges.
+
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+
+        // =====================================================
+        // COMMENT HELPERS FOR GENERATED SECTIONS
+        // =====================================================
+
+        function extractGeneratedCommentParts(
+            existingText,
+            heading,
+            isGeneratedLine
+        ) {
+            const normalized = String(existingText || "")
+                .replace(/\r/g, "");
+
+            const lines = normalized.split("\n");
+
+            let headingText = "";
+            const beforeLines = [];
+            const afterLines = [];
+            let generatedStarted = false;
+
+            lines.forEach(function (rawLine) {
+                let line = rawLine;
+                const headingIndex = line.lastIndexOf(heading);
+
+                if (headingIndex >= 0) {
+                    const afterHeading = line
+                        .substring(headingIndex + heading.length)
+                        .trim();
+
+                    if (afterHeading && !isGeneratedLine(afterHeading)) {
+                        // Keep the most recently typed inline heading text.
+                        headingText = afterHeading;
+                    }
+                    return;
+                }
+
+                const trimmed = line.trim();
+
+                if (!trimmed) {
+                    return;
+                }
+
+                if (isGeneratedLine(trimmed)) {
+                    generatedStarted = true;
+                    return;
+                }
+
+                if (generatedStarted) {
+                    afterLines.push(trimmed);
+                }
+                else {
+                    beforeLines.push(trimmed);
+                }
+            });
+
+            return {
+                headingText: headingText,
+                beforeText: beforeLines.join("\n").trim(),
+                afterText: afterLines.join("\n").trim()
+            };
+        }
+
+        function setSectionComment(
+            hiddenId,
+            sectionName,
+            finalComment
+        ) {
+            const hidden = document.getElementById(hiddenId);
+            const commentBox = document.getElementById("txtComment");
+            const title = document.getElementById("sectionTitle");
+            const charInfo = document.getElementById("charInfo");
+
+            if (hidden) {
+                hidden.value = finalComment;
+            }
+
+            if (
+                title &&
+                title.innerText.trim() === sectionName &&
+                commentBox
+            ) {
+                commentBox.value = finalComment;
+
+                if (charInfo) {
+                    charInfo.innerText =
+                        finalComment.length +
+                        " / 750 characters";
+                }
+            }
+        }
+
+        function buildBillingComment() {
+
+            const hidden =
+                document.getElementById("hid_Billing");
+
+            const commentBox =
+                document.getElementById("txtComment");
+
+            const title =
+                document.getElementById("sectionTitle");
+
+            let existingText = "";
+
+            if (
+                title &&
+                title.innerText.trim() === "Billing" &&
+                commentBox
+            ) {
+                existingText = commentBox.value || "";
+            }
+            else if (hidden) {
+                existingText = hidden.value || "";
+            }
+
+            // IMPORTANT:
+            // A Billing generated row always looks like:
+            // Charge Type : 2.43,
+            // Therefore a deleted charge line is removed from the
+            // comment even though it is no longer present in billingData.
+            const parts =
+                extractGeneratedCommentParts(
+                    existingText,
+                    "Billing Details:",
+                    function (line) {
+                        return /^.+?\s*:\s*-?\d+(?:\.\d+)?\s*,?\s*$/.test(line);
+                    }
+                );
+
+            const billingLines = (billingData || []).map(
+                function (item) {
+                    const amount =
+                        (parseFloat(item.charges) || 0)
+                            .toFixed(2);
+
+                    return (
+                        item.chargeType
+                        + " : "
+                        + amount
+                        + ","
+                    );
+                }
+            );
+
+            let finalComment = "";
+
+            if (billingLines.length > 0) {
+                finalComment = "Billing Details:";
+
+                if (parts.headingText) {
+                    // User requested no forced space after ':'
+                    finalComment += parts.headingText;
+                }
+                else if (parts.beforeText) {
+                    finalComment += parts.beforeText;
+                }
+
+                finalComment += "\n" + billingLines.join("\n");
+
+                if (parts.afterText) {
+                    finalComment += "\n" + parts.afterText;
+                }
+            }
+            else {
+                // No charge rows: manual comment must still be saved.
+                finalComment = [
+                    parts.headingText,
+                    parts.beforeText,
+                    parts.afterText
+                ]
+                .filter(Boolean)
+                .join("\n")
+                .trim();
+            }
+
+            setSectionComment(
+                "hid_Billing",
+                "Billing",
+                finalComment.trim()
+            );
+        }
+
+        async function saveBillingCharge() {
+
+            const custId =
+                getSelectedCustId();
+
+            const ddl =
+                document.getElementById(
+                    "newChargeType"
+                );
+
+            const amountInput =
+                document.getElementById(
+                    "newChargeAmount"
+                );
+
+            // Preserve manually typed Billing comment before
+            // the Billing rows reload after this charge save.
+            const billingCommentBox =
+                document.getElementById(
+                    "txtComment"
+                );
+
+            const billingHidden =
+                document.getElementById(
+                    "hid_Billing"
+                );
+
+            const currentTitle =
+                document.getElementById(
+                    "sectionTitle"
+                );
+
+            if (billingCommentBox &&
+                billingHidden &&
+                currentTitle?.innerText.trim()
+                    === "Billing") {
+
+                billingHidden.value =
+                    billingCommentBox.value;
+            }
+
+
+            if (!custId) {
+
+                alert(
+                    "Please select a customer."
+                );
+
+                return;
+            }
+
+
+            const chargeTypeId =
+                parseInt(
+                    ddl?.value || "0"
+                );
+
+            const charges =
+                parseFloat(
+                    amountInput?.value
+                );
+
+
+            if (!chargeTypeId) {
+
+                alert(
+                    "Please select Charge Type."
+                );
+
+                return;
+            }
+
+
+            if (isNaN(charges) ||
+                charges <= 0) {
+
+                alert(
+                    "Please enter a valid Charge Amount."
+                );
+
+                return;
+            }
+
+            // =============================================
+// CHECK DUPLICATE CHARGE TYPE
+// =============================================
+
+const duplicateExists =
+    billingData.some(function (item) {
+
+        return parseInt(item.chargeTypeId) === chargeTypeId;
+
+    });
+
+if (duplicateExists) {
+
+    alert("This Charge Type already exists for this customer.");
+
+    return;
+}
+
+
+            const payload = {
+
+                billingChargesId:
+                    0,
+
+                custId:
+                    custId,
+
+                chargeTypeId:
+                    chargeTypeId,
+
+                chargeType:
+                    ddl.options[
+                        ddl.selectedIndex
+                    ].text,
+
+                charges:
+                    charges,
+
+                updtUser:
+                    1
+            };
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/CustomerProfile/SaveBillingCharge",
+                        {
+                            method:
+                                "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    payload
+                                )
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    const message =
+                        await response.text();
+
+                    console.error(
+                        message
+                    );
+
+                    alert(
+                        "Failed to save Billing Charge."
+                    );
+
+                    return;
+                }
+
+
+                cancelBillingRow();
+
+
+                await loadBillingRows(
+                    custId
+                );
+
+
+                alert(
+                    "Billing Charge saved successfully."
+                );
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Billing save failed:",
+                    error
+                );
+            }
+        }
+
+
+
+
+        async function deleteBillingCharge(
+            id
+        ) {
+
+            const billingCommentBox =
+                document.getElementById(
+                    "txtComment"
+                );
+
+            const billingHidden =
+                document.getElementById(
+                    "hid_Billing"
+                );
+
+            const currentTitle =
+                document.getElementById(
+                    "sectionTitle"
+                );
+
+            if (billingCommentBox &&
+                billingHidden &&
+                currentTitle?.innerText.trim()
+                    === "Billing") {
+
+                billingHidden.value =
+                    billingCommentBox.value;
+            }
+
+            if (!confirm(
+                "Delete this Billing Charge?"
+            )) {
+                return;
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/CustomerProfile/DeleteBillingCharge"
+                        + "?id="
+                        + encodeURIComponent(
+                            id
+                        ),
+                        {
+                            method:
+                                "DELETE"
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    alert(
+                        "Failed to delete Billing Charge."
+                    );
+
+                    return;
+                }
+
+
+                await loadBillingRows(
+                    getSelectedCustId()
+                );
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Billing delete failed:",
+                    error
+                );
+            }
+        }
+
+
+        // =====================================================
+        // PACKOUT
+        // =====================================================
+
+        async function loadPackout() {
+
+            const custId =
+                getSelectedCustId();
+
+            if (!custId) {
+                return;
+            }
+
+            await loadPackoutItems(
+                custId
+            );
+
+            await loadPackoutRows(
+                custId
+            );
+        }
+
+
+        async function loadPackoutItems(custId) {
+
+    const ddl =
+        document.getElementById(
+            "newPkItem"
+        );
+
+    if (!ddl) {
+
+        console.error(
+            "newPkItem dropdown not found"
+        );
+
+        return;
+    }
+
+
+    try {
+
+        console.log(
+            "Packout CustId:",
+            custId
+        );
+
+
+        const response =
+            await fetch(
+                "/CustomerProfile/GetPackoutItems"
+                + "?custId="
+                + encodeURIComponent(
+                    custId
+                )
+            );
+
+
+        console.log(
+            "Packout response status:",
+            response.status
+        );
+
+
+        if (!response.ok) {
+
+            const message =
+                await response.text();
+
+            console.error(
+                "Packout item response:",
+                message
+            );
+
+            throw new Error(
+                "Failed to load Packout Items."
+            );
+        }
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Packout items:",
+            data
+        );
+
+
+        ddl.innerHTML =
+            '<option value="">Select Item</option>';
+
+
+        if (!data ||
+            data.length === 0) {
+
+            console.warn(
+                "No Packout items found for CustId:",
+                custId
+            );
+
+            return;
+        }
+
+
+        data.forEach(
+            function (item) {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    item;
+
+                option.textContent =
+                    item;
+
+                ddl.appendChild(
+                    option
+                );
+            }
+        );
+
+
+        console.log(
+            "Dropdown options:",
+            ddl.options.length
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Packout items failed:",
+            error
+        );
+    }
+}
+
+        async function loadPackoutRows(
+            custId
+        ) {
+
+            const tbody =
+                document.getElementById(
+                    "packoutRows"
+                );
+
+            if (!tbody) {
+                return;
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/CustomerProfile/GetPackoutDetails"
+                        + "?custId="
+                        + encodeURIComponent(
+                            custId
+                        )
+                    );
+
+
+                if (!response.ok) {
+
+                    const message =
+                        await response.text();
+
+                    throw new Error(
+                        message ||
+                        "Failed to load Packout."
+                    );
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                // Keep Packout rows in insertion order.
+                packoutData = (data || [])
+                    .slice()
+                    .sort(function (a, b) {
+                        return (a.pkoutRestrictId || 0)
+                            - (b.pkoutRestrictId || 0);
+                    });
+
+
+                tbody.innerHTML =
+                    "";
+
+
+                if (packoutData.length === 0) {
+
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="5"
+                                class="text-center text-muted">
+
+                                No Packout restrictions found.
+
+                            </td>
+                        </tr>
+                    `;
+
+
+                    buildPackoutComment();
+
+
+                    return;
+                }
+
+
+                packoutData.forEach(
+                    function (item) {
+
+                        const tr =
+                            document.createElement(
+                                "tr"
+                            );
+
+
+                        tr.innerHTML = `
+                            <td>
+                                ${escapeHtml(
+                                    item.pkoutRestrict
+                                )}
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    item.item
+                                )}
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    item.color
+                                )}
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    item.size
+                                )}
+                            </td>
+
+                            <td class="text-center">
+
+                                <button type="button"
+                                        class="gts-delete-btn"
+                                        title="Delete"
+                                        onclick="deletePackout(
+                                            ${item.pkoutRestrictId}
+                                        )">
+
+                                    🗑
+
+                                </button>
+
+                            </td>
+                        `;
+
+
+                        tbody.appendChild(
+                            tr
+                        );
+                    }
+                );
+
+
+                buildPackoutComment();
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Packout load failed:",
+                    error
+                );
+            }
+        }
+
+
+        function buildPackoutComment() {
+
+            const hidden =
+                document.getElementById("hid_Packout");
+
+            const commentBox =
+                document.getElementById("txtComment");
+
+            const title =
+                document.getElementById("sectionTitle");
+
+            let existingText = "";
+
+            if (
+                title &&
+                title.innerText.trim() === "Packout" &&
+                commentBox
+            ) {
+                existingText = commentBox.value || "";
+            }
+            else if (hidden) {
+                existingText = hidden.value || "";
+            }
+
+            const parts =
+                extractGeneratedCommentParts(
+                    existingText,
+                    "Packout Restrictions:",
+                    function (line) {
+                        return /^Restriction\s*:\s*.*\|\s*Item\s*:\s*.*\|\s*Color\s*:\s*.*\|\s*Size\s*:/i.test(line);
+                    }
+                );
+
+            // Support old heading without ':' so previous saved comments
+            // do not duplicate after this update.
+            if (!existingText.includes("Packout Restrictions:") &&
+                existingText.includes("Packout Restrictions")) {
+                const oldParts = extractGeneratedCommentParts(
+                    existingText,
+                    "Packout Restrictions",
+                    function (line) {
+                        return /^Restriction\s*:\s*.*\|\s*Item\s*:\s*.*\|\s*Color\s*:\s*.*\|\s*Size\s*:/i.test(line);
+                    }
+                );
+                parts.headingText = parts.headingText || oldParts.headingText;
+                parts.beforeText = parts.beforeText || oldParts.beforeText;
+                parts.afterText = parts.afterText || oldParts.afterText;
+            }
+
+            const generatedLines = (packoutData || []).map(
+                function (item) {
+                    return (
+                        "Restriction : " + (item.pkoutRestrict || "")
+                        + " | Item : " + (item.item || "")
+                        + " | Color : " + (item.color || "")
+                        + " | Size : " + (item.size || "")
+                        + ","
+                    );
+                }
+            );
+
+            let finalComment = "";
+
+            if (generatedLines.length > 0) {
+                finalComment = "Packout Restrictions:";
+
+                if (parts.headingText) {
+                    finalComment += parts.headingText;
+                }
+                else if (parts.beforeText) {
+                    finalComment += parts.beforeText;
+                }
+
+                finalComment += "\n" + generatedLines.join("\n");
+
+                if (parts.afterText) {
+                    finalComment += "\n" + parts.afterText;
+                }
+            }
+            else {
+                finalComment = [
+                    parts.headingText,
+                    parts.beforeText,
+                    parts.afterText
+                ]
+                .filter(Boolean)
+                .join("\n")
+                .trim();
+            }
+
+            setSectionComment(
+                "hid_Packout",
+                "Packout",
+                finalComment.trim()
+            );
+        }
+
+
+
+        async function savePackout() {
+
+            const custId =
+                getSelectedCustId();
+
+
+            const restrict =
+                document.getElementById(
+                    "newPkRestrict"
+                )?.value || "";
+
+
+            const item =
+                document.getElementById(
+                    "newPkItem"
+                )?.value || "";
+
+
+            const color =
+                document.getElementById(
+                    "newPkColor"
+                )?.value || "";
+
+
+            const size =
+                document.getElementById(
+                    "newPkSize"
+                )?.value || "";
+
+
+            if (!custId) {
+
+                alert(
+                    "Please select a customer."
+                );
+
+                return;
+            }
+
+
+            if (!item) {
+
+                alert(
+                    "Please select Item."
+                );
+
+                return;
+            }
+
+
+            const payload = {
+
+                pkoutRestrictId:
+                    0,
+
+                custId:
+                    custId,
+
+                pkoutRestrict:
+                    restrict,
+
+                item:
+                    item,
+
+                color:
+                    color,
+
+                size:
+                    size,
+
+                updtUser:
+                    1
+            };
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/CustomerProfile/SavePackout",
+                        {
+                            method:
+                                "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    payload
+                                )
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    const message =
+                        await response.text();
+
+                    console.error(
+                        message
+                    );
+
+
+                    alert(
+                        "Failed to save Packout."
+                    );
+
+
+                    return;
+                }
+
+
+                cancelPackoutRow();
+
+
+                await loadPackoutRows(
+                    custId
+                );
+
+
+                alert(
+                    "Packout saved successfully."
+                );
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Packout save failed:",
+                    error
+                );
+
+
+                alert(
+                    "Failed to save Packout."
+                );
+            }
+        }
+
+
+        async function deletePackout(
+            id
+        ) {
+
+            if (!id) {
+                return;
+            }
+
+
+            if (!confirm(
+                "Delete this Packout restriction?"
+            )) {
+                return;
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/CustomerProfile/DeletePackout"
+                        + "?id="
+                        + encodeURIComponent(
+                            id
+                        ),
+                        {
+                            method:
+                                "DELETE"
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    alert(
+                        "Failed to delete Packout."
+                    );
+
+                    return;
+                }
+
+
+                await loadPackoutRows(
+                    getSelectedCustId()
+                );
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Packout delete failed:",
+                    error
+                );
+            }
+        }
+
+
+
+        // =====================================================
+        // WASH
+        // =====================================================
+
+        async function loadGarmentTypes() {
+
+            const ddl =
+                document.getElementById(
+                    "newWashGarmentType"
+                );
+
+            if (!ddl) {
+                return;
+            }
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/CustomerProfile/GetGarmentTypes"
+                    );
+
+                console.log(
+                    "Garment types response status:",
+                    response.status
+                );
+
+                if (!response.ok) {
+
+                    const message =
+                        await response.text();
+
+                    console.error(
+                        "Failed to load Garment Types:",
+                        message
+                    );
+
+                    return;
+                }
+
+                const data =
+                    await response.json();
+
+                console.log(
+                    "Garment Types:",
+                    data
+                );
+
+                ddl.innerHTML =
+                    '<option value="">Select Garment Type</option>';
+
+                // Show each ItemDesc only once.
+                const seen =
+                    new Set();
+
+                (data || []).forEach(
+                    function (item) {
+
+                        const itemDesc =
+                            (item.itemDesc || "")
+                                .trim();
+
+                        if (!itemDesc) {
+                            return;
+                        }
+
+                        const key =
+                            itemDesc.toLowerCase();
+
+                        if (seen.has(key)) {
+                            return;
+                        }
+
+                        seen.add(key);
+
+                        const option =
+                            document.createElement(
+                                "option"
+                            );
+
+                        option.value =
+                            itemDesc;
+
+                        option.textContent =
+                            itemDesc;
+
+                        ddl.appendChild(
+                            option
+                        );
+                    }
+                );
+
+                console.log(
+                    "Garment Type dropdown options:",
+                    ddl.options.length
+                );
+            }
+            catch (error) {
+
+                console.error(
+                    "Garment Type error:",
+                    error
+                );
+            }
+        }
+
+
+        function showWashAddRow() {
+
+            const row =
+                document.getElementById(
+                    "washAddRow"
+                );
+
+            if (row) {
+                row.style.display =
+                    "table-row-group";
+            }
+
+            loadGarmentTypes();
+        }
+
+
+        function cancelWashRow() {
+
+            const row =
+                document.getElementById(
+                    "washAddRow"
+                );
+
+            const garment =
+                document.getElementById(
+                    "newWashGarmentType"
+                );
+
+            const formula =
+                document.getElementById(
+                    "newWashFormula"
+                );
+
+            if (garment) {
+                garment.value = "";
+            }
+
+            if (formula) {
+                formula.value = "";
+            }
+
+            if (row) {
+                row.style.display = "none";
+            }
+        }
+
+
+        function saveWashRow() {
+
+            const garmentElement =
+                document.getElementById(
+                    "newWashGarmentType"
+                );
+
+            const formulaElement =
+                document.getElementById(
+                    "newWashFormula"
+                );
+
+            if (!garmentElement ||
+                !formulaElement) {
+                return;
+            }
+
+            const garmentType =
+                garmentElement.value.trim();
+
+            const formula =
+                formulaElement.value.trim();
+
+            if (!garmentType) {
+
+                alert(
+                    "Please select Garment Type."
+                );
+
+                return;
+            }
+
+            if (!formula) {
+
+                alert(
+                    "Please enter Formula."
+                );
+
+                return;
+            }
+
+            // If the garment already exists, update its formula.
+            const existingIndex =
+                washData.findIndex(
+                    function (x) {
+                        return x.garmentType
+                            .toLowerCase()
+                            === garmentType
+                                .toLowerCase();
+                    }
+                );
+
+            if (existingIndex >= 0) {
+                washData[existingIndex]
+                    .formula = formula;
+            }
+            else {
+                washData.push({
+                    garmentType:
+                        garmentType,
+                    formula:
+                        formula
+                });
+            }
+
+            renderWashRows();
+            buildWashFormula();
+            buildWashComment();
+            cancelWashRow();
+
+            const message =
+                document.getElementById(
+                    "washMessage"
+                );
+
+            // if (message) {
+            //     message.innerText =
+            //         "Wash row added. Click the main Save button to save Customer Profile.";
+            // }
+        }
+
+
+        function buildWashFormula() {
+
+            const formulaString =
+                washData
+                    .map(
+                        function (x) {
+                            return (
+                                x.garmentType
+                                + ","
+                                + x.formula
+                            );
+                        }
+                    )
+                    .join(",");
+
+            const hidden =
+                document.getElementById(
+                    "FormulaData"
+                );
+
+            if (hidden) {
+                hidden.value =
+                    formulaString;
+            }
+
+            console.log(
+                "Wash FormulaData:",
+                formulaString
+            );
+
+            return formulaString;
+        }
+
+
+        function buildWashComment() {
+
+            const hidden =
+                document.getElementById("hid_Wash");
+
+            const title =
+                document.getElementById("sectionTitle");
+
+            const commentBox =
+                document.getElementById("txtComment");
+
+            let existingText = "";
+
+            if (
+                title &&
+                title.innerText.trim() === "Wash" &&
+                commentBox
+            ) {
+                existingText = commentBox.value || "";
+            }
+            else if (hidden) {
+                existingText = hidden.value || "";
+            }
+
+            const heading =
+                existingText.includes("Wash Details:")
+                    ? "Wash Details:"
+                    : "Wash Details";
+
+            const parts =
+                extractGeneratedCommentParts(
+                    existingText,
+                    heading,
+                    function (line) {
+                        // Wash-generated rows use "Garment Type : Formula".
+                        return /^.+?\s+:\s+.+?,?\s*$/.test(line);
+                    }
+                );
+
+            const generatedLines = (washData || []).map(
+                function (x) {
+                    return (
+                        x.garmentType
+                        + " : "
+                        + x.formula
+                        + ","
+                    );
+                }
+            );
+
+            let finalComment = "";
+
+            if (generatedLines.length > 0) {
+                finalComment = "Wash Details:";
+
+                if (parts.headingText) {
+                    finalComment += parts.headingText;
+                }
+                else if (parts.beforeText) {
+                    finalComment += parts.beforeText;
+                }
+
+                finalComment += "\n" + generatedLines.join("\n");
+
+                if (parts.afterText) {
+                    finalComment += "\n" + parts.afterText;
+                }
+            }
+            else {
+                finalComment = [
+                    parts.headingText,
+                    parts.beforeText,
+                    parts.afterText
+                ]
+                .filter(Boolean)
+                .join("\n")
+                .trim();
+            }
+
+            setSectionComment(
+                "hid_Wash",
+                "Wash",
+                finalComment.trim()
+            );
+
+            console.log("WashCom:", finalComment.trim());
+
+            return finalComment.trim();
+        }
+
+
+
+        function renderWashRows() {
+
+            const tbody =
+                document.getElementById(
+                    "washRows"
+                );
+
+            if (!tbody) {
+                return;
+            }
+
+            tbody.innerHTML = "";
+
+            if (washData.length === 0) {
+
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="3"
+                            class="text-center text-muted">
+                            No Wash formulas found.
+                        </td>
+                    </tr>
+                `;
+
+                return;
+            }
+
+            washData.forEach(
+                function (item, index) {
+
+                    const row =
+                        document.createElement(
+                            "tr"
+                        );
+
+                    const garmentTd =
+                        document.createElement(
+                            "td"
+                        );
+
+                    garmentTd.textContent =
+                        item.garmentType;
+
+                    row.appendChild(
+                        garmentTd
+                    );
+
+                    const formulaTd =
+                        document.createElement(
+                            "td"
+                        );
+
+                    formulaTd.textContent =
+                        item.formula;
+
+                    row.appendChild(
+                        formulaTd
+                    );
+
+                    const actionTd =
+                        document.createElement(
+                            "td"
+                        );
+
+                    actionTd.className =
+                        "text-center";
+
+                    const deleteButton =
+                        document.createElement(
+                            "button"
+                        );
+
+                    deleteButton.type =
+                        "button";
+
+                    deleteButton.className =
+                        "gts-delete-btn";
+
+                    deleteButton.title =
+                        "Delete";
+
+                    deleteButton.textContent =
+                        "🗑";
+
+                    deleteButton.onclick =
+                        function () {
+                            deleteWashRow(
+                                index
+                            );
+                        };
+
+                    actionTd.appendChild(
+                        deleteButton
+                    );
+
+                    row.appendChild(
+                        actionTd
+                    );
+
+                    tbody.appendChild(
+                        row
+                    );
+                }
+            );
+        }
+
+
+        function deleteWashRow(index) {
+
+            if (index < 0 ||
+                index >= washData.length) {
+                return;
+            }
+
+            washData.splice(
+                index,
+                1
+            );
+
+            renderWashRows();
+            buildWashFormula();
+            buildWashComment();
+        }
+
+
+        function loadExistingWashFormula() {
+
+            const hidden =
+                document.getElementById(
+                    "FormulaData"
+                );
+
+            if (!hidden) {
+                return;
+            }
+
+            const value =
+                (hidden.value || "")
+                    .trim();
+
+            washData = [];
+
+            if (!value) {
+                renderWashRows();
+                return;
+            }
+
+            const parts =
+                value
+                    .split(",")
+                    .map(
+                        function (x) {
+                            return x.trim();
+                        }
+                    );
+
+            for (
+                let i = 0;
+                i + 1 < parts.length;
+                i += 2
+            ) {
+
+                const garmentType =
+                    parts[i] || "";
+
+                const formula =
+                    parts[i + 1] || "";
+
+                if (garmentType &&
+                    formula) {
+
+                    washData.push({
+                        garmentType:
+                            garmentType,
+                        formula:
+                            formula
+                    });
+                }
+            }
+
+            renderWashRows();
+            buildWashComment();
+
+            console.log(
+                "Existing Wash Data:",
+                washData
+            );
+        }
+    </script>
+}

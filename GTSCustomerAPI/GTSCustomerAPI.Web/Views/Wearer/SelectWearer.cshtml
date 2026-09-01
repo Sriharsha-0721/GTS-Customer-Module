@@ -1,0 +1,159 @@
+﻿@model List<GTSCustomerAPI.Web.Models.WearerViewModel>
+@{
+    ViewData["Title"] = "Select Wearer";
+    Layout = "_Layout";
+    int custId = ViewBag.CustId ?? 0;
+    string custName = ViewBag.CustName ?? "";
+}
+
+@{
+    string ctrl = ViewContext.RouteData
+        .Values["controller"]?.ToString() ?? "";
+}
+
+<div style="display:flex;
+    border-bottom:2px solid #cc0000;
+    margin-bottom:0">
+    <a asp-controller="CustomerAdmin"
+           asp-action="Index"
+           style="display:inline-block;
+        padding:8px 20px; font-size:13px;
+        text-decoration:none;
+        border:1px solid #ccc;
+        border-bottom:none; margin-right:2px;
+        background:@(ctrl=="CustomerAdmin"
+                                 ? "#cc0000" : "#f0f0f0");
+        color:@(ctrl=="CustomerAdmin"
+                                 ? "#fff" : "#333");
+        font-weight:@(ctrl=="CustomerAdmin"
+                                 ? "bold" : "normal")">
+        Customer
+    </a>
+    <a asp-controller="Wearer"
+           asp-action="Index"
+           style="display:inline-block;
+        padding:8px 20px; font-size:13px;
+        text-decoration:none;
+        border:1px solid #ccc;
+        border-bottom:none; margin-right:2px;
+        background:@(ctrl=="Wearer"
+                                 ? "#cc0000" : "#f0f0f0");
+        color:@(ctrl=="Wearer"
+                                 ? "#fff" : "#333");
+        font-weight:@(ctrl=="Wearer"
+                                 ? "bold" : "normal")">
+        Wearer
+    </a>
+    <a asp-controller="CustomerProfile"
+           asp-action="Index"
+           style="display:inline-block;
+        padding:8px 20px; font-size:13px;
+        text-decoration:none;
+        border:1px solid #ccc;
+        border-bottom:none; margin-right:2px;
+        background:@(ctrl=="CustomerProfile"
+                                 ? "#cc0000" : "#f0f0f0");
+        color:@(ctrl=="CustomerProfile"
+                                 ? "#fff" : "#333");
+        font-weight:@(ctrl=="CustomerProfile"
+                                 ? "bold" : "normal")">
+        Customer Profile
+    </a>
+    <a asp-controller="CTSSettings"
+           asp-action="Index"
+           style="display:inline-block;
+        padding:8px 20px; font-size:13px;
+        text-decoration:none;
+        border:1px solid #ccc;
+        border-bottom:none; margin-right:2px;
+        background:@(ctrl=="CTSSettings"
+                                 ? "#cc0000" : "#f0f0f0");
+        color:@(ctrl=="CTSSettings"
+                                 ? "#fff" : "#333");
+        font-weight:@(ctrl=="CTSSettings"
+                                 ? "bold" : "normal")">
+        CTS Settings
+    </a>
+</div>
+
+<div class="gts-content">
+
+    <div style="display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:12px">
+        <span style="font-weight:bold; font-size:15px">
+            Wearer Selection &nbsp;
+            <span style="color:#cc0000">
+                @custName
+            </span>
+        </span>
+        <a asp-controller="Wearer"
+               asp-action="Index"
+               class="btn-select"
+               style="text-decoration:none;
+            display:inline-block">
+            Back to Wearer
+        </a>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="gts-alert-error">
+            No wearers found for this customer.
+        </div>
+    }
+    else
+    {
+        <div style="overflow-x:auto">
+            <table class="cust-table">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Wearer #</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Sex</th>
+                        <th>Locker #</th>
+                        <th>Locker Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var w in Model)
+                    {
+                        <tr>
+                            <td>
+                                <form asp-controller="Wearer"
+                                      asp-action="PickWearer"
+                                      method="post"
+                                      style="display:inline">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden"
+                                           name="custId"
+                                           value="@custId" />
+                                    <input type="hidden"
+                                           name="wearNbr"
+                                           value="@w.WearNbr" />
+                                    <button type="submit"
+                                            class="link-select">
+                                        Select
+                                    </button>
+                                </form>
+                            </td>
+                            <td>@w.WearNbr</td>
+                            <td>@w.FirstName</td>
+                            <td>@w.LastName</td>
+                            <td>
+                                @(w.SexInt == 1
+                                    ? "Male" : "Female")
+                            </td>
+                            <td>@w.Locker</td>
+                            <td>@w.LockRm</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+</div>

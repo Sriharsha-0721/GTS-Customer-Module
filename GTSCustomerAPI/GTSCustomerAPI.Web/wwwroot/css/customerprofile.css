@@ -1,0 +1,307 @@
+﻿namespace GTSCustomerAPI.Web.wwwroot.css {
+    public class customerprofile {
+        /* Customer Profile Screen Styles
+   Follows GTS naming: gts-cp-{element}
+   Based on lead's gts-mcp- pattern
+*/
+        /* ── BASE (matches lead's body.css) ── */
+        body {
+            background: #fff;
+            color: #333;
+            font-family: 'Terminal Dosis', Arial, sans-serif;
+            font-size: 13px;
+        }
+        /* ── FORM ROW: label + input on same line ── */
+        /* Matches lead's .gts-mcp-form-row-side */
+        .gts-cp-form-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+        /* ── LABEL: fixed width keeps inputs aligned ── */
+        /* Matches lead's .gts-mcp-form-label */
+        .gts-cp-label {
+            width: 130px;
+            flex-shrink: 0;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        /* ── INPUT FIELD ── */
+        /* Matches lead's input style in gts-mcp-full-width-input */
+        .gts-cp-input {
+            border: 1px solid #999;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            padding: 2px 4px;
+            background-color: #fff;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+            .gts-cp-input:focus {
+                border-color: #0078d7;
+                outline: none;
+            }
+
+            .gts-cp-input[readonly],
+            .gts-cp-input:read-only {
+                background-color: #f4f4f4;
+                color: #555;
+            }
+        /* ── SELECT / DROPDOWN ── */
+        .gts-cp-select {
+            border: 1px solid #999;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            padding: 2px 4px;
+            background-color: #fff;
+            color: #333;
+            box-sizing: border-box;
+        }
+        /* ── FIELDSET ── */
+        /* Matches lead's .gts-mcp-fieldset */
+        .gts-cp-fieldset {
+            display: block;
+            border: 2px groove threedface;
+            padding: 0.35em 0.75em 0.625em;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+            .gts-cp-fieldset legend {
+                font-weight: bold;
+                font-size: 13px;
+                padding: 0 4px;
+            }
+        /* ── BUTTON: Action ── */
+        /* Matches lead's .gts-mcp-btn-action */
+        .gts-cp-btn {
+            width: 70px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            background-color: #e8e8e8;
+            border: 1px solid #999;
+            padding: 3px 0;
+            text-align: center;
+            color: #000;
+            box-sizing: border-box;
+        }
+
+            .gts-cp-btn:hover {
+                background-color: #d4d4d4;
+            }
+
+        .gts-cp-btn-wide {
+            width: 120px;
+        }
+        /* ── TREE PANEL ── */
+        .gts-cp-tree {
+            width: 160px;
+            border-right: 1px solid #ccc;
+            padding: 4px 0;
+            flex-shrink: 0;
+            min-height: 380px;
+        }
+
+        .gts-cp-tree-item {
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 13px;
+            color: #333;
+            line-height: 1.7;
+            border-bottom: 1px solid #eee;
+        }
+
+            .gts-cp-tree-item:hover {
+                background: #f0f0f0;
+            }
+
+            .gts-cp-tree-item.active {
+                background: #fff3cd;
+                color: #cc0000;
+                font-weight: bold;
+            }
+        /* ── CONTENT PANEL (right of tree) ── */
+        .gts-cp-content {
+            flex: 1;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+        /* ── TEXTAREA ── */
+        .gts-cp-textarea {
+            width: 100%;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            border: 1px solid #999;
+            padding: 4px 6px;
+            resize: vertical;
+            box-sizing: border-box;
+            color: #333;
+            background: #fff;
+        }
+
+            .gts-cp-textarea:focus {
+                border-color: #0078d7;
+                outline: none;
+            }
+        /* ── CHAR COUNT ── */
+        .gts-cp-charcount {
+            font-size: 11px;
+            color: #999;
+            text-align: right;
+            margin-top: 2px;
+            margin-bottom: 4px;
+        }
+        /* ── GRID TABLE ── */
+        .gts-cp-grid {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            border: 1px solid #ccc;
+        }
+
+            .gts-cp-grid thead tr {
+                background: #ccc;
+            }
+
+            .gts-cp-grid thead th {
+                padding: 6px 10px;
+                text-align: left;
+                font-size: 12px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .gts-cp-grid tbody tr {
+                border-bottom: 1px solid #eee;
+            }
+
+                .gts-cp-grid tbody tr:hover {
+                    background: #f8f8f8;
+                }
+
+            .gts-cp-grid tbody td {
+                padding: 5px 10px;
+                font-size: 13px;
+                color: #333;
+            }
+        /* ── GRID NEW ROW ── */
+        .gts-cp-grid-newrow {
+            border: 1px solid #ccc;
+            border-top: none;
+            padding: 8px;
+            background: #fafafa;
+        }
+        /* ── ICON BUTTON (delete, save) ── */
+        .gts-cp-icon-btn {
+            background: none;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 14px;
+            line-height: 1;
+        }
+
+            .gts-cp-icon-btn.delete {
+                color: #cc0000;
+            }
+
+                .gts-cp-icon-btn.delete:hover {
+                    background: #fff0f0;
+                    border-color: #cc0000;
+                }
+
+            .gts-cp-icon-btn.save {
+                color: #0066cc;
+            }
+        /* ── CIRCLE ADD BUTTON (+) ── */
+        /* Matches friend's .circleButton */
+        .gts-cp-add-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #0099cc;
+            background: none;
+            color: #0099cc;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+            .gts-cp-add-btn:hover {
+                background: #e8f7ff;
+            }
+        /* ── SAVE ICON BUTTON (floppy disk) ── */
+        /* Matches friend's .saveButton */
+        .gts-cp-save-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            border: 2px solid #2a6496;
+            background: #2a6496;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .gts-cp-save-btn:hover {
+                background: #1e4d72;
+            }
+        /* ── NO RECORDS MESSAGE ── */
+        .gts-cp-no-records {
+            text-align: center;
+            padding: 12px;
+            color: #999;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        /* ── BOTTOM BUTTONS BAR ── */
+        .gts-cp-bottom-bar {
+            border-top: 1px solid #ccc;
+            padding: 8px;
+            display: flex;
+            gap: 4px;
+            background: #f9f9f9;
+            margin-top: 0;
+        }
+        /* ── ALERT MESSAGES ── */
+        .gts-cp-alert-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 6px 12px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .gts-cp-alert-error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 6px 12px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        /* ── NULL fix — hide NULL text ── */
+        .gts-cp-input[value="NULL"],
+        .gts-cp-input[value="null"] {
+            color: transparent;
+        }
+    }
+}

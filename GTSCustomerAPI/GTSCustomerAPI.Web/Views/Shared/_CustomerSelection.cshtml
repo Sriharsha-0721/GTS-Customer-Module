@@ -1,0 +1,116 @@
+﻿@model List<GTSCustomerAPI.Web.Models.CustomerViewModel>
+
+<div>
+    <div style="display:flex; justify-content:space-between;
+        align-items:center; margin-bottom:10px">
+        <span style="font-size:14px; font-weight:bold;
+            color:#cc0000">
+            Customer Selection
+        </span>
+        <button type="button" class="btn-select"
+                onclick="cancelCustomerSelection()">
+            Cancel Customer Selection
+        </button>
+    </div>
+
+    <!-- Search -->
+    <div style="display:flex; gap:8px; margin-bottom:10px;
+        align-items:flex-end; flex-wrap:wrap">
+        <div class="search-group">
+            <label>CID:</label>
+            <input type="number" id="cs_searchId"
+                   class="finput" style="width:70px" />
+        </div>
+        <div class="search-group">
+            <label>Name:</label>
+            <input type="text" id="cs_searchName"
+                   class="finput" style="width:150px" />
+        </div>
+        <div class="search-group">
+            <label>City:</label>
+            <input type="text" id="cs_searchCity"
+                   class="finput" style="width:100px" />
+        </div>
+        <div class="search-group">
+            <label>Phone:</label>
+            <input type="text" id="cs_searchPhone"
+                   class="finput" style="width:110px" />
+        </div>
+        <div style="display:flex; gap:6px;
+            align-items:flex-end">
+            <button type="button"
+                    style="background:#0066cc; color:#fff;
+                border:none; padding:3px 12px;
+                border-radius:2px; font-size:13px;
+                cursor:pointer"
+                    onclick="searchCustomers()">
+                Search
+            </button>
+            <button type="button"
+                    style="background:#666; color:#fff;
+                border:none; padding:3px 10px;
+                border-radius:2px; font-size:13px;
+                cursor:pointer"
+                    onclick="resetCustomerSearch()">
+                Reset
+            </button>
+        </div>
+    </div>
+
+    <!-- Grid -->
+    <div style="max-height:420px; overflow-y:auto;
+        border:1px solid #ccc">
+        <table class="cust-table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Route</th>
+                    <th>GID</th>
+                    <th>CID</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr data-custid="@item.CustId"
+                            data-custnbr="@item.CustNbr"
+                            data-name="@item.Name"
+                            data-route="@item.Route"
+                            data-gid="@item.GID">
+                            <td>
+                                <a href="#"
+                                       class="link-select"
+                                       onclick="selectCustomer(
+                                    this.closest('tr'));
+                                    return false;">
+                                    Select
+                                </a>
+                            </td>
+                            <td>@item.Route</td>
+                            <td>@item.GID</td>
+                            <td>@item.CustId</td>
+                            <td>@item.Name</td>
+                            <td>@item.City</td>
+                            <td>@item.Phone</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7"
+                            style="text-align:center;
+                            padding:20px; color:#999">
+                            No records found
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

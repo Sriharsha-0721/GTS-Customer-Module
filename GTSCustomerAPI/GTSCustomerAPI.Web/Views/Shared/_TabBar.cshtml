@@ -1,0 +1,32 @@
+﻿@{
+    string ctrl = ViewContext.RouteData
+        .Values["controller"]?.ToString() ?? "";
+}
+
+<div class="gts-module-tabs">
+
+    <a asp-controller="CustomerAdmin"
+           asp-action="Index"
+           class="gts-module-tab @(ctrl == "CustomerAdmin" ? "active" : "")">
+        Customer
+    </a>
+
+    <a asp-controller="Wearer"
+           asp-action="Index"
+           class="gts-module-tab @(ctrl == "Wearer" ? "active" : "")">
+        Wearer
+    </a>
+
+    <a asp-controller="CustomerProfile"
+           asp-action="Index"
+           class="gts-module-tab @(ctrl == "CustomerProfile" ? "active" : "")">
+        Customer Profile
+    </a>
+
+    <a asp-controller="CTSSettings"
+           asp-action="Index"
+           class="gts-module-tab @(ctrl == "CTSSettings" ? "active" : "")">
+        CTS Settings
+    </a>
+
+</div>

@@ -1,0 +1,647 @@
+﻿@model List<GTSCustomerAPI.Web.Models.CustomerViewModel>
+
+@{
+    ViewData["Title"] = "Customer";
+    Layout = "_Layout";
+
+    bool showTable = ViewBag.ShowTable == true;
+
+    int? selId = ViewBag.SelectedCustId;
+    int? selNbr = ViewBag.SelectedCustNbr;
+
+    string? selName = ViewBag.SelectedName;
+    int? selRt = ViewBag.SelectedRoute;
+    string? selGID = ViewBag.SelectedGID;
+
+    bool hasSel =
+        selId.HasValue &&
+        selId.Value > 0;
+
+    string? returnTo =
+        ViewBag.ReturnTo as string;
+}
+
+
+<!-- =====================================================
+     CUSTOMER MODULE TABS
+===================================================== -->
+
+<partial name="_TabBar" />
+
+
+<div class="gts-content">
+
+    <!-- =================================================
+         MESSAGES
+    ================================================== -->
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+
+    <!-- =================================================
+         SELECTED CUSTOMER
+    ================================================== -->
+    @if (hasSel)
+    {
+        <div class="selected-banner">
+
+            <span>
+                <strong>Selected:</strong>
+
+                [@selNbr] @selName
+
+                &nbsp; | &nbsp;
+
+                Route: @selRt
+
+                &nbsp; | &nbsp;
+
+                GID: @selGID
+            </span>
+
+            <a asp-controller="Customer"
+                   asp-action="ClearSelection"
+                   class="btn btn-secondary btn-sm">
+
+                Clear Selection
+
+            </a>
+
+        </div>
+    }
+
+
+    <!-- =================================================
+         CUSTOMER PAGE HEADER
+    ================================================== -->
+
+    <div class="d-flex
+        justify-content-between
+        align-items-center
+        mb-3">
+
+        <h5 class="mb-0 fw-bold">
+            GTS Customers
+        </h5>
+
+
+        <a asp-controller="Customer"
+               asp-action="Create"
+               class="btn btn-primary">
+
+            + New Customer
+
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         CUSTOMER SELECTION MESSAGE
+    ================================================== -->
+    @if (!string.IsNullOrEmpty(returnTo)
+             && returnTo != "CustomerAdmin")
+    {
+        <div class="alert alert-info py-2">
+
+            Select a customer to continue to
+
+            <strong>
+                @(returnTo == "Wearer"
+                    ? "Wearer"
+                    : returnTo == "CTSSettings"
+                        ? "CTS Settings"
+                        : returnTo == "CustomerProfile"
+                            ? "Customer Profile"
+                            : returnTo)
+            </strong>.
+
+        </div>
+    }
+
+
+    <!-- =================================================
+         SEARCH AREA
+    ================================================== -->
+
+    <div class="customer-search-panel">
+
+        <form method="get"
+              asp-controller="Customer"
+              asp-action="Index">
+
+            @if (!string.IsNullOrEmpty(returnTo))
+            {
+                <input type="hidden"
+                       name="returnTo"
+                       value="@returnTo" />
+            }
+
+
+            <div class="row g-2 align-items-end">
+
+                <!-- CustId -->
+
+                <div class="col-md-2">
+
+                    <label class="form-label fw-semibold">
+                        Search CustId:
+                    </label>
+
+                    <input type="text"
+                           name="searchId"
+                           value="@ViewBag.SearchId"
+                           class="form-control"
+                           placeholder="Enter CustId" />
+
+                </div>
+
+
+                <!-- Name -->
+
+                <div class="col-md-2">
+
+                    <label class="form-label fw-semibold">
+                        Name
+                    </label>
+
+                    <input type="text"
+                           name="searchName"
+                           value="@ViewBag.SearchName"
+                           class="form-control"
+                           placeholder="Customer name" />
+
+                </div>
+
+
+                <!-- City -->
+
+                <div class="col-md-1">
+
+                    <label class="form-label fw-semibold">
+                        City
+                    </label>
+
+                    <input type="text"
+                           name="searchCity"
+                           value="@ViewBag.SearchCity"
+                           class="form-control"
+                           placeholder="City" />
+
+                </div>
+
+
+                <!-- Phone -->
+
+                <div class="col-md-2">
+
+                    <label class="form-label fw-semibold">
+                        Phone
+                    </label>
+
+                    <input type="text"
+                           name="searchPhone"
+                           value="@ViewBag.SearchPhone"
+                           class="form-control"
+                           placeholder="Phone" />
+
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div class="col-md-5">
+
+                    <div class="d-flex
+                        align-items-center
+                        gap-2">
+
+                        <!-- SEARCH -->
+
+                        <button type="submit"
+                                class="btn btn-primary">
+
+                            Search
+
+                        </button>
+
+
+                        <!-- CLEAR SEARCH -->
+
+                        <a asp-controller="Customer"
+                               asp-action="Index"
+                               asp-route-returnTo="@returnTo"
+                               asp-route-showAll="true"
+                               class="btn btn-secondary">
+
+                            Clear
+
+                        </a>
+
+
+                        <!-- SHOW ALL -->
+
+                        <a asp-controller="Customer"
+                               asp-action="Index"
+                               asp-route-returnTo="@returnTo"
+                               asp-route-showAll="true"
+                               class="btn btn-success">
+
+                            Show All
+
+                        </a>
+
+
+                        @if (showTable)
+                        {
+                            <span class="ms-1">
+
+                                Count:
+
+                                <strong>
+                                    @ViewBag.TotalCount
+                                </strong>
+
+                            </span>
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- =================================================
+         CUSTOMER TABLE
+    ================================================== -->
+    @if (!showTable)
+    {
+        <div class="text-center
+            text-muted
+            py-5">
+
+            Loading customers...
+
+        </div>
+    }
+
+    else if (ViewBag.NotFound == true)
+    {
+        <div class="alert alert-danger">
+
+            No customers found.
+
+        </div>
+    }
+
+    else
+    {
+        <div class="table-responsive mt-3">
+
+            <table id="customerTable"
+                   class="table
+                table-hover
+                table-gts
+                align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Select
+                        </th>
+
+                        <th>
+                            CustId
+                        </th>
+
+                        <th>
+                            CustNbr
+                        </th>
+
+                        <th>
+                            Name
+                        </th>
+
+                        <th>
+                            GID
+                        </th>
+
+                        <th>
+                            Route
+                        </th>
+
+                        <th>
+                            City
+                        </th>
+
+                        <th>
+                            State
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                        <th>
+                            OSSFlag
+                        </th>
+
+                        <th>
+                            UpdtTime
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    @foreach (var c in Model)
+                    {
+                        bool isSelected =
+                            hasSel &&
+                            selId == c.CustId;
+
+
+                        <tr class="@(isSelected
+                                                                                    ? "table-warning"
+                                                                                    : "")">
+
+
+                            <!-- SELECT -->
+
+                            <td>
+
+                                <form asp-controller="Customer"
+                                      asp-action="SelectCustomer"
+                                      method="post"
+                                      class="d-inline">
+
+                                    @Html.AntiForgeryToken()
+
+
+                                    <input type="hidden"
+                                           name="custId"
+                                           value="@c.CustId" />
+
+                                    <input type="hidden"
+                                           name="custNbr"
+                                           value="@c.CustNbr" />
+
+                                    <input type="hidden"
+                                           name="name"
+                                           value="@c.Name" />
+
+                                    <input type="hidden"
+                                           name="route"
+                                           value="@c.Route" />
+
+                                    <input type="hidden"
+                                           name="gid"
+                                           value="@c.GID" />
+
+                                    <input type="hidden"
+                                           name="marketCenter"
+                                           value="@c.MarketCenter" />
+
+                                    <input type="hidden"
+                                           name="returnTo"
+                                           value="@returnTo" />
+
+
+                                    <button type="submit"
+                                            class="btn
+                                        btn-link
+                                        btn-sm
+                                        p-0
+                                        fw-semibold">
+
+                                        @(isSelected
+                                            ? "Selected"
+                                            : "Select")
+
+                                    </button>
+
+                                </form>
+
+                            </td>
+
+
+                            <!-- DATA -->
+
+                            <td>
+                                @c.CustId
+                            </td>
+
+                            <td>
+                                @c.CustNbr
+                            </td>
+
+                            <td>
+                                @c.Name
+                            </td>
+
+                            <td>
+                                @c.GID
+                            </td>
+
+                            <td>
+                                @c.Route
+                            </td>
+
+                            <td>
+                                @c.City
+                            </td>
+
+                            <td>
+                                @c.State
+                            </td>
+
+                            <td>
+                                @c.Phone
+                            </td>
+
+
+                            <!-- OSS FLAG -->
+
+                            <td>
+
+                                @if (c.OSSFlag)
+                                {
+                                    <span class="badge
+                                        rounded-pill
+                                        bg-success">
+
+                                        Yes
+
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge
+                                        rounded-pill
+                                        bg-secondary">
+
+                                        No
+
+                                    </span>
+                                }
+
+                            </td>
+
+
+                            <!-- UPDATE DATE -->
+
+                            <td>
+
+                                @c.UpdtTime.ToString(
+                                    "MM-dd-yyyy"
+                                )
+
+                            </td>
+
+
+                            <!-- CRUD ACTIONS -->
+
+                            <td>
+
+                                <div class="d-flex gap-2">
+
+                                    <!-- EDIT -->
+
+                                    <a asp-controller="Customer"
+                                           asp-action="Edit"
+                                           asp-route-id="@c.CustId"
+                                           class="btn
+                                        btn-warning
+                                        btn-sm">
+
+                                        Edit
+
+                                    </a>
+
+
+                                    <!-- DELETE -->
+
+                                    <form asp-controller="Customer"
+                                          asp-action="Delete"
+                                          asp-route-id="@c.CustId"
+                                          method="post"
+                                          class="d-inline"
+                                          onsubmit="return confirm(
+                                        'Delete this customer?');">
+
+                                        @Html.AntiForgeryToken()
+
+                                        <button type="submit"
+                                                class="btn
+                                            btn-danger
+                                            btn-sm">
+
+                                            Delete
+
+                                        </button>
+
+                                    </form>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>
+
+@section Scripts
+{
+    <script>
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            function () {
+
+                const table =
+                    document.querySelector(
+                        '#customerTable'
+                    );
+
+                if (!table) {
+                    return;
+                }
+
+                new DataTable(
+                    '#customerTable',
+                    {
+                        // Pagination
+                        paging: true,
+
+                        // You already have your own:
+                        // CustId / Name / City / Phone search
+                        searching: false,
+
+                        // Allow clicking column headings
+                        ordering: true,
+
+                        // Default rows
+                        pageLength: 20,
+
+                        // Page size dropdown
+                        lengthMenu: [
+                            [5, 10, 25, 50, 100],
+                            [5, 10, 25, 50, 100]
+                        ],
+
+                        // CustId column
+                        // Select = column 0
+                        // CustId = column 1
+                        order: [
+                            [1, 'asc']
+                        ],
+
+                        // Disable ordering for Select
+                        // and Actions columns
+                        columnDefs: [
+                            {
+                                targets: [0, 11],
+                                orderable: false
+                            }
+                        ]
+                    }
+                );
+
+            }
+        );
+
+    </script>
+}

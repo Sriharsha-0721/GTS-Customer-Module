@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "f2gqxkK1oLo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI\\GTSCustomerAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hemasree.koyyana\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.8\\microsoft.aspnetcore.openapi.10.0.8.nupkg.sha512",
+    "C:\\Users\\hemasree.koyyana\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

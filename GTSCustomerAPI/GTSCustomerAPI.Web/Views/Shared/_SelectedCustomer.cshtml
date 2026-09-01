@@ -1,0 +1,96 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model GTSCustomerAPI.Web.Models.SelectedCustomerViewModel
+
+@{
+    bool hasCust = Model.CustId > 0;
+
+    string gid = string.IsNullOrWhiteSpace(Model.GID)
+        ? "-"
+        : Model.GID;
+}
+
+<fieldset class="gts-selected-customer-box">
+
+    <legend>Customer</legend>
+
+    <div class="row g-3 align-items-end">
+
+        <!-- Cust # -->
+        <div class="col-md-2">
+
+            <label class="form-label mb-1">
+                Cust #
+            </label>
+
+            <input type="text"
+                   class="form-control"
+                   value="@(hasCust ? Model.CustNbr : "")"
+                   readonly />
+
+        </div>
+
+        <!-- Name -->
+        <div class="col-md-4">
+
+            <label class="form-label mb-1">
+                Name
+            </label>
+
+            <input type="text"
+                   class="form-control"
+                   value="@Model.Name"
+                   readonly />
+
+        </div>
+
+        <!-- Route -->
+        <div class="col-md-2">
+
+            <label class="form-label mb-1">
+                Route
+            </label>
+
+            <input type="text"
+                   class="form-control"
+                   value="@(hasCust ? Model.Route.ToString() : "")"
+                   readonly />
+
+        </div>
+
+        <!-- GID -->
+        <div class="col-md-2">
+
+            <label class="form-label mb-1">
+                GID
+            </label>
+
+            <input type="text"
+                   class="form-control"
+                   value="@gid"
+                   readonly />
+
+        </div>
+
+        <!-- Select Customer -->
+        <div class="col-md-2">
+
+            <a asp-controller="Customer"
+                   asp-action="Index"
+                   asp-route-showAll="true"
+                   asp-route-returnTo="@Model.ReturnTo"
+                   class="btn primary-blue-btn w-100">
+
+                Select Customer
+
+            </a>
+
+        </div>
+
+    </div>
+
+</fieldset>

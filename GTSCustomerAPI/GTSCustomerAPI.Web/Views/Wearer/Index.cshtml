@@ -1,0 +1,243 @@
+﻿@model GTSCustomerAPI.Web.Models.WearerViewModel
+@{
+    ViewData["Title"] = "Wearer";
+    Layout = "_Layout";
+    bool hasCust = Model.CustId > 0;
+    bool hasWearer = Model.WearerId > 0;
+    string gid = string.IsNullOrEmpty(Model.GID)
+                 ? "-" : Model.GID;
+}
+<partial name="_TabBar" />
+
+
+<div class="gts-content">
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="gts-alert-success">
+            @TempData["Success"]
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="gts-alert-error">
+            @TempData["Error"]
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="gts-alert-success">
+            @Model.Message
+        </div>
+    }
+
+    <partial name="_SelectedCustomer"
+             model="@(new GTSCustomerAPI.Web.Models.SelectedCustomerViewModel
+             {
+                 CustId = Model.CustId,
+                 CustNbr = Model.CustNbr.ToString(),
+                 Name = Model.CustName ?? "",
+                 Route = Model.Route,
+                 GID = Model.GID ?? "",
+                 ReturnTo = "Wearer"
+             })" />
+
+   
+
+    @if (!hasCust)
+    {
+        <p style="color:#999; font-size:13px">
+            No customer. Click
+            <strong>Select Customer</strong>.
+        </p>
+    }
+    else
+    {
+        <form asp-controller="Wearer"
+              asp-action="Save" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="custId"
+                   value="@Model.CustId" />
+            <input type="hidden" name="wearerId"
+                   value="@Model.WearerId" />
+
+            <div class=""w-100";
+                padding:6px 0">
+
+                <!-- Wearer # -->
+                <div class="row g-2 align-items-end mb-3">
+
+                    <div class="col-auto">
+                        <label class="form-label">
+                            Wearer #
+                        </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="text"
+                               readonly
+                               class="form-control"
+                               value="@Model.WearNbr" />
+                    </div>
+
+                    <div class="col-auto">
+                        <a asp-controller="Wearer"
+                               asp-action="SelectWearer"
+                               class="btn primary-blue-btn px-4">
+                            Select Wearer
+                        </a>
+                    </div>
+
+                </div>
+                </div>
+
+                <!-- First Name -->
+                <div style="display:grid;
+                    grid-template-columns:
+                    110px 1fr;
+                    align-items:center;
+                    gap:8px;
+                    margin-bottom:12px">
+                    <label class="lbl-dark">
+                        First Name
+                    </label>
+                    <input type="text" readonly
+                           class="finput"
+                           style="max-width:280px"
+                           value="@Model.FirstName" />
+                </div>
+
+                <!-- Last Name -->
+                <div style="display:grid;
+                    grid-template-columns:
+                    110px 1fr;
+                    align-items:center;
+                    gap:8px;
+                    margin-bottom:12px">
+                    <label class="lbl-dark">
+                        Last Name
+                    </label>
+                    <input type="text" readonly
+                           class="finput"
+                           style="max-width:280px"
+                           value="@Model.LastName" />
+                </div>
+
+                <!-- Sex -->
+                <div style="display:grid;
+                    grid-template-columns:
+                    110px 1fr;
+                    align-items:center;
+                    gap:8px;
+                    margin-bottom:12px">
+                    <label></label>
+                    <fieldset style="border:1px solid #aaa;
+                        border-radius:3px;
+                        padding:6px 14px;
+                        max-width:240px">
+                        <legend style="font-size:12px;
+                            padding:0 4px">
+                            Sex
+                        </legend>
+                        <label style="font-size:13px;
+                            margin-right:20px">
+                            <input type="radio"
+                                   name="isMale"
+                                   value="true"
+                            @(Model.SexInt == 1
+                                                                 ? "checked" : "")
+                                   style="margin-right:4px" />
+                            Male
+                        </label>
+                        <label style="font-size:13px">
+                            <input type="radio"
+                                   name="isMale"
+                                   value="false"
+                            @(Model.SexInt == 0
+                                                                 ? "checked" : "")
+                                   style="margin-right:4px" />
+                            Female
+                        </label>
+                    </fieldset>
+                </div>
+
+                <!-- Locker # + Locker Room -->
+                <div style="display:grid;
+                    grid-template-columns:
+                    110px 110px 100px 150px;
+                    align-items:center;
+                    gap:8px;
+                    margin-bottom:24px">
+                    <label class="lbl-dark">
+                        Locker #
+                    </label>
+                    <input type="text"
+                           name="locker"
+                           class="finput"
+                           value="@Model.Locker" />
+                    <label class="lbl"
+                           style="text-align:right">
+                        Locker Room
+                    </label>
+                    <input type="text"
+                           name="lockRm"
+                           class="finput"
+                           value="@Model.LockRm" />
+                </div>
+
+                <!-- Buttons -->
+               <div class="gts-form-actions">
+
+    <button type="button"
+            class="btn btn-secondary">
+        Previous
+    </button>
+
+    <button type="button"
+            class="btn btn-secondary">
+        Next
+    </button>
+
+    <button type="submit"
+            class="btn primary-blue-btn">
+        Save
+    </button>
+
+</div>
+        </form>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        var _custId = @Model.CustId;
+        var _wrId   = @Model.WearerId;
+        var _token  = $('[name="__RequestVerificationToken"]')
+                          .first().val();
+
+        function navNext() {
+            post('@Url.Action("Next", "Wearer")', {
+                custId: _custId,
+                currentWearerId: _wrId,
+                __RequestVerificationToken: _token
+            });
+        }
+        function navPrev() {
+            post('@Url.Action("Prev", "Wearer")', {
+                custId: _custId,
+                currentWearerId: _wrId,
+                __RequestVerificationToken: _token
+            });
+        }
+        function post(url, data) {
+            var f = $('<form method="post"></form>');
+            f.attr('action', url);
+            $.each(data, function(k, v) {
+                f.append($('<input type="hidden"/>')
+                    .attr({ name: k, value: v }));
+            });
+            $('body').append(f);
+            f.submit();
+        }
+    </script>
+}

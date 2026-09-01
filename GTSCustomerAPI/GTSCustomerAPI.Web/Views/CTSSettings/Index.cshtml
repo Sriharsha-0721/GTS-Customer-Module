@@ -1,0 +1,104 @@
+﻿@model GTSCustomerAPI.Web.Models.CTSSettingsViewModel
+@{
+    ViewData["Title"] = "CTS Settings";
+    Layout = "_Layout";
+    bool hasCust = Model.CustId > 0;
+    string gid = string.IsNullOrEmpty(Model.GID)
+                   ? "-" : Model.GID;
+}
+<partial name="_TabBar" />
+
+
+<div class="gts-content">
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="gts-alert-success">
+            @TempData["Success"]
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="gts-alert-error">
+            @TempData["Error"]
+        </div>
+    }
+
+    <partial name="_SelectedCustomer"
+             model="@(new GTSCustomerAPI.Web.Models.SelectedCustomerViewModel
+             {
+                 CustId = Model.CustId,
+                 CustNbr = Model.CustNbr.ToString(),
+                 Name = Model.Name ?? "",
+                 Route = Model.Route,
+                 GID = Model.GID ?? "",
+                 ReturnTo = "CTSSettings"
+             })" />
+ 
+
+        @if (!hasCust)
+        {
+            <p style="color:#999; font-size:13px;
+                padding-left:6px">
+                No customer selected. Click
+                <strong>Select Customer</strong> above.
+            </p>
+        }
+        else
+        {
+            <div class="cts-section">
+
+                <div class="check-row">
+                    <input type="checkbox"
+                           id="chkPIS"
+                           name="PrintIssueStatusFlag"
+                           value="1"
+                    @(Model.PrintIssueStatusFlag == 1
+                                                 ? "checked" : "") />
+                    <label for="chkPIS">
+                        Print Issue Status
+                    </label>
+                </div>
+
+                <div class="check-row">
+                    <input type="checkbox"
+                           id="chkPBD"
+                           name="PrintBornonDateFlag"
+                           value="1"
+                    @(Model.PrintBornonDateFlag == 1
+                                                 ? "checked" : "") />
+                    <label for="chkPBD">
+                        Print Born On Date
+                    </label>
+                </div>
+
+                <div class="nog-row">
+                    <input type="checkbox"
+                           id="chkNOG"
+                           name="NOGFlag"
+                           value="true"
+                    @(Model.NOGFlag == true
+                                                 ? "checked" : "") />
+                    <label for="chkNOG">NOG</label>
+                    <label class="lbl-dark"
+                           style="margin-left:20px">
+                        Label Header :
+                    </label>
+                    <input type="text"
+                           name="LabelHeader"
+                           class="lbl-hdr-input"
+                           value="@Model.LabelHeader" />
+                </div>
+
+            <div class="gts-form-actions">
+
+                <button type="submit"
+                        class="btn primary-blue-btn">
+                    Save
+                </button>
+
+            </div>
+            </div>
+        }
+  
+</div>

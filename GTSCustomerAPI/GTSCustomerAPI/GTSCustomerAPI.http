@@ -1,0 +1,6 @@
+@GTSCustomerAPI_HostAddress = http://localhost:5075
+
+GET {{GTSCustomerAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
