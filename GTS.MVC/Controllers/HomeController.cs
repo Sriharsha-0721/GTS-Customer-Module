@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using GTS.Application.DTOs;
+﻿using GTS.Application.DTOs;
 using GTS.Application.Interfaces.CustomerServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GTS.MVC.Controllers
 {
@@ -12,194 +12,109 @@ namespace GTS.MVC.Controllers
         {
             _service = service;
         }
-        public async Task<IActionResult> Index( 
+
+        // GET: /Customer or /Customer/Index
+        public async Task<IActionResult> Index(
             int? searchId,
             string? searchName,
-            string? searchCity,
+            int? route,
+            int marketCenter = 569,
             bool showAll = false,
-            string? module = null)
+            string? module = null,
+            CancellationToken ct = default)
         {
             ViewBag.ActiveTab = "Customer";
             ViewBag.Module = module;
             ViewBag.SearchId = searchId;
             ViewBag.SearchName = searchName;
-            ViewBag.SearchCity = searchCity;
+            ViewBag.MarketCenter = marketCenter;
 
-            // Default — show nothing
-            if (!showAll && !searchId.HasValue
-                && string.IsNullOrEmpty(searchName)
-                && string.IsNullOrEmpty(searchCity))
+            // 1. Initial page load: return empty view immediately (displays "Use Search or click Show All")
+            if (!showAll && !searchId.HasValue && string.IsNullOrWhiteSpace(searchName) && !route.HasValue)
             {
-                return View(new List<CustomerDTO>());
+                return View(new List<CustomersSelListDto>());
             }
 
-            // Fetch ALL customers from DB via SP
-            var allCustomers = await _service.GetAllCustomersAsync();
-
-            // Filter in C# based on what user typed
-            var filtered = allCustomers.Where(c =>
-                (!searchId.HasValue || c.CustId == searchId.Value)
-                &&
-                (string.IsNullOrEmpty(searchName) ||
-                 (c.Name != null && c.Name.Contains(searchName,
-                  StringComparison.OrdinalIgnoreCase)))
-                &&
-                (string.IsNullOrEmpty(searchCity) ||
-                 (c.City != null && c.City.Contains(searchCity,
-                  StringComparison.OrdinalIgnoreCase)))
-            ).ToList();
-
-            if (!filtered.Any())
-                ViewBag.ErrorMessage = "No customers found matching your search.";
-
-            return View(filtered);
-        }
-
-        // GET: /Customer/Details/1
-        public async Task<IActionResult> Details(int id)
-        {
-            var customer = await _service.GetCustomerByIdAsync(id);
-            if (customer == null) return NotFound();
-            return View(customer);
-        }
-
-        // GET: /Customer/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: /Customer/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateCustomerDTO customerDto)
-        {
-            if (!ModelState.IsValid)
-                return View(customerDto);
-
-            await _service.AddCustomerAsync(customerDto);
-            return RedirectToAction(nameof(Index));
-        }
-
-        // GET: /Customer/Edit/1
-        public async Task<IActionResult> Edit(int id)
-        {
-            var customer = await _service.GetCustomerByIdAsync(id);
-            if (customer == null) return NotFound();
-
-            var updateDto = new UpdateCustomerDTO
+            // 2. Only execute SP when user clicked 'Show All' or supplied filter criteria
+            var filter = new CustomerFilterRequestDto
             {
-                CustId = customer.CustId,
-                MarketCenter = customer.MarketCenter,
-                CustNbr = customer.CustNbr,
-                Account = customer.Account,
-                Dept = customer.Dept,
-                Name = customer.Name,
-                Route = customer.Route,
-                GID = customer.GID,
-                StopDt = customer.StopDt,
-                Addr1 = customer.Addr1,
-                Addr2 = customer.Addr2,
-                City = customer.City,
-                State = customer.State,
-                Zip = customer.Zip,
-                Phone = customer.Phone,
-                Fax = customer.Fax,
-                Freq = customer.Freq,
-                Contact = customer.Contact,
-                CreateDt = customer.CreateDt,
-                PONumber = customer.PONumber,
-                BillName = customer.BillName,
-                BillAddr = customer.BillAddr,
-                BillCity = customer.BillCity,
-                BillState = customer.BillState,
-                BillZipCod = customer.BillZipCod,
-                BillPhone = customer.BillPhone,
-                UpdtTime = customer.UpdtTime,
-                UpdtUser = 1
+                NumRecsToFetch = showAll ? 0 : 50,
+                MarketCenter = marketCenter,
+                CustNbr = searchId ?? 0,
+                CustName = searchName?.Trim() ?? string.Empty,
+                Route = route ?? 0,
+                WDay = 0,
+                GID = string.Empty,
+                WearerNbr = 0
             };
 
-            return View(updateDto);
-        }
+            var customers = (await _service.GetCustomersBasedOnFilter(filter, ct)).ToList();
 
-        // POST: /Customer/Edit/1
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, UpdateCustomerDTO customerDto)
-        {
-            if (id != customerDto.CustId)
-                return BadRequest();
-
-            if (!ModelState.IsValid)
-                return View(customerDto);
-
-            await _service.UpdateCustomerAsync(customerDto);
-            return RedirectToAction(nameof(Index));
-        }
-
-        // GET: /Customer/Delete/1
-        public async Task<IActionResult> Delete(int id)
-        {
-            var customer = await _service.GetCustomerByIdAsync(id);
-            if (customer == null) return NotFound();
-            return View(customer);
-        }
-
-        // POST: /Customer/Delete/1
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            await _service.DeleteCustomerAsync(id);
-            return RedirectToAction(nameof(Index));
-        }
-        public async Task<IActionResult> Search(
-    int? searchId,
-    string? searchName,
-    string? searchCity,
-    bool showAll = false)
-        {
-            ViewBag.ActiveTab = "Customer";
-
-            List<CustomerDTO> customers = new();
-
-            if (showAll ||
-                searchId.HasValue ||
-                !string.IsNullOrEmpty(searchName) ||
-                !string.IsNullOrEmpty(searchCity))
+            if (!customers.Any())
             {
-                var allCustomers = await _service.GetAllCustomersAsync();
+                ViewBag.ErrorMessage = "No customers found matching your search.";
+            }
 
-                customers = allCustomers
-                    .Where(c =>
-                        (!searchId.HasValue || c.CustId == searchId.Value) &&
-                        (string.IsNullOrEmpty(searchName) ||
-                         (c.Name != null && c.Name.Contains(searchName, StringComparison.OrdinalIgnoreCase))) &&
-                        (string.IsNullOrEmpty(searchCity) ||
-                         (c.City != null && c.City.Contains(searchCity, StringComparison.OrdinalIgnoreCase))))
-                    .ToList();
-                if (!customers.Any())
-                {
-                    if (searchId.HasValue)
-                    {
-                        ViewBag.Error =
-                            "Customer ID not found.";
-                    }
-                    else if (!string.IsNullOrWhiteSpace(searchName))
-                    {
-                        ViewBag.Error =
-                            "Customer name not found.";
-                    }
-                    else if (!string.IsNullOrWhiteSpace(searchCity))
-                    {
-                        ViewBag.Error =
-                            "City not found.";
-                    }
-                }
+            return View(customers);
+        }
+
+        // POST / GET: /Customer/Search (Used for modal/AJAX dynamic lookup)
+        [HttpPost]
+        public async Task<IActionResult> Search([FromBody] CustomerFilterRequestDto filter, CancellationToken ct = default)
+        {
+            if (filter == null)
+            {
+                filter = new CustomerFilterRequestDto { MarketCenter = 569, NumRecsToFetch = 50 };
+            }
+
+            if (filter.MarketCenter == 0)
+            {
+                filter.MarketCenter = 569;
+            }
+
+            var customers = (await _service.GetCustomersBasedOnFilter(filter, ct)).ToList();
+
+            if (!customers.Any())
+            {
+                ViewBag.Error = "No customers found matching your criteria.";
             }
 
             return PartialView("_Search", customers);
         }
 
+        // Submodule Handlers (Using CustId from selection grid)
+        [HttpGet]
+        public async Task<IActionResult> Flags(int custId, CancellationToken ct = default)
+        {
+            var flags = await _service.GetCustomerFlags(custId, ct);
+            if (flags == null) return NotFound();
+            return View(flags);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveFlags(int custId, bool ossFlag, bool stfFlag, CancellationToken ct = default)
+        {
+            await _service.SaveCustomerFlags(custId, ossFlag, stfFlag, ct);
+            return RedirectToAction(nameof(Flags), new { custId });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Profile(int custId, CancellationToken ct = default)
+        {
+            var profile = await _service.GetCustomerProfile(custId, ct);
+            if (profile == null) return NotFound();
+            return View(profile);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateProfile(UpdateCustomerProfileDto dto, CancellationToken ct = default)
+        {
+            if (!ModelState.IsValid) return View("Profile", dto);
+
+            await _service.UpdateCustomerProfile(dto, ct);
+            return RedirectToAction(nameof(Profile), new { custId = dto.CustId });
+        }
     }
 }

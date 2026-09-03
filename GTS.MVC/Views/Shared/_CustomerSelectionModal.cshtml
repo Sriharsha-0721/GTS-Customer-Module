@@ -1,0 +1,67 @@
+﻿<div class="modal fade" id="customerSelectionModal" tabindex="-1" aria-labelledby="customerSelectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-light py-2">
+                <h6 class="modal-title fw-bold" id="customerSelectionModalLabel">Select Customer</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-3">
+                <!-- Filter Toolbar -->
+                <div class="row g-2 align-items-center mb-3 p-2 border rounded bg-light">
+                    <div class="col-auto">
+                        <label class="col-form-label-sm fw-bold">Cust #</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" id="custSearchNbr" class="form-control form-control-sm" placeholder="Cust Nbr..." />
+                    </div>
+
+                    <div class="col-auto ms-2">
+                        <label class="col-form-label-sm fw-bold">Name</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="custSearchName" class="form-control form-control-sm" placeholder="Customer Name..." />
+                    </div>
+
+                    <div class="col-auto ms-2">
+                        <label class="col-form-label-sm fw-bold">Route</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="number" id="custSearchRoute" class="form-control form-control-sm" placeholder="Route" />
+                    </div>
+
+                    <div class="col-auto ms-auto">
+                        <button type="button" id="btnFilterCustomers" class="btn btn-primary btn-sm px-3">Search</button>
+                        <button type="button" id="btnResetFilter" class="btn btn-secondary btn-sm px-2">Clear</button>
+                    </div>
+                </div>
+
+                <!-- Customer Results Grid -->
+                <div class="table-responsive border" style="max-height: 420px;">
+                    <table class="table table-sm table-hover table-striped mb-0 text-nowrap" id="tblCustomerList">
+                        <thead class="table-light sticky-top">
+                            <tr>
+                                <th>Action</th>
+                                <th>Cust #</th>
+                                <th>Name</th>
+                                <th>Route</th>
+                                <th>GID</th>
+                                <th>Service Days</th>
+                                <th>City / State / Zip</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblCustomerBody">
+                            <tr>
+                                <td colspan="9" class="text-center text-muted py-3">Loading customers...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer py-2">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

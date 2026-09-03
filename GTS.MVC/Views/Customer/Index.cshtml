@@ -1,97 +1,40 @@
-﻿@model IEnumerable<GTS.Application.DTOs.CustomerDTO>
+﻿@model IEnumerable<GTS.Application.DTOs.CustomersSelListDto>
 
 @{
     ViewData["Title"] = "Customers";
 }
 
-<partial name="_CTSTabs" />
-
 <form asp-action="Index" method="get">
-
     <div class="card mb-3">
-
         <div class="card-header bg-dark text-white">
-
-            <h6 class="mb-0">
-                Customer Search
-            </h6>
-
+            <h6 class="mb-0">Customer Search</h6>
         </div>
-
         <div class="card-body">
-
             <div class="row">
-
                 <div class="col-md-2">
-
-                    <label class="fw-bold">
-                        Customer ID
-                    </label>
-
+                    <label class="fw-bold">Customer ID</label>
                     <input type="number"
                            name="searchId"
                            class="form-control"
                            value="@ViewBag.SearchId" />
-
                 </div>
 
                 <div class="col-md-3">
-
-                    <label class="fw-bold">
-                        Customer Name
-                    </label>
-
+                    <label class="fw-bold">Customer Name</label>
                     <input type="text"
                            name="searchName"
                            class="form-control"
                            value="@ViewBag.SearchName" />
-
                 </div>
 
-                <div class="col-md-2">
-
-                    <label class="fw-bold">
-                        City
-                    </label>
-
-                    <input type="text"
-                           name="searchCity"
-                           class="form-control"
-                           value="@ViewBag.SearchCity" />
-
+                <div class="col-md-7 d-flex align-items-end gap-2">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                    <a asp-action="Index" class="btn btn-secondary">Clear</a>
+                    <a asp-action="Index" asp-route-showAll="true" class="btn btn-success">Show All</a>
                 </div>
-
-                <div class="col-md-5 d-flex align-items-end">
-
-                    <button type="submit"
-                            class="btn btn-primary me-2">
-                        Search
-                    </button>
-
-                    <a asp-action="Index"
-                       class="btn btn-secondary me-2">
-                        Clear
-                    </a>
-
-                    <a asp-action="Index"
-                       asp-route-showAll="true"
-                       class="btn btn-success me-2">
-                        Show All
-                    </a>
-
-                    <a asp-action="Create"
-                       class="btn btn-dark">
-                        + Add
-                    </a>
-
-                </div>
-
             </div>
-
         </div>
-
     </div>
-
 </form>
 
 @if (ViewBag.ErrorMessage != null)
@@ -101,25 +44,16 @@
     </div>
 }
 
-@if (Model.Any())
+@if (Model != null && Model.Any())
 {
     <div class="mb-2">
-
-        <strong>
-            Count :
-            @Model.Count()
-        </strong>
-
+        <strong>Count : @Model.Count()</strong>
     </div>
 
     <div class="table-responsive">
-
         <table class="table table-bordered table-hover">
-
             <thead class="table-dark">
-
                 <tr>
-
                     <th>Select</th>
                     <th>MC</th>
                     <th>CustId</th>
@@ -127,153 +61,88 @@
                     <th>Name</th>
                     <th>GID</th>
                     <th>Route</th>
-                    <th>City</th>
-                    <th>State</th>
+                    <th>Days</th>
+                    <th>City, State, Zip</th>
                     <th>Phone</th>
-                    <th>Updated</th>
-                    <th>Actions</th>
-
+                    <th>Status</th>
                 </tr>
-
             </thead>
-
             <tbody>
-
                 @foreach (var customer in Model)
                 {
                     <tr>
-
                         <td>
-
                             <a href="#"
-                               class="select-customer"
+                               class="select-customer btn btn-outline-primary btn-sm py-0"
                                data-mc="@customer.MarketCenter"
                                data-custno="@customer.CustNbr"
                                data-custid="@customer.CustId"
                                data-name="@customer.Name"
                                data-city="@customer.City"
                                data-phone="@customer.Phone"
-                               data-contact="@customer.Contact"
                                data-route="@customer.Route"
                                data-gid="@customer.GID"
                                data-address1="@customer.Addr1"
                                data-address2="@customer.Addr2">
-
                                 Select
-
                             </a>
-
                         </td>
-
+                        <td>@customer.MarketCenter</td>
+                        <td>@customer.CustId</td>
+                        <td>@customer.CustNbr</td>
+                        <td>@customer.Name</td>
+                        <td><code>@customer.GID</code></td>
+                        <td>@customer.Route</td>
+                        <td><span class="badge bg-secondary">@customer.WDay</span></td>
+                        <td>@customer.City</td>
+                        <td>@customer.Phone</td>
                         <td>
-                            @customer.MarketCenter
+                            @if (!string.IsNullOrWhiteSpace(customer.StopDt))
+                            {
+                                <span class="badge bg-danger">@customer.StopDt</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Active</span>
+                            }
                         </td>
-
-                        <td>
-                            @customer.CustId
-                        </td>
-
-                        <td>
-                            @customer.CustNbr
-                        </td>
-
-                        <td>
-                            @customer.Name
-                        </td>
-
-                        <td>
-                            @customer.GID
-                        </td>
-
-                        <td>
-                            @customer.Route
-                        </td>
-
-                        <td>
-                            @customer.City
-                        </td>
-
-                        <td>
-                            @customer.State
-                        </td>
-
-                        <td>
-                            @customer.Phone
-                        </td>
-
-                        <td>
-                            @customer.UpdtTime.ToString("MM-dd-yyyy")
-                        </td>
-
-                        <td>
-
-                            <a asp-action="Edit"
-                               asp-route-id="@customer.CustId"
-                               class="btn btn-warning btn-sm">
-
-                                Edit
-
-                            </a>
-
-                            <a asp-action="Delete"
-                               asp-route-id="@customer.CustId"
-                               class="btn btn-danger btn-sm">
-
-                                Delete
-
-                            </a>
-
-                        </td>
-
                     </tr>
                 }
-
             </tbody>
-
         </table>
-
     </div>
 }
 else
 {
     <div class="alert alert-info">
-
         Use Search or click Show All.
-
     </div>
 }
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
 <script>
+    $(document).on('click', '.select-customer', function (e) {
+        e.preventDefault();
 
-    $(document).on(
-        'click',
-        '.select-customer',
-        function (e) {
+        const selected = {
+            mc: $(this).data("mc"),
+            custId: $(this).data("custid"),
+            custNo: $(this).data("custno"),
+            customer: $(this).data("name"),
+            city: $(this).data("city"),
+            phone: $(this).data("phone"),
+            route: $(this).data("route"),
+            gid: $(this).data("gid"),
+            address1: $(this).data("address1"),
+            address2: $(this).data("address2")
+        };
 
-            e.preventDefault();
+        if (typeof saveSelectedCustomer === "function") {
+            saveSelectedCustomer(selected);
+        } else {
+            sessionStorage.setItem("selectedCustomer", JSON.stringify(selected));
+        }
 
-            saveSelectedCustomer({
-
-                mc: $(this).data("mc"),
-                custId: $(this).data("custid"),
-                custNo: $(this).data("custno"),
-                customer: $(this).data("name"),
-                city: $(this).data("city"),
-                phone: $(this).data("phone"),
-                contact: $(this).data("contact"),
-                route: $(this).data("route"),
-                gid: $(this).data("gid"),
-                address1: $(this).data("address1"),
-                address2: $(this).data("address2")
-
-            });
-
-            alert("Customer selected successfully.");
-
-            //window.location.href = "/CustomerProfile/Index";
-
-        });
-
+        alert("Customer selected successfully: " + selected.customer);
+    });
 </script>

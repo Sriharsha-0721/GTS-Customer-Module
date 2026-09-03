@@ -1,0 +1,33 @@
+﻿<!-- 1. Include the reusable modal markup -->
+@await Html.PartialAsync("_CustomerSelectionModal")
+
+<!-- 2. Wire the select button -->
+@section Scripts {
+    <script src="~/js/customer-selection.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnSelect = document.getElementById("btnSelectCustomer");
+
+            if (btnSelect) {
+                btnSelect.addEventListener("click", function () {
+                    // Open the modal for Market Center 569
+                    openCustomerSelection(569, function (selected) {
+                        // Populate the customer info fields if present on this screen
+                        const txtCustNbr = document.getElementById("txtCustNbr");
+                        const txtCustName = document.getElementById("txtCustomerName");
+                        const hdnCustId = document.getElementById("hdnCustId");
+
+                        if (txtCustNbr) txtCustNbr.value = selected.custNbr;
+                        if (txtCustName) txtCustName.value = selected.custName;
+                        if (hdnCustId) hdnCustId.value = selected.custId;
+
+                        // Call this module's data fetcher
+                        if (typeof loadModuleData === "function") {
+                            loadModuleData(selected.custId);
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+}

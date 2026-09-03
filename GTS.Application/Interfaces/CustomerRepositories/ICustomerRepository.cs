@@ -1,13 +1,15 @@
-﻿using GTS.Domain.Entities;
+﻿using GTS.Application.DTOs;
 
 namespace GTS.Application.Interfaces.CustomerRepositories
 {
     public interface ICustomerRepository
     {
-        Task<IEnumerable<Customer>> GetAllAsync();
-        Task<Customer?> GetByIdAsync(int id);
-        Task<Customer?> AddAsync(Customer customer);
-        Task UpdateAsync(Customer customer);
-        Task DeleteAsync(int id);
+        Task<IEnumerable<CustomersSelListDto>> GetFilteredCustomersAsync(CustomerFilterRequestDto filter, CancellationToken ct = default);
+
+        Task<CustomerFlagsDto?> GetCustomerFlagsAsync(int custId, CancellationToken ct = default);
+        Task<int> SaveCustomerFlagsAsync(int custId, bool ossFlag, bool stfFlag, CancellationToken ct = default);
+
+        Task<CustomerProfileDto?> GetCustomerProfileAsync(int custId, CancellationToken ct = default);
+        Task<bool> UpdateCustomerProfileAsync(UpdateCustomerProfileDto dto, CancellationToken ct = default);
     }
 }

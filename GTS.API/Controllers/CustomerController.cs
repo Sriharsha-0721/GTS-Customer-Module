@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using GTS.Application.DTOs;
+﻿using GTS.Application.DTOs;
 using GTS.Application.Interfaces.CustomerServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GTS.API.Controllers
 {
@@ -8,63 +8,51 @@ namespace GTS.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerService _service;
+        private readonly ICustomerService _customerService;
 
-        public CustomerController(ICustomerService service)
+        public CustomerController(ICustomerService customerService)
         {
-            _service = service;
+            _customerService = customerService;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<CustomerDTO>> Get()
+        // Selection Grid (Replaces GetAll/GetById for search)
+        [HttpPost("customers")]
+        public async Task<IActionResult> GetCustomersBasedOnFilter([FromBody] CustomerFilterRequestDto filterDto, CancellationToken ct = default)
         {
-            return await _service.GetAllCustomersAsync();
+            var customers = await _customerService.GetCustomersBasedOnFilter(filterDto, ct);
+            return Ok(customers);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerDTO>> Get(int id)
+        // Customer Flags Submodule
+        [HttpGet("customer-flagdetails/{custId:int}")]
+        public async Task<IActionResult> GetCustomerFlags(int custId, CancellationToken ct = default)
         {
-            var customer = await _service.GetCustomerByIdAsync(id);
-            if (customer == null) return NotFound();
-            return Ok(customer);
+            var data = await _customerService.GetCustomerFlags(custId, ct);
+            if (data == null) return NotFound();
+            return Ok(data);
         }
 
-        [HttpGet("{id}/edit")]
-        public async Task<ActionResult<UpdateCustomerDTO>> GetForUpdate(int id)
+        [HttpPost("update-flagdetails/{custId:int}/{ossflag:bool}/{stfflag:bool}")]
+        public async Task<IActionResult> SaveCustomerFlags(int custId, bool ossflag, bool stfflag, CancellationToken ct = default)
         {
-            var customer = await _service.GetCustomerForUpdateAsync(id);
-
-            if (customer == null)
-                return NotFound();
-
-            return Ok(customer);
+            var result = await _customerService.SaveCustomerFlags(custId, ossflag, stfflag, ct);
+            return Ok(result);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateCustomerDTO customerDto)
+        // Customer Profile Submodule
+        [HttpGet("customer-profile/{custId:int}")]
+        public async Task<IActionResult> GetCustomerProfile(int custId, CancellationToken ct = default)
         {
-            var customer = await _service.AddCustomerAsync(customerDto);
-            return Ok(customer);
+            var profile = await _customerService.GetCustomerProfile(custId, ct);
+            if (profile == null) return NotFound();
+            return Ok(profile);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(
-            int id,
-            [FromBody] UpdateCustomerDTO customerDto)
+        [HttpPut("update-profile")]
+        public async Task<IActionResult> UpdateCustomerProfile([FromBody] UpdateCustomerProfileDto updateDto, CancellationToken ct = default)
         {
-            if (id != customerDto.CustId)
-                return BadRequest();
-
-            await _service.UpdateCustomerAsync(customerDto);
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _service.DeleteCustomerAsync(id);
-            return NoContent();
+            var result = await _customerService.UpdateCustomerProfile(updateDto, ct);
+            return Ok(result);
         }
     }
 }
