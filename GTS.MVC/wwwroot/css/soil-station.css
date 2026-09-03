@@ -1,0 +1,152 @@
+﻿body {
+    background-color: #ffffff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #333333;
+}
+
+.gts-container {
+    max-width: 960px;
+    margin: 15px auto;
+}
+
+.gts-panel {
+    background-color: #ffffff;
+    border: 1px solid #d5d5d5;
+    padding: 20px 24px;
+}
+
+/* Header Text & Badge */
+.btn-legacy-badge {
+    background: linear-gradient(to bottom, #f0f0f0 0%, #e0e0e0 100%);
+    border: 1px solid #c0c0c0;
+    color: #333333;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.gts-screen-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222222;
+}
+
+.gts-date-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222222;
+}
+
+/* Form Labels & Controls */
+.gts-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.gts-input-field, .gts-select-field {
+    border: 1px solid #b5b5b5;
+    background-color: #f7f7f7;
+    color: #222222;
+    border-radius: 1px;
+    height: 28px;
+    font-size: 12px;
+}
+
+.gts-input-container {
+    background-color: #707070 !important;
+    color: #ffffff !important;
+    border: 1px solid #505050;
+    height: 28px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.gts-input-garment {
+    border: 1px solid #b5b5b5;
+    background-color: #ffffff;
+    height: 28px;
+    font-size: 13px;
+}
+
+/* Classic Fieldset Bordering */
+.gts-groupbox {
+    border: 1px solid #c8c8c8 !important;
+    padding: 10px 14px 14px 14px !important;
+    margin: 0 !important;
+    background-color: #ffffff;
+}
+
+.gts-groupbox-title {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #333333 !important;
+    width: auto !important;
+    padding: 0 4px !important;
+    margin-bottom: 0 !important;
+    border-bottom: none;
+}
+
+/* Statistics Table Layout */
+.gts-stat-label {
+    font-size: 12px;
+    color: #333333;
+}
+
+.gts-stat-box {
+    border: 1px solid #b5b5b5;
+    background-color: #f7f7f7;
+    text-align: center;
+    height: 26px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 1px;
+}
+
+/* Legacy Buttons matching Screenshot */
+.btn-legacy-cyan {
+    background-color: #a6f2fc;
+    border: 1px solid #75d4e2;
+    color: #004c57;
+    font-size: 12px;
+    font-weight: 700;
+    height: 32px;
+    width: 200px;
+    border-radius: 2px;
+}
+
+    .btn-legacy-cyan:hover:not(:disabled) {
+        background-color: #8cebf8;
+    }
+
+.btn-legacy-grey {
+    background: linear-gradient(to bottom, #f2f2f2 0%, #dedede 100%);
+    border: 1px solid #b5b5b5;
+    color: #222222;
+    font-size: 12px;
+    font-weight: 600;
+    height: 32px;
+    width: 200px;
+    border-radius: 2px;
+}
+
+    .btn-legacy-grey:hover:not(:disabled) {
+        background: #e2e2e2;
+    }
+
+.btn-legacy-action {
+    background: linear-gradient(to bottom, #f2f2f2 0%, #dedede 100%);
+    border: 1px solid #b5b5b5;
+    color: #222222;
+    font-size: 12px;
+    font-weight: 600;
+    height: 30px;
+    min-width: 90px;
+    border-radius: 2px;
+}
+
+    .btn-legacy-action:hover:not(:disabled) {
+        background: #e2e2e2;
+    }

@@ -1,0 +1,194 @@
+﻿@model GTS.MVC.Models.SoilStation.SoilStationViewModel
+
+@{
+    ViewData["Title"] = "Soil Station";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/soil-station.css" />
+
+<div class="gts-container">
+    <!-- Top Header Bar -->
+    <div class="row align-items-center mb-3">
+        <div class="col-4">
+            <span class="btn-legacy-badge">Count Station</span>
+        </div>
+        <div class="col-4 text-center">
+            <h4 class="gts-screen-title mb-0">Soil Station</h4>
+        </div>
+        <div class="col-4 text-end">
+            <span class="gts-date-text">@DateTime.Now.ToString("MM/dd/yyyy")</span>
+        </div>
+    </div>
+
+    <!-- Main White Workstation Panel -->
+    <div class="gts-panel">
+
+        <!-- Row 1: MC, Receiver, Pickup Day, Date -->
+        <div class="row g-2 align-items-center mb-3">
+            <div class="col-auto">
+                <span class="gts-label">MC # <strong id="lblMC">@(Model?.MarketCenter > 0 ? Model.MarketCenter : 569)</strong></span>
+            </div>
+            <div class="col-auto ms-2">
+                <span class="gts-label">Receiver</span>
+            </div>
+            <div class="col-md-2">
+                <input type="text" id="txtReceiver" class="form-control form-control-sm gts-input-field" value="@(string.IsNullOrWhiteSpace(Model?.ReceiverNo) ? "" : Model.ReceiverNo)" placeholder="Scan Receiver" autocomplete="off" autofocus />
+            </div>
+            <div class="col-auto ms-4">
+                <span class="gts-label">Pick Up Day</span>
+            </div>
+            <div class="col-md-3">
+                <select id="ddlPickUpDay" class="form-select form-select-sm gts-select-field">
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday" selected>Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </select>
+            </div>
+            <div class="col-md-2 ms-auto">
+                <input type="text" id="txtPickUpDate" class="form-control form-control-sm gts-input-field" value="@DateTime.Now.ToString("MM/dd/yyyy")" readonly />
+            </div>
+        </div>
+
+        <!-- Row 2: Customer & Created By -->
+        <div class="row g-2 align-items-center mb-4">
+            <div class="col-auto">
+                <span class="gts-label" style="min-width: 65px; display: inline-block;">Customer</span>
+            </div>
+            <div class="col-md-2">
+                <input type="text" id="txtCustNo" class="form-control form-control-sm gts-input-field" readonly />
+            </div>
+            <div class="col-md-5">
+                <input type="text" id="txtCustomerName" class="form-control form-control-sm gts-input-field" readonly />
+            </div>
+            <div class="col-auto ms-auto">
+                <span class="gts-label">Created By</span>
+            </div>
+            <div class="col-md-2">
+                <input type="text" id="txtCreatedBy" class="form-control form-control-sm gts-input-field" readonly />
+            </div>
+        </div>
+
+        <!-- Section 1: Scan Details (Container) -->
+        <fieldset class="gts-groupbox mb-3">
+            <legend class="gts-groupbox-title">Scan Details</legend>
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <span class="gts-label" style="min-width: 75px; display: inline-block;">Container</span>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="txtContainer" class="form-control form-control-sm gts-input-container" autocomplete="off" disabled />
+                </div>
+                <div class="col-md-4 ms-auto text-end">
+                    <button type="button" id="btnStartContainer" class="btn-legacy-cyan" disabled>Start New Container</button>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Section 2: Scan or Type in (Garment ID) -->
+        <div class="row align-items-center mb-3">
+            <div class="col-md-8">
+                <fieldset class="gts-groupbox">
+                    <legend class="gts-groupbox-title">Scan or Type in</legend>
+                    <div class="row align-items-center py-1">
+                        <div class="col-auto ms-auto">
+                            <span class="gts-label">Garment ID</span>
+                        </div>
+                        <div class="col-md-7 me-auto">
+                            <input type="text" id="txtGarmentId" class="form-control form-control-sm gts-input-garment" autocomplete="off" disabled />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-4 text-end">
+                <button type="button" id="btnSpecialInstructions" class="btn-legacy-grey" disabled>View Special Instructions</button>
+            </div>
+        </div>
+
+        <!-- Section 3: Scanning Statistics -->
+        <div class="row align-items-center mb-4">
+            <div class="col-md-8">
+                <fieldset class="gts-groupbox">
+                    <legend class="gts-groupbox-title">Scanning Statistics</legend>
+                    <div class="row g-3 py-1">
+                        <!-- Column Left -->
+                        <div class="col-md-6">
+                            <div class="row align-items-center mb-2">
+                                <div class="col-7 text-end"><span class="gts-stat-label">Valid Scans</span></div>
+                                <div class="col-5"><input type="text" id="statValid" class="form-control form-control-sm gts-stat-box" value="0" readonly /></div>
+                            </div>
+                            <div class="row align-items-center mb-2">
+                                <div class="col-7 text-end"><span class="gts-stat-label">Not On File</span></div>
+                                <div class="col-5"><input type="text" id="statNotOnFile" class="form-control form-control-sm gts-stat-box" value="0" readonly /></div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-7 text-end"><span class="gts-stat-label">Duplicates</span></div>
+                                <div class="col-5"><input type="text" id="statDuplicates" class="form-control form-control-sm gts-stat-box" value="0" readonly /></div>
+                            </div>
+                        </div>
+
+                        <!-- Column Right -->
+                        <div class="col-md-6">
+                            <div class="row align-items-center mb-2">
+                                <div class="col-7 text-end"><span class="gts-stat-label">Day or Lot Errors</span></div>
+                                <div class="col-5"><input type="text" id="statDayErrors" class="form-control form-control-sm gts-stat-box" value="0" readonly /></div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-7 text-end"><span class="gts-stat-label">Required Pull</span></div>
+                                <div class="col-5"><input type="text" id="statReqPull" class="form-control form-control-sm gts-stat-box" value="0" readonly /></div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-md-4 text-end align-self-end">
+                <button type="button" id="btnStartReceiver" class="btn-legacy-grey">Start New Receiver</button>
+            </div>
+        </div>
+
+        <!-- Bottom Action Buttons -->
+        <div class="row justify-content-end">
+            <div class="col-auto d-flex gap-2">
+                <button type="button" id="btnUndo" class="btn-legacy-action" disabled>Undo</button>
+                <button type="button" id="btnRepair" class="btn-legacy-action" disabled>Repair</button>
+                <button type="button" id="btnExit" class="btn-legacy-action">Exit</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Special Instructions Modal -->
+<div class="modal fade" id="specialInstructionsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-secondary text-white py-2">
+                <h6 class="modal-title mb-0">Special Instructions</h6>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-2">
+                    <div class="col-6">
+                        <label class="gts-label">Wash Comments</label>
+                        <div class="p-2 border bg-light" id="lblWashCom">None</div>
+                    </div>
+                    <div class="col-6">
+                        <label class="gts-label">Soil Comments</label>
+                        <div class="p-2 border bg-light" id="lblSoilCom">None</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer py-1">
+                <button type="button" class="btn-legacy-action" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/soilstation.js"></script>
+}

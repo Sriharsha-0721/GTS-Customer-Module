@@ -134,4 +134,5 @@ async function saveWearer() {
         alert("Unable to save wearer.");
 
     }
-}
+}Build → Clean Solution
+   Build → Build Solution
