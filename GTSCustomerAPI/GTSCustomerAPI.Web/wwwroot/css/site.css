@@ -5,6 +5,11 @@
     --header-bg-grey: #777;
 }
 
+
+/* =========================================================
+   COMMON COLORS
+========================================================= */
+
 .primary-color {
     color: var(--primary-color);
 }
@@ -21,41 +26,82 @@
     border-color: var(--primary-color) !important;
 }
 
+
+/* =========================================================
+   SYSTEM HEADER
+========================================================= */
+
 .system-title {
     font-size: 28px;
     color: var(--primary-color);
 }
 
+.gts-logo {
+    color: #f58220;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.gts-system-title {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.gts-header-btn {
+    background-color: #f58220;
+    color: #ffffff;
+    border: none;
+}
+
+    .gts-header-btn:hover {
+        background-color: #d96f16;
+        color: #ffffff;
+    }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
 .btn-yellow {
     background-color: var(--accent-orange);
-    color: #fff;
+    color: #ffffff;
     border: none;
 }
 
     .btn-yellow:hover {
         background-color: var(--secondary-color);
-        color: #fff;
+        color: #ffffff;
     }
+
 
 .primary-blue-btn {
     background-color: var(--primary-color);
-    color: #fff;
+    color: #ffffff;
     border: none;
 }
 
-    .primary-blue-btn:hover {
+    .primary-blue-btn:hover,
+    .primary-blue-btn:focus {
         background-color: #102b4d;
-        color: #fff;
+        color: #ffffff;
+        border-color: var(--primary-color);
     }
 
-/* MAIN NAVBAR */
+
+/* =========================================================
+   MAIN NAVBAR
+========================================================= */
 
 .navbar.primary-bg-color {
     background-color: var(--primary-color) !important;
 }
 
 .navbar-nav .nav-link {
-    color: #fff !important;
+    color: #ffffff !important;
     font-size: 13px;
 }
 
@@ -65,7 +111,10 @@
         color: var(--secondary-color) !important;
     }
 
-/* DROPDOWN */
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
 
 .navbar-nav .dropdown-menu {
     background-color: var(--primary-color);
@@ -75,28 +124,57 @@
 }
 
     .navbar-nav .dropdown-menu .dropdown-item {
-        color: #fff;
+        color: #ffffff;
         font-size: 13px;
         border-bottom: 1px solid var(--secondary-color);
     }
 
         .navbar-nav .dropdown-menu .dropdown-item:hover {
             background-color: var(--secondary-color);
-            color: #fff;
+            color: #ffffff;
         }
 
-/* USER INFO */
+
+/* =========================================================
+   ADMINISTRATION NESTED DROPDOWN
+========================================================= */
+
+.dropdown-submenu {
+    position: relative;
+}
+
+    .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+        display: none;
+    }
+
+    .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-submenu > .dropdown-toggle::after {
+        float: right;
+        margin-top: 8px;
+        transform: rotate(-90deg);
+    }
+
+
+/* =========================================================
+   USER INFO
+========================================================= */
 
 .gts-user-info {
     font-size: 11px;
-    color: #333;
+    color: #333333;
     text-align: right;
 }
 
+
 /* =========================================================
-   Customer Module Tabs
-   Customer | Wearer | Customer Profile | CTS Settings
-   ========================================================= */
+   CUSTOMER MODULE TABS
+========================================================= */
 
 .gts-module-tabs {
     display: flex;
@@ -128,12 +206,13 @@
         color: #ffffff;
     }
 
-/* ==========================================
-   Shared Selected Customer Header
-   ========================================== */
+
+/* =========================================================
+   SHARED SELECTED CUSTOMER HEADER
+========================================================= */
 
 .gts-selected-customer-box {
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 4px;
     padding: 12px 15px 15px;
     margin-bottom: 12px;
@@ -148,12 +227,13 @@
         color: var(--secondary-color);
     }
 
+
 .gts-customer-profile-header {
     border: 1px solid #dee2e6;
     border-radius: 4px;
     padding: 12px 16px 16px;
     margin-bottom: 12px;
-    background: #fff;
+    background: #ffffff;
 }
 
     .gts-customer-profile-header legend {
@@ -165,6 +245,7 @@
         color: var(--secondary-color);
     }
 
+
 /* =========================================================
    CUSTOMER PROFILE
 ========================================================= */
@@ -172,7 +253,7 @@
 .customer-profile-box {
     border: 1px solid #dee2e6;
     border-radius: 4px;
-    background: #fff;
+    background: #ffffff;
     padding: 15px;
     margin-top: 15px;
 }
@@ -181,7 +262,7 @@
     display: flex;
     min-height: 430px;
     border: 1px solid #dee2e6;
-    background: #fff;
+    background: #ffffff;
 }
 
 .customer-profile-menu {
@@ -227,7 +308,7 @@
 
 .profile-char-count {
     text-align: right;
-    color: #777;
+    color: #777777;
     font-size: 11px;
     margin-top: 3px;
     margin-bottom: 12px;
@@ -245,6 +326,7 @@
     gap: 10px;
 }
 
+
 /* =========================================================
    CUSTOMER SEARCH / LIST
 ========================================================= */
@@ -253,7 +335,7 @@
     border: 1px solid #dee2e6;
     border-radius: 4px;
     padding: 14px;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
     .customer-search-panel .form-label {
@@ -264,6 +346,7 @@
     .customer-search-panel .form-control {
         min-height: 34px;
     }
+
 
 .selected-banner {
     display: flex;
@@ -278,6 +361,9 @@
 }
 
 
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
 
 .gts-form-actions {
     display: flex;
@@ -285,55 +371,18 @@
     gap: 8px;
     margin-top: 15px;
     padding-top: 10px;
-    padding-bottom:5px;
+    padding-bottom: 5px;
     border-bottom: 2px solid #dee2e6;
 }
 
-.gts-form-actions .primary-blue-btn {
-    margin-left: auto;
-}
-
-.primary-blue-btn,
-.primary-blue-btn:hover,
-.primary-blue-btn:focus {
-    background-color: var(--primary-color);
-    color: #fff;
-    border-color: var(--primary-color);
-}
-
-:root {
-    --primary-color: #183964;
-    --secondary-color: #F87C1E;
-}
-
-.gts-logo {
-    color: #f58220;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    white-space: nowrap;
-}
-
-.gts-system-title {
-    color: #183964;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.gts-header-btn {
-    background-color: #f58220;
-    color: #fff;
-    border: none;
-}
-
-    .gts-header-btn:hover {
-        background-color: #d96f16;
-        color: #fff;
+    .gts-form-actions .primary-blue-btn {
+        margin-left: auto;
     }
 
+
 /* =========================================================
-   CUSTOMER PROFILE - ACTION ICONS
-   ========================================================= */
+   CUSTOMER PROFILE ACTION ICONS
+========================================================= */
 
 .gts-circle-btn {
     width: 34px;
@@ -358,12 +407,14 @@
 }
 
 
-/* Delete button inside table */
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
 
 .gts-delete-btn {
     width: 30px;
     height: 30px;
-    border: 1px solid #333;
+    border: 1px solid #333333;
     background: #ffffff;
     display: inline-flex;
     align-items: center;

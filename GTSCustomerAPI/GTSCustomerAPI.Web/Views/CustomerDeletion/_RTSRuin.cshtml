@@ -1,0 +1,150 @@
+﻿@model List<GTSCustomerAPI.Web.Models.CustomerDeletion.CustomerDeletionRTSRuinViewModel>
+
+<div class="rts-ruin-stage">
+
+    <!-- =========================================================
+         RTS RUIN GRID
+    ========================================================== -->
+
+    <div class="table-responsive">
+
+        <table id="tblCustomerDeletionRTSRuin"
+               class="table table-bordered cd-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Item Code</th>
+
+                    <th>Size</th>
+
+                    <th>Total Garments Graded</th>
+
+                    <th>Type</th>
+
+                    <th>Grade</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.ItemCode
+                            </td>
+
+                            <td>
+                                @item.Size
+                            </td>
+
+                            <td>
+                                @item.TotalGarmentsGraded
+                            </td>
+
+                            <td>
+                                @item.Type
+                            </td>
+
+                            <td>
+                                @item.Grade
+                            </td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+
+                        <td colspan="5"
+                            class="text-center text-muted">
+
+                            No RTS Ruin records found.
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- =========================================================
+         RTS RUIN ACTION
+    ========================================================== -->
+    @if (Model != null && Model.Any())
+    {
+        <div class="cd-table-footer">
+
+            <div class="cd-record-info">
+
+                Showing 1 to @Model.Count of @Model.Count records
+
+            </div>
+
+
+            <div class="cd-action-row">
+
+                <button type="button"
+                        id="btnConfirmGradingCompleted"
+                        class="btn btn-outline-primary cd-action-btn">
+
+                    Confirm Grading Completed
+
+                </button>
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info mt-3">
+
+            No RTS Ruin records found.
+            Please proceed to the next stage.
+
+        </div>
+    }
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <div class="cd-navigation">
+
+        <button type="button"
+                id="btnRTSRuinPrevious"
+                class="cd-arrow-btn"
+                title="Previous">
+
+            ←
+
+        </button>
+
+
+        <button type="button"
+                id="btnRTSRuinNext"
+                class="cd-arrow-btn"
+                title="Next">
+
+            →
+
+        </button>
+
+    </div>
+
+</div>

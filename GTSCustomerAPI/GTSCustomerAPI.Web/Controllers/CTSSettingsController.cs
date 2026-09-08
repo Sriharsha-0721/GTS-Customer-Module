@@ -45,34 +45,60 @@ public class CTSSettingsController : Controller
 
     [HttpGet]
     public async Task<IActionResult> IndexWithCustomer(
-        int custId, int custNbr, string? name,
-        int route, string? gid)
+    int custId,
+    int custNbr = 0,
+    string? name = null,
+    int route = 0,
+    string? gid = null)
     {
+        // Store selected customer
         HttpContext.Session.SetInt32(
-            "SelectedCustId",  custId);
-        HttpContext.Session.SetInt32(
-            "SelectedCustNbr", custNbr);
-        HttpContext.Session.SetString(
-            "SelectedName",    name ?? "");
-        HttpContext.Session.SetInt32(
-            "SelectedRoute",   route);
-        HttpContext.Session.SetString(
-            "SelectedGID",     gid ?? "");
+            "SelectedCustId",
+            custId);
 
         var settings =
             await _api.GetCTSSettingsAsync(custId);
-        var model = settings
-            ?? new CTSSettingsViewModel();
 
-        model.CustId  = custId;
-        model.CustNbr = custNbr;
-        model.Name    = name;
-        model.Route   = route;
-        model.GID     = gid;
+        CTSSettingsViewModel model;
+
+        if (settings != null)
+        {
+            // IMPORTANT:
+            // Use database/API values as the main source.
+            model = settings;
+        }
+        else
+        {
+            // Fallback only when API has no record
+            model = new CTSSettingsViewModel
+            {
+                CustId = custId,
+                CustNbr = custNbr,
+                Name = name,
+                Route = route,
+                GID = gid
+            };
+        }
+
+        // Keep session synchronized with actual loaded customer
+        HttpContext.Session.SetInt32(
+            "SelectedCustNbr",
+            model.CustNbr);
+
+        HttpContext.Session.SetString(
+            "SelectedName",
+            model.Name ?? "");
+
+        HttpContext.Session.SetInt32(
+            "SelectedRoute",
+            model.Route);
+
+        HttpContext.Session.SetString(
+            "SelectedGID",
+            model.GID ?? "");
 
         return View("Index", model);
     }
-
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Save(

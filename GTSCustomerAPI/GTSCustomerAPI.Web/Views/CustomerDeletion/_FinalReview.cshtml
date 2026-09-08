@@ -1,0 +1,132 @@
+﻿@model List<GTSCustomerAPI.Web.Models.CustomerDeletion.CustomerDeletionFinalReviewViewModel>
+
+<div class="final-review-stage">
+
+    <div class="table-responsive">
+
+        <table id="tblCustomerDeletionFinalReview"
+               class="table table-bordered cd-table cd-final-review-table">
+
+            <thead>
+
+                <tr>
+
+                    <th class="cd-status-column">
+                        Status
+                    </th>
+
+                    <th>
+                        Message
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td class="cd-final-status">
+
+                                @if (item.Approved)
+                                {
+                                    <span class="cd-status-success"
+                                          title="Completed">
+
+                                        ✓
+
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="cd-status-failed"
+                                          title="Not Completed">
+
+                                        👎
+
+                                    </span>
+                                }
+
+                            </td>
+
+
+                            <td class="cd-final-message">
+
+                                @item.Message
+
+                            </td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+
+                        <td colspan="2"
+                            class="text-center text-muted">
+
+                            No review data found.
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="cd-final-review-footer">
+
+        <div class="form-check cd-delete-confirmation">
+
+            <input type="checkbox"
+                   id="chkDeleteCustomer"
+                   class="form-check-input" />
+
+            <label for="chkDeleteCustomer"
+                   class="form-check-label">
+
+                Are you sure you want to DELETE the account?
+
+            </label>
+
+        </div>
+
+
+        <button type="button"
+                id="btnFinalSubmit"
+                class="btn btn-primary cd-submit-btn"
+                disabled>
+
+            SUBMIT
+
+        </button>
+
+    </div>
+
+
+    <div class="cd-navigation">
+
+        <button type="button"
+                id="btnFinalReviewPrevious"
+                class="cd-arrow-btn"
+                title="Previous">
+
+            ←
+
+        </button>
+
+    </div>
+
+</div>

@@ -2,7 +2,19 @@
   "openapi": "3.0.4",
   "info": { },
   "paths": {
-    "/api/Billing/billingcharge-details/{custId}": {
+    "/api/billing/BillingData": {
+      "get": {
+        "tags": [
+          "Billing"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/billing/{custId}": {
       "get": {
         "tags": [
           "Billing"
@@ -25,19 +37,7 @@
         }
       }
     },
-    "/api/Billing/billing-details": {
-      "get": {
-        "tags": [
-          "Billing"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Billing/save-billing": {
+    "/api/billing": {
       "post": {
         "tags": [
           "Billing"
@@ -68,7 +68,7 @@
         }
       }
     },
-    "/api/Billing/delete-billing/{billingChargeId}": {
+    "/api/billing/{billingChargeId}": {
       "delete": {
         "tags": [
           "Billing"
@@ -483,7 +483,7 @@
         }
       }
     },
-    "/api/Packout/details/{custId}": {
+    "/api/Packout/{custId}": {
       "get": {
         "tags": [
           "Packout"
@@ -506,7 +506,7 @@
         }
       }
     },
-    "/api/Packout/items/{custId}": {
+    "/api/Packout/Items/{custId}": {
       "get": {
         "tags": [
           "Packout"
@@ -529,7 +529,7 @@
         }
       }
     },
-    "/api/Packout/save": {
+    "/api/Packout": {
       "post": {
         "tags": [
           "Packout"
@@ -538,17 +538,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PackoutRestrictDataDto"
+                "$ref": "#/components/schemas/PackoutSaveDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/PackoutRestrictDataDto"
+                "$ref": "#/components/schemas/PackoutSaveDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/PackoutRestrictDataDto"
+                "$ref": "#/components/schemas/PackoutSaveDto"
               }
             }
           }
@@ -560,14 +560,14 @@
         }
       }
     },
-    "/api/Packout/delete/{restrictId}": {
+    "/api/Packout/{pkoutRestrictId}": {
       "delete": {
         "tags": [
           "Packout"
         ],
         "parameters": [
           {
-            "name": "restrictId",
+            "name": "pkoutRestrictId",
             "in": "path",
             "required": true,
             "schema": {
@@ -576,6 +576,81 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wash/garmenttypes": {
+      "get": {
+        "tags": [
+          "Wash"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wash/formula/{marketCenter}/{custId}": {
+      "get": {
+        "tags": [
+          "Wash"
+        ],
+        "parameters": [
+          {
+            "name": "marketCenter",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "custId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Wash/save-formula": {
+      "post": {
+        "tags": [
+          "Wash"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveFormulaDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveFormulaDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveFormulaDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -761,23 +836,29 @@
       "BillingChargeDto": {
         "type": "object",
         "properties": {
-          "billingChargeId": {
+          "billingChargesId": {
             "type": "integer",
             "format": "int32"
           },
-          "custID": {
+          "custId": {
             "type": "integer",
             "format": "int32"
+          },
+          "chargeTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "chargeType": {
+            "type": "string",
+            "nullable": true
           },
           "charges": {
             "type": "number",
-            "format": "double",
-            "nullable": true
+            "format": "double"
           },
-          "updatedUser": {
+          "updtUser": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1111,22 +1192,18 @@
         },
         "additionalProperties": false
       },
-      "PackoutRestrictDataDto": {
+      "PackoutSaveDto": {
         "type": "object",
         "properties": {
-          "updatedUser": {
+          "custId": {
             "type": "integer",
             "format": "int32"
           },
-          "customerId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "packoutRestrict": {
+          "pkoutRestrict": {
             "type": "string",
             "nullable": true
           },
-          "itemType": {
+          "item": {
             "type": "string",
             "nullable": true
           },
@@ -1137,6 +1214,10 @@
           "size": {
             "type": "string",
             "nullable": true
+          },
+          "updtUser": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1181,6 +1262,24 @@
           },
           "stFlag": {
             "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SaveFormulaDto": {
+        "type": "object",
+        "properties": {
+          "custId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "marketCenter": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "formulaString": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1426,6 +1525,9 @@
     },
     {
       "name": "Packout"
+    },
+    {
+      "name": "Wash"
     },
     {
       "name": "Wearer"

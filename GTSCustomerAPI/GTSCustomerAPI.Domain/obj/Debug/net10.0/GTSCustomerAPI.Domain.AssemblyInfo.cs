@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GTSCustomerAPI.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+119618bf2cd6babd474d635eb49f7afe2580eecc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9dd1688ed760ddf721798f03b8d6817302cb4743")]
 [assembly: System.Reflection.AssemblyProductAttribute("GTSCustomerAPI.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GTSCustomerAPI.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

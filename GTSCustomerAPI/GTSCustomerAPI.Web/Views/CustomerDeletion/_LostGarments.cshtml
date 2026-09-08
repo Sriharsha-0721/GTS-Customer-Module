@@ -1,0 +1,199 @@
+﻿@model List<GTSCustomerAPI.Web.Models.CustomerDeletion.CustomerDeletionLostGarmentViewModel>
+
+<div class="lost-garments-stage">
+
+    <!-- =========================================================
+         LOST GARMENTS GRID
+    ========================================================== -->
+
+    <div class="table-responsive">
+
+        <table id="tblCustomerDeletionLostGarments"
+               class="table table-bordered cd-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Line</th>
+
+                    <th>Item Code</th>
+
+                    <th>Size</th>
+
+                    <th>InService</th>
+
+                    <th>Returned</th>
+
+                    <th>Lost</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.Line
+                            </td>
+
+                            <td>
+                                @item.ItemCode
+                            </td>
+
+                            <td>
+                                @item.Size
+                            </td>
+
+                            <td>
+                                @item.InService
+                            </td>
+
+                            <td>
+                                @item.Returned
+                            </td>
+
+                            <td>
+                                @item.Lost
+                            </td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+
+                        <td colspan="6"
+                            class="text-center text-muted">
+
+                            No Lost Garment records found.
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    @if (Model != null && Model.Any())
+    {
+        <!-- =====================================================
+             REPORT
+        ====================================================== -->
+
+        <div class="lost-garment-options">
+
+            <button type="button"
+                    id="btnGenerateLostInventoryReport"
+                    class="cd-report-link">
+
+                Generate Lost Inventory Report
+
+            </button>
+
+
+            <div class="form-check mt-3">
+
+                <input type="checkbox"
+                       id="chkDeleteReportedLostGarments"
+                       class="form-check-input" />
+
+                <label for="chkDeleteReportedLostGarments"
+                       class="form-check-label">
+
+                    Do you want to Delete the Reported Lost Garments?
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             FOOTER / ACTIONS
+        ====================================================== -->
+
+        <div class="cd-table-footer lost-garment-footer">
+
+            <div class="cd-record-info">
+
+                Showing 1 to @Model.Count of @Model.Count records
+
+            </div>
+
+
+            <div class="cd-action-row lost-garment-actions">
+
+                <button type="button"
+                        id="btnLostBulkRTS"
+                        class="btn btn-outline-secondary cd-action-btn">
+
+                    Bulk RTS Pending Garments
+
+                </button>
+
+
+                <button type="button"
+                        id="btnConfirmLostInventory"
+                        class="btn btn-outline-primary cd-action-btn">
+
+                    Confirm Lost Inventory Reconciled
+
+                </button>
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info mt-3">
+
+            No Lost Garment records found.
+            Please proceed to the next stage.
+
+        </div>
+    }
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <div class="cd-navigation">
+
+        <button type="button"
+                id="btnLostGarmentsPrevious"
+                class="cd-arrow-btn"
+                title="Previous">
+
+            ←
+
+        </button>
+
+
+        <button type="button"
+                id="btnLostGarmentsNext"
+                class="cd-arrow-btn"
+                title="Next">
+
+            →
+
+        </button>
+
+    </div>
+
+</div>

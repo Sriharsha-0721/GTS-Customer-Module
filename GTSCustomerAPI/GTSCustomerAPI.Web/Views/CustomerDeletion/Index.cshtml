@@ -1,0 +1,128 @@
+﻿@model GTSCustomerAPI.Web.Models.CustomerDeletion.CustomerDeletionViewModel
+
+@{
+    ViewData["Title"] = "Customer-deletion";
+}
+
+@section Styles {
+    <link rel="stylesheet"
+          href="~/css/customer-deletion.css"
+          asp-append-version="true" />
+}
+
+<div class="customer-deletion-page">
+
+    <!-- TITLE -->
+    <div class="cd-title">
+        Customer Deletion Wizard
+    </div>
+
+
+    <!-- WIZARD STEPS -->
+    <div class="cd-steps">
+
+        <a href="#"
+               class="cd-step active"
+               data-stage="customers">
+            Customers
+        </a>
+
+        <span class="cd-chevron orange">›</span>
+        <span class="cd-chevron">›</span>
+
+        <a href="#"
+               class="cd-step"
+               data-stage="receivers">
+            Receivers
+        </a>
+
+        <span class="cd-chevron orange">›</span>
+        <span class="cd-chevron">›</span>
+
+        <a href="#"
+               class="cd-step"
+               data-stage="reconciliation">
+            Reconciliation
+        </a>
+
+        <span class="cd-chevron orange">›</span>
+        <span class="cd-chevron">›</span>
+
+        <a href="#"
+               class="cd-step"
+               data-stage="rtsruin">
+            RTS Ruin
+        </a>
+
+        <span class="cd-chevron orange">›</span>
+        <span class="cd-chevron">›</span>
+
+        <a href="#"
+               class="cd-step"
+               data-stage="lostgarments">
+            Lost Garments
+        </a>
+
+        <span class="cd-chevron orange">›</span>
+        <span class="cd-chevron">›</span>
+
+        <a href="#"
+               class="cd-step"
+               data-stage="customerservice">
+            Customer Service
+        </a>
+
+        <span class="cd-chevron orange">›</span>
+        <span class="cd-chevron">›</span>
+
+        <a href="#"
+               class="cd-step"
+               data-stage="finalreview">
+            Final Review
+        </a>
+
+    </div>
+
+
+    <div class="cd-divider"></div>
+
+
+    <!-- SELECTED CUSTOMER INFORMATION -->
+    <div class="cd-customer-info">
+
+        <div>
+            <strong>Selected MC:</strong>
+            <span>@Model.MarketCenter</span>
+        </div>
+
+        <div>
+            <strong class="cd-customer-label">
+                Customer Name:
+            </strong>
+
+            <span id="selectedCustomerName">
+                @Model.SelectedCustomerName
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- DYNAMIC WIZARD CONTENT -->
+    <div id="customerDeletionContent">
+
+        <partial name="_Customers"
+                 model="Model.Customers" />
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    <script src="~/js/customer-deletion.js"
+            asp-append-version="true">
+    </script>
+
+}

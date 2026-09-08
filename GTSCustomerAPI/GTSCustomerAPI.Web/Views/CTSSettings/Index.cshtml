@@ -35,70 +35,108 @@
                  ReturnTo = "CTSSettings"
              })" />
  
+    @if (!hasCust)
+    {
+        <p style="color:#999; font-size:13px; padding-left:6px">
+            No customer selected. Click
+            <strong>Select Customer</strong> above.
+        </p>
+    }
+    else
+    {
+        <form asp-controller="CTSSettings"
+              asp-action="Save"
+              method="post">
 
-        @if (!hasCust)
-        {
-            <p style="color:#999; font-size:13px;
-                padding-left:6px">
-                No customer selected. Click
-                <strong>Select Customer</strong> above.
-            </p>
-        }
-        else
-        {
+            @Html.AntiForgeryToken()
+
+            <input type="hidden" asp-for="CustId" />
+            <input type="hidden" asp-for="CustNbr" />
+            <input type="hidden" asp-for="Name" />
+            <input type="hidden" asp-for="Route" />
+            <input type="hidden" asp-for="GID" />
+
             <div class="cts-section">
 
                 <div class="check-row">
+
                     <input type="checkbox"
                            id="chkPIS"
                            name="PrintIssueStatusFlag"
                            value="1"
                     @(Model.PrintIssueStatusFlag == 1
-                                                 ? "checked" : "") />
+                                   ? "checked" : "") />
+
+                    <input type="hidden"
+                           name="PrintIssueStatusFlag"
+                           value="0" />
+
                     <label for="chkPIS">
                         Print Issue Status
                     </label>
+
                 </div>
 
                 <div class="check-row">
+
                     <input type="checkbox"
                            id="chkPBD"
                            name="PrintBornonDateFlag"
                            value="1"
                     @(Model.PrintBornonDateFlag == 1
-                                                 ? "checked" : "") />
+                                   ? "checked" : "") />
+
+                    <input type="hidden"
+                           name="PrintBornonDateFlag"
+                           value="0" />
+
                     <label for="chkPBD">
                         Print Born On Date
                     </label>
+
                 </div>
 
                 <div class="nog-row">
+
                     <input type="checkbox"
                            id="chkNOG"
                            name="NOGFlag"
                            value="true"
                     @(Model.NOGFlag == true
-                                                 ? "checked" : "") />
-                    <label for="chkNOG">NOG</label>
+                               ? "checked" : "") />
+
+                    <input type="hidden"
+                           name="NOGFlag"
+                           value="false" />
+
+                    <label for="chkNOG">
+                        NOG
+                    </label>
+
                     <label class="lbl-dark"
                            style="margin-left:20px">
                         Label Header :
                     </label>
+
                     <input type="text"
                            name="LabelHeader"
                            class="lbl-hdr-input"
+                           maxlength="19"
                            value="@Model.LabelHeader" />
                 </div>
 
-            <div class="gts-form-actions">
+                <div class="gts-form-actions">
 
-                <button type="submit"
-                        class="btn primary-blue-btn">
-                    Save
-                </button>
+                    <button type="submit"
+                            class="btn primary-blue-btn">
+                        Save
+                    </button>
+
+                </div>
 
             </div>
-            </div>
-        }
+
+        </form>
+    }
   
 </div>

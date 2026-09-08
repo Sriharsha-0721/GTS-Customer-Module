@@ -31,6 +31,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJBZG1pblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerDeletion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJEZWxldGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerDeletion/_Customers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJEZWxldGlvblxfQ3VzdG9tZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerDeletion/_CustomerService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJEZWxldGlvblxfQ3VzdG9tZXJTZXJ2aWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerDeletion/_FinalReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJEZWxldGlvblxfRmluYWxSZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerDeletion/_LostGarments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJEZWxldGlvblxfTG9zdEdhcm1lbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerDeletion/_Receivers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJEZWxldGlvblxfUmVjZWl2ZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerDeletion/_Reconciliation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJEZWxldGlvblxfUmVjb25jaWxpYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerDeletion/_RTSRuin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJEZWxldGlvblxfUlRTUnVpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/CustomerProfile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJQcm9maWxlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -55,24 +87,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Home/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaGFyZWRcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Shared/_CustomerSelection.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DdXN0b21lclNlbGVjdGlvbi5jc2h0bWw=
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Home/Shared/_CustomerSelection.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaGFyZWRcX0N1c3RvbWVyU2VsZWN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Shared/_SelectedCustomer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWxlY3RlZEN1c3RvbWVyLmNzaHRtbA==
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Home/Shared/_SelectedCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaGFyZWRcX1NlbGVjdGVkQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Shared/_TabBar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UYWJCYXIuY3NodG1s
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Home/Shared/_TabBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaGFyZWRcX1RhYkJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Home/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaGFyZWRcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Wearer/Index.cshtml]
@@ -91,6 +123,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-5q795hvpf9
+[C:/Users/hemasree.koyyana/Desktop/First_Api/GTS-Customer-Module/GTSCustomerAPI/GTSCustomerAPI.Web/Views/Home/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaGFyZWRcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-5wfr5chwb9

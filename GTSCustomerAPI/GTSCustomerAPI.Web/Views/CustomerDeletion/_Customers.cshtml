@@ -1,0 +1,152 @@
+﻿@model List<GTSCustomerAPI.Web.Models.CustomerDeletion.CustomerDeletionCustomerViewModel>
+
+<div class="customer-stage">
+
+    <!-- SEARCH -->
+    <div class="cd-search">
+
+        <label for="txtCustomerSearch">
+            Customer Name:
+        </label>
+
+        <input type="text"
+               id="txtCustomerSearch"
+               class="form-control"
+               placeholder="Search customer..." />
+
+    </div>
+
+
+    <!-- CUSTOMER TABLE -->
+    <div class="table-responsive">
+
+        <table id="tblCustomerDeletion"
+               class="table table-bordered cd-table">
+
+            <thead>
+
+                <tr>
+
+                    <th class="cd-select-column">
+                        Select
+                    </th>
+
+                    <th>
+                        Customer Name
+                    </th>
+
+                    <th>
+                        CID
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Start Date
+                    </th>
+
+                    <th>
+                        Last Updated
+                    </th>
+
+                    <th>
+                        Last Updated By
+                    </th>
+
+                    <th>
+                        Stage
+                    </th>
+
+                    <th class="text-center">
+                        System Restrictions
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var customer in Model)
+                    {
+                        <tr>
+
+                            <td class="text-center">
+
+                                <input type="radio"
+                                       name="selectedCustomer"
+                                       class="customer-select"
+                                       value="@customer.CustId"
+                                       data-name="@customer.CustomerName"
+                                       data-cid="@customer.CID" />
+
+                            </td>
+
+                            <td>
+                                @customer.CustomerName
+                            </td>
+
+                            <td>
+                                @customer.CID
+                            </td>
+
+                            <td>
+                                @customer.Status
+                            </td>
+
+                            <td>
+                                @(customer.StartDate?.ToString("MM-dd-yyyy") ?? "")
+                            </td>
+
+                            <td>
+                                @(customer.LastUpdated?.ToString("MM-dd-yyyy") ?? "")
+                            </td>
+
+                            <td>
+                                @customer.LastUpdatedBy
+                            </td>
+
+                            <td>
+                                @customer.Stage
+                            </td>
+
+                            <td class="text-center">
+
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       disabled
+                                       checked="@customer.SystemRestrictions" />
+
+                            </td>
+
+                        </tr>
+                    }
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- NEXT -->
+    <div class="cd-navigation">
+
+        <button type="button"
+                id="btnCustomerDeletionNext"
+                class="cd-arrow-btn"
+                title="Next"
+                disabled>
+
+            <span>→</span>
+
+        </button>
+
+    </div>
+
+</div>

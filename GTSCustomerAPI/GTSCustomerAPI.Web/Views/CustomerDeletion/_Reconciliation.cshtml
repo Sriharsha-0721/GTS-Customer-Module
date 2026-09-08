@@ -1,0 +1,156 @@
+﻿@model List<GTSCustomerAPI.Web.Models.CustomerDeletion.CustomerDeletionReconciliationViewModel>
+
+<div class="reconciliation-stage">
+
+    <div class="table-responsive">
+
+        <table id="tblCustomerDeletionReconciliation"
+               class="table table-bordered cd-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Line#</th>
+
+                    <th>Wr#</th>
+
+                    <th>Wearer Name</th>
+
+                    <th>Item</th>
+
+                    <th>Size</th>
+
+                    <th>RAS Qty</th>
+
+                    <th>GTS Qty</th>
+
+                    <th>Pending RTS</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @item.LineNumber
+                            </td>
+
+                            <td>
+                                @item.WearerNumber
+                            </td>
+
+                            <td>
+                                @item.WearerName
+                            </td>
+
+                            <td>
+                                @item.Item
+                            </td>
+
+                            <td>
+                                @item.Size
+                            </td>
+
+                            <td>
+                                @item.RasQty
+                            </td>
+
+                            <td>
+                                @item.GtsQty
+                            </td>
+
+                            <td>
+                                @item.PendingRts
+                            </td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+
+                        <td colspan="8"
+                            class="text-center text-muted">
+
+                            No pending RTS records found.
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="cd-table-footer">
+
+            <div class="cd-record-info">
+                Showing 1 to @Model.Count of @Model.Count records
+            </div>
+
+
+            <div class="cd-action-row">
+
+                <button type="button"
+                        id="btnConfirmRtsComplete"
+                        class="btn btn-outline-primary cd-action-btn">
+
+                    Confirm RTS Complete
+
+                </button>
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info mt-3">
+
+            No pending RTS records found.
+            Please proceed to the next stage.
+
+        </div>
+    }
+
+
+    <div class="cd-navigation">
+
+        <button type="button"
+                id="btnReconciliationPrevious"
+                class="cd-arrow-btn"
+                title="Previous">
+
+            ←
+
+        </button>
+
+
+        <button type="button"
+                id="btnReconciliationNext"
+                class="cd-arrow-btn"
+                title="Next">
+
+            →
+
+        </button>
+
+    </div>
+
+</div>

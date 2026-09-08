@@ -32,7 +32,8 @@ public class CTSSettingsController : ControllerBase
     public async Task<IActionResult> Save(
         [FromBody] SaveCTSSettingsDto dto)
     {
-        var success = await _service.SaveAsync(dto);
+        var success =
+    await _service.SaveAsync(dto);
         if (!success)
             return StatusCode(500, "Save failed.");
         return Ok(new { message = "CTS Settings saved." });

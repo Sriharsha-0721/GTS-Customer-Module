@@ -26,7 +26,8 @@ C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\ob
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\scopedcss\bundle\GTSCustomerAPI.Web.styles.css
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\scopedcss\projectbundle\GTSCustomerAPI.Web.bundle.scp.css
-C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\compressed\v1lret38sd-{0}-b9sayid5wm-b9sayid5wm.gz
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\compressed\p4aewrmfef-{0}-1h4z71nul2-1h4z71nul2.gz
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\compressed\v1lret38sd-{0}-vra1wcinid-vra1wcinid.gz
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\compressed\12voi6ziek-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\compressed\swzqo5348k-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\compressed\iroop0xr0g-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -102,3 +103,5 @@ C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\ob
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\GTSCustomerAPI.Web.genruntimeconfig.cache
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\ref\GTSCustomerAPI.Web.dll
 C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\compressed\nli4dwga8p-{0}-n509zw7uca-n509zw7uca.gz
+C:\Users\hemasree.koyyana\Desktop\First_Api\GTSCustomerAPI\GTSCustomerAPI.Web\obj\Debug\net10.0\compressed\uqxq7eaiap-{0}-a5us00xi2y-a5us00xi2y.gz

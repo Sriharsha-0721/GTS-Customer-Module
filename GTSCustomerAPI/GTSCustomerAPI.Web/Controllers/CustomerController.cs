@@ -101,15 +101,17 @@ public class CustomerController : Controller
     // ✅ POST: Select customer + redirect back to caller
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult SelectCustomer(
     int custId,
     int custNbr,
     string? name,
     int route,
     string? gid,
-    int marketCenter = 0)
+    int marketCenter = 0,
+    string? returnTo = null)
     {
-        // Store selected customer in Session
+        // Save selected customer in session
         HttpContext.Session.SetInt32(
             "SelectedCustId",
             custId);
@@ -134,16 +136,58 @@ public class CustomerController : Controller
             "SelectedMC",
             marketCenter);
 
-        // IMPORTANT:
-        // Do not automatically open Customer Profile,
-        // Wearer, Customer Admin or CTS Settings.
-        // Stay on Customer Selection.
-        return RedirectToAction(
-            nameof(Index),
-            new
-            {
-                showAll = true
-            });
+        // Return to the module from which
+        // Select Customer was opened
+        return returnTo switch
+        {
+            "CTSSettings" =>
+                RedirectToAction(
+                    "IndexWithCustomer",
+                    "CTSSettings",
+                    new
+                    {
+                        custId,
+                        custNbr,
+                        name,
+                        route,
+                        gid
+                    }),
+
+            "Wearer" =>
+                RedirectToAction(
+                    "IndexWithCustomer",
+                    "Wearer",
+                    new
+                    {
+                        custId,
+                        custNbr,
+                        name,
+                        route,
+                        gid
+                    }),
+
+            "CustomerProfile" =>
+                RedirectToAction(
+                    "IndexWithCustomer",
+                    "CustomerProfile",
+                    new
+                    {
+                        custId,
+                        custNbr,
+                        name,
+                        route,
+                        gid,
+                        marketCenter
+                    }),
+
+            _ =>
+                RedirectToAction(
+                    nameof(Index),
+                    new
+                    {
+                        showAll = true
+                    })
+        };
     }
     public IActionResult ClearSelection()
     {

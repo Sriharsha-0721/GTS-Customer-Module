@@ -3,12 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\controllers\\customerprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\controllers\\customerprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\ctssettings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\ctssettings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\controllers\\ctssettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\controllers\\ctssettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\controllers\\ctssettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\controllers\\ctssettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\services\\ctssettingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\services\\ctssettingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.infrastructure\\repositories\\ctssettingsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|solutionrelative:gtscustomerapi.infrastructure\\repositories\\ctssettingsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,152 +55,223 @@
       "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\controllers\\customerprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\controllers\\customerprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerprofile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerprofile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\garmenttypeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\garmenttypeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\gtscustomerapi.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\gtscustomerapi.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.infrastructure\\migrations\\20260607210926_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|solutionrelative:gtscustomerapi.infrastructure\\migrations\\20260607210926_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\class.cscustomerdosageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\class.cscustomerdosageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\controllers\\dosagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\controllers\\dosagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\interfaces\\idosageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\interfaces\\idosageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\controllers\\customerdeletioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\controllers\\customerdeletioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.infrastructure\\repositories\\dosagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|solutionrelative:gtscustomerapi.infrastructure\\repositories\\dosagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\wwwroot\\js\\customer-deletion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\wwwroot\\js\\customer-deletion.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\services\\dosageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\services\\dosageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\controllers\\customerprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\controllers\\customerprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\dtos\\dosagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\dtos\\dosagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\wwwroot\\css\\customer-deletion.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\wwwroot\\css\\customer-deletion.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.domain\\interfaces\\idosagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|solutionrelative:gtscustomerapi.domain\\interfaces\\idosagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerdeletion\\_finalreview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerdeletion\\_finalreview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.domain\\entities\\dosage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|solutionrelative:gtscustomerapi.domain\\entities\\dosage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerdeletion\\customerdeletionfinalreviewviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerdeletion\\customerdeletionfinalreviewviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerdeletion\\_customerservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerdeletion\\_customerservice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\shared\\_tabbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\shared\\_tabbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerdeletion\\customerdeletionlostgarmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerdeletion\\customerdeletionlostgarmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\createcustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\createcustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerdeletion\\customerdeletionrtsruinviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerdeletion\\customerdeletionrtsruinviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\ctssettingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\ctssettingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerdeletion\\_lostgarments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerdeletion\\_lostgarments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerdeletion\\_rtsruin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerdeletion\\_rtsruin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerdeletion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerdeletion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerdeletion\\_reconciliation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerdeletion\\_reconciliation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerdeletion\\_receivers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerdeletion\\_receivers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customerdeletion\\_customers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customerdeletion\\_customers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerdeletion\\customerdeletionreconciliationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerdeletion\\customerdeletionreconciliationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerdeletion\\customerdeletionreceiverviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerdeletion\\customerdeletionreceiverviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\home\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\home\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerdeletion\\customerdeletioncustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerdeletion\\customerdeletioncustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerdeletion\\customerdeletionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerdeletion\\customerdeletionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\controllers\\packoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\controllers\\packoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\customerprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\customerprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTS-Customer-Module\\GTSCustomerAPI\\GTSCustomerAPI.API\\obj\\GTSCustomerAPI.API.csproj.nuget.g.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.domain\\interfaces\\ipackoutrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|solutionrelative:gtscustomerapi.domain\\interfaces\\ipackoutrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.domain\\entities\\packoutdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|solutionrelative:gtscustomerapi.domain\\entities\\packoutdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\packoutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\packoutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\garmenttypeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\garmenttypeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\interfaces\\ipackoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\interfaces\\ipackoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\PackoutService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GTSCustomerAPI.Application\\Services\\PackoutService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\dtos\\packoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\dtos\\packoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.domain\\entities\\washdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|solutionrelative:gtscustomerapi.domain\\entities\\washdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\PackoutController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GTSCustomerAPI.API\\Controllers\\PackoutController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.domain\\interfaces\\iwashrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|solutionrelative:gtscustomerapi.domain\\interfaces\\iwashrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\PackoutData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GTSCustomerAPI.Domain\\Entities\\PackoutData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\services\\washservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\services\\washservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.infrastructure\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|solutionrelative:gtscustomerapi.infrastructure\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\interfaces\\iwashservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\interfaces\\iwashservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customeradmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customeradmin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\controllers\\washcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\controllers\\washcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|solutionrelative:gtscustomerapi.domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.infrastructure\\repositories\\washrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|solutionrelative:gtscustomerapi.infrastructure\\repositories\\washrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\dtos\\customerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\dtos\\customerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\dtos\\washdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\dtos\\washdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\billingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\billingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.infrastructure\\repositories\\packoutrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|solutionrelative:gtscustomerapi.infrastructure\\repositories\\packoutrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.api\\controllers\\billingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01B2FFB1-B834-4BB8-7E0C-39DCB39D68F4}|GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj|solutionrelative:gtscustomerapi.api\\controllers\\billingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\services\\packoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\services\\packoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.infrastructure\\repositories\\billingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E65A227-3154-20D8-1371-A7B52D65E4D9}|GTSCustomerAPI.Infrastructure\\GTSCustomerAPI.Infrastructure.csproj|solutionrelative:gtscustomerapi.infrastructure\\repositories\\billingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\interfaces\\ibillingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\interfaces\\ibillingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\home\\shared\\_tabbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\home\\shared\\_tabbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\dtos\\billingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\dtos\\billingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\home\\shared\\_selectedcustomer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\home\\shared\\_selectedcustomer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.domain\\entities\\billingcharge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9D2612FD-18CB-4EC8-98BD-D8ED48DD95B5}|GTSCustomerAPI.Domain\\GTSCustomerAPI.Domain.csproj|solutionrelative:gtscustomerapi.domain\\entities\\billingcharge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\views\\customer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\views\\customer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.application\\dtos\\wearerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{431C4C8F-26C6-EB83-2928-05B233A25423}|GTSCustomerAPI.Application\\GTSCustomerAPI.Application.csproj|solutionrelative:gtscustomerapi.application\\dtos\\wearerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\selectedcustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\selectedcustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\models\\wearerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\models\\wearerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\wwwroot\\css\\customerprofile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\wwwroot\\css\\customerprofile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|c:\\users\\hemasree.koyyana\\desktop\\first_api\\gtscustomerapi\\gtscustomerapi.web\\gtscustomerapi.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0E8486D2-3650-437F-85FC-0300D7DB1D6F}|GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj|solutionrelative:gtscustomerapi.web\\gtscustomerapi.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -174,344 +281,124 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GarmentTypeViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\GarmentTypeViewModel.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\GarmentTypeViewModel.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\GarmentTypeViewModel.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\GarmentTypeViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T05:15:57.192Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CustomerController.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerController.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Controllers\\CustomerController.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerController.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Controllers\\CustomerController.cs",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAgwGwAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T18:52:53.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Class.csCustomerDosageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\Class.csCustomerDosageViewModel.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\Class.csCustomerDosageViewModel.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\Class.csCustomerDosageViewModel.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\Class.csCustomerDosageViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T18:51:24.119Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CustomerProfileController.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerProfileController.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Controllers\\CustomerProfileController.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerProfileController.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Controllers\\CustomerProfileController.cs",
-              "ViewState": "AgIAAFEBAAAAAAAAAAAowGwBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T18:43:06.111Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Program.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Program.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Program.cs",
-              "RelativeToolTip": "GTSCustomerAPI.API\\Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACYAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T10:44:44.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DosageController.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\DosageController.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Controllers\\DosageController.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\DosageController.cs",
-              "RelativeToolTip": "GTSCustomerAPI.API\\Controllers\\DosageController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T10:44:29.632Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "DosageRepository.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\DosageRepository.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Infrastructure\\Repositories\\DosageRepository.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\DosageRepository.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Infrastructure\\Repositories\\DosageRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T10:42:55.256Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DosageService.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\DosageService.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Services\\DosageService.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\DosageService.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\Services\\DosageService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T10:41:33.097Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IDosageService.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IDosageService.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Interfaces\\IDosageService.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IDosageService.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\Interfaces\\IDosageService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T10:41:02.314Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DosageDto.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\DosageDto.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\DTOs\\DosageDto.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\DosageDto.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\DTOs\\DosageDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T10:40:37.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IDosageRepository.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IDosageRepository.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Interfaces\\IDosageRepository.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IDosageRepository.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Domain\\Interfaces\\IDosageRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T10:39:55.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Dosage.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\Dosage.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Entities\\Dosage.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\Dosage.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Domain\\Entities\\Dosage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T10:38:48.949Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANQBAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-11T07:26:46.02Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "CreateCustomerViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CreateCustomerViewModel.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CreateCustomerViewModel.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CreateCustomerViewModel.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CreateCustomerViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T06:31:06.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "CTSSettingsViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CTSSettingsViewModel.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CTSSettingsViewModel.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CTSSettingsViewModel.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CTSSettingsViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T06:31:00.301Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CustomerProfileViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerProfileViewModel.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerProfileViewModel.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerProfileViewModel.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerProfileViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T06:24:48.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "_TabBar.cshtml",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Shared\\_TabBar.cshtml",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Shared\\_TabBar.cshtml",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Shared\\_TabBar.cshtml",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Shared\\_TabBar.cshtml",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAE0AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-11T06:23:48.471Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "PackoutViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\PackoutViewModel.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\PackoutViewModel.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\PackoutViewModel.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\PackoutViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T05:51:17.836Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "PackoutDto.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T05:18:33.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "IPackoutService.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T05:18:33.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "PackoutService.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\PackoutService.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Services\\PackoutService.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\PackoutService.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\Services\\PackoutService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T05:18:33.617Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "PackoutRepository.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T05:18:33.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 43,
               "Title": "PackoutController.cs",
               "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\PackoutController.cs",
               "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Controllers\\PackoutController.cs",
               "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\PackoutController.cs",
               "RelativeToolTip": "GTSCustomerAPI.API\\Controllers\\PackoutController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T05:18:33.525Z",
+              "WhenOpened": "2026-08-19T19:08:54.508Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-08-18T08:54:12.254Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-26T08:55:08.829Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "PackoutData.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\PackoutData.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Entities\\PackoutData.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\PackoutData.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Domain\\Entities\\PackoutData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Program.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Program.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Program.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T05:18:33.469Z",
+              "WhenOpened": "2026-08-25T11:13:58.744Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IPackoutRepository.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-11T05:18:32.585Z",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-08T07:16:39.81Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "CustomerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\CustomerRepository.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Infrastructure\\Repositories\\CustomerRepository.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\CustomerRepository.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Infrastructure\\Repositories\\CustomerRepository.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CTSSettingsController.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CTSSettingsController.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Controllers\\CTSSettingsController.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CTSSettingsController.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Controllers\\CTSSettingsController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAmwAoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T07:19:20.152Z"
+              "WhenOpened": "2026-09-08T06:39:25.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CTSSettings\\Index.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CTSSettings\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CTSSettings\\Index.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CTSSettings\\Index.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFMAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-08T06:45:53.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-08T05:28:56.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Program.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Program.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Program.cs",
+              "RelativeToolTip": "GTSCustomerAPI.API\\Program.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAF8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T10:48:20.592Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -521,181 +408,707 @@
               "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Controllers\\CustomersController.cs",
               "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\CustomersController.cs",
               "RelativeToolTip": "GTSCustomerAPI.API\\Controllers\\CustomersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T07:19:04.694Z",
+              "WhenOpened": "2026-09-03T10:47:32.109Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\Customer.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Entities\\Customer.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\Customer.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Domain\\Entities\\Customer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "CTSSettingsController.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\CTSSettingsController.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Controllers\\CTSSettingsController.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\CTSSettingsController.cs",
+              "RelativeToolTip": "GTSCustomerAPI.API\\Controllers\\CTSSettingsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T06:49:14.584Z"
+              "WhenOpened": "2026-09-08T06:44:10.031Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "CustomerDto.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\CustomerDto.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\DTOs\\CustomerDto.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\CustomerDto.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\DTOs\\CustomerDto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "CTSSettingsService.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\CTSSettingsService.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Services\\CTSSettingsService.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\CTSSettingsService.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Application\\Services\\CTSSettingsService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwB4AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T06:48:47.79Z"
+              "WhenOpened": "2026-09-08T06:45:05.308Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "BillingViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\BillingViewModel.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\BillingViewModel.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\BillingViewModel.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\BillingViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "CTSSettingsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\CTSSettingsRepository.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Infrastructure\\Repositories\\CTSSettingsRepository.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\CTSSettingsRepository.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Infrastructure\\Repositories\\CTSSettingsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T09:13:34.586Z"
+              "WhenOpened": "2026-09-08T06:45:22.971Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "ApiService.cs",
               "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Services\\ApiService.cs",
               "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Services\\ApiService.cs",
               "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Services\\ApiService.cs",
               "RelativeToolTip": "GTSCustomerAPI.Web\\Services\\ApiService.cs",
-              "ViewState": "AgIAAKEBAAAAAAAAAAAuwNgAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAOIBAAAAAAAAAAAQwAICAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T09:11:15.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-19T10:43:36.249Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "BillingController.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\BillingController.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Controllers\\BillingController.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\BillingController.cs",
-              "RelativeToolTip": "GTSCustomerAPI.API\\Controllers\\BillingController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "GTSCustomerAPI.API.csproj",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj",
+              "RelativeToolTip": "GTSCustomerAPI.API\\GTSCustomerAPI.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-21T07:50:43.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "20260607210926_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Migrations\\20260607210926_InitialCreate.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Infrastructure\\Migrations\\20260607210926_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Migrations\\20260607210926_InitialCreate.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Infrastructure\\Migrations\\20260607210926_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T09:09:21.003Z"
+              "WhenOpened": "2026-09-03T10:30:42.958Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "BillingRepository.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\BillingRepository.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Infrastructure\\Repositories\\BillingRepository.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\BillingRepository.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Infrastructure\\Repositories\\BillingRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "CustomerProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\CustomerProfileController.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Controllers\\CustomerProfileController.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\CustomerProfileController.cs",
+              "RelativeToolTip": "GTSCustomerAPI.API\\Controllers\\CustomerProfileController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwC0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T09:07:52.632Z"
+              "WhenOpened": "2026-09-03T10:46:28.085Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "IBillingService.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IBillingService.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Interfaces\\IBillingService.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IBillingService.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\Interfaces\\IBillingService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T09:03:25.564Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "BillingDto.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\BillingDto.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\DTOs\\BillingDto.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\BillingDto.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\DTOs\\BillingDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T09:02:35.871Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "BillingCharge.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\BillingCharge.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Entities\\BillingCharge.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\BillingCharge.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Domain\\Entities\\BillingCharge.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-05T09:00:22.531Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerProfile\\Index.cshtml",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerProfile\\Index.cshtml",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerProfile\\Index.cshtml",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerProfile\\Index.cshtml",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAAALkAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-04T09:57:59.763Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Customer\\Index.cshtml",
               "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Customer\\Index.cshtml",
               "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Customer\\Index.cshtml",
               "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Customer\\Index.cshtml",
-              "ViewState": "AgIAABoBAAAAAAAAAAAgwCsBAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAGUCAAAAAAAAAAAkwIYCAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-04T09:57:24.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-20T03:57:18.423Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "WearerDto.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\WearerDto.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\DTOs\\WearerDto.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\WearerDto.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Application\\DTOs\\WearerDto.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-04T07:28:19.788Z"
+              "DocumentIndex": 17,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Properties\\launchSettings.json",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-03T10:03:01.008Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "WearerViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\WearerViewModel.cs",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\WearerViewModel.cs",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\WearerViewModel.cs",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\WearerViewModel.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerProfile\\Index.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerProfile\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerProfile\\Index.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerProfile\\Index.cshtml",
+              "ViewState": "AgIAANIMAAAAAAAAAAAkwPMMAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-04T09:57:59.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\appsettings.Development.json",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-03T10:21:58.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "GTSCustomerAPI.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-21T07:50:55.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\appsettings.json",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\appsettings.json",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-01T06:00:17.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "customer-deletion.js",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\wwwroot\\js\\customer-deletion.js",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\wwwroot\\js\\customer-deletion.js",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\wwwroot\\js\\customer-deletion.js",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\wwwroot\\js\\customer-deletion.js",
+              "ViewState": "AgIAAKQDAAAAAAAAAAAswLUDAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-09-01T10:24:31.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\appsettings.json",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\appsettings.json",
+              "RelativeToolTip": "GTSCustomerAPI.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-21T07:49:18.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CustomerProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerProfileController.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Controllers\\CustomerProfileController.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerProfileController.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Controllers\\CustomerProfileController.cs",
+              "ViewState": "AgIAABQBAAAAAAAAAAAswCIBAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-04T07:27:42.644Z"
+              "WhenOpened": "2026-08-20T02:06:49.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "_FinalReview.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_FinalReview.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_FinalReview.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_FinalReview.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_FinalReview.cshtml",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAQwIMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-03T08:57:02.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CustomerDeletionController.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerDeletionController.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Controllers\\CustomerDeletionController.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Controllers\\CustomerDeletionController.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Controllers\\CustomerDeletionController.cs",
+              "ViewState": "AgIAAHMCAAAAAAAAAAAUwA8CAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T10:21:12.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CustomerDeletionFinalReviewViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionFinalReviewViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionFinalReviewViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionFinalReviewViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionFinalReviewViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-03T08:56:05.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "_CustomerService.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_CustomerService.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_CustomerService.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_CustomerService.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_CustomerService.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAADwv0oAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-03T08:54:54.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "CustomerDeletionLostGarmentViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionLostGarmentViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionLostGarmentViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionLostGarmentViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionLostGarmentViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-03T06:46:51.742Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 30,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerAdmin\\Index.cshtml",
-              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerAdmin\\Index.cshtml",
-              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerAdmin\\Index.cshtml",
-              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerAdmin\\Index.cshtml",
-              "ViewState": "AgIAACYAAAAAAAAAAAAQwE0AAAAGAAAAAAAAAA==",
+              "Title": "CustomerDeletionRTSRuinViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionRTSRuinViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionRTSRuinViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionRTSRuinViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionRTSRuinViewModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-03T06:46:29.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "_LostGarments.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_LostGarments.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_LostGarments.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_LostGarments.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_LostGarments.cshtml",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAAAMYAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-23T05:50:57.908Z"
+              "WhenOpened": "2026-09-03T06:45:50.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "_RTSRuin.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_RTSRuin.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_RTSRuin.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_RTSRuin.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_RTSRuin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-03T06:44:45.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CustomerDeletionReconciliationViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionReconciliationViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionReconciliationViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionReconciliationViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionReconciliationViewModel.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwBQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-02T10:41:06.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "_Reconciliation.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Reconciliation.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Reconciliation.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Reconciliation.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Reconciliation.cshtml",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAQwJsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-02T10:40:19.385Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "_Receivers.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Receivers.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Receivers.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Receivers.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Receivers.cshtml",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAQwIsAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-02T06:37:52.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "CustomerDeletionReceiverViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionReceiverViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionReceiverViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionReceiverViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionReceiverViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-02T06:33:15.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "customer-deletion.css",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\wwwroot\\css\\customer-deletion.css",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\wwwroot\\css\\customer-deletion.css",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\wwwroot\\css\\customer-deletion.css",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\wwwroot\\css\\customer-deletion.css",
+              "ViewState": "AgIAAOEBAAAAAAAAAAAAAEICAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-09-01T10:23:37.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\Index.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\Index.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-01T10:22:22.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "CustomerDeletionCustomerViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionCustomerViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionCustomerViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionCustomerViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionCustomerViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T10:20:04.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "CustomerDeletionViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerDeletion\\CustomerDeletionViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T10:19:32.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "GTSCustomerAPI.API.csproj.nuget.g.props",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTS-Customer-Module\\GTSCustomerAPI\\GTSCustomerAPI.API\\obj\\GTSCustomerAPI.API.csproj.nuget.g.props",
+              "RelativeDocumentMoniker": "..\\GTS-Customer-Module\\GTSCustomerAPI\\GTSCustomerAPI.API\\obj\\GTSCustomerAPI.API.csproj.nuget.g.props",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTS-Customer-Module\\GTSCustomerAPI\\GTSCustomerAPI.API\\obj\\GTSCustomerAPI.API.csproj.nuget.g.props",
+              "RelativeToolTip": "..\\GTS-Customer-Module\\GTSCustomerAPI\\GTSCustomerAPI.API\\obj\\GTSCustomerAPI.API.csproj.nuget.g.props",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-08-25T06:06:35.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "CustomerProfileViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerProfileViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\CustomerProfileViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\CustomerProfileViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\CustomerProfileViewModel.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAA5wDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T07:13:20.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "WashController.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\WashController.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.API\\Controllers\\WashController.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.API\\Controllers\\WashController.cs",
+              "RelativeToolTip": "GTSCustomerAPI.API\\Controllers\\WashController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwAgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T06:22:27.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "IWashService.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IWashService.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Interfaces\\IWashService.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IWashService.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Application\\Interfaces\\IWashService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T06:21:13.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "WashService.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\WashService.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Services\\WashService.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\WashService.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Application\\Services\\WashService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T06:20:12.05Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "WashRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\WashRepository.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Infrastructure\\Repositories\\WashRepository.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\WashRepository.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Infrastructure\\Repositories\\WashRepository.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAMwDwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T06:19:01.813Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "IWashRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IWashRepository.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Interfaces\\IWashRepository.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IWashRepository.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Domain\\Interfaces\\IWashRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T06:18:22.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "WashData.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\WashData.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Entities\\WashData.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\WashData.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Domain\\Entities\\WashData.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-24T06:17:32.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "PackoutDto.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Application\\DTOs\\PackoutDto.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T19:09:53.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "WashDto.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\WashDto.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\DTOs\\WashDto.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\DTOs\\WashDto.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Application\\DTOs\\WashDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T19:01:51.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "GarmentTypeViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\GarmentTypeViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\GarmentTypeViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\GarmentTypeViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\GarmentTypeViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T19:00:42.582Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "PackoutViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\PackoutViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\PackoutViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\PackoutViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\PackoutViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T10:52:37.405Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "PackoutData.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\PackoutData.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Entities\\PackoutData.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Entities\\PackoutData.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Domain\\Entities\\PackoutData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T10:50:32.373Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "IPackoutRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Domain\\Interfaces\\IPackoutRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T10:49:45.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "IPackoutService.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Application\\Interfaces\\IPackoutService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T10:49:10.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "PackoutService.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\PackoutService.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Application\\Services\\PackoutService.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Application\\Services\\PackoutService.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Application\\Services\\PackoutService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T10:40:42.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "PackoutRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Infrastructure\\Repositories\\PackoutRepository.cs",
+              "ViewState": "AgIAABoBAAAAAAAAAAAcwDcBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T10:38:39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Home\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Home\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Home\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Home\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHICAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-19T06:55:24.723Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Customer\\Edit.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Customer\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Customer\\Edit.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Customer\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-19T06:24:31.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Customer\\Create.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Customer\\Create.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Customer\\Create.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Customer\\Create.cshtml",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAAAHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-19T06:24:21.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "SelectedCustomerViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\SelectedCustomerViewModel.cs",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Models\\SelectedCustomerViewModel.cs",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Models\\SelectedCustomerViewModel.cs",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Models\\SelectedCustomerViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T10:56:59.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "_SelectedCustomer.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Home\\Shared\\_SelectedCustomer.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Home\\Shared\\_SelectedCustomer.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Home\\Shared\\_SelectedCustomer.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Home\\Shared\\_SelectedCustomer.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-18T10:51:41.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "customerprofile.css",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\wwwroot\\css\\customerprofile.css",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\wwwroot\\css\\customerprofile.css",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\wwwroot\\css\\customerprofile.css",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\wwwroot\\css\\customerprofile.css",
+              "ViewState": "AgIAABEBAAAAAAAAAAAkwDABAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-08-18T05:32:14.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "GTSCustomerAPI.Web.csproj",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\GTSCustomerAPI.Web.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-13T06:08:21.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "_TabBar.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Home\\Shared\\_TabBar.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\Home\\Shared\\_TabBar.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\Home\\Shared\\_TabBar.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\Home\\Shared\\_TabBar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-11T06:23:48.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "_Customers.cshtml",
+              "DocumentMoniker": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Customers.cshtml",
+              "RelativeDocumentMoniker": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Customers.cshtml",
+              "ToolTip": "C:\\Users\\hemasree.koyyana\\Desktop\\First_Api\\GTSCustomerAPI\\GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Customers.cshtml",
+              "RelativeToolTip": "GTSCustomerAPI.Web\\Views\\CustomerDeletion\\_Customers.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-01T10:22:52.464Z"
             }
           ]
         }

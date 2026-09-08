@@ -1,0 +1,140 @@
+﻿@model List<GTSCustomerAPI.Web.Models.CustomerDeletion.CustomerDeletionReceiverViewModel>
+
+<div class="receiver-stage">
+
+    <div class="table-responsive">
+
+        <table id="tblCustomerDeletionReceivers"
+               class="table table-bordered cd-table">
+
+            <thead>
+
+                <tr>
+                    <th>Receiver</th>
+                    <th>CID</th>
+                    <th>Ship Name</th>
+                    <th>Rcv Create Date</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var receiver in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @receiver.Receiver
+                            </td>
+
+                            <td>
+                                @receiver.CID
+                            </td>
+
+                            <td>
+                                @receiver.ShipName
+                            </td>
+
+                            <td>
+                                @(receiver.RcvCreateDate?.ToString("MM-dd-yyyy") ?? "")
+                            </td>
+
+                            <td>
+                                @receiver.Status
+                            </td>
+
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+
+                        <td colspan="5"
+                            class="text-center text-muted">
+
+                            No open Receivers found.
+
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="cd-table-footer">
+
+            <div class="cd-record-info">
+                Showing 1 to @Model.Count of @Model.Count records
+            </div>
+
+
+            <div class="cd-action-row">
+
+                <button type="button"
+                        id="btnCloseReceivers"
+                        class="btn btn-outline-primary cd-action-btn">
+
+                    Close Receivers
+
+                </button>
+
+
+                <button type="button"
+                        id="btnDeleteReceivers"
+                        class="btn btn-outline-danger cd-action-btn">
+
+                    Delete Receivers
+
+                </button>
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info mt-3">
+
+            No open Receivers for this CID.
+            Please proceed to the next stage.
+
+        </div>
+    }
+
+
+    <div class="cd-navigation">
+
+        <button type="button"
+                id="btnReceiverPrevious"
+                class="cd-arrow-btn"
+                title="Previous">
+
+            ←
+
+        </button>
+
+
+        <button type="button"
+                id="btnReceiverNext"
+                class="cd-arrow-btn"
+                title="Next">
+
+            →
+
+        </button>
+
+    </div>
+
+</div>

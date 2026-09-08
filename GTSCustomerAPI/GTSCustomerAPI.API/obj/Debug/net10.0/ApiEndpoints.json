@@ -1,25 +1,15 @@
 [
   {
     "ContainingType": "GTSCustomerAPI.API.Controllers.BillingController",
-    "Method": "GetBillingData",
-    "RelativePath": "api/Billing/billing-details",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GTSCustomerAPI.API.Controllers.BillingController",
-    "Method": "GetBillingCharges",
-    "RelativePath": "api/Billing/billingcharge-details/{custId}",
-    "HttpMethod": "GET",
+    "Method": "SaveBilling",
+    "RelativePath": "api/billing",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "custId",
-        "Type": "System.Int32",
+        "Name": "dto",
+        "Type": "GTSCustomerAPI.Application.DTOs.BillingChargeDto",
         "IsRequired": true
       }
     ],
@@ -28,7 +18,7 @@
   {
     "ContainingType": "GTSCustomerAPI.API.Controllers.BillingController",
     "Method": "DeleteBilling",
-    "RelativePath": "api/Billing/delete-billing/{billingChargeId}",
+    "RelativePath": "api/billing/{billingChargeId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -43,18 +33,28 @@
   },
   {
     "ContainingType": "GTSCustomerAPI.API.Controllers.BillingController",
-    "Method": "SaveBilling",
-    "RelativePath": "api/Billing/save-billing",
-    "HttpMethod": "POST",
+    "Method": "GetBillingCharges",
+    "RelativePath": "api/billing/{custId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "GTSCustomerAPI.Application.DTOs.BillingChargeDto",
+        "Name": "custId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GTSCustomerAPI.API.Controllers.BillingController",
+    "Method": "GetBillingData",
+    "RelativePath": "api/billing/BillingData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -296,63 +296,110 @@
   },
   {
     "ContainingType": "GTSCustomerAPI.API.Controllers.PackoutController",
-    "Method": "Delete",
-    "RelativePath": "api/Packout/delete/{restrictId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "restrictId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GTSCustomerAPI.API.Controllers.PackoutController",
-    "Method": "GetPackout",
-    "RelativePath": "api/Packout/details/{custId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "custId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GTSCustomerAPI.API.Controllers.PackoutController",
-    "Method": "GetItems",
-    "RelativePath": "api/Packout/items/{custId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "custId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GTSCustomerAPI.API.Controllers.PackoutController",
-    "Method": "Save",
-    "RelativePath": "api/Packout/save",
+    "Method": "SavePackout",
+    "RelativePath": "api/Packout",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "GTSCustomerAPI.Application.DTOs.PackoutRestrictDataDto",
+        "Type": "GTSCustomerAPI.Application.DTOs.PackoutSaveDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GTSCustomerAPI.API.Controllers.PackoutController",
+    "Method": "GetPackoutDetails",
+    "RelativePath": "api/Packout/{custId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "custId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GTSCustomerAPI.API.Controllers.PackoutController",
+    "Method": "DeletePackout",
+    "RelativePath": "api/Packout/{pkoutRestrictId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pkoutRestrictId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GTSCustomerAPI.API.Controllers.PackoutController",
+    "Method": "GetPackoutItems",
+    "RelativePath": "api/Packout/Items/{custId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "custId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GTSCustomerAPI.API.Controllers.WashController",
+    "Method": "GetFormula",
+    "RelativePath": "api/Wash/formula/{marketCenter}/{custId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "marketCenter",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "custId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GTSCustomerAPI.API.Controllers.WashController",
+    "Method": "GetGarmentTypes",
+    "RelativePath": "api/Wash/garmenttypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GTSCustomerAPI.API.Controllers.WashController",
+    "Method": "SaveFormula",
+    "RelativePath": "api/Wash/save-formula",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "GTSCustomerAPI.Application.DTOs.SaveFormulaDto",
         "IsRequired": true
       }
     ],

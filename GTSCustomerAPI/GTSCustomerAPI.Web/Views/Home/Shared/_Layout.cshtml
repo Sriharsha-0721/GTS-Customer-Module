@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <link rel="stylesheet"
-          href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css" />
     <meta charset="utf-8" />
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0" />
 
@@ -12,96 +12,134 @@
         @ViewData["Title"] - GTS
     </title>
 
+
     <!-- Bootstrap -->
     <link rel="stylesheet"
           href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
 
+    <!-- DataTables - kept because other screens may use it -->
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/2.3.8/css/dataTables.bootstrap5.css" />
 
-    <!-- Lead/Common GTS CSS -->
+
+    <!-- Common GTS CSS -->
     <link rel="stylesheet"
           href="~/css/site.css"
           asp-append-version="true" />
 
-    <link rel="stylesheet"
-          href="~/css/gts.css"
-          asp-append-version="true" />
 
-    <!-- Page specific css -->
+    <!-- Page Specific CSS -->
     @await RenderSectionAsync(
         "Styles",
         required: false
     )
+
 </head>
+
 
 <body>
 
-    <!-- ==================================================
+
+    <!-- =========================================================
          TOP HEADER
-    =================================================== -->
+    ========================================================== -->
 
     <header>
 
         <div class="container-fluid">
 
-    <div class="row align-items-center">
+            <div class="row align-items-center">
 
-        <div class="col-md-3">
-            <div class="gts-logo">
-                VESTIS
-            </div>
-        </div>
+                <!-- Logo -->
 
-        <div class="col-md-6 text-center">
-            <div class="gts-system-title">
-                Garment Tracking System
-            </div>
-        </div>
+                <div class="col-md-3">
 
-        <div class="col-md-3">
-            <div class="d-flex
+                    <div class="gts-logo">
+                        VESTIS
+                    </div>
+
+                </div>
+
+
+                <!-- System Title -->
+
+                <div class="col-md-6 text-center">
+
+                    <div class="gts-system-title">
+                        Garment Tracking System
+                    </div>
+
+                </div>
+
+
+                <!-- Header Actions -->
+
+                <div class="col-md-3">
+
+                    <div class="d-flex
                         align-items-center
                         justify-content-end
                         gap-3
                         flex-nowrap">
 
-                <div class="position-relative">
-                    <i class="bi bi-bell-fill
-                              text-success fs-5"></i>
-                </div>
 
-                <button class="btn btn-sm gts-header-btn">
-                    CSM
-                </button>
+                        <div class="position-relative">
 
-                <button class="btn btn-sm gts-header-btn">
-                    Home
-                </button>
+                            <i class="bi bi-bell-fill
+                                text-success
+                                fs-5">
+                            </i>
 
-                <button class="btn btn-sm gts-header-btn">
-                    Help
-                </button>
-
-                        <!-- User -->
-                        <div class="text-end small">
-                            <strong>Koyyana Hemasree</strong>
-                            <br />
-                            Selected MC: 855
                         </div>
 
-                <i class="bi bi-power
-                          text-danger fs-4"></i>
 
-            </div>
-        </div>
+                        <button type="button"
+                                class="btn btn-sm gts-header-btn">
 
-    </div>
+                            CSM
 
-</div>
+                        </button>
+
+
+                        <button type="button"
+                                class="btn btn-sm gts-header-btn">
+
+                            Home
+
+                        </button>
+
+
+                        <button type="button"
+                                class="btn btn-sm gts-header-btn">
+
+                            Help
+
+                        </button>
+
+
+                        <div class="text-end small">
+
+                            <strong>
+                                Koyyana Hemasree
+                            </strong>
+
+                            <br />
+
+                            Selected MC: 855
+
+                        </div>
+
+
+                        <i class="bi bi-power
+                            text-danger
+                            fs-4">
+                        </i>
 
                     </div>
 
@@ -112,9 +150,10 @@
         </div>
 
 
-        <!-- ==================================================
+
+        <!-- =====================================================
              MAIN NAVIGATION
-        =================================================== -->
+        ====================================================== -->
 
         <nav class="navbar
             navbar-expand-lg
@@ -122,6 +161,7 @@
             navbar-dark">
 
             <div class="container-fluid">
+
 
                 <button class="navbar-toggler"
                         type="button"
@@ -137,14 +177,17 @@
                 </button>
 
 
+
                 <div class="collapse navbar-collapse"
                      id="gtsMainNavbar">
 
+
                     <ul class="navbar-nav me-auto">
 
-                        <!-- =============================
+
+                        <!-- =====================================
                              ADMINISTRATION
-                        ============================== -->
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -153,17 +196,55 @@
                                    role="button"
                                    data-bs-toggle="dropdown"
                                    aria-expanded="false">
+
                                 Administration
+
                             </a>
+
 
                             <ul class="dropdown-menu">
 
+
                                 <li>
+
                                     <a class="dropdown-item"
                                            asp-controller="CustomerProfile"
                                            asp-action="Index">
+
                                         Customer Profile
+
                                     </a>
+
+                                </li>
+
+
+
+                                <li class="dropdown-submenu">
+
+                                    <a class="dropdown-item dropdown-toggle"
+                                           href="#">
+
+                                        Lost Business Administration
+
+                                    </a>
+
+
+                                    <ul class="dropdown-menu">
+
+                                        <li>
+
+                                            <a class="dropdown-item"
+                                                   asp-controller="CustomerDeletion"
+                                                   asp-action="Index">
+
+                                                Customer Deletion
+
+                                            </a>
+
+                                        </li>
+
+                                    </ul>
+
                                 </li>
 
                             </ul>
@@ -171,9 +252,10 @@
                         </li>
 
 
-                        <!-- =============================
+
+                        <!-- =====================================
                              PRODUCTION
-                        ============================== -->
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -186,15 +268,18 @@
 
                             </a>
 
+
                             <ul class="dropdown-menu">
 
                                 <li>
+
                                     <a class="dropdown-item"
                                            href="#">
 
                                         Production Menu
 
                                     </a>
+
                                 </li>
 
                             </ul>
@@ -202,9 +287,10 @@
                         </li>
 
 
-                        <!-- =============================
+
+                        <!-- =====================================
                              RECEIVERS
-                        ============================== -->
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -217,15 +303,18 @@
 
                             </a>
 
+
                             <ul class="dropdown-menu">
 
                                 <li>
+
                                     <a class="dropdown-item"
                                            href="#">
 
                                         Receiver Menu
 
                                     </a>
+
                                 </li>
 
                             </ul>
@@ -233,7 +322,10 @@
                         </li>
 
 
-                        <!-- CONTAINERS -->
+
+                        <!-- =====================================
+                             CONTAINERS
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -246,15 +338,18 @@
 
                             </a>
 
+
                             <ul class="dropdown-menu">
 
                                 <li>
+
                                     <a class="dropdown-item"
                                            href="#">
 
                                         Container Menu
 
                                     </a>
+
                                 </li>
 
                             </ul>
@@ -262,7 +357,10 @@
                         </li>
 
 
-                        <!-- STOCKROOM -->
+
+                        <!-- =====================================
+                             STOCKROOM
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -275,15 +373,18 @@
 
                             </a>
 
+
                             <ul class="dropdown-menu">
 
                                 <li>
+
                                     <a class="dropdown-item"
                                            href="#">
 
                                         Stockroom Menu
 
                                     </a>
+
                                 </li>
 
                             </ul>
@@ -291,7 +392,10 @@
                         </li>
 
 
-                        <!-- QA -->
+
+                        <!-- =====================================
+                             QA
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -304,15 +408,18 @@
 
                             </a>
 
+
                             <ul class="dropdown-menu">
 
                                 <li>
+
                                     <a class="dropdown-item"
                                            href="#">
 
                                         QA Menu
 
                                     </a>
+
                                 </li>
 
                             </ul>
@@ -320,7 +427,10 @@
                         </li>
 
 
-                        <!-- REPAIRS -->
+
+                        <!-- =====================================
+                             REPAIRS
+                        ====================================== -->
 
                         <li class="nav-item">
 
@@ -334,7 +444,10 @@
                         </li>
 
 
-                        <!-- UTILITIES -->
+
+                        <!-- =====================================
+                             UTILITIES
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -347,15 +460,18 @@
 
                             </a>
 
+
                             <ul class="dropdown-menu">
 
                                 <li>
+
                                     <a class="dropdown-item"
                                            href="#">
 
                                         Utilities Menu
 
                                     </a>
+
                                 </li>
 
                             </ul>
@@ -363,7 +479,10 @@
                         </li>
 
 
-                        <!-- REPORTS -->
+
+                        <!-- =====================================
+                             REPORTS
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -376,15 +495,18 @@
 
                             </a>
 
+
                             <ul class="dropdown-menu">
 
                                 <li>
+
                                     <a class="dropdown-item"
                                            href="#">
 
                                         Reports Menu
 
                                     </a>
+
                                 </li>
 
                             </ul>
@@ -392,7 +514,10 @@
                         </li>
 
 
-                        <!-- GARMENT REVIEW -->
+
+                        <!-- =====================================
+                             GARMENT REVIEW
+                        ====================================== -->
 
                         <li class="nav-item">
 
@@ -406,7 +531,10 @@
                         </li>
 
 
-                        <!-- CSM MC ADMIN -->
+
+                        <!-- =====================================
+                             CSM MC ADMIN
+                        ====================================== -->
 
                         <li class="nav-item dropdown">
 
@@ -419,20 +547,24 @@
 
                             </a>
 
+
                             <ul class="dropdown-menu">
 
                                 <li>
+
                                     <a class="dropdown-item"
                                            href="#">
 
                                         Admin Menu
 
                                     </a>
+
                                 </li>
 
                             </ul>
 
                         </li>
+
 
                     </ul>
 
@@ -445,59 +577,51 @@
     </header>
 
 
-    <!-- ==================================================
-         PAGE CONTENT
-    =================================================== -->
 
-    <main class="container-fluid
-        py-3">
+    <!-- =========================================================
+         PAGE CONTENT
+    ========================================================== -->
+
+    <main class="container-fluid py-3">
 
         @RenderBody()
 
     </main>
 
 
-    <!-- ==================================================
-         FOOTER
-    =================================================== -->
 
-    @* <footer class="border-top
-        text-muted
-        py-2">
-
-        <div class="container-fluid">
-
-            &copy; @DateTime.Now.Year
-            Garment Tracking System
-
-        </div>
-
-    </footer> *@
-
-
-    <!-- ==================================================
-         JS
-    =================================================== -->
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
     <script src="~/lib/jquery/dist/jquery.min.js">
     </script>
 
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
     </script>
 
-    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
 
-    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js"></script>
+    <!-- Kept for other modules that use DataTables -->
+
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js">
+    </script>
+
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.bootstrap5.js">
+    </script>
 
 
     <script src="~/js/site.js"
             asp-append-version="true">
     </script>
 
+
     @await RenderSectionAsync(
         "Scripts",
         required: false
     )
 
+
 </body>
+
 </html>
