@@ -5,83 +5,43 @@ using GTS.Domain.Interfaces;
 
 namespace GTS.Application.Services
 {
-    public class CTSSettingService
-        : ICTSSettingService
+    public class CTSSettingService : ICTSSettingService
     {
-        private readonly
-            ICTSSettingRepository _repo;
+        private readonly ICTSSettingRepository _repo;
 
-        public CTSSettingService(
-            ICTSSettingRepository repo)
+        public CTSSettingService(ICTSSettingRepository repo)
         {
             _repo = repo;
         }
 
-        public async
-            Task<IEnumerable<CTSSettingDetailsDTO>>
-            GetCTSSettingDetails(
-                int custNbr)
+        public async Task<IEnumerable<CTSSettingDetailsDTO>> GetCTSSettingDetails(int custNbr)
         {
-            var data =
-                await _repo
-                    .GetCTSSettings(
-                        custNbr);
+            var data = await _repo.GetCTSSettings(custNbr);
 
-            return data.Select(x =>
-                new CTSSettingDetailsDTO
-                {
-                    MarketCenter =
-                        x.MarketCenter,
-
-                    CustNbr =
-                        x.CustNbr,
-
-                    ItemCode =
-                        x.ItemCode,
-
-                    PrintIssueStatusFlag =
-                        x.PrintIssueStatusFlag,
-
-                    PrintBornonDateFlag =
-                        x.PrintBornonDateFlag,
-
-                    NOGFlag =
-                        x.NOGFlag,
-
-                    LabelHeader =
-                        x.LabelHeader
-                });
+            return data.Select(x => new CTSSettingDetailsDTO
+            {
+                MarketCenter = x.MC,
+                CustNbr = x.CustNbr,
+                PrintIssueStatusFlag = x.PrintIssueStatusFlag,
+                PrintBornonDateFlag = x.PrintBornonDateFlag,
+                NOGFlag = x.NOGFlag,
+                LabelHeader = x.LabelHeader
+            });
         }
 
-        public async Task<int>
-            SaveCTSSettings(
-                CreateCTSSettingDTO dto)
+        public async Task<int> SaveCTSSettings(CreateCTSSettingDTO dto)
         {
-            CreateCTSSetting entity =
-                new();
+            var entity = new CreateCTSSetting
+            {
+                MC = dto.MarketCenter ?? 0,
+                CustNbr = dto.CustNbr,
+                PrintIssueStatusFlag = dto.PrintIssueStatusFlag == 1,
+                PrintBornonDateFlag = dto.PrintBornonDateFlag == 1,
+                NOGFlag = dto.NOGFlag == 1,
+                LabelHeader = dto.LabelHeader
+            };
 
-            entity.MarketCenter =
-                dto.MarketCenter;
-
-            entity.CustNbr =
-                dto.CustNbr;
-
-            entity.PrintIssueStatusFlag =
-                dto.PrintIssueStatusFlag;
-
-            entity.PrintBornonDateFlag =
-                dto.PrintBornonDateFlag;
-
-            entity.NOGFlag =
-                dto.NOGFlag;
-
-            entity.LabelHeader =
-                dto.LabelHeader;
-
-            return await    
-                _repo
-                    .SaveCTSSetting(
-                        entity);
+            return await _repo.SaveCTSSetting(entity);
         }
     }
-}
+}   

@@ -3,11 +3,20 @@
 }
 
 <div class="gts-shell">
-
     <partial name="_CustomerProfileTabs" />
 
     <div id="workspace">
+        <!-- Blank on load -->
     </div>
-
 </div>
 
+@section Scripts {
+    <script>
+        // Clear lingering session selection on fresh page load
+        sessionStorage.removeItem("selectedCustomer");
+        sessionStorage.removeItem("requestedModule");
+        if (typeof clearCustomerHeader === "function") {
+            clearCustomerHeader();
+        }
+    </script>
+}

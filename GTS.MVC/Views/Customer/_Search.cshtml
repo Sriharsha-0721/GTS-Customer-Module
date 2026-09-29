@@ -1,118 +1,81 @@
 ﻿@model IEnumerable<GTS.Application.DTOs.CustomersSelListDto>
-<div id="searchMessage" class="text-danger fw-bold mb-2">
-    @if (ViewBag.Error != null)
-    {
-        @ViewBag.Error
-    }
-</div>
 
-<div class="row g-3 mb-3">
-
-    <div class="col-md-2">
-        <label>Customer ID</label>
-        <input id="searchId" class="form-control" />
-    </div>
-
-    <div class="col-md-4">
-        <label>Customer Name</label>
-        <input id="searchName" class="form-control" />
-    </div>
-
-    <div class="col-md-3">
-        <label>City</label>
-        <input id="searchCity" class="form-control" />
-    </div>
-
-    <div class="col-md-3 d-flex align-items-end gap-2">
-
-        <button id="btnSearch"
-                class="btn btn-primary"
-                type="button">
-            Search
-        </button>
-
-        <button id="btnShowAll"
-                class="btn btn-success"
-                type="button">
-            Show All
-        </button>
-
-        <button id="btnClear"
-                class="btn btn-secondary"
-                type="button">
-            Clear
-        </button>
-
-    </div>
-
-</div>
-
-<hr />
-
-        <div id="customerGrid">
-
-                @if (Model.Any())
-                {
-                    <table class="table table-bordered table-hover">
-
-                        <thead class="table-dark">
-
-                            <tr>
-
-                                <th>Select</th>
-
-                                <th>Cust #</th>
-
-                                <th>Name</th>
-
-                                <th>City</th>
-
-                                <th>Route</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            @foreach (var c in Model)
-                            {
-                                <tr>
-
-                                    <td>
-
-<button
-    type="button"
-    class="btn btn-primary btn-sm selectCustomer"
-    data-mc="@c.MarketCenter"
-    data-custid="@c.CustId"
-    data-custno="@c.CustNbr"
-    data-name="@c.Name"
-    data-route="@c.Route"
-    data-gid="@c.GID">
-
-    Select
-
-</button>
-
-                                    </td>
-
-                                    <td>@c.CustNbr</td>
-
-                                    <td>@c.Name</td>
-
-                                    <td>@c.City</td>
-
-                                    <td>@c.Route</td>
-
-                                </tr>
-                            }
-
-                        </tbody>
-
-                    </table>
-                }
-
+<div class="customer-search-container p-3 bg-white border rounded">
+    <!-- Search Inputs -->
+    <div class="row g-2 align-items-center mb-3">
+        <div class="col-md-2">
+            <input type="number" id="searchMC" class="form-control form-control-sm" placeholder="MC (e.g., 561)" value="" />
         </div>
-<div id="messageBar" class="gts-message"></div>
+        <div class="col-md-2">
+            <input type="text" id="searchId" class="form-control form-control-sm" placeholder="Cust #" />
+        </div>
+        <div class="col-md-3">
+            <input type="text" id="searchName" class="form-control form-control-sm" placeholder="Customer Name" />
+        </div>
+        <div class="col-md-2">
+            <input type="text" id="searchCity" class="form-control form-control-sm" placeholder="City" />
+        </div>
+        <div class="col-auto">
+            <button type="button" id="btnSearch" class="btn btn-primary btn-sm">Search</button>
+            <button type="button" id="btnShowAll" class="btn btn-outline-primary btn-sm">Show All</button>
+            <button type="button" id="btnClear" class="btn btn-secondary btn-sm">Clear</button>
+        </div>
+    </div>
 
+    <div id="searchMessage" class="mb-2"></div>
+
+    <!-- Results Table -->
+    <div class="table-responsive border" style="max-height: 480px;">
+        <table class="table table-sm table-hover table-striped mb-0 text-nowrap">
+            <thead class="table-light sticky-top">
+                <tr>
+                    <th style="width: 70px;">Action</th>
+                    <th>Cust #</th>
+                    <th>Name</th>
+                    <th>MC</th>
+                    <th>Route</th>
+                    <th>GID</th>
+                    <th>Service Days</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody id="customerGrid">
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="javascript:void(0);"
+                                   class="btn btn-primary btn-sm py-0 px-2 selectCustomer"
+                                   data-custid="@item.CustId"
+                                   data-custno="@item.CustNbr"
+                                   data-name="@item.Name"
+                                   data-mc="@item.MarketCenter"
+                                   data-route="@item.Route"
+                                   data-gid="@item.GID">
+                                    Select
+                                </a>
+                            </td>
+                            <td>@item.CustNbr</td>
+                            <td>@item.Name</td>
+                            <td>@item.MarketCenter</td>
+                            <td>@item.Route</td>
+                            <td>@item.GID</td>
+                            <td>@item.WDay</td>
+                            <td>@item.City</td>
+                            <td>@item.Phone</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="9" class="text-center text-muted py-3">No customers found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

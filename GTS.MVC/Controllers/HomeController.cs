@@ -1,4 +1,5 @@
-﻿using GTS.Application.DTOs;
+﻿using GTS.Application.CustomerServices;
+using GTS.Application.DTOs;
 using GTS.Application.Interfaces.CustomerServices;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,12 +14,13 @@ namespace GTS.MVC.Controllers
             _service = service;
         }
 
-        // GET: /Customer or /Customer/Index
+        // Full Page Search: GET /Customer or /Customer/Index
+        [HttpGet]
         public async Task<IActionResult> Index(
             int? searchId,
             string? searchName,
             int? route,
-            int marketCenter = 569,
+            int marketCenter = 0,
             bool showAll = false,
             string? module = null,
             CancellationToken ct = default)
@@ -29,13 +31,12 @@ namespace GTS.MVC.Controllers
             ViewBag.SearchName = searchName;
             ViewBag.MarketCenter = marketCenter;
 
-            // 1. Initial page load: return empty view immediately (displays "Use Search or click Show All")
+            // Default initial load: render an empty grid until a filter is applied or "Show All" is clicked
             if (!showAll && !searchId.HasValue && string.IsNullOrWhiteSpace(searchName) && !route.HasValue)
             {
                 return View(new List<CustomersSelListDto>());
             }
 
-            // 2. Only execute SP when user clicked 'Show All' or supplied filter criteria
             var filter = new CustomerFilterRequestDto
             {
                 NumRecsToFetch = showAll ? 0 : 50,
@@ -58,39 +59,59 @@ namespace GTS.MVC.Controllers
             return View(customers);
         }
 
-        // POST / GET: /Customer/Search (Used for modal/AJAX dynamic lookup)
-        [HttpPost]
-        public async Task<IActionResult> Search([FromBody] CustomerFilterRequestDto filter, CancellationToken ct = default)
+        // AJAX / Modal Lookup: GET or POST /Customer/Search
+        [HttpGet]
+        public async Task<IActionResult> Search(
+            int? searchId,
+            string? searchName,
+            int? route,
+            int? marketCenter,
+            bool showAll = false,
+            CancellationToken ct = default)
         {
-            if (filter == null)
-            {
-                filter = new CustomerFilterRequestDto { MarketCenter = 569, NumRecsToFetch = 50 };
-            }
+            // Default to 561 only if user left MC blank
+            int mcToUse = (marketCenter.HasValue && marketCenter.Value > 0) ? marketCenter.Value : 561;
 
-            if (filter.MarketCenter == 0)
+            var filter = new CustomerFilterRequestDto
             {
-                filter.MarketCenter = 569;
-            }
+                NumRecsToFetch = showAll ? 500 : 50,
+                MarketCenter = mcToUse,
+                CustNbr = searchId ?? 0,
+                CustName = searchName?.Trim() ?? string.Empty,
+                Route = route ?? 0,
+                WDay = 0,
+                GID = string.Empty,
+                WearerNbr = 0
+            };
 
             var customers = (await _service.GetCustomersBasedOnFilter(filter, ct)).ToList();
 
-            if (!customers.Any())
+            if (customers.Count == 0)
             {
-                ViewBag.Error = "No customers found matching your criteria.";
+                ViewBag.Error = $"No customers found for Market Center {mcToUse}.";
             }
 
-            return PartialView("_Search", customers);
+            return PartialView("~/Views/Customer/_Search.cshtml", customers);
         }
 
-        // Submodule Handlers (Using CustId from selection grid)
+        // GET: /Customer/Flags?custId=123
         [HttpGet]
-        public async Task<IActionResult> Flags(int custId, CancellationToken ct = default)
+        public async Task<IActionResult> Flags(int custId = 0, CancellationToken ct = default)
         {
-            var flags = await _service.GetCustomerFlags(custId, ct);
-            if (flags == null) return NotFound();
+            ViewBag.ActiveTab = "Flags";
+
+            if (custId <= 0)
+            {
+                return View(new CustomerFlagsDto());
+            }
+
+            var flags = await _service.GetCustomerFlags(custId, ct)
+                        ?? new CustomerFlagsDto { CustId = custId };
+
             return View(flags);
         }
 
+        // POST: /Customer/SaveFlags
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SaveFlags(int custId, bool ossFlag, bool stfFlag, CancellationToken ct = default)
@@ -99,19 +120,32 @@ namespace GTS.MVC.Controllers
             return RedirectToAction(nameof(Flags), new { custId });
         }
 
+        // GET: /Customer/Profile?custId=123
         [HttpGet]
-        public async Task<IActionResult> Profile(int custId, CancellationToken ct = default)
+        public async Task<IActionResult> Profile(int custId = 0, CancellationToken ct = default)
         {
-            var profile = await _service.GetCustomerProfile(custId, ct);
-            if (profile == null) return NotFound();
+            ViewBag.ActiveTab = "Profile";
+
+            if (custId <= 0)
+            {
+                return View(new CustomerProfileDto());
+            }
+
+            var profile = await _service.GetCustomerProfile(custId, ct)
+                          ?? new CustomerProfileDto { CustId = custId };
+
             return View(profile);
         }
 
+        // POST: /Customer/UpdateProfile
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateProfile(UpdateCustomerProfileDto dto, CancellationToken ct = default)
         {
-            if (!ModelState.IsValid) return View("Profile", dto);
+            if (!ModelState.IsValid)
+            {
+                return View("Profile", dto);
+            }
 
             await _service.UpdateCustomerProfile(dto, ct);
             return RedirectToAction(nameof(Profile), new { custId = dto.CustId });

@@ -1,14 +1,15 @@
 ﻿@model GTS.MVC.Models.CTSSettings.CTSSettingsViewModel
 @using GTS.MVC.Models.CustomerProfile
+
 <div class="container mt-3">
 
     @{
         var headerModel = new CustomerViewModel
         {
-            CustNo = Model.CustNo ?? 0,
-            Name = Model.Customer!,
-            Route = Model.Route ?? 0,
-            Gid = Model.GID!
+            CustNo = Model?.CustNo ?? 0,
+            Name = Model?.Customer ?? string.Empty,
+            Route = Model?.Route ?? 0,
+            Gid = Model?.GID ?? string.Empty
         };
     }
 
@@ -21,33 +22,31 @@
         </legend>
 
         <div class="form-check mb-3">
-            <input asp-for="PrintIssueStatusFlag" class="form-check-input" />
-            <label asp-for="PrintIssueStatusFlag" class="form-check-label"></label>
+            <input asp-for="PrintIssueStatusFlag" class="form-check-input" id="PrintIssueStatusFlag" />
+            <label asp-for="PrintIssueStatusFlag" class="form-check-label">Print Issue Status</label>
         </div>
 
         <div class="form-check mb-3">
-            <input asp-for="PrintBornonDateFlag" class="form-check-input" />
-            <label asp-for="PrintBornonDateFlag" class="form-check-label"></label>
+            <input asp-for="PrintBornonDateFlag" class="form-check-input" id="PrintBornonDateFlag" />
+            <label asp-for="PrintBornonDateFlag" class="form-check-label">Print Born-on Date</label>
         </div>
 
         <div class="form-check mb-3">
-            <input asp-for="NOGFlag" class="form-check-input" />
-            <label asp-for="NOGFlag" class="form-check-label"></label>
+            <input asp-for="NOGFlag" class="form-check-input" id="NOGFlag" />
+            <label asp-for="NOGFlag" class="form-check-label">NOG Flag</label>
         </div>
 
         <div class="mb-3">
-            <label asp-for="LabelHeader"></label>
-            <input asp-for="LabelHeader" class="form-control" />
+            <label asp-for="LabelHeader" class="form-label">Label Header</label>
+            <input asp-for="LabelHeader" class="form-control" id="LabelHeader" maxlength="50" />
         </div>
 
     </fieldset>
 
     <div class="mt-3 text-end">
-
-        <button id="btnSaveCTS" class="btn btn-success">
+        <button id="btnSaveCTS" type="button" class="btn btn-success">
             Save
-        </button>   
-
+        </button>
     </div>
 
 </div>

@@ -3,65 +3,43 @@ using GTS.Domain.Entities;
 using GTS.Domain.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Data;
 
-namespace GTS.Infrastructure.Repositories
+namespace GTS.Infrastructure.Repositories;
+
+public class CTSSettingRepository : ICTSSettingRepository
 {
-    public class CTSSettingRepository
-        : ICTSSettingRepository
+    private readonly IConfiguration _config;
+
+    public CTSSettingRepository(IConfiguration config)
     {
-        private readonly
-            IConfiguration _config;
+        _config = config;
+    }
 
-        public CTSSettingRepository(
-            IConfiguration config)
-        {
-            _config = config;
-        }
+    public async Task<IEnumerable<CTSSettingDetails>> GetCTSSettings(int custNbr)
+    {
+        using var con = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+        return await con.QueryAsync<CTSSettingDetails>(
+            "dbo.AdmCsWr_GetCTSSettings",
+            new { CustNbr = custNbr },
+            commandType: CommandType.StoredProcedure);
+    }
 
-        public async Task<IEnumerable<CTSSettingDetails>> GetCTSSettings(int custNbr)
-        {
-            using SqlConnection con =
-                new(_config.GetConnectionString("DefaultConnection"));
+    public async Task<int> SaveCTSSetting(CreateCTSSetting entity)
+    {
+        using var con = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 
-            var result = (await con.QueryAsync<CTSSettingDetails>(
-                "AdmCsWr_GetCTSSettings",
-                new
-                {
-                    CustNbr = custNbr
-                },
-                commandType: System.Data.CommandType.StoredProcedure)).ToList();
+        var parameters = new DynamicParameters();
+        parameters.Add("@MarketCenter", entity.MC, DbType.Int16);
+        parameters.Add("@CustNbr", entity.CustNbr, DbType.Int32);
+        parameters.Add("@PrintIssueStatusFlag", entity.PrintIssueStatusFlag, DbType.Boolean);
+        parameters.Add("@PrintBornonDateFlag", entity.PrintBornonDateFlag, DbType.Boolean);
+        parameters.Add("@NOGFlag", entity.NOGFlag, DbType.Boolean);
+        parameters.Add("@LabelHeader", entity.LabelHeader ?? string.Empty, DbType.String);
 
-            var first = result.FirstOrDefault();
-
-            if (first != null)
-            {
-                Console.WriteLine("===== REPOSITORY =====");
-                Console.WriteLine($"Issue = {first.PrintIssueStatusFlag}");
-                Console.WriteLine($"Born  = {first.PrintBornonDateFlag}");
-                Console.WriteLine($"NOG   = {first.NOGFlag}");
-                Console.WriteLine($"Label = {first.LabelHeader}");
-            }
-
-            return result;
-        }
-
-        public async Task<int>
-            SaveCTSSetting(
-                CreateCTSSetting dto)
-        {
-            using SqlConnection con =
-                new(
-                    _config
-                        .GetConnectionString(
-                            "DefaultConnection"));
-
-            return await
-                con.QuerySingleAsync<int>(
-                    "AdmCsWr_SaveCTSSettings",
-                    dto,
-                    commandType:
-                    System.Data.CommandType
-                        .StoredProcedure);
-        }
+        return await con.ExecuteAsync(
+            "dbo.AdmCsWr_SaveCTSSettings",
+            parameters,
+            commandType: CommandType.StoredProcedure);
     }
 }

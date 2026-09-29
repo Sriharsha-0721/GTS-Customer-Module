@@ -1,5 +1,4 @@
 using GTS.Application.CustomerServices;
-// CTS Settings
 using GTS.Application.Interfaces;
 using GTS.Application.Interfaces.CustomerRepositories;
 using GTS.Application.Interfaces.CustomerServices;
@@ -36,7 +35,6 @@ builder.Services.AddScoped<
 //
 // CTS Settings
 //
-
 builder.Services.AddScoped<
     ICTSSettingRepository,
     CTSSettingRepository>();
@@ -53,24 +51,70 @@ builder.Services.AddScoped<
     ICustomerLineCommentsService,
     CustomerLineCommentsService>();
 
-builder.Services.AddScoped<IWearerRepository, WearerRepository>();
+//
+// Wearer
+//
+builder.Services.AddScoped<
+    IWearerRepository,
+    WearerRepository>();
 
-builder.Services.AddScoped<IWearerService, WearerService>();
-builder.Services.AddScoped<ISpecialLinesService, SpecialLinesService>();
+builder.Services.AddScoped<
+    IWearerService,
+    WearerService>();
 
-builder.Services.AddScoped<IMaxWashRepository, MaxWashRepository>();
-builder.Services.AddScoped<IMaxWashService, MaxWashService>();
+//
+// Special Lines
+//
+builder.Services.AddScoped<
+    ISpecialLinesService,
+    SpecialLinesService>();
 
-builder.Services.AddScoped<IBillingRepository, BillingRepository>();
-builder.Services.AddScoped<IBillingService, BillingService>();
+//
+// Max Wash
+//
+builder.Services.AddScoped<
+    IMaxWashRepository,
+    MaxWashRepository>();
 
-builder.Services.AddScoped<IPackoutRepository, PackoutRepository>();
-builder.Services.AddScoped<IPackoutService, PackoutService>();
+builder.Services.AddScoped<
+    IMaxWashService,
+    MaxWashService>();
+
+//
+// Billing
+//
+builder.Services.AddScoped<
+    IBillingRepository,
+    BillingRepository>();
+
+builder.Services.AddScoped<
+    IBillingService,
+    BillingService>();
+
+//
+// Packout
+//
+builder.Services.AddScoped<
+    IPackoutRepository,
+    PackoutRepository>();
+
+builder.Services.AddScoped<
+    IPackoutService,
+    PackoutService>();
 
 builder.Services.AddScoped<IWashRepository, WashRepository>();
 builder.Services.AddScoped<IWashService, WashService>();
 
-builder.Services.AddScoped<ISpecialLinesRepository, SpecialLinesRepository>();var app = builder.Build();
+builder.Services.AddScoped<ISpecialLinesRepository, SpecialLinesRepository>();
+
+// Soil Station
+builder.Services.AddScoped<
+    ISoilStationRepository,
+    SoilStationRepository>();
+
+builder.Services.AddScoped<ISoilStationService, SoilStationService>();
+
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -79,7 +123,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();

@@ -8,33 +8,72 @@ namespace GTS.MVC.Controllers
     {
         private readonly HttpClient _http;
 
-        public CTSSettingsController(HttpClient http)
+        public CTSSettingsController(IHttpClientFactory httpClientFactory)
         {
-            _http = http;
-            _http.BaseAddress = new Uri("https://localhost:7161/");
+            _http = httpClientFactory.CreateClient("GtsApiClient");
+        }
+
+        // GET: /CTSSettings?custId=123
+        [HttpGet]
+        public async Task<IActionResult> Index(int custId, CancellationToken ct = default)
+        {
+            if (custId <= 0) return BadRequest("Invalid Customer ID.");
+
+            // 1. Fetch customer details from API
+            var custResp = await _http.GetAsync($"api/Customer/customer-profile/{custId}", ct);
+            if (!custResp.IsSuccessStatusCode) return NotFound("Customer profile not found.");
+
+            var customer = await custResp.Content.ReadFromJsonAsync<dynamic>(cancellationToken: ct);
+            int custNbr = (int)customer.custNbr;
+            short mc = (short)customer.marketCenter;
+
+            // 2. Fetch CTS Settings
+            var ctsResp = await _http.GetAsync($"api/CTSSetting/{custNbr}", ct);
+            CTSSettingsViewModel model;
+
+            if (ctsResp.IsSuccessStatusCode)
+            {
+                model = await ctsResp.Content.ReadFromJsonAsync<CTSSettingsViewModel>(cancellationToken: ct)
+                        ?? new CTSSettingsViewModel();
+            }
+            else
+            {
+                model = new CTSSettingsViewModel();
+            }
+
+            model.MC = mc;
+            model.CustNo = custNbr;
+
+            return PartialView("~/Views/CustomerProfile/CTSSettings.cshtml", model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(
-            [FromBody] CTSSettingsViewModel model)
+        [Route("CTSSettings/Create")]
+        public async Task<IActionResult> Create([FromBody] CTSSettingsViewModel model, CancellationToken ct = default)
         {
-            var response =
-                await _http.PostAsJsonAsync(
-                    "api/CTSSetting",
-                    new
-                    {
-                        MarketCenter = model.MC,
-                        CustNbr = model.CustNo,
-                        PrintIssueStatusFlag = model.PrintIssueStatusFlag ? (short)1 : (short)0,
-                        PrintBornonDateFlag = model.PrintBornonDateFlag ? (short)1 : (short)0,
-                        NOGFlag = model.NOGFlag ? (short)1 : (short)0,
-                        LabelHeader = model.LabelHeader
-                    });
+            if (model == null) return BadRequest("Invalid payload.");
+
+            var payload = new
+            {
+                MarketCenter = (short)model.MC,
+                MC = (short)model.MC,
+                CustNbr = model.CustNo,
+                CustNo = model.CustNo,
+                PrintIssueStatusFlag = (short)(model.PrintIssueStatusFlag ? 1 : 0),
+                PrintBornonDateFlag = (short)(model.PrintBornonDateFlag ? 1 : 0),
+                NOGFlag = (short)(model.NOGFlag ? 1 : 0),
+                LabelHeader = model.LabelHeader ?? string.Empty
+            };
+
+            var response = await _http.PostAsJsonAsync("api/CTSSetting", payload, ct);
 
             if (response.IsSuccessStatusCode)
-                return Ok();
+            {
+                return Ok(1);
+            }
 
-            return BadRequest();
+            var err = await response.Content.ReadAsStringAsync(ct);
+            return BadRequest(err);
         }
     }
 }

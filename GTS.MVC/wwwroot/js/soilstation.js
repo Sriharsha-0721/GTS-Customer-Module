@@ -129,6 +129,8 @@
             }
 
             // Normal Scan or Repair Scan
+            console.log("Repair Mode:", isRepairMode);
+
             const payload = {
                 garmentBarcode: barcode,
                 receiverId: currentReceiverId,
@@ -137,6 +139,8 @@
                 userId: 1,
                 isRepair: isRepairMode
             };
+
+            console.log("Scan Payload:", payload);
 
             const res = await fetch("/SoilStation/ScanGarment", {
                 method: "POST",
